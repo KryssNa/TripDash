@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250542689017",
+    "project_id": "tripdash-e3d02",
+    "storage_bucket": "tripdash-e3d02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250542689017:android:434f33aadccd1fb47ef028",
+        "android_client_info": {
+          "package_name": "com.tripdash.tripdash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1oJP9k1VfLBrk5PkpQm2aYRJzZcIOlD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
