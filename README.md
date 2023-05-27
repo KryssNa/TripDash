@@ -1,4 +1,4 @@
-# tripdash
+# TripDash
 
 ## Features
 
