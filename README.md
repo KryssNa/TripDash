@@ -1,16 +1,13 @@
 # tripdash
 
-A new Flutter project.
+## Features
 
-## Getting Started
+## Usages
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Members
+- Shankar Kumar Yadav ([@KryssNa](https://github.com/KryssNa))
+- Alekh Chaudhary ([@haxor09alert](https://github.com/haxor09alert))
+- Jenish Budhathoki ([@Jemnis](https://github.com/Jemnis))
+- Ayooub Raj ([@Ayooubraj](https://github.com/Ayooubraj))
+- Liban Adhikari ([@Libanand](https://github.com/Libanand))
+- Biraj Bogati ([@kingdemon24](https://github.com/kingdemon24))
