@@ -10,24 +10,24 @@ version: 1.0.0+1
 environment:
   sdk: '>=3.0.1 <4.0.0'
 
+# Dependencies  to be used in our project
 dependencies:
   flutter:
     sdk: flutter
 
-  # Use with the CupertinoIcons class for iOS style icons.
+# Dependencies
   cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.5
   firebase_auth: ^4.6.1
   firebase_core: ^2.13.0
   cloud_firestore: ^4.7.1
 
   firebase_database: ^10.2.1
-#  firebase_storage: ^10.0.5
+  firebase_storage: ^11.2.1
   provider: ^6.0.5
   flutter_local_notifications: ^14.1.0
   path_provider: ^2.0.15
   firebase_messaging: ^14.6.1
-  http: 1.0.0
+  http: ^0.13.4
   json_serializable:
   json_annotation:
   flutter_flushbar:
@@ -47,10 +47,7 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter packages.
 flutter:
 
   uses-material-design: true
@@ -59,28 +56,17 @@ flutter:
   assets:
      - Assets/images/
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
 
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
 
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: Poppains
+      fonts:
+        - asset: Assets/fonts/poppains/Poppins-Bold.ttf
+        - asset: Assets/fonts/poppains/Poppins-Regular.ttf
+        - asset: Assets/fonts/poppains/Poppins-ExtraBold.ttf
+        - asset: Assets/fonts/poppains/Poppins-ExtraLight.ttf
+          weight: 700
+    - family: Pacifico
+      fonts:
+        - asset: Assets/fonts/pacifico/Pacifico-Regular.ttf
