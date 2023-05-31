@@ -1,5 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
+
+import 'Helper/multiProvider.dart';
+import 'NavigationPage/routes.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,25 +19,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return   multiProvider(
+      child: MaterialApp(
 
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body:SafeArea(
-            child: Center(
-                child: Text("Hello world",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Poppains'
+        debugShowCheckedModeBanner: false,
+          initialRoute: RegisterScreen.routeName,
+          routes: routes,
 
-                  ),
-
-                ),
-            ),
-        )
       ),
     );
   }
