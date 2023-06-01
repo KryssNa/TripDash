@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constant/Colors.dart';
+import '../../widget/buttonWidget.dart';
 import '../../widget/textFieldWidget.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -91,6 +92,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ],
                               ),
                             ),
+                            const SizedBox(height: 10,),
+
+                            ButtonWidget(title: "REGISTER",
+                              onPressed: () {
+
+                              },),
+                            const SizedBox(height: 10,),
 
                           ],
                         ),
