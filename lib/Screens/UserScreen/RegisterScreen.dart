@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constant/Colors.dart';
+import '../../widget/textFieldWidget.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -49,6 +50,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     )
                   ],
                 ),
+                const SizedBox(height: 0,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                    color: ConstColors.whiteColor,
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all( 20),
+                        child: Column(
+                          children: [
+                            textField(titleHeading: 'Name', hintText: 'Enter your name' , controller: nameController,),
+                            const SizedBox(height: 20,),
+                            textField(titleHeading: 'Email', hintText: 'Enter your email', controller: emailController,),
+                            const SizedBox(height: 20,),
+                            textField(titleHeading: 'Phone Number', hintText: 'Enter your phone number', controller: phoneController,),
+                            const SizedBox(height: 20,),
+                            textField(titleHeading: 'Password', hintText: 'Enter your password',suffixIcon: const Icon(Icons.visibility,color: Colors.grey,), controller: passwordController,),
+                            const SizedBox(height: 20,),
+                            textField(titleHeading: 'Confirm Password', hintText: 'Confirm your password',suffixIcon: const Icon(Icons.visibility,color: Colors.grey,), controller:confirmPasswordController ),
+                            const SizedBox(height: 20,),
+
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
+
               ],
             ),
           ),
