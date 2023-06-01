@@ -70,3 +70,6 @@ flutter:
     - family: Pacifico
       fonts:
         - asset: Assets/fonts/pacifico/Pacifico-Regular.ttf
+    - family: SSFPro
+      fonts:
+        - asset: Assets/fonts/ssfPro/SF-Pro.ttf
