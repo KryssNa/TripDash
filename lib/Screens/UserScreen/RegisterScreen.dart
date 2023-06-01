@@ -72,6 +72,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             const SizedBox(height: 20,),
                             textField(titleHeading: 'Confirm Password', hintText: 'Confirm your password',suffixIcon: const Icon(Icons.visibility,color: Colors.grey,), controller:confirmPasswordController ),
                             const SizedBox(height: 20,),
+                            Container(
+                              margin: const EdgeInsets.only(left: 20),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: true,
+                                    onChanged: (value) {},
+                                  ),
+                                  const Text('I agree to the terms and conditions',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: 'SSFPro',
+                                      // fontWeight: FontWeight.bold,
+                                      color: ConstColors.primaryTextColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
 
                           ],
                         ),
