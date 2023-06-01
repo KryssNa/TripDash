@@ -99,6 +99,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                               },),
                             const SizedBox(height: 10,),
+                            Container(
+                              alignment: Alignment.center,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text('Already have an account?',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: 'SSFPro',
+                                      // fontWeight: FontWeight.bold,
+                                      color: ConstColors.primaryTextColor,
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: const Text('Login',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'SSFPro',
+                                        // fontWeight: FontWeight.bold,
+                                        color: ConstColors.secondaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
 
                           ],
                         ),
