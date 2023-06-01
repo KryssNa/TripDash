@@ -7,6 +7,7 @@ import '../../widget/textFieldWidget.dart';
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
   static String routeName = "/RegisterScreen";
+  static bool changePaswordState = false;
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -20,34 +21,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController confirmPasswordController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+  bool _isChecked = true;
 
-  bool changePaswordState = false;
+
   showHidePassword() {
     setState(() {
-      changePaswordState = !changePaswordState;
+      RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
     });
   }
 
   Widget showVisibilityIcon(bool showPassword) {
     Widget icon = const Icon(Icons.visibility);
-    if (showPassword == false) {
+    if (showPassword != false) {
       icon = const Icon(Icons.visibility_off);
     }
-    return showPassword == changePaswordState
+    return showPassword == RegisterScreen.changePaswordState
         ? InkWell(
         onTap: () {
           setState(() {
-            changePaswordState = !changePaswordState;
+            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
           });
         },
         child: icon)
         : InkWell(
         onTap: () {
           setState(() {
-            changePaswordState = !changePaswordState;
+            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
           });
         },
-        child: const Icon(Icons.key_off));
+        child: const Icon(Icons.visibility_off));
   }
   @override
   void initState() {
@@ -107,17 +109,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               const SizedBox(height: 20,),
                               textField(titleHeading: 'Phone Number', hintText: 'Enter your phone number', controller: phoneController,),
                               const SizedBox(height: 20,),
-                              textField(titleHeading: 'Password', hintText: 'Enter your password',obscureText: changePaswordState,suffixIcon: showVisibilityIcon(changePaswordState), controller: passwordController,),
+                              textField(titleHeading: 'Password', hintText: 'Enter your password',obscureText: true,suffixIcon: showVisibilityIcon(RegisterScreen.changePaswordState), controller: passwordController,),
                               const SizedBox(height: 20,),
-                              textField(titleHeading: 'Confirm Password', hintText: 'Confirm your password',obscureText: !changePaswordState,suffixIcon: showVisibilityIcon(changePaswordState), controller:confirmPasswordController ),
+                              textField(titleHeading: 'Confirm Password', hintText: 'Confirm your password',obscureText: false,suffixIcon: showVisibilityIcon(RegisterScreen.changePaswordState), controller:confirmPasswordController ),
                               const SizedBox(height: 20,),
                               Container(
                                 margin: const EdgeInsets.only(left: 20),
                                 child: Row(
                                   children: [
                                     Checkbox(
-                                      value: true,
-                                      onChanged: (value) {},
+                                      value: _isChecked,
+                                      onChanged: (val) {
+                                        setState(() {
+                                          _isChecked = val!;
+
+                                        });
+                                      },
                                     ),
                                     const Text('I agree to the terms and conditions',
                                       style: TextStyle(

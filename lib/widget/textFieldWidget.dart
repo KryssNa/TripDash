@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../constant/Colors.dart';
+import '../Screens/UserScreen/RegisterScreen.dart';
 
 
 
@@ -13,7 +14,7 @@ class textField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   IconData? prefixIcon;
-  bool? obscureText = false;
+  bool? obscureText=RegisterScreen.changePaswordState;
   Widget? suffixIcon;
 
   @override
@@ -34,6 +35,7 @@ class textField extends StatelessWidget {
 
           child: TextFormField(
             controller: controller,
+            obscureText: RegisterScreen.changePaswordState,
             decoration: InputDecoration(
               suffixIcon: suffixIcon ,
               hintText: hintText ,
