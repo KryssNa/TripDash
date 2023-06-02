@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../ViewModel/auth_viewmodel.dart';
 import '../../constant/Colors.dart';
+import '../../model/user_model.dart';
 import '../../widget/buttonWidget.dart';
 import '../../widget/textFieldWidget.dart';
 
@@ -28,11 +29,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   showHidePassword() {
     setState(() {
-      RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
+      RegisterScreen.changePaswordState  = !RegisterScreen.changePaswordState;
     });
   }
+  Widget showVisibilityIcon(bool showPassword) {
+    Widget icon = Icon(Icons.visibility);
+    if (showPassword == true) {
+      icon = Icon(Icons.visibility_off);
+    }
+    return showPassword == RegisterScreen.changePaswordState
+        ? InkWell(
+        onTap: () {
+          setState(() {
+            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
+          });
+        },
+        child: icon)
+        : InkWell(
+        onTap: () {
+          setState(() {
+            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
+          });
+        },
+        child: Icon(Icons.visibility_off));
+  }
 
-  @override
   void showErrorDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -56,30 +77,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  Widget showVisibilityIcon(bool showPassword) {
-    Widget icon = const Icon(Icons.visibility);
-    if (showPassword != false) {
-      icon = const Icon(Icons.visibility_off);
-    }
-    return showPassword == RegisterScreen.changePaswordState
-        ? InkWell(
-            onTap: () {
-              setState(() {
-                RegisterScreen.changePaswordState =
-                    !RegisterScreen.changePaswordState;
-              });
-            },
-            child: icon)
-        : InkWell(
-            onTap: () {
-              setState(() {
-                RegisterScreen.changePaswordState =
-                    !RegisterScreen.changePaswordState;
-              });
-            },
-            child: const Icon(Icons.visibility_off));
-  }
-
   Future<bool> registerUser() async {
     // Simulating a delay for user registration
     await Future.delayed(Duration(seconds: 2));
@@ -88,37 +85,50 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return true;
   }
 
-  void register() async {
-    if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
-      return;
-    }
-    try {
-      await _authen
-          .register(UserModel(
-        name: _fullNameController.text,
-        email: _emailController.text,
-        phone: _phoneController.text,
-        password: _passwordController.text,
-      ))
-          .then((value) {
-        //show success message
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("User Registered Successfully")));
-        // Navigator.of(context).pushReplacementNamed("/userLogin");
-      }).catchError((e) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(e.message.toString())));
-      });
-    } catch (err) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(err.toString())));
-    }
-  }
-
   @override
   void initState() {
     _authen = Provider.of<AuthViewModel>(context, listen: false);
     super.initState();
+  }
+
+  bool isLoading = false;
+  void register() async {
+    if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
+      return;
+    }
+
+    setState(() {
+      isLoading = true; // Start loading
+    });
+
+    try {
+      await _authen.register(UserModel(
+        name: nameController.text,
+        email: emailController.text,
+        phone: phoneController.text,
+        password: passwordController.text,
+      )).then((value) {
+        // Registration success
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("User Registered Successfully")));
+        registerUser().then((value) {
+          // Navigate to login screen
+          // Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+        });
+      }).catchError((e) {
+        // Registration error
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      // Error occurred during registration
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
+    } finally {
+      setState(() {
+        isLoading = false; // Stop loading
+      });
+    }
   }
 
   @override
