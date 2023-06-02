@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../ViewModel/auth_viewmodel.dart';
 import '../../constant/Colors.dart';
 import '../../widget/buttonWidget.dart';
 import '../../widget/textFieldWidget.dart';
@@ -22,11 +24,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   final _formKey = GlobalKey<FormState>();
   bool _isChecked = true;
+  late AuthViewModel _authen;
 
   showHidePassword() {
     setState(() {
       RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
     });
+  }
+
+  @override
+  void showErrorDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: Text("Error"),
+          content: Text("Failed to register user."),
+          actions: <Widget>[
+            TextButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Widget showVisibilityIcon(bool showPassword) {
@@ -53,8 +80,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: const Icon(Icons.visibility_off));
   }
 
+  Future<bool> registerUser() async {
+    // Simulating a delay for user registration
+    await Future.delayed(Duration(seconds: 2));
+
+    // Return whether the registration is successful or not
+    return true;
+  }
+
+  void register() async {
+    if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
+      return;
+    }
+    try {
+      await _authen
+          .register(UserModel(
+        name: _fullNameController.text,
+        email: _emailController.text,
+        phone: _phoneController.text,
+        password: _passwordController.text,
+      ))
+          .then((value) {
+        //show success message
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("User Registered Successfully")));
+        // Navigator.of(context).pushReplacementNamed("/userLogin");
+      }).catchError((e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+  }
+
   @override
   void initState() {
+    _authen = Provider.of<AuthViewModel>(context, listen: false);
     super.initState();
   }
 
