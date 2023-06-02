@@ -23,7 +23,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _isChecked = true;
 
-
   showHidePassword() {
     setState(() {
       RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
@@ -37,20 +36,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     return showPassword == RegisterScreen.changePaswordState
         ? InkWell(
-        onTap: () {
-          setState(() {
-            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
-          });
-        },
-        child: icon)
+            onTap: () {
+              setState(() {
+                RegisterScreen.changePaswordState =
+                    !RegisterScreen.changePaswordState;
+              });
+            },
+            child: icon)
         : InkWell(
-        onTap: () {
-          setState(() {
-            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
-          });
-        },
-        child: const Icon(Icons.visibility_off));
+            onTap: () {
+              setState(() {
+                RegisterScreen.changePaswordState =
+                    !RegisterScreen.changePaswordState;
+              });
+            },
+            child: const Icon(Icons.visibility_off));
   }
+
   @override
   void initState() {
     super.initState();
@@ -59,133 +61,176 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: ConstColors.primaryColor2,
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.only(top: 40),
-              child: Column(
-                children: [
-                  Row(
-
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-
+        body: Container(
+            decoration: const BoxDecoration(
+              // color: ConstColors.primaryColor2,
+              image: DecorationImage(
+                image: AssetImage('Assets/images/logo.png'),
+                alignment: Alignment.topCenter,
+              ),
+            ),
+            color: ConstColors.primaryColor2,
+            child: Form(
+              key: _formKey,
+              child: SingleChildScrollView(
+                child: Container(
+                  margin: const EdgeInsets.only(top: 40),
+                  child: Column(
                     children: [
-
-                      const Text('REGISTER',
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'SSFPro',
-                          letterSpacing: 1.2,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            'REGISTER',
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'SSFPro',
+                              letterSpacing: 1.2,
+                              color: ConstColors.whiteColor,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 150,
+                            width: 200,
+                            child: Image.asset('Assets/images/register.png'),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 0,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24),
                           color: ConstColors.whiteColor,
                         ),
-                      ),
-                      SizedBox(
-                        height: 150,
-                        width: 200,
-                        child:Image.asset('Assets/images/register.png'),
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.all(20),
+                              child: Column(
+                                children: [
+                                  textField(
+                                    titleHeading: 'Name',
+                                    hintText: 'Enter your name',
+                                    controller: nameController,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  textField(
+                                    titleHeading: 'Email',
+                                    hintText: 'Enter your email',
+                                    controller: emailController,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  textField(
+                                    titleHeading: 'Phone Number',
+                                    hintText: 'Enter your phone number',
+                                    controller: phoneController,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  textField(
+                                    titleHeading: 'Password',
+                                    hintText: 'Enter your password',
+                                    obscureText: true,
+                                    suffixIcon: showVisibilityIcon(
+                                        RegisterScreen.changePaswordState),
+                                    controller: passwordController,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  textField(
+                                      titleHeading: 'Confirm Password',
+                                      hintText: 'Confirm your password',
+                                      obscureText: false,
+                                      suffixIcon: showVisibilityIcon(
+                                          RegisterScreen.changePaswordState),
+                                      controller: confirmPasswordController),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Container(
+                                    margin: const EdgeInsets.only(left: 20),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: _isChecked,
+                                          onChanged: (val) {
+                                            setState(() {
+                                              _isChecked = val!;
+                                            });
+                                          },
+                                        ),
+                                        const Text(
+                                          'I agree to the terms and conditions',
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: 'SSFPro',
+                                            // fontWeight: FontWeight.bold,
+                                            color: ConstColors.primaryTextColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  ButtonWidget(
+                                    title: "REGISTER",
+                                    onPressed: () {},
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Text(
+                                          'Already have an account?',
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: 'SSFPro',
+                                            // fontWeight: FontWeight.bold,
+                                            color: ConstColors.primaryTextColor,
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {},
+                                          child: const Text(
+                                            'Login',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontFamily: 'SSFPro',
+                                              // fontWeight: FontWeight.bold,
+                                              color: ConstColors.secondaryColor,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
-                  const SizedBox(height: 0,),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color: ConstColors.whiteColor,
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.all( 20),
-                          child: Column(
-                            children: [
-                              textField(titleHeading: 'Name', hintText: 'Enter your name' , controller: nameController,),
-                              const SizedBox(height: 20,),
-                              textField(titleHeading: 'Email', hintText: 'Enter your email', controller: emailController,),
-                              const SizedBox(height: 20,),
-                              textField(titleHeading: 'Phone Number', hintText: 'Enter your phone number', controller: phoneController,),
-                              const SizedBox(height: 20,),
-                              textField(titleHeading: 'Password', hintText: 'Enter your password',obscureText: true,suffixIcon: showVisibilityIcon(RegisterScreen.changePaswordState), controller: passwordController,),
-                              const SizedBox(height: 20,),
-                              textField(titleHeading: 'Confirm Password', hintText: 'Confirm your password',obscureText: false,suffixIcon: showVisibilityIcon(RegisterScreen.changePaswordState), controller:confirmPasswordController ),
-                              const SizedBox(height: 20,),
-                              Container(
-                                margin: const EdgeInsets.only(left: 20),
-                                child: Row(
-                                  children: [
-                                    Checkbox(
-                                      value: _isChecked,
-                                      onChanged: (val) {
-                                        setState(() {
-                                          _isChecked = val!;
-
-                                        });
-                                      },
-                                    ),
-                                    const Text('I agree to the terms and conditions',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontFamily: 'SSFPro',
-                                        // fontWeight: FontWeight.bold,
-                                        color: ConstColors.primaryTextColor,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 10,),
-
-                              ButtonWidget(title: "REGISTER",
-                                onPressed: () {
-
-                                },),
-                              const SizedBox(height: 10,),
-                              Container(
-                                alignment: Alignment.center,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text('Already have an account?',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontFamily: 'SSFPro',
-                                        // fontWeight: FontWeight.bold,
-                                        color: ConstColors.primaryTextColor,
-                                      ),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: const Text('Login',
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          fontFamily: 'SSFPro',
-                                          // fontWeight: FontWeight.bold,
-                                          color: ConstColors.secondaryColor,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-
-                ],
+                ),
               ),
-            ),
-
-          ),
-        )
-      )
-    );
+            )));
   }
 }
