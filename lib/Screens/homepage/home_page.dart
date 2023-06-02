@@ -80,6 +80,66 @@ class _HomepageState extends State<Homepage> {
               child: SingleChildScrollView(
                 child:Column(
                   children: [
+                    Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                      foregroundImage: AssetImage('Assets/images/Dubai.png'),
+                                      radius: 30,
+                                ),
+                                Text("Dubai")
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                      backgroundImage: AssetImage('Assets/images/Bali.png'),
+                                      radius: 30,
+                                ),
+                                Text("Bali")
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  backgroundImage: AssetImage('Assets/images/Antartica.png'),
+                                  radius: 30,
+                                ),
+                                Text("Antartica")
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                      backgroundImage:AssetImage('Assets/images/london.png'),
+                                      radius: 30,
+                                ),
+                                Text("London")
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  backgroundImage:AssetImage('Assets/images/Maldives.png'),
+                                  radius: 30,
+                                ),
+                                Text("Maldives")
+                              ],
+                            ),
+                          ),
                         Padding(
                           padding: EdgeInsets.all(8.0),
                           child: SingleChildScrollView(
