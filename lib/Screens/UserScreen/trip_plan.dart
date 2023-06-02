@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../widget/TripPlanWidgets/trip_activiteis.dart';
+import '../../widget/TripPlanWidgets/trip_buttons.dart';
+import '../../widget/TripPlanWidgets/trip_images.dart';
+
 class TripPlan extends StatefulWidget {
   const TripPlan({Key? key}) : super(key: key);
 
@@ -20,7 +24,8 @@ class _TripPlanState extends State<TripPlan> {
           onPressed: () {
             // Add your logic here
           },
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back,
+          color: Colors.black,),
         ),
         title: const Row(
           children: [
@@ -28,6 +33,9 @@ class _TripPlanState extends State<TripPlan> {
               padding: EdgeInsets.only(left: 85),
               child: Text(
                 "Trip Plan",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -40,43 +48,9 @@ class _TripPlanState extends State<TripPlan> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  onPressed:(){
-
-                  },
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(buttons)
-                  ),
-                  child: const Text("Family Trip",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed:(){
-
-                  },
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(buttons)
-                  ),
-                  child: const Text("Solo Trip",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),),
-                ),
-                ElevatedButton(
-                  onPressed:(){
-
-                  },
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(buttons)
-                  ),
-                  child: const Text("Adventure trekking",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),),
-                ),
+                TripButton(texts: "Family Trip"),
+                TripButton(texts: "Solo Trip"),
+                TripButton(texts: "Adventure trekking"),
               ],
             ),
             Container(
@@ -144,56 +118,16 @@ class _TripPlanState extends State<TripPlan> {
                 ),
               ],
             ),
-            Row(
+            const Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 8, bottom: 10, right: 15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network("https://images.unsplash.com/photo-1501179691627-eeaa65ea017c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aW5kb25lc2lhfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-                      fit: BoxFit.fitWidth,
-                      height: 100,
-                      width: 185,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8, bottom: 10, right: 15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network("https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-                      fit: BoxFit.fill,
-                      height: 100,
-                      width: 150,
-                    ),
-                  ),
-                ),
+                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 15, top: 8, bottom: 10, right: 15), values: 185),
+                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150)
               ],
             ),
-            Row(
+            const Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 15,  bottom: 10, right: 15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network("https://images.unsplash.com/photo-1594471204420-0efa37bc6dc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-                      fit: BoxFit.fill,
-                      height: 100,
-                      width: 150,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only( bottom: 10, right: 15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network("https://images.unsplash.com/photo-1592364395653-83e648b20cc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzd8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-                      fit: BoxFit.fill,
-                      height: 100,
-                      width: 185,
-                    ),
-                  ),
-                ),
+                TripImages(imageAddress: "https://images.unsplash.com/photo-1594471204420-0efa37bc6dc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: const EdgeInsets.only(left: 15,  bottom: 10, right: 15, top: 0), values: 150),
+                TripImages(imageAddress: "https://images.unsplash.com/photo-1592364395653-83e648b20cc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzd8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: const EdgeInsets.only( bottom: 10, right: 15, top: 0, left: 0), values: 185),
               ],
             ),
 
@@ -203,60 +137,12 @@ class _TripPlanState extends State<TripPlan> {
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 8,bottom: 8),
-                    child: Text("Duration: 7 days and 6 nights",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 8, right: 10),
-                    child: Text("Accomodations \nGoing like swimming pools, kids' clubs, and spacious rooms or villas.",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10, bottom: 8),
-                    child: Text("Bull Fight \nStay at a family-friendly resort asd asd asd cwefjasdf aiosd wefwhef asdhfsdif with amenities like swimming pools, kids' clubs, and spacious rooms or villas.",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10, bottom: 8),
-                    child: Text("Transport \nStay at a family-friendly resort with amenities  asdasd efdwjefi like swimming pools, kids' clubs, and spacious rooms or villas.",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10, bottom: 8),
-                    child: Text("Sightseeing \nStay at a family-friendly resort  swimming pools, kids' clubs, and spacious rooms or villas.",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10, bottom: 8),
-                    child: Text("Food \nswimming pools, kids' clubs, and spacious rooms or villas and there will be many more to explore you have to stay wiht us.",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
-                    ),
-                  ),
+                  TripActivities(activity: "Duration: 7 days and 6 nights", fontWeight: FontWeight.w700),
+                  TripActivities(activity: "Accomodations \nGoing like swimming pools, kids' clubs, and spacious rooms or villas.", fontWeight: FontWeight.w400),
+                  TripActivities(activity: "Bull Fight \nStay at a family-friendly resort asd asd asd cwefjasdf aiosd wefwhef asdhfsdif with amenities like swimming pools, kids' clubs, and spacious rooms or villas.", fontWeight: FontWeight.w400),
+                  TripActivities(activity: "Transport \nStay at a family-friendly resort with amenities  asdasd efdwjefi like swimming pools, kids' clubs, and spacious rooms or villas.", fontWeight: FontWeight.w400),
+                  TripActivities(activity: "Sightseeing \nStay at a family-friendly resort  swimming pools, kids' clubs, and spacious rooms or villas.", fontWeight: FontWeight.w400),
+                  TripActivities(activity: "Food \nswimming pools, kids' clubs, and spacious rooms or villas and there will be many more to explore you have to stay wiht us.", fontWeight: FontWeight.w400),
                 ],
               ),
             ),
