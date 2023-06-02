@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../../../constant/Colors.dart';
-import '../Screens/UserScreen/RegisterScreen.dart';
-
-
 
 class textField extends StatelessWidget {
   textField({
     super.key, required this.titleHeading, required this.hintText, required this.controller,this.prefixIcon
-    ,this.obscureText,this.suffixIcon
+    ,this.suffixIcon,  this.obscureText, this.Validator
   });
   final String titleHeading;
   final String hintText;
   final TextEditingController controller;
   IconData? prefixIcon;
-  bool? obscureText=RegisterScreen.changePaswordState;
   Widget? suffixIcon;
+  bool? obscureText=false;
+  String? Function(dynamic)? Validator;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,7 @@ class textField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(titleHeading,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontFamily: 'SSFPro',
             // fontWeight: FontWeight.bold,
@@ -35,10 +33,12 @@ class textField extends StatelessWidget {
 
           child: TextFormField(
             controller: controller,
-            obscureText: RegisterScreen.changePaswordState,
+            validator: Validator,
+            obscureText:false,
             decoration: InputDecoration(
               suffixIcon: suffixIcon ,
               hintText: hintText ,
+
               hintStyle: TextStyle(
                 color: ConstColors.secondaryTextColor,
               ),
