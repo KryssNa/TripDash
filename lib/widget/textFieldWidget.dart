@@ -29,7 +29,7 @@ class textField extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 10),
+          margin: const EdgeInsets.only(top: 10),
 
           child: TextFormField(
             controller: controller,
@@ -39,10 +39,10 @@ class textField extends StatelessWidget {
               suffixIcon: suffixIcon ,
               hintText: hintText ,
 
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 color: ConstColors.secondaryTextColor,
               ),
-              border: UnderlineInputBorder(
+              border: const UnderlineInputBorder(
 
                 borderSide: BorderSide(color: Colors.deepOrange),
               ),
