@@ -4,14 +4,14 @@ import '../../../widget/TripPlanWidgets/trip_activities.dart';
 import '../../../widget/TripPlanWidgets/trip_buttons.dart';
 import '../../../widget/TripPlanWidgets/trip_images.dart';
 
-class TripPlan extends StatefulWidget {
-  const TripPlan({Key? key}) : super(key: key);
+class TripPlanOverview extends StatefulWidget {
+  const TripPlanOverview({Key? key}) : super(key: key);
 
   @override
-  State<TripPlan> createState() => _TripPlanState();
+  State<TripPlanOverview> createState() => _TripPlanState();
 }
 
-class _TripPlanState extends State<TripPlan> {
+class _TripPlanState extends State<TripPlanOverview> {
   Color divider = Color(int.parse("777F88", radix: 16)).withOpacity(1.0);
   Color buttons = Color(int.parse("FF6700", radix: 16)).withOpacity(1.0);
   String accommodation = '';
