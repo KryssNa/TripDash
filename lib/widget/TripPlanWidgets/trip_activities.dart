@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/Datbase.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TripActivities extends StatelessWidget {
   final String activity;
   final FontWeight fontWeight;
-  const TripActivities({Key? key, required this.activity, required this.fontWeight})
+  const TripActivities({Key? key, required this.activity,required this.fontWeight})
       : super(key: key);
 
   @override
