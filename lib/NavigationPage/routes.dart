@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
-import 'package:tripdash/Screens/UserScreen/trip_plan.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan.dart';
 
 // We use name route
 // All our routes will be available here
