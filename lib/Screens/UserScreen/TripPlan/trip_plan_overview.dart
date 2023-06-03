@@ -121,27 +121,35 @@ class _TripPlanState extends State<TripPlanOverview> {
               mainAxisAlignment : MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 12, left: 15, top: 8, bottom:8),
-                  child: Text("Overview",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: buttons,
+                  padding: const EdgeInsets.only(right: 12, left: 15,),
+                  child: TextButton(onPressed: (){},
+                    child: Text("Overview",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: buttons,
+                      ),
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10, top: 8, bottom:8),
-                  child: Text("Trip Plan",
-                    style: TextStyle(
-                      fontSize: 16,
+                Padding(
+                  padding: EdgeInsets.only(right: 12, left: 10,),
+                  child: TextButton(onPressed: (){},
+                    child: const Text("Trip Plan",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10, top: 8, bottom:8),
-                  child: Text("Budget",
-                    style: TextStyle(
-                      fontSize: 16,
+                Padding(
+                  padding: EdgeInsets.only(right: 12, left: 10,),
+                  child: TextButton(onPressed: (){},
+                    child: const Text("Budget",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
