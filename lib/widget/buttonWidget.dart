@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../constant/Colors.dart';
 
-
 class ButtonWidget extends StatelessWidget {
-  ButtonWidget({
-    super.key, required this.title,  this.onPressed,
+  ButtonWidget( {
+    super.key, required this.title,  this.onPressed,this.showLoadingIndicator=false,
   });
   VoidCallback? onPressed;
   final String title;
-
+  final bool showLoadingIndicator;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,11 @@ class ButtonWidget extends StatelessWidget {
         ),
         minimumSize: const Size(400, 50),
       ),
-      child:  Text(title,
+      child: showLoadingIndicator
+          ? const CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+      )
+          :   Text(title,
         style: const TextStyle(
           fontSize: 28,
           fontFamily: 'SSFPro',
@@ -34,4 +37,3 @@ class ButtonWidget extends StatelessWidget {
     );
   }
 }
-
