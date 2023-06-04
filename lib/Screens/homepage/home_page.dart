@@ -27,7 +27,7 @@ class _HomepageState extends State<Homepage> {
         ],
         backgroundColor: const Color(0xFFCACCCE),
       ),
-      body:const Column(
+      body:Column(
         children: [
           SizedBox(
             height: 20,
@@ -145,12 +145,17 @@ class _HomepageState extends State<Homepage> {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal ,
                             child: Row(
-                              children: [
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150)
-                              ],
+                              children: [Container(child: Image.asset('Assets/Images/popular4.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/popular1.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/popular2.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/popular3.png'), 
+                                ),
+                                Container(
+                                  child: Image.asset("Assets/Images/london.png"),
+                                )],
                             ),
                           ),
                         ),
