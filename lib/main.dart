@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
@@ -25,7 +27,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
 
         debugShowCheckedModeBanner: false,
-          initialRoute: RegisterScreen.routeName,
+          initialRoute: TripPlanDetails.routeName,
           routes: routes,
 
       ),

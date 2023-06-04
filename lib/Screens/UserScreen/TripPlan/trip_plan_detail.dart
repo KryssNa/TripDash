@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import '../../../widget/TripPlanWidgets/trip_activities.dart';
 import '../../../widget/TripPlanWidgets/trip_buttons.dart';
 import '../../../widget/TripPlanWidgets/trip_images.dart';
 
 class TripPlanDetails extends StatefulWidget {
   const TripPlanDetails({Key? key}) : super(key: key);
+  static const routeName = '/TripPlanDetails';
 
   @override
   State<TripPlanDetails> createState() => _TripPlanState();
@@ -126,7 +128,9 @@ class _TripPlanState extends State<TripPlanDetails> {
               children: [
                Padding(
                   padding: const EdgeInsets.only(right: 12, left: 15),
-                  child: TextButton(onPressed: (){},
+                  child: TextButton(onPressed: (){
+                    Navigator.of(context).pushReplacementNamed(TripPlanOverview.routeName);
+                    },
                     child: const Text("Overview",
                       style: TextStyle(
                         fontSize: 16,
@@ -161,7 +165,7 @@ class _TripPlanState extends State<TripPlanDetails> {
             ),
             Container(
               alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(left: 16, top: 8),
+              padding: const EdgeInsets.only(left: 16, top: 8,right: 16),
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
