@@ -215,7 +215,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(),
                 prefixIcon: Icon(
-                  Icons.description,
+                  Icons.location_city,
                   color: Colors.black,
                 ),
                 hintText: "Hotel Location",
@@ -236,8 +236,8 @@ class  _HotelPlace  extends State< AdminAddHotels > {
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(),
                 prefixIcon: Icon(
-                  Icons.description,
-                  color: Colors.black,
+                  Icons.price_change,
+                  color: const Color.fromARGB(255, 151, 135, 135),
                 ),
                 hintText: "Hotel Price",
               ),
