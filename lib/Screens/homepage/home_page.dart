@@ -85,7 +85,7 @@ class _HomepageState extends State<Homepage> {
                             child: Column(
                               children: [
                                 CircleAvatar(
-                                      foregroundImage: AssetImage('Assets/images/Dubai.png'),
+                                      foregroundImage: AssetImage('Assets/Images/Dubai.png'),
                                       radius: 30,
                                 ),
                                 Text("Dubai")
@@ -97,7 +97,7 @@ class _HomepageState extends State<Homepage> {
                             child: Column(
                               children: [
                                 CircleAvatar(
-                                      backgroundImage: AssetImage('Assets/images/Bali.png'),
+                                      backgroundImage: AssetImage('Assets/Images/Bali.png'),
                                       radius: 30,
                                 ),
                                 Text("Bali")
@@ -109,7 +109,7 @@ class _HomepageState extends State<Homepage> {
                             child: Column(
                               children: [
                                 CircleAvatar(
-                                  backgroundImage: AssetImage('Assets/images/Antartica.png'),
+                                  backgroundImage: AssetImage('Assets/Images/Antartica.png'),
                                   radius: 30,
                                 ),
                                 Text("Antartica")
@@ -121,7 +121,7 @@ class _HomepageState extends State<Homepage> {
                             child: Column(
                               children: [
                                 CircleAvatar(
-                                      backgroundImage:AssetImage('Assets/images/london.png'),
+                                      backgroundImage:AssetImage('Assets/Images/london.png'),
                                       radius: 30,
                                 ),
                                 Text("London")
@@ -133,7 +133,7 @@ class _HomepageState extends State<Homepage> {
                             child: Column(
                               children: [
                                 CircleAvatar(
-                                  backgroundImage:AssetImage('Assets/images/Maldives.png'),
+                                  backgroundImage:AssetImage('Assets/Images/Maldives.png'),
                                   radius: 30,
                                 ),
                                 Text("Maldives")
@@ -145,13 +145,13 @@ class _HomepageState extends State<Homepage> {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal ,
                             child: Row(
-                              children: [Container(child: Image.asset('Assets/Images/popular4.png'), 
+                              children: [Container(child: Image.asset('Assets/Images/ro.png'), 
                                 ),
-                                Container(child: Image.asset('Assets/Images/popular1.png'), 
+                                Container(child: Image.asset('Assets/Images/rome.png'), 
                                 ),
-                                Container(child: Image.asset('Assets/Images/popular2.png'), 
+                                Container(child: Image.asset('Assets/Images/london.png'), 
                                 ),
-                                Container(child: Image.asset('Assets/Images/popular3.png'), 
+                                Container(child: Image.asset('Assets/Images/Paris.png'), 
                                 ),
                                 Container(
                                   child: Image.asset("Assets/Images/london.png"),
@@ -176,11 +176,18 @@ class _HomepageState extends State<Homepage> {
                             scrollDirection: Axis.horizontal ,
                             child: Row(
                               children: [
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150)
-                              ],
+                                Container(child: Image.asset('Assets/Images/popular4.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/popular1.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/popular2.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/popular3.png'), 
+                                ),
+                                Container(
+                                  child: Image.asset("Assets/Images/london.png"),
+                                )
+                                ],
                             ),
                           ),
                         ),
@@ -199,14 +206,10 @@ class _HomepageState extends State<Homepage> {
                           padding: EdgeInsets.all(8.0),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal ,
-                            child: Row(
-                              children: [
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150)
-                              ],
-                            ),
+                            child:
+                            Container(
+                                child: Image.asset('Assets/Images/map2.png'), 
+                              ),
                           ),
                         ),
                     Padding(
@@ -226,11 +229,17 @@ class _HomepageState extends State<Homepage> {
                             scrollDirection: Axis.horizontal ,
                             child: Row(
                               children: [
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1682687982360-3fbab65f9d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", edgeInsets: EdgeInsets.only(left: 18, top: 8, bottom: 10, right: 13), values: 185),
-                                TripImages(imageAddress: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60", edgeInsets: EdgeInsets.only(top: 8, bottom: 10, right: 15, left: 0), values: 150)
-                              ],
+                                Container(child: Image.asset('Assets/Images/Recommended1.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/Recommended1.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/Recommended2.png'), 
+                                ),
+                                Container(child: Image.asset('Assets/Images/Recommended3.png'), 
+                                ),
+                                Container(
+                                  child: Image.asset("Assets/Images/london.png"),
+                                )],
                             ),
                           ),
                         ),
