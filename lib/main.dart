@@ -5,6 +5,7 @@ import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
+import 'Screens/AdminScreen/AdminDashboard.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
 
         debugShowCheckedModeBanner: false,
-          initialRoute: TripPlanDetails.routeName,
+          initialRoute: AdminDashboard.routeName,
           routes: routes,
 
       ),
