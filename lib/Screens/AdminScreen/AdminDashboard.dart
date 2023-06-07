@@ -101,7 +101,25 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         ],
                       ),
                     ),
-
+                    Container(
+                      height: 80,
+                      width: 175,
+                      decoration: BoxDecoration(
+                        color: ConstColors.adminPanelBoxColor3,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("Assets/icons/icon-revenue.png"),
+                          Text(
+                            "Revenue",
+                            style: buildTextStyle(
+                                ConstColors.adminSecondaryHeadingText),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ],
