@@ -19,31 +19,44 @@ class _AdminDashboardState extends State<AdminDashboard> {
         title: Text("This is app bar"),
       ),
       body: SafeArea(
-        child:Container(
-          color: ConstColors.whiteColor,
-          child: Column(
-            children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(left: 20),
-                child: Text("Dashboard",
-                style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
-              ),
-              const SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 80,
-                    width: 170,
-                    decoration: BoxDecoration(
-                      color: ConstColors.adminPanelBoxColor1,
-                      borderRadius: BorderRadius.circular(10),
+        child:SingleChildScrollView(
+          child: Container(
+            color: ConstColors.whiteColor,
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.only(left: 20),
+                  child: Text("Dashboard",
+                  style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
+                ),
+                const SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        color: ConstColors.adminPanelBoxColor1,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("Assets/icons/icon-booking.png"),
+                          Text(
+                            "Bookings",
+                            style: buildTextStyle(
+                                ConstColors.adminSecondaryHeadingText),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
