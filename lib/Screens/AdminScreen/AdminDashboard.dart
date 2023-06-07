@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constant/Colors.dart';
+import '../../widget/textStyle.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -20,6 +21,30 @@ class _AdminDashboardState extends State<AdminDashboard> {
       body: SafeArea(
         child:Container(
           color: ConstColors.whiteColor,
+          child: Column(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 20),
+                child: Text("Dashboard",
+                style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
+              ),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 80,
+                    width: 170,
+                    decoration: BoxDecoration(
+                      color: ConstColors.adminPanelBoxColor1,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
