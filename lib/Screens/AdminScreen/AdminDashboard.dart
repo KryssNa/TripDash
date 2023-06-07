@@ -53,6 +53,29 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         ],
                       ),
                     ),
+                    Container(
+                      height: 80,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        color: ConstColors.adminPanelBoxColor4,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "Assets/icons/totalClient.png",
+                            height: 55,
+                          ),
+                          Text(
+                            "Total Clients",
+                            style: buildTextStyle(
+                                ConstColors.adminSecondaryHeadingText),
+                          ),
+                        ],
+                      ),
+                    ),
+
                   ],
                 )
               ],
