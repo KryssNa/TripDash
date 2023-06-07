@@ -75,9 +75,35 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         ],
                       ),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        color: ConstColors.adminPanelBoxColor2,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("Assets/icons/icon-hotel.png"),
+                          Text(
+                            "Hotels",
+                            style: buildTextStyle(
+                                ConstColors.adminSecondaryHeadingText),
+                          ),
+                        ],
+                      ),
+                    ),
 
                   ],
-                )
+                ),
               ],
             ),
           ),
