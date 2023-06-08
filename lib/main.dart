@@ -1,11 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
-import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
-import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 
 import 'Helper/multiProvider.dart';
-import 'NavigationPage/routes.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
 
         debugShowCheckedModeBanner: false,
-          initialRoute: TripPlanDetails.routeName,
+          initialRoute: login.routeName,
           routes: routes,
 
       ),
