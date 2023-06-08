@@ -186,6 +186,61 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     ]),
                   ),
                 ),
+
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(left: 20.0),
+                  child: Text("Featured Hotels",
+                    style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
+                ),
+
+                SizedBox(height: 20,),
+
+                const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                      ),
+                    ],
+                  ),
+                ),
+
+
               ],
             ),
           ),
