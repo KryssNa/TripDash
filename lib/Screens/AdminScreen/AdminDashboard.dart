@@ -179,7 +179,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           ),
                         ),
                       ),
-                      
+                      Container(
+                        // height: 200,
+                        // width: 200,
+                          child: Image.asset("Assets/images/Graph.png")),
                     ]),
                   ),
                 ),
