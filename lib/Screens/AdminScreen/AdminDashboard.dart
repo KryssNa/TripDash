@@ -194,7 +194,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
                 const SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -240,6 +240,71 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   ),
                 ),
 
+                const SizedBox(height: 20,),
+
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: ConstColors.adminPanelPrimaryTextColor),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(children: [
+                      Container(
+                        color: ConstColors.adminPanelPrimaryHeadingColor,
+                        height: 30,
+                        child: Padding(
+                          padding:
+                          const EdgeInsets.only(left: 8.0, right: 8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Statistics Graph",
+                                  style: buildTextStyle(
+                                      ConstColors.adminPrimaryHeadingText),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 60,
+                              ),
+                              Container(
+                                height: 20,
+                                color: ConstColors
+                                    .adminPanelSecondaryHeadingColor,
+                                child: const Row(
+                                  children: [
+                                    Text("Monthly"),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "Weekly",
+                                      style: TextStyle(
+                                        fontFamily: 'SSFPro',
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text("Yearly"),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        // height: 200,
+                        // width: 200,
+                          child: Image.asset("Assets/images/Graph.png")),
+                    ]),
+                  ),
+                ),
 
               ],
             ),
