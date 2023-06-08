@@ -1,13 +1,13 @@
 import'package:flutter/material.dart';
 
-class UserProfile extends StatefulWidget {
-  const UserProfile({Key? key}) : super(key: key);
+class UpdateUserProfile extends StatefulWidget {
+  const UpdateUserProfile({Key? key}) : super(key: key);
 
   @override
-  State<UserProfile> createState() => _UserProfileState();
+  State<UpdateUserProfile> createState() => _UpdateUserProfileState();
 }
 
-class _UserProfileState extends State<UserProfile> {
+class _UpdateUserProfileState extends State<UpdateUserProfile> {
   Color orange = Color(int.parse("FF6700", radix: 16)).withOpacity(1.0);
   TextEditingController emailController = TextEditingController();
   String? selectedGender;
@@ -57,7 +57,7 @@ class _UserProfileState extends State<UserProfile> {
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
-                        'Edit Profile Avatar',
+                        'Update Profile Avatar',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 14,
@@ -76,7 +76,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: TextField(
                         decoration: InputDecoration(
                           labelText: 'Name',
-                          hintText: 'Enter your name',
+                          hintText: 'Update your name',
                         ),
                       ),
                     ),
@@ -85,7 +85,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: TextField(
                         decoration: InputDecoration(
                           labelText: 'Address',
-                          hintText: 'Enter your address',
+                          hintText: 'Update your address',
                         ),
                       ),
                     ),
@@ -94,7 +94,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: TextField(
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          hintText: 'Enter your email',
+                          hintText: 'Update your email',
                         ),
                       ),
                     ),
@@ -103,7 +103,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: DropdownButtonFormField<String>(
                         decoration: const InputDecoration(
                           labelText: 'Gender',
-                          hintText: 'Select your option',
+                          hintText: 'Update your gender',
                         ),
                         value: selectedGender,
                         onChanged: (String? newValue) {
@@ -130,7 +130,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: TextField(
                         decoration: InputDecoration(
                           labelText: 'Phone No.',
-                          hintText: 'Enter your current location',
+                          hintText: 'Update your Phone Number',
                         ),
                       ),
                     ),
