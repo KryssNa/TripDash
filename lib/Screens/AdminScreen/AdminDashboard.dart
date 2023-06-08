@@ -306,6 +306,55 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   ),
                 ),
 
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Individual Hotels Update",
+                        style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 0.0),
+                        child: TextButton(
+                            onPressed: () {}, child: const Text("More >>",
+                            style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
+                      )
+                    ],
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  child: Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: ConstColors.adminPanelPrimaryTextColor),
+                      borderRadius: BorderRadius.circular(8),
+                      color: ConstColors.adminPanelSecondaryHeadingColor,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("Assets/images/R2.png",
+                        ),
+                        Text("Hotel AnnaPurna",
+                          style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
+
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 65.0,left: 20),
+                          child: TextButton(
+                              onPressed: () {}, child: const Text("More info >>",
+                              style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20,),
+
               ],
             ),
           ),
