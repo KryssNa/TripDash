@@ -42,6 +42,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+        
                 children: [
                   const Text(
                     "Pic Image From",
@@ -169,106 +170,105 @@ class  _HotelPlace  extends State< AdminAddHotels > {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal:16.0,vertical:4.0),
               child: ElevatedButton.icon(
                   onPressed: imagePickerOption,
                   icon: const Icon(Icons.add_a_photo_sharp),
                   label: const Text('Hotel Image')),
             ),
-            TextFormField(
-              style: TextStyle(color: Colors.black),
-              controller: hotel_name,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "Place";
-                }
-                if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
-                  return "Please enter the hotel name";
-                }
-                return null;
-              },
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.place_sharp,
-                  color: Colors.black,
-                ),
-                hintText: "Hotel Name",
-              ),
-            ),
-            SizedBox(
-              height: 20,
-              width: 10,
-            ),
-            TextFormField(
-              style: TextStyle(color: Colors.black),
-              controller: hotel_location,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "Hotel Location is required";
-                }
-              },
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.location_city,
-                  color: Colors.black,
-                ),
-                hintText: "Hotel Location",
-              ),
-            ),
-            SizedBox(
-              height: 10,
-              width:10,
-            ),
-            TextFormField(
-              style: TextStyle(color: Colors.black),
-              controller: hotel_price,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "Hotel price is needed";
-                }
-              },
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.price_change,
-                  color: const Color.fromARGB(255, 151, 135, 135),
-                ),
-                hintText: "Hotel Price",
-              ),
-            ),
-            SizedBox(
-              height: 10,
-              width:10,
-            ),
-            TextFormField(
-              style: TextStyle(color: Colors.black),
-              controller: hotel_description,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "Hotel description is required";
-                }
-              },
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.description,
-                  color: Colors.black,
-                ),
-                hintText: "Hotel description",
-              ),
-            ),
-            SizedBox(
-              height: 10,
-              width:10,
-            ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
+              child: TextFormField(
+                style: TextStyle(color: Colors.black),
+                controller: hotel_name,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Place";
+                  }
+                  if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
+                    return "Please enter the hotel name";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.place_sharp,
+                    color: Colors.black,
+                  ),
+                  hintText: "Hotel Name",
+                ),
+              ),
+            ),
+           
+         
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
+              child: TextFormField(
+                style: TextStyle(color: Colors.black),
+                controller: hotel_location,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Hotel Location is required";
+                  }
+                },
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.location_city,
+                    color: Colors.black,
+                  ),
+                  hintText: "Hotel Location",
+                ),
+              ),
+            ),
+          
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 4.0),
+              child: TextFormField(
+                style: TextStyle(color: Colors.black),
+                controller: hotel_price,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Hotel price is needed";
+                  }
+                },
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.price_change,
+                    color: const Color.fromARGB(255, 151, 135, 135),
+                  ),
+                  hintText: "Hotel Price",
+                ),
+              ),
+            ),
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
+              child: TextFormField(
+                style: TextStyle(color: Colors.black),
+                controller: hotel_description,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Hotel description is required";
+                  }
+                },
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.description,
+                    color: Colors.black,
+                  ),
+                  hintText: "Hotel description",
+                ),
+              ),
+            ),
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 4.0),
               child: ElevatedButton.icon(
                   onPressed: () {
                     add_hotel(HotelViewModel);
