@@ -16,10 +16,17 @@ class _AdminDashboardState extends State<AdminDashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leadingWidth: 65,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        automaticallyImplyLeading:true,
         leading: Image.asset("Assets/icons/sideIcon.png"),
-        
+        actions: const [
+          Icon(Icons.search,
+            color: ConstColors.primaryColor,
+          size: 40,),
+
+        ],
       ),
       body: SafeArea(
         child:SingleChildScrollView(
