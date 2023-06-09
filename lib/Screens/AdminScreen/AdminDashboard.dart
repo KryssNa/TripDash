@@ -336,41 +336,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset("Assets/images/R2.png",
-                        ),
-                        Text("Hotel AnnaPurna",
-                          style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
-
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 65.0,left: 20),
-                          child: TextButton(
-                              onPressed: () {}, child: const Text("More info >>",
-                              style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 10,),
-
-                const SizedBox(height: 10,),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                  child: Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: ConstColors.adminPanelPrimaryTextColor),
-                      borderRadius: BorderRadius.circular(8),
-                      color: ConstColors.adminPanelSecondaryHeadingColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset("Assets/images/R2.png",
+                        Image.asset("Assets/images/hotelannapurna.png",
                         ),
                         Text("Hotel AnnaPurna",
                           style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
@@ -402,7 +368,39 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset("Assets/images/R2.png",
+                        Image.asset("Assets/images/hotelannapurna.png",
+                        ),
+                        Text("Hotel AnnaPurna",
+                          style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
+
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 65.0,left: 20),
+                          child: TextButton(
+                              onPressed: () {}, child: const Text("More info >>",
+                              style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10,),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  child: Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: ConstColors.adminPanelPrimaryTextColor),
+                      borderRadius: BorderRadius.circular(8),
+                      color: ConstColors.adminPanelSecondaryHeadingColor,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("Assets/images/hotelannapurna.png",
                         ),
                         Text("Hotel AnnaPurna",
                           style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
@@ -438,7 +436,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
                     Container(
                       margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R2.png"),
+                      child: Image.asset("Assets/images/R4.png"),
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 10.0),
@@ -446,15 +444,15 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R2.png"),
+                      child: Image.asset("Assets/images/R3.png"),
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R2.png"),
+                      child: Image.asset("Assets/images/R4.png"),
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R2.png"),
+                      child: Image.asset("Assets/images/R3.png"),
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 10.0),
