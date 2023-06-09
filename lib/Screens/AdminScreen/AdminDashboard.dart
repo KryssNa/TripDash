@@ -206,35 +206,35 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage("Assets/images/R2.png"),
+                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
                       ),
                     ],
                   ),
@@ -432,7 +432,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.only(left: 16.0,right: 16.0),
+                  padding: const EdgeInsets.only(left: 16.0,right: 16.0,bottom: 20),
                   child: Row(children: [
                     // image button
 
