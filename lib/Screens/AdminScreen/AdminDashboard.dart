@@ -16,7 +16,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("This is app bar"),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Image.asset("Assets/icons/sideIcon.png"),
+        
       ),
       body: SafeArea(
         child:SingleChildScrollView(
