@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 
 import 'package:get/get.dart';
 import 'Helper/multiProvider.dart';
@@ -21,12 +23,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
     return   multiProvider(
       child: GetMaterialApp(
 
-          initialRoute: AdminAddHotels.routeName,
+        debugShowCheckedModeBanner: false,
+          initialRoute: TripPlanDetails.routeName,
           routes: routes,
 
       ),
