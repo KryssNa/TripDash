@@ -149,25 +149,28 @@ class  _HotelPlace  extends State< AdminAddHotels > {
             ),
             Align(
               alignment: Alignment.center,
-              child: Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      // border: Border.all(
-                      //     color: Colors.grey.withOpacity(0.6), width: 2),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                         border: Border.all(
+                             color: Colors.grey.withOpacity(0.6), width: 2),
+                      ),
+                      child: ClipRect(
+                        child: pickedImage != null ? Image.file(
+                          pickedImage!,
+                          width: 500,
+                          height: 200,
+                          fit: BoxFit.cover,
+                        )
+                            : Image.asset('Assets/images/insert_OIP.png'),
+                      ),
                     ),
-                    child: ClipRect(
-                      child: pickedImage != null ? Image.file(
-                        pickedImage!,
-                        width: 500,
-                        height: 200,
-                        fit: BoxFit.cover,
-                      )
-                          : Image.asset('Assets/images/insert_image.png'),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             
