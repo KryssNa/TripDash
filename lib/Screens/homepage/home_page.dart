@@ -78,81 +78,110 @@ class _HomepageState extends State<Homepage> {
               child:Column(
                 children: [
                   Container(
-                    child: const SingleChildScrollView(
+                    child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal ,
                       child: Row(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                      foregroundImage: AssetImage('Assets/Images/Dubai.png'),
-                                      radius: 30,
-                                ),
-                                Text("Dubai")
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              print('Dubai button tapped!');
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    foregroundImage: AssetImage('Assets/Images/Dubai.png'),
+                                    radius: 30,
+                                  ),
+                                  Text("Dubai")
+                                ],
+                              ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                      backgroundImage: AssetImage('Assets/Images/Bali.png'),
-                                      radius: 30,
-                                ),
-                                Text("Bali")
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              print('Bali button tapped!');
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    foregroundImage: AssetImage('Assets/Images/Bali.png'),
+                                    radius: 30,
+                                  ),
+                                  Text("Bali")
+                                ],
+                              ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage: AssetImage('Assets/Images/Antartica.png'),
-                                  radius: 30,
-                                ),
-                                Text("Antartica")
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              print('Antartica button tapped!');
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    foregroundImage: AssetImage('Assets/Images/Antartica.png'),
+                                    radius: 30,
+                                  ),
+                                  Text("Antartica")
+                                ],
+                              ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                      backgroundImage:AssetImage('Assets/Images/london.png'),
-                                      radius: 30,
-                                ),
-                                Text("London")
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              print('London button tapped!');
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    foregroundImage: AssetImage('Assets/Images/london.png'),
+                                    radius: 30,
+                                  ),
+                                  Text("London")
+                                ],
+                              ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage:AssetImage('Assets/Images/Maldives.png'),
-                                  radius: 30,
-                                ),
-                                Text("Maldives")
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              print('Maldives button tapped!');
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    foregroundImage: AssetImage('Assets/Images/Maldives.png'),
+                                    radius: 30,
+                                  ),
+                                  Text("Maldives")
+                                ],
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
+              ),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(5.0),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal ,
                       child: Row(
                         children: [
-                          Container(
+                          GestureDetector(
+                            onTap: () {
+                              print("Rome");
+                            },
+                            child:Container(
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
@@ -178,7 +207,12 @@ class _HomepageState extends State<Homepage> {
                               ],
                             ),
                           ),
-                          Container(
+                      ),
+                          GestureDetector(
+                            onTap: () {
+                              print("Rome");
+                            },
+                          child:Container(
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
@@ -204,7 +238,12 @@ class _HomepageState extends State<Homepage> {
                               ],
                             ),
                           ),
-                          Container(
+                      ),
+                          GestureDetector(
+                            onTap: () {
+                              print("London");
+                            },
+                          child:Container(
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
@@ -230,7 +269,12 @@ class _HomepageState extends State<Homepage> {
                               ],
                             ),
                           ),
-                          Container(
+                      ),
+                          GestureDetector(
+                            onTap: () {
+                              print("Paris");
+                            },
+                          child:Container(
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
@@ -256,7 +300,7 @@ class _HomepageState extends State<Homepage> {
                               ],
                             ),
                           ),
-                        ],   
+                      ),],   
                       ),
                     ),
                   ),
@@ -280,17 +324,34 @@ class _HomepageState extends State<Homepage> {
                             scrollDirection: Axis.horizontal ,
                             child: Row(
                               children: [
-                                Container(child: Image.asset('Assets/Images/popular4.png'), 
+                                GestureDetector(
+                                  onTap: () {
+                                    print("Popular1");
+                                  },
+                                child: Container(child: Image.asset('Assets/Images/popular4.png'), 
                                 ),
-                                Container(child: Image.asset('Assets/Images/popular1.png'), 
                                 ),
-                                Container(child: Image.asset('Assets/Images/popular2.png'), 
+                                GestureDetector(
+                                  onTap: () {
+                                    print("Popular2");
+                                  },
+                                child: Container(child: Image.asset('Assets/Images/popular1.png'), 
                                 ),
-                                Container(child: Image.asset('Assets/Images/popular3.png'), 
                                 ),
-                                Container(
-                                  child: Image.asset("Assets/Images/london.png"),
-                                )
+                                GestureDetector(
+                                  onTap: () {
+                                    print("Popular3");
+                                  },
+                                child: Container(child: Image.asset('Assets/Images/popular2.png'), 
+                                ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    print("Popular4");
+                                  },
+                                  child: Container(child: Image.asset('Assets/Images/popular3.png'), 
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -312,9 +373,14 @@ class _HomepageState extends State<Homepage> {
                                   )
                                 ),
                               ),
-                              Container(
-                                child: Image.asset('Assets/Images/map2.png'), 
-                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  print("MAp");
+                                },
+                                child: Container(
+                                  child: Image.asset('Assets/Images/map2.png'), 
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -335,13 +401,17 @@ class _HomepageState extends State<Homepage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              GestureDetector(
+                                onTap: () {
+                                  print("Recommended 1");
+                                },
+                              child:Container(
                                 child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Align(
                                   alignment: Alignment.bottomLeft,
                                     child: Container(
-                                      height: 80,
+                                      height: 90,
                                       width: 350,
                                       color: Color.fromARGB(255, 245, 212, 80),
                                       child:Column(
@@ -358,10 +428,14 @@ class _HomepageState extends State<Homepage> {
                                                   child: Column(
                                                       children: [
                                                         const Text("Maldives"),
-                                                        const Text("East Coast"),
-                                                        const SizedBox(
-                                                          width: 10,
-                                                          height: 10,
+                                                        Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(Icons.location_on,color: Colors.black,),
+                                                              const Text("East Coast"),
+                                                            ],
+                                                          ),
                                                         ),
                                                         Row(
                                                           children: [
@@ -384,13 +458,18 @@ class _HomepageState extends State<Homepage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                          ),
+                              GestureDetector(
+                                onTap: () {
+                                  print("Recommended 2");
+                                },
+                              child:Container(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Align(
                                     alignment: Alignment.bottomLeft,
                                     child: Container(
-                                      height: 80,
+                                      height: 90,
                                       width: 350,
                                       color: Color.fromARGB(255, 245, 212, 80),
                                         child:Column(
@@ -407,10 +486,14 @@ class _HomepageState extends State<Homepage> {
                                                     child: Column(
                                                       children: [
                                                         const Text("Paris"),
-                                                        const Text("Eifil Tower"),
-                                                        const SizedBox(
-                                                          width: 10,
-                                                          height: 10,
+                                                        Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(Icons.location_on,color: Colors.black,),
+                                                              const Text("Eifil Tower"),
+                                                            ],
+                                                          ),
                                                         ),
                                                         Row(
                                                           children: [
@@ -432,15 +515,19 @@ class _HomepageState extends State<Homepage> {
                                     ),
                                   ),
                                 ),
-                              ),
-                              Container(
+                              ),),
+                              GestureDetector(
+                                onTap: () {
+                                  print("Recommended 3");
+                                },
+                              child:Container(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Align(
                                   alignment: Alignment.center,
                                     child: Container(
                                       alignment: Alignment.centerRight,
-                                      height: 80,
+                                      height: 90,
                                       width: 350,
                                       color: Color.fromARGB(255, 245, 212, 80),
                                         child:Column(
@@ -458,10 +545,14 @@ class _HomepageState extends State<Homepage> {
                                                     child: Column(
                                                       children: [
                                                         const Text("Nepal"),
-                                                        const Text("Tara Bhir"),
-                                                        const SizedBox(
-                                                          width: 10,
-                                                          height: 10,
+                                                        Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(Icons.location_on,color: Colors.black,),
+                                                              const Text("Tara Bhir"),
+                                                            ],
+                                                          ),
                                                         ),
                                                         Row(
                                                           children: [
@@ -484,7 +575,7 @@ class _HomepageState extends State<Homepage> {
                                   ),
                                 ),
                               ),
-                            ],
+                          ),],
                           ),
                         ),  
                       ] ,
