@@ -6,9 +6,11 @@ import 'package:provider/provider.dart';
 import 'package:tripdash/Screens/add-hotels.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
+import 'package:get/get.dart';
+
 class multiProvider extends StatelessWidget {
   const multiProvider({Key? key,  required this.child}) : super(key: key);
-  final MaterialApp child;
+  final GetMaterialApp child;
 
   @override
   Widget build(BuildContext context) {

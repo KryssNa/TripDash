@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-
+import 'package:get/get.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
 import 'Screens/AdminScreen/addhotel.dart';
@@ -24,9 +24,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return   multiProvider(
-      child: MaterialApp(
+      child: GetMaterialApp(
 
-        debugShowCheckedModeBanner: false,
           initialRoute: AdminAddHotels.routeName,
           routes: routes,
 

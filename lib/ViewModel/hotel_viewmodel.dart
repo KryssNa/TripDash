@@ -16,5 +16,4 @@ class HotelViewModel with ChangeNotifier{
     _hotel = response as Stream<QuerySnapshot<HotelModel>>?;
     notifyListeners();
   }
-
 }

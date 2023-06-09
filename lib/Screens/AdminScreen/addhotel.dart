@@ -14,7 +14,6 @@ import '../../model/Hotel_Model.dart';
 class AdminAddHotels extends StatefulWidget {
   const  AdminAddHotels ({super.key});
   static const routeName = '/HotelAddPlace';
-
   @override
   State< AdminAddHotels > createState() => _HotelPlace ();
 }
@@ -149,35 +148,32 @@ class  _HotelPlace  extends State< AdminAddHotels > {
             ),
             Align(
               alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
-                child: Stack(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                         border: Border.all(
-                             color: Colors.grey.withOpacity(0.6), width: 2),
-                      ),
-                      child: ClipRect(
-                        child: pickedImage != null ? Image.file(
-                          pickedImage!,
-                          width: 500,
-                          height: 200,
-                          fit: BoxFit.cover,
-                        )
-                            : Image.asset('Assets/images/insert_OIP.png'),
-                      ),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      // border: Border.all(
+                      //     color: Colors.grey.withOpacity(0.6), width: 2),
                     ),
-                  ],
-                ),
+                    child: ClipRect(
+                      child: pickedImage != null ? Image.file(
+                        pickedImage!,
+                        width: 500,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      )
+                          : Image.asset('Assets/images/insert_image.png'),
+                    ),
+                  ),
+                ],
               ),
             ),
             
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:16.0,vertical:4.0),
               child: ElevatedButton.icon(
-                  onPressed: imagePickerOption,
+                  onPressed: ()=>imagePickerOption(),
                   icon: const Icon(Icons.add_a_photo_sharp),
                   label: const Text('Hotel Image')),
             ),
