@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../widget/TripPlanWidgets/trip_activities.dart';
 import '../../../widget/TripPlanWidgets/trip_buttons.dart';
-import '../../../widget/TripPlanWidgets/trip_images.dart';
 
 class TripPlanDetails extends StatefulWidget {
   const TripPlanDetails({Key? key}) : super(key: key);
