@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
+
+import 'Screens/AdminScreen/AdminDashboard.dart';
+
 import 'Screens/AdminScreen/addhotel.dart';
 
 
@@ -26,7 +28,8 @@ class _MyAppState extends State<MyApp> {
     return   multiProvider(
       child: GetMaterialApp(
 
-          initialRoute: AdminAddHotels.routeName,
+        debugShowCheckedModeBanner: false,
+          initialRoute: AdminDashboard.routeName,
           routes: routes,
 
       ),
