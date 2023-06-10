@@ -66,11 +66,13 @@ class _HomepageState extends State<Homepage> {
                 filled: true,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
                 ),
                 hintText: "Search Destination",
                 prefixIcon: Icon(Icons.search),
-                prefixIconColor:Colors.black,
-              )
+                prefixIconColor: Colors.black,
+                contentPadding: EdgeInsets.symmetric(vertical: 12.0),
+              ),
             ),
           ),
           Expanded(
@@ -411,7 +413,7 @@ class _HomepageState extends State<Homepage> {
                                 child: Align(
                                   alignment: Alignment.bottomLeft,
                                     child: Container(
-                                      height: 90,
+                                      height: 100,
                                       width: 350,
                                       color: Color.fromARGB(255, 245, 212, 80),
                                       child:Column(
