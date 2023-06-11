@@ -1,5 +1,6 @@
 import'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tripdash/Screens/UserScreen/Profile/UpdateUserProfile.dart';
 import 'package:tripdash/widget/UserProfile/UserDetail.dart';
 
 class UserProfile extends StatefulWidget {
@@ -91,7 +92,12 @@ class _UserProfileState extends State<UserProfile> {
                   Padding(
                     padding: EdgeInsets.only(bottom: 8),
                     child: TextButton(
-                      onPressed:(){},
+                      onPressed:(){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => UpdateUserProfile()),
+                        );
+                      },
                       child: const Text(
                         "Edit Profile",
                         style: TextStyle(
