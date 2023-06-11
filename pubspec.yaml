@@ -15,18 +15,19 @@ dependencies:
   flutter:
     sdk: flutter
 
+
 # Dependencies
+  path_provider: ^2.0.15
+  image_picker: ^0.8.8
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.6.1
   firebase_core: ^2.13.0
   cloud_firestore: ^4.7.1
-  image_picker: ^0.8.4+2
   get: ^4.3.8
   firebase_database: ^10.2.1
   firebase_storage: ^11.2.1
   provider: ^6.0.5
   flutter_local_notifications: ^14.1.0
-  path_provider: ^2.0.15
   firebase_messaging: ^14.6.1
   http: ^0.13.4
   json_serializable:
@@ -57,7 +58,7 @@ flutter:
   assets:
      - Assets/images/
      - Assets/images/avatars/av_1.png
-     - Assets/images/avatars/neko.jpeg
+     - Assets/images/avatars/av_2.png
 
 
 

@@ -19,7 +19,8 @@ class _UserProfileState extends State<UserProfile> {
   String name = '';
   String address = '';
   String gender = '';
-  num? phone;
+  String phone = "";
+  String avatar = "";
 
 
   @override
@@ -31,16 +32,17 @@ class _UserProfileState extends State<UserProfile> {
   Future<void> fetchData() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     DocumentSnapshot document =
-    await firestore.collection('users').doc('1lYNX68bOlPB24z3TDPwfRrlIyK2').get();
+    await firestore.collection('users').doc('user_1').get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
       setState(() {
         email = data['email'] ?? '';
         name = data['name'] ?? '';
-        phone = data['phone']as num?;
+        phone = data['phone'] ?? '';
         address = data['address'] ?? '';
-        gender = data['gender']?? '';
+        gender = data['gender'] ?? '';
+        avatar = data['avatar'] ?? '';
       });
     }
   }
@@ -79,9 +81,9 @@ class _UserProfileState extends State<UserProfile> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                   radius: 75,
-                  backgroundImage: AssetImage('Assets/images/avatars/neko.jpeg')
+                  backgroundImage: AssetImage(avatar),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
