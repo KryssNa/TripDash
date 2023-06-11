@@ -57,6 +57,7 @@ flutter:
   assets:
      - Assets/images/
      - Assets/images/avatars/av_1.png
+     - Assets/images/avatars/neko.jpeg
 
 
 
