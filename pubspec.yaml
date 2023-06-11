@@ -40,6 +40,9 @@ dependencies:
   email_validator: ^2.1.17
   firebase_auth_mocks: ^0.11.0
   fake_cloud_firestore: ^2.1.1+1
+  get: ^4.3.8
+  image_picker: ^0.8.4+4
+  
 
 
 dev_dependencies:
@@ -57,8 +60,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - Assets/images/
+<<<<<<< HEAD
      - Assets/images/avatars/av_1.png
      - Assets/images/avatars/av_2.png
+=======
+     - Assets/Images/
+     - Assets/icons/
+>>>>>>> master
 
 
 

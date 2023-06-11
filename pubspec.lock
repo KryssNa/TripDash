@@ -532,18 +532,32 @@ packages:
     dependency: "direct main"
     description:
       name: image_picker
+<<<<<<< HEAD
       sha256: "6432178560d95303cc70d038363f892f5a05750dd27bc55220c7301af54d05e9"
       url: "https://pub.dev"
     source: hosted
     version: "0.8.8"
+=======
+      sha256: "9978d3510af4e6a902e545ce19229b926e6de6a1828d6134d3aab2e129a4d270"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.7+5"
+>>>>>>> master
   image_picker_android:
     dependency: transitive
     description:
       name: image_picker_android
+<<<<<<< HEAD
       sha256: "1ec6830289f5b6aeff3aa8239ea737c71950178dda389342dc2215adb06b4bd8"
       url: "https://pub.dev"
     source: hosted
     version: "0.8.6+20"
+=======
+      sha256: "3083c3a3245adf9f3eb7bacf0eaa6a1f087dd538fab73a13a2f7907602601692"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.6+19"
+>>>>>>> master
   image_picker_for_web:
     dependency: transitive
     description:
@@ -560,6 +574,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.8.7+4"
+<<<<<<< HEAD
   image_picker_linux:
     dependency: transitive
     description:
@@ -576,10 +591,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.0"
+=======
+>>>>>>> master
   image_picker_platform_interface:
     dependency: transitive
     description:
       name: image_picker_platform_interface
+<<<<<<< HEAD
       sha256: "7c7b96bb9413a9c28229e717e6fd1e3edd1cc5569c1778fcca060ecf729b65ee"
       url: "https://pub.dev"
     source: hosted
@@ -592,6 +610,12 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.0"
+=======
+      sha256: "1991219d9dbc42a99aff77e663af8ca51ced592cd6685c9485e3458302d3d4f8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.3"
+>>>>>>> master
   intl:
     dependency: "direct main"
     description:

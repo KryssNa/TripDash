@@ -4,15 +4,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UpdateUserProfile extends StatefulWidget {
   const UpdateUserProfile({Key? key}) : super(key: key);
+  static String routeName = "/UpdateUserProfile";
 
   @override
   State<UpdateUserProfile> createState() => _UpdateUserProfileState();
 }
 
 class _UpdateUserProfileState extends State<UpdateUserProfile> {
-  final docUser = FirebaseFirestore.instance
-      .collection('users')
-      .doc('user_1');
+  final docUser = FirebaseFirestore.instance.collection('users').doc('user_1');
   String avatar = "";
   String avatarValue = "";
   String nameValue = "";
@@ -34,8 +33,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
   TextEditingController phoneNoController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController genderController = TextEditingController();
-  TextEditingController avatarController = TextEditingController( );
-
+  TextEditingController avatarController = TextEditingController();
 
   @override
   void initState() {
@@ -45,10 +43,8 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
 
   Future<void> fetchData() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    DocumentSnapshot document = await firestore
-        .collection('users')
-        .doc('user_1')
-        .get();
+    DocumentSnapshot document =
+        await firestore.collection('users').doc('user_1').get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
@@ -131,41 +127,44 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                                 context: context,
                                 builder: (context) {
                                   return AlertDialog(
-                                      title: Text("Pick Avatar"),
-                                      actions: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              avatarController.text = 'Assets/images/avatars/av_1.png';
-                                              avatar = 'Assets/images/avatars/av_1.png';
-                                            });
-                                            Navigator.pop(
-                                                context); // Close the dialog
-                                          },
-                                          child: const CircleAvatar(
-                                            radius: 65,
-                                            backgroundImage: AssetImage(
-                                                'Assets/images/avatars/av_1.png'),
-                                          ),
+                                    title: Text("Pick Avatar"),
+                                    actions: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            avatarController.text =
+                                                'Assets/images/avatars/av_1.png';
+                                            avatar =
+                                                'Assets/images/avatars/av_1.png';
+                                          });
+                                          Navigator.pop(
+                                              context); // Close the dialog
+                                        },
+                                        child: const CircleAvatar(
+                                          radius: 65,
+                                          backgroundImage: AssetImage(
+                                              'Assets/images/avatars/av_1.png'),
                                         ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              avatarController.text =
-                                                  'Assets/images/avatars/av_2.png';
-                                              avatar = 'Assets/images/avatars/av_2.png';
-                                            });
-                                            Navigator.pop(
-                                                context); // Close the dialog
-                                          },
-                                          child: const CircleAvatar(
-                                            radius: 65,
-                                            backgroundImage: AssetImage(
-                                                'Assets/images/avatars/av_2.png'),
-                                          ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            avatarController.text =
+                                                'Assets/images/avatars/av_2.png';
+                                            avatar =
+                                                'Assets/images/avatars/av_2.png';
+                                          });
+                                          Navigator.pop(
+                                              context); // Close the dialog
+                                        },
+                                        child: const CircleAvatar(
+                                          radius: 65,
+                                          backgroundImage: AssetImage(
+                                              'Assets/images/avatars/av_2.png'),
                                         ),
-                                      ],
-                                    );
+                                      ),
+                                    ],
+                                  );
                                 });
                           },
                           child: const Text(
@@ -203,9 +202,8 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                           controller: addressController,
                           decoration: InputDecoration(
                             labelText: 'Address',
-                            hintText: address.isEmpty
-                                ? '--Not Provided--'
-                                : address,
+                            hintText:
+                                address.isEmpty ? '--Not Provided--' : address,
                           ),
                         ),
                       ),
@@ -275,7 +273,8 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                                 emailController.text.isEmpty ||
                                 phoneNoController.text.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Please fill all fields')),
+                                SnackBar(
+                                    content: Text('Please fill all fields')),
                               );
                               return;
                             }
@@ -289,16 +288,22 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                                 'avatar': avatarController.text,
                               }).then((_) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('Profile updated successfully!')),
+                                  SnackBar(
+                                      content: Text(
+                                          'Profile updated successfully!')),
                                 );
                               }).catchError((error) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('Failed to update: $error')),
+                                  SnackBar(
+                                      content:
+                                          Text('Failed to update: $error')),
                                 );
                               });
                             } catch (error) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('An error occurred while updating the profile: $error')),
+                                SnackBar(
+                                    content: Text(
+                                        'An error occurred while updating the profile: $error')),
                               );
                             }
                           },
