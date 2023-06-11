@@ -409,59 +409,87 @@ class _HomepageState extends State<Homepage> {
                                 },
                               child:Container(
                                 child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Align(
-                                  alignment: Alignment.bottomLeft,
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Align(
+                                  alignment: Alignment.center,
                                     child: Container(
+                                      alignment: Alignment.centerRight,
                                       height: 100,
                                       width: 350,
                                       color: Color.fromARGB(255, 245, 212, 80),
-                                      child:Column(
-                                        children: [
-                                          Row(
+                                        child:Column(
+                                          children: [
+                                            Row(
                                             children: [
                                               Container(
-                                                child: Image.asset('Assets/Images/Recommended3.png'),
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Image.asset('Assets/Images/Recommended1.png'),
+                                                ),
                                               ),
                                               SizedBox(width: 10,),
                                               Container(
                                                 child: Padding(
                                                   padding: const EdgeInsets.all(8.0),
-                                                  child: Column(
+                                                  child: Container(
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
                                                       children: [
-                                                        const Text("Maldives"),
+                                                        Text(
+                                                          "Paris",
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                          ),
+                                                        ),
                                                         Padding(
                                                           padding: const EdgeInsets.all(8.0),
                                                           child: Row(
                                                             children: [
-                                                              Icon(Icons.location_on,color: Colors.black,),
-                                                              const Text("East Coast"),
+                                                              Align(
+                                                                alignment: Alignment.bottomLeft,
+                                                                child: Icon(
+                                                                  Icons.location_on,
+                                                                  color: Colors.black,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                "Eiffel Tower",
+                                                                textAlign: TextAlign.left,
+                                                              ),
                                                             ],
                                                           ),
                                                         ),
                                                         Row(
                                                           children: [
-                                                            Text('56/per person'),
+                                                            Text(
+                                                              '50/per person',
+                                                              textAlign: TextAlign.left,
+                                                            ),
                                                             const SizedBox(
                                                               width: 40,
                                                             ),
-                                                            Text('4.5')
+                                                            Text(
+                                                              '4.5',
+                                                              textAlign: TextAlign.left,
+                                                            ),
                                                           ],
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
                                           ),
-                                        ],
-                                      ),
+                                          ],
+                                        ),
                                     ),
                                   ),
                                 ),
                               ),
                           ),
-                              GestureDetector(
+                          GestureDetector(
                                 onTap: () {
                                   print("Recommended 2");
                                 },
@@ -469,56 +497,85 @@ class _HomepageState extends State<Homepage> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Align(
-                                    alignment: Alignment.bottomLeft,
+                                  alignment: Alignment.center,
                                     child: Container(
-                                      height: 90,
+                                      alignment: Alignment.centerRight,
+                                      height: 100,
                                       width: 350,
                                       color: Color.fromARGB(255, 245, 212, 80),
                                         child:Column(
                                           children: [
                                             Row(
-                                              children: [
-                                                Container(
-                                                  child: Image.asset('Assets/Images/Recommended1.png'),
+                                            children: [
+                                              Container(
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Image.asset('Assets/Images/Recommended2.png'),
                                                 ),
-                                                SizedBox(width: 10,),
-                                                Container(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.all(8.0),
+                                              ),
+                                              SizedBox(width: 10,),
+                                              Container(
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Container(
                                                     child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
                                                       children: [
-                                                        const Text("Paris"),
+                                                        Text(
+                                                          "Nepal",
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                          ),
+                                                        ),
                                                         Padding(
                                                           padding: const EdgeInsets.all(8.0),
                                                           child: Row(
                                                             children: [
-                                                              Icon(Icons.location_on,color: Colors.black,),
-                                                              const Text("Eifil Tower"),
+                                                              Align(
+                                                                alignment: Alignment.bottomLeft,
+                                                                child: Icon(
+                                                                  Icons.location_on,
+                                                                  color: Colors.black,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                "Tara Bhir",
+                                                                textAlign: TextAlign.left,
+                                                              ),
                                                             ],
                                                           ),
                                                         ),
                                                         Row(
                                                           children: [
-                                                            Text('5/per person'),
+                                                            Text(
+                                                              '50/per person',
+                                                              textAlign: TextAlign.left,
+                                                            ),
                                                             const SizedBox(
                                                               width: 40,
                                                             ),
-                                                            Text('4.5')
+                                                            Text(
+                                                              '4.5',
+                                                              textAlign: TextAlign.left,
+                                                            ),
                                                           ],
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
+                                          ),
                                           ],
                                         ),
                                     ),
                                   ),
                                 ),
-                              ),),
-                              GestureDetector(
+                              ),
+                          ),
+                          GestureDetector(
                                 onTap: () {
                                   print("Recommended 3");
                                 },
@@ -529,55 +586,82 @@ class _HomepageState extends State<Homepage> {
                                   alignment: Alignment.center,
                                     child: Container(
                                       alignment: Alignment.centerRight,
-                                      height: 90,
+                                      height: 100,
                                       width: 350,
                                       color: Color.fromARGB(255, 245, 212, 80),
                                         child:Column(
                                           children: [
                                             Row(
-                                              children: [
-                                                Container(
-                                                  child: Image.asset('Assets/Images/Recommended2.png'),
+                                            children: [
+                                              Container(
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Image.asset('Assets/Images/Recommended3.png'),
                                                 ),
-                                                SizedBox(width: 10,),
-                                                Container(
-                                                  alignment: Alignment.topRight,
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.all(8.0),
+                                              ),
+                                              SizedBox(width: 10,),
+                                              Container(
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Container(
                                                     child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
                                                       children: [
-                                                        const Text("Nepal"),
+                                                        Text(
+                                                          "Maldives",
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                          ),
+                                                        ),
                                                         Padding(
                                                           padding: const EdgeInsets.all(8.0),
                                                           child: Row(
                                                             children: [
-                                                              Icon(Icons.location_on,color: Colors.black,),
-                                                              const Text("Tara Bhir"),
+                                                              Align(
+                                                                alignment: Alignment.bottomLeft,
+                                                                child: Icon(
+                                                                  Icons.location_on,
+                                                                  color: Colors.black,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                "East coast",
+                                                                textAlign: TextAlign.left,
+                                                              ),
                                                             ],
                                                           ),
                                                         ),
                                                         Row(
                                                           children: [
-                                                            Text('56/per person'),
+                                                            Text(
+                                                              '50/per person',
+                                                              textAlign: TextAlign.left,
+                                                            ),
                                                             const SizedBox(
                                                               width: 40,
                                                             ),
-                                                            Text('4.5')
+                                                            Text(
+                                                              '4.5',
+                                                              textAlign: TextAlign.left,
+                                                            ),
                                                           ],
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
+                                          ),
                                           ],
                                         ),
                                     ),
                                   ),
                                 ),
                               ),
-                          ),],
+                          ),
+                          ],
                           ),
                         ),  
                       ] ,
