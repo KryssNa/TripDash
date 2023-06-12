@@ -77,9 +77,6 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
 
   @override
   Widget build(BuildContext context) {
-    if (1 < 0) {
-      return CircularProgressIndicator();
-    } else {
       return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -313,5 +310,4 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
         ),
       );
     }
-  }
 }
