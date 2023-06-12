@@ -8,6 +8,7 @@ import '../Screens/UserScreen/Profile/UserProfile.dart';
 import '../Screens/AdminScreen/addhotel.dart';
 import '../Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import '../Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import '../Screens/UserScreen/UserDashboard.dart';
 import '../Screens/add-hotels.dart';
 
 import '../Screens/AdminScreen/addhotel.dart';
@@ -32,4 +33,5 @@ final Map<String, WidgetBuilder> routes = {
   UserHotelScreen.routeName: (context) => const UserHotelScreen(),
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   Homepage.routeName: (context) => const Homepage(),
+  UserDashboard.routeName: (context) => const UserDashboard(),
 };

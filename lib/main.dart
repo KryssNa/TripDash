@@ -15,6 +15,7 @@ import '../Screens/UserScreen/Profile/UserProfile.dart';
 import 'Screens/AdminScreen/AdminDashboard.dart';
 
 import 'Screens/AdminScreen/addhotel.dart';
+import 'Screens/UserScreen/UserDashboard.dart';
 
 
 Future<void> main() async{
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
 
         debugShowCheckedModeBanner: false,
 
-          initialRoute: AdminAddHotels.routeName,
+          initialRoute: UserDashboard.routeName,
           routes: routes,
 
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class UserDashboard extends StatefulWidget {
   const UserDashboard({super.key});
+  static const routeName = '/UserDashboard';
 
   @override
   State<UserDashboard> createState() => _UserDashboardState();
