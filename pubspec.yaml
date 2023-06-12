@@ -2,26 +2,23 @@ name: tripdash
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
+  sdk: ">=3.0.1 <4.0.0"
 
 # Dependencies  to be used in our project
 dependencies:
   flutter:
     sdk: flutter
 
-# Dependencies
+  # Dependencies
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.6.1
   firebase_core: ^2.13.0
   cloud_firestore: ^4.7.1
-  image_picker: ^0.8.4+2
-  get: ^4.3.8
   firebase_database: ^10.2.1
   firebase_storage: ^11.2.1
   provider: ^6.0.5
@@ -39,27 +36,23 @@ dependencies:
   email_validator: ^2.1.17
   firebase_auth_mocks: ^0.11.0
   fake_cloud_firestore: ^2.1.1+1
-
+  get: ^4.3.8
+  image_picker: ^0.8.4+4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
   flutter_lints: ^2.0.0
 
-
 flutter:
-
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - Assets/images/
-     - Assets/images/avatars/av_1.png
-
-
-
+    - Assets/images/avatars/
+    - Assets/Images/
+    - Assets/icons/
 
   fonts:
     - family: Poppains
