@@ -53,6 +53,8 @@ flutter:
     - Assets/images/avatars/
     - Assets/Images/
     - Assets/images/
+    - Assets/icons/
+    - Assets/images/userDashboard/
 
   fonts:
     - family: Poppins
