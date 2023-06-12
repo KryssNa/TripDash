@@ -10,6 +10,12 @@ class UserDashboard extends StatefulWidget {
 class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          child: Text("User Dashboard"),
+        ),
+      )
+    );
   }
 }
