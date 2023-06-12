@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/AdminScreen/AdminDashboard.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import '../Screens/UserScreen/Profile/UpdateUserProfile.dart';
 import '../Screens/UserScreen/Profile/UserProfile.dart';
 
+import '../Screens/AdminScreen/addhotel.dart';
+import '../Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import '../Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import '../Screens/add-hotels.dart';
 
+import '../Screens/AdminScreen/addhotel.dart';
+import '../Screens/add-hotels.dart';
+
+import '../Screens/AdminScreen/addhotel.dart';
+import '../Screens/add-hotels.dart';
 
 // We use name route
-// All our routes will be available here
-// you must create a route name in the corresponding screen file to use it here
-// for example : static String routeName = "/register"; in lib\Screens\UserScreen\Signup\register.dart
+
 final Map<String, WidgetBuilder> routes = {
-  RegisterScreen.routeName: (context) => UserProfile(),
+  RegisterScreen.routeName: (context) => const RegisterScreen(),
+  TripPlanOverview.routeName: (context) => const TripPlanOverview(),
+  UpdateUserProfile.routeName: (context) => const UpdateUserProfile(),
+  UserProfile.routeName: (context) => const UserProfile(),
+  TripPlanDetails.routeName: (context) => const TripPlanDetails(),
+  AdminDashboard.routeName: (context) => const AdminDashboard(),
+  UserHotelScreen.routeName: (context) => const UserHotelScreen(),
+  AdminAddHotels.routeName: (context) => const AdminAddHotels(),
 };

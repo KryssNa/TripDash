@@ -1,10 +1,11 @@
-import'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/UpdateUserProfile.dart';
 import 'package:tripdash/widget/UserProfile/UserDetail.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);
+  static String routeName = "/UserProfile";
 
   @override
   State<UserProfile> createState() => _UserProfileState();
@@ -23,7 +24,6 @@ class _UserProfileState extends State<UserProfile> {
   String phone = "";
   String avatar = "";
 
-
   @override
   void initState() {
     super.initState();
@@ -33,7 +33,7 @@ class _UserProfileState extends State<UserProfile> {
   Future<void> fetchData() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     DocumentSnapshot document =
-    await firestore.collection('users').doc('user_1').get();
+        await firestore.collection('users').doc('user_1').get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
@@ -47,6 +47,7 @@ class _UserProfileState extends State<UserProfile> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,8 +58,10 @@ class _UserProfileState extends State<UserProfile> {
           onPressed: () {
             // Add your logic here
           },
-          icon: const Icon(Icons.arrow_back,
-            color: Colors.black,),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
         title: const Row(
           children: [
@@ -83,8 +86,8 @@ class _UserProfileState extends State<UserProfile> {
           child: Column(
             children: [
               CircleAvatar(
-                  radius: 75,
-                  backgroundImage: AssetImage(avatar),
+                radius: 75,
+                backgroundImage: AssetImage(avatar),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -92,10 +95,11 @@ class _UserProfileState extends State<UserProfile> {
                   Padding(
                     padding: EdgeInsets.only(bottom: 8),
                     child: TextButton(
-                      onPressed:(){
+                      onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => UpdateUserProfile()),
+                          MaterialPageRoute(
+                              builder: (context) => UpdateUserProfile()),
                         );
                       },
                       child: const Text(
@@ -115,42 +119,66 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                 ],
               ),
-
-              UserDetails(type: 'Name', value: '$name', rightValue: 60, secondaryText: secondaryText,),
+              UserDetails(
+                type: 'Name',
+                value: '$name',
+                rightValue: 60,
+                secondaryText: secondaryText,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12,bottom: 15),
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
                 ),
               ),
-              UserDetails(type: 'Address', value: address.isEmpty ? '--Not Provided--' : '$address', rightValue: 40,secondaryText: secondaryText,),
+              UserDetails(
+                type: 'Address',
+                value: address.isEmpty ? '--Not Provided--' : '$address',
+                rightValue: 40,
+                secondaryText: secondaryText,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12,bottom: 15),
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
                 ),
               ),
-              UserDetails(type: 'Email', value: '$email', rightValue: 62,secondaryText: secondaryText,),
+              UserDetails(
+                type: 'Email',
+                value: '$email',
+                rightValue: 62,
+                secondaryText: secondaryText,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12,bottom: 15),
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
                 ),
               ),
-              UserDetails(type: 'Gender', value: '$gender', rightValue: 50,secondaryText: secondaryText,),
+              UserDetails(
+                type: 'Gender',
+                value: '$gender',
+                rightValue: 50,
+                secondaryText: secondaryText,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12,bottom: 15),
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
                 ),
               ),
-              UserDetails(type: 'Phone No.', value: '$phone', rightValue: 26,secondaryText: secondaryText,),
+              UserDetails(
+                type: 'Phone No.',
+                value: '$phone',
+                rightValue: 26,
+                secondaryText: secondaryText,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12,bottom: 15),
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
