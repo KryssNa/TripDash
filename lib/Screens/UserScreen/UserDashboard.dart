@@ -48,9 +48,60 @@ class _UserDashboardState extends State<UserDashboard> {
         ),
 
         body: SafeArea(
-        child: Container(
-          child: Text("User Dashboard"),
-        ),
+        child: SingleChildScrollView(
+          child:Container(
+            color: Colors.blueAccent,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
+                Padding(
+                  padding:
+                  const EdgeInsets.only(left: 35.0, right: 35,),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Hello, User",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        InkWell(
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            child: IconButton(
+                              onPressed: () {
+                                // Add your logic here
+                              },
+                              icon: const Icon(
+                                Icons.notifications,
+                                color: Colors.white,
+                                size: 35,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 35.0, top: 10),
+                  child: Text(
+                    "Where do you want to go?",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+
+              ]
+            ),
+          )
+        )
       )
     );
   }
