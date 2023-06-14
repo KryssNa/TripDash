@@ -1,15 +1,28 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
-class view_hotel extends StatefulWidget {
+
+class view_hotel extends StatelessWidget {
+  static var routeName;
+
   const view_hotel({super.key});
 
   @override
-  State<view_hotel> createState() => _view_hotelState();
-}
-
-class _view_hotelState extends State<view_hotel> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SizedBox(
+      width: Get.width,
+      child: SingleChildScrollView(
+        child:Row(
+          children: [
+            const SizedBox(
+              width: 8,
+            ),
+            for(int i= 0; i < 3; i++) const view_hotel()
+          ],
+        )
+        ),
+    );
   }
 }
+

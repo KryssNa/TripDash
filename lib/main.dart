@@ -2,9 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:tripdash/Screens/UserScreen/view_hotel.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
-import 'Screens/AdminScreen/addhotel.dart';
+
 
 
 Future<void> main() async{
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     return   multiProvider(
       child: GetMaterialApp(
 
-          initialRoute: AdminAddHotels.routeName,
+          initialRoute: view_hotel.routeName,
           routes: routes,
 
       ),
