@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import '../../../widget/TripPlanWidgets/trip_activities.dart';
 import '../../../widget/TripPlanWidgets/trip_buttons.dart';
-import '../../../widget/TripPlanWidgets/trip_images.dart';
 
 class TripPlanDetails extends StatefulWidget {
   const TripPlanDetails({Key? key}) : super(key: key);
