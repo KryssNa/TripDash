@@ -212,6 +212,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
                   if (value == null || value.isEmpty) {
                     return "Hotel Location is required";
                   }
+                  return null;
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(),
@@ -233,6 +234,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
                   if (value == null || value.isEmpty) {
                     return "Hotel price is needed";
                   }
+                  return null;
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(),
@@ -254,6 +256,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
                   if (value == null || value.isEmpty) {
                     return "Hotel description is required";
                   }
+                  return null;
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(),

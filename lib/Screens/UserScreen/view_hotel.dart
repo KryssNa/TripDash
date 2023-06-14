@@ -1,7 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 
 class view_hotel extends StatelessWidget {
   static var routeName;
@@ -10,19 +8,20 @@ class view_hotel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: Get.width,
-      child: SingleChildScrollView(
-        child:Row(
-          children: [
-            const SizedBox(
-              width: 8,
-            ),
-            for(int i= 0; i < 3; i++) const view_hotel()
-          ],
-        )
-        ),
+    var activity;
+    return Container(
+      margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+      height: 170.0,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        children: <Widget>[
+          Text(activity.name),
+          Text('\$${activity.price}'),
+        ]),
     );
   }
 }
-
