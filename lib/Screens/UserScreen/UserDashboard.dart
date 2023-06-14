@@ -97,6 +97,156 @@ class _UserDashboardState extends State<UserDashboard> {
                     textAlign: TextAlign.left,
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                            child: InkWell(
+                              onTap: () {},
+                              child: Image.asset(
+                                "Assets/icons/aeroplane.png",
+                                height: 30,
+                              ),
+                            )),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            "Flights",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: const Color(0xffed6e27)),
+                            child: InkWell(
+                              onTap: () {},
+                              child: const Icon(
+                                Icons.home_work_sharp,
+                                color: Colors.white,
+                                size: 35,
+                              ),
+                            )),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            "Hotels",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color(0xfff3ac42),
+                            ),
+                            child: InkWell(
+                              onTap: () {},
+                              child: const Icon(
+                                Icons.task,
+                                color: Colors.white,
+                                size: 35,
+                              ),
+                            )),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            "Tasks",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color(0xff03bdc9),
+                            ),
+                            child: InkWell(
+                              onTap: () {},
+                              child: Image.asset(
+                                "Assets/icons/car.png",
+                                height: 40,
+                              ),
+                            )),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            "Cars",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: const EdgeInsets.only( left: 20, right: 20),
+                  height: 45,
+                  width: 400,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child: const Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Search",
+                        hoverColor: Colors.grey,
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
 
               ]
             ),
