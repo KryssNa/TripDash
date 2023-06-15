@@ -6,6 +6,7 @@ import 'NavigationPage/routes.dart';
 
 import 'Screens/AdminScreen/AdminDashboard.dart';
 
+import 'Screens/AdminScreen/addevents.dart';
 import 'Screens/AdminScreen/addhotel.dart';
 
 
@@ -29,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
 
         debugShowCheckedModeBanner: false,
-          initialRoute: AdminDashboard.routeName,
+          initialRoute: AdminAddEvents.routeName,
           routes: routes,
 
       ),

@@ -127,16 +127,17 @@ class  _EventEvent  extends State< AdminAddEvents > {
         imagepath: photo.ref.fullPath
     );
     db.collection("event").add(data.toJson()).then((value) {
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //     const SnackBar(content: Text("Event Added Successfully")));
-      Fluttertoast.showToast(
-    msg: "Event Added Successfully",
-    toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.BOTTOM,
-    backgroundColor: Colors.black,
-    textColor: Colors.white,
-  );
-    });
+      ScaffoldMessenger.of(context).showSnackBar(
+        Fluttertoast.showToast(
+          msg: "Event Added Successfully",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Color.fromARGB(255, 23, 217, 68),
+          textColor: Colors.white,
+        )as SnackBar
+        );
+      }
+    );
   }
   @override
   Widget build(BuildContext context) {
