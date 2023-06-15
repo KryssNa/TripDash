@@ -4,29 +4,60 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UpdateUserProfile extends StatefulWidget {
   const UpdateUserProfile({Key? key}) : super(key: key);
+  static String routeName = "/UpdateUserProfile";
 
   @override
   State<UpdateUserProfile> createState() => _UpdateUserProfileState();
 }
 
 class _UpdateUserProfileState extends State<UpdateUserProfile> {
-  final docUser = FirebaseFirestore.instance
-      .collection('users')
-      .doc('1lYNX68bOlPB24z3TDPwfRrlIyK2');
+  final docUser = FirebaseFirestore.instance.collection('users').doc('user_1');
+  String avatar = "";
+  String avatarValue = "";
   String nameValue = "";
   String addressValue = "";
-  int phoneNoValue = 0;
+  num? phoneNoValue;
   String passwordValue = "";
   String emailValue = "";
-
+  String? selectedGender;
+  String gender = "";
+  String address = "";
+  String email = '';
+  String name = '';
+  num? phone;
 
   Color orange = Color(int.parse("FF6700", radix: 16)).withOpacity(1.0);
   TextEditingController emailController = TextEditingController();
-  String? selectedGender;
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController phoneNoController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
+  TextEditingController avatarController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    DocumentSnapshot document =
+        await firestore.collection('users').doc('user_1').get();
+
+    if (document.exists) {
+      var data = document.data() as Map<String, dynamic>;
+      setState(() {
+        emailController.text = data['email'] ?? '';
+        nameController.text = data['name'] ?? '';
+        phoneNoController.text = data['phone'].toString() ?? '';
+        addressController.text = data['address'] ?? '';
+        selectedGender = data['gender'] ?? '';
+        avatarController.text = data['avatar'] ?? '';
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -36,8 +67,10 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
     phoneNoController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    genderController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,21 +105,65 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Center(
             child: Column(
               children: [
-                const CircleAvatar(
-                    radius: 75,
-                    backgroundImage:
-                    AssetImage('Assets/images/avatars/av_1.png')),
+                CircleAvatar(
+                  radius: 75,
+                  backgroundImage: AssetImage(avatarController.text),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text("Pick Avatar"),
+                                  actions: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          avatarController.text =
+                                              'Assets/images/avatars/av_1.png';
+                                          avatar =
+                                              'Assets/images/avatars/av_1.png';
+                                        });
+                                        Navigator.pop(
+                                            context); // Close the dialog
+                                      },
+                                      child: const CircleAvatar(
+                                        radius: 65,
+                                        backgroundImage: AssetImage(
+                                            'Assets/images/avatars/av_1.png'),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          avatarController.text =
+                                              'Assets/images/avatars/av_2.png';
+                                          avatar =
+                                              'Assets/images/avatars/av_2.png';
+                                        });
+                                        Navigator.pop(
+                                            context); // Close the dialog
+                                      },
+                                      child: const CircleAvatar(
+                                        radius: 65,
+                                        backgroundImage: AssetImage(
+                                            'Assets/images/avatars/av_2.png'),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              });
+                        },
                         child: const Text(
                           "Update Profile Avatar",
                           style: TextStyle(
@@ -99,6 +176,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                     ),
                     const Icon(
                       Icons.mode_edit_outline_outlined,
+                      size: 18,
                       color: Colors.deepOrange,
                     ),
                   ],
@@ -111,28 +189,28 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                         controller: nameController,
                         decoration: InputDecoration(
                           labelText: 'Name',
-                          hintText: 'Update your name',
+                          hintText: name,
                         ),
                       ),
                     ),
-
-                     Padding(
+                    Padding(
                       padding: EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: addressController,
                         decoration: InputDecoration(
                           labelText: 'Address',
-                          hintText: 'Update your address',
+                          hintText:
+                              address.isEmpty ? '--Not Provided--' : address,
                         ),
                       ),
                     ),
-                     Padding(
+                    Padding(
                       padding: EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: emailController,
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          hintText: 'Update your email',
+                          hintText: email,
                         ),
                       ),
                     ),
@@ -154,7 +232,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                           'Female',
                           'Other',
                         ].map<DropdownMenuItem<String>>(
-                              (String value) {
+                          (String value) {
                             return DropdownMenuItem<String>(
                               value: value,
                               child: Text(value),
@@ -163,37 +241,66 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                         ).toList(),
                       ),
                     ),
-
                     Padding(
                       padding: EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: phoneNoController,
                         decoration: InputDecoration(
                           labelText: 'Phone No.',
-                          hintText: 'Update your Phone Number',
+                          hintText: '$phone',
                         ),
                       ),
                     ),
                     Padding(
                       padding:
-                      const EdgeInsets.only(right: 12, left: 15, top: 40),
+                          const EdgeInsets.only(right: 12, left: 15, top: 40),
                       child: ElevatedButton(
                         child: Text("Update Proflie"),
                         style: ButtonStyle(
                           minimumSize:
-                          MaterialStateProperty.all<Size>(Size(350, 50)),
+                              MaterialStateProperty.all<Size>(Size(350, 50)),
                           backgroundColor: MaterialStateProperty.all<Color>(
                               ConstColors.buttonColor),
                           foregroundColor: MaterialStateProperty.all<Color>(
                               ConstColors.buttonColor2),
                         ),
                         onPressed: () {
-                          docUser.update({'name':nameController.text,});
-                          docUser.update({'email':emailController.text,});
-                          docUser.update({'phone':phoneNoController.text,});
-                          docUser.update({'address':addressController.text,});
-                          docUser.update({'gender':selectedGender,});
-
+                          if (nameController.text.isEmpty ||
+                              addressController.text.isEmpty ||
+                              emailController.text.isEmpty ||
+                              phoneNoController.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Please fill all fields')),
+                            );
+                            return;
+                          }
+                          try {
+                            docUser.update({
+                              'name': nameController.text,
+                              'email': emailController.text,
+                              'phone': phoneNoController.text,
+                              'address': addressController.text,
+                              'gender': selectedGender,
+                              'avatar': avatarController.text,
+                            }).then((_) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content:
+                                        Text('Profile updated successfully!')),
+                              );
+                            }).catchError((error) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text('Failed to update: $error')),
+                              );
+                            });
+                          } catch (error) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                  content: Text(
+                                      'An error occurred while updating the profile: $error')),
+                            );
+                          }
                         },
                       ),
                     ),

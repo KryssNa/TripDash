@@ -9,12 +9,13 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.0.1 <4.0.0"
 
-# Dependencies  to be used in our project
+# Dependencies to be used in our project
 dependencies:
   flutter:
     sdk: flutter
 
   # Dependencies
+  path_provider: ^2.0.15
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.6.1
   firebase_core: ^2.13.0
@@ -23,7 +24,6 @@ dependencies:
   firebase_storage: ^11.2.1
   provider: ^6.0.5
   flutter_local_notifications: ^14.1.0
-  path_provider: ^2.0.15
   firebase_messaging: ^14.6.1
   http: ^0.13.4
   json_serializable:
@@ -52,19 +52,21 @@ flutter:
   assets:
     - Assets/images/avatars/
     - Assets/Images/
-    - Assets/icons/
+    - Assets/images/
 
   fonts:
-    - family: Poppains
+    - family: Poppins
       fonts:
         - asset: Assets/fonts/poppains/Poppins-Bold.ttf
         - asset: Assets/fonts/poppains/Poppins-Regular.ttf
         - asset: Assets/fonts/poppains/Poppins-ExtraBold.ttf
         - asset: Assets/fonts/poppains/Poppins-ExtraLight.ttf
           weight: 700
+
     - family: Pacifico
       fonts:
         - asset: Assets/fonts/pacifico/Pacifico-Regular.ttf
+
     - family: SSFPro
       fonts:
         - asset: Assets/fonts/ssfPro/SF-Pro.ttf

@@ -29,9 +29,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   showHidePassword() {
     setState(() {
-      RegisterScreen.changePaswordState  = !RegisterScreen.changePaswordState;
+      RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
     });
   }
+
   Widget showVisibilityIcon(bool showPassword) {
     Widget icon = const Icon(Icons.visibility);
     if (showPassword == true) {
@@ -39,19 +40,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     return showPassword == RegisterScreen.changePaswordState
         ? InkWell(
-        onTap: () {
-          setState(() {
-            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
-          });
-        },
-        child: icon)
+            onTap: () {
+              setState(() {
+                RegisterScreen.changePaswordState =
+                    !RegisterScreen.changePaswordState;
+              });
+            },
+            child: icon)
         : InkWell(
-        onTap: () {
-          setState(() {
-            RegisterScreen.changePaswordState = !RegisterScreen.changePaswordState;
-          });
-        },
-        child: const Icon(Icons.visibility_off));
+            onTap: () {
+              setState(() {
+                RegisterScreen.changePaswordState =
+                    !RegisterScreen.changePaswordState;
+              });
+            },
+            child: const Icon(Icons.visibility_off));
   }
 
   void showErrorDialog(BuildContext context) {
@@ -102,12 +105,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      await _authen.register(UserModel(
+      await _authen
+          .register(UserModel(
         name: nameController.text,
         email: emailController.text,
         phone: phoneController.text,
         password: passwordController.text,
-      )).then((value) {
+      ))
+          .then((value) {
         // Registration success
         ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("User Registered Successfully")));
@@ -134,7 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ConstColors.primaryColor2,
+        backgroundColor: ConstColors.primaryColor2,
         body: SafeArea(
           child: Container(
               decoration: const BoxDecoration(
@@ -187,16 +192,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: Column(
                                   children: [
                                     textField(
-                                      titleHeading: 'Name',
-                                      hintText: 'Enter your name',
-                                      controller: nameController,
-                                        Validator: ( value) {
-                                          if (value == null || value.isEmpty ) {
+                                        titleHeading: 'Name',
+                                        hintText: 'Enter your name',
+                                        controller: nameController,
+                                        Validator: (value) {
+                                          if (value == null || value.isEmpty) {
                                             return "Name cannot be empty";
                                           }
                                           return null; // null means passed
-                                        }
-                                    ),
+                                        }),
                                     const SizedBox(
                                       height: 20,
                                     ),
@@ -209,7 +213,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           return "Email is required";
                                         }
                                         if (!RegExp(
-                                            r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                                r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                             .hasMatch(value)) {
                                           return "Please enter valid email";
                                         }
@@ -223,11 +227,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       titleHeading: 'Phone Number',
                                       hintText: 'Enter your phone number',
                                       controller: phoneController,
-                                      Validator: ( value) {
+                                      Validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return "phone number is required";
                                         }
-                                        if (value.length < 10 || value.length > 10) {
+                                        if (value.length < 10 ||
+                                            value.length > 10) {
                                           return "enter valid phone number";
                                         }
                                         return null; //
@@ -243,11 +248,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       suffixIcon: showVisibilityIcon(
                                           RegisterScreen.changePaswordState),
                                       controller: passwordController,
-                                      Validator: ( value) {
+                                      Validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return "password is required";
                                         }
-                                        if (value.length < 8 || value.length > 10) {
+                                        if (value.length < 8 ||
+                                            value.length > 10) {
                                           return "enter password of 8 to 10 characters";
                                         }
                                         return null; //
@@ -257,21 +263,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       height: 20,
                                     ),
                                     textField(
-                                        titleHeading: 'Confirm Password',
-                                        hintText: 'Confirm your password',
-                                        obscureText: false,
-                                        suffixIcon: showVisibilityIcon(
-                                            RegisterScreen.changePaswordState),
-                                        controller: confirmPasswordController,
-                                      Validator: ( value) {
-                                        if (value == null || value != passwordController.text) {
+                                      titleHeading: 'Confirm Password',
+                                      hintText: 'Confirm your password',
+                                      obscureText: false,
+                                      suffixIcon: showVisibilityIcon(
+                                          RegisterScreen.changePaswordState),
+                                      controller: confirmPasswordController,
+                                      Validator: (value) {
+                                        if (value == null ||
+                                            value != passwordController.text) {
                                           return "password does not match";
                                         }
                                         return null; //
                                       },
-
                                     ),
-
                                     const SizedBox(
                                       height: 20,
                                     ),
@@ -293,7 +298,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               fontSize: 16,
                                               fontFamily: 'SSFPro',
                                               // fontWeight: FontWeight.bold,
-                                              color: ConstColors.primaryTextColor,
+                                              color:
+                                                  ConstColors.primaryTextColor,
                                             ),
                                           ),
                                         ],
@@ -303,7 +309,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       height: 10,
                                     ),
                                     ButtonWidget(
-                                      title: isLoading ? "REGISTERING..." : "REGISTER",
+                                      title: isLoading
+                                          ? "REGISTERING..."
+                                          : "REGISTER",
                                       onPressed: isLoading ? null : register,
                                       showLoadingIndicator: isLoading,
                                     ),
@@ -322,7 +330,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               fontSize: 16,
                                               fontFamily: 'SSFPro',
                                               // fontWeight: FontWeight.bold,
-                                              color: ConstColors.primaryTextColor,
+                                              color:
+                                                  ConstColors.primaryTextColor,
                                             ),
                                           ),
                                           TextButton(
@@ -336,7 +345,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 fontSize: 16,
                                                 fontFamily: 'SSFPro',
                                                 // fontWeight: FontWeight.bold,
-                                                color: ConstColors.secondaryColor,
+                                                color:
+                                                    ConstColors.secondaryColor,
                                               ),
                                             ),
                                           ),
