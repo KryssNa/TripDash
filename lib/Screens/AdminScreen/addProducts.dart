@@ -12,17 +12,17 @@ import 'package:tripdash/model/Product_Model.dart';
 
 class AddProduct extends StatefulWidget {
   const  AddProduct ({super.key});
-  static const routeName = '/AddPRoducts';
+  static const routeName = '/AddProducts';
   @override
   State< AddProduct > createState() => _AddProductState ();
 }
 
 class  _AddProductState  extends State< AddProduct > {
   TextEditingController product_name = TextEditingController();
-  TextEditingController product_location = TextEditingController();
+  TextEditingController product_category = TextEditingController();
   TextEditingController product_price = TextEditingController();
-  TextEditingController product_description = new TextEditingController();
-  int product_id = new DateTime.now().millisecondsSinceEpoch;
+  TextEditingController product_offer = new TextEditingController();
+  int id = new DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
   // var uuid = Uuid();
   void imagePickerOption() {
@@ -96,7 +96,7 @@ class  _AddProductState  extends State< AddProduct > {
     }
   }
 
-  Future<void> add_hotel(ProductModel) async {
+  Future<void> add_product(ProductViewModel) async {
     if(pickedImage == null){
       // ScaffoldMessenger.of(context).showSnackBar(snackBar)
       return;
@@ -109,15 +109,15 @@ class  _AddProductState  extends State< AddProduct > {
     var url = await photo.ref.getDownloadURL();
 
     final data = ProductModel(
-        hotelId: product_id.toString(),
-        hotelName:product_name.text,
-        location: product_location.text,
+        productId: id.toString(),
+        productName:product_name.text,
+        category: product_category.text,
         price: product_price.text,
-        description: product_description.text,
+        offer: product_offer.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath
     );
-    db.collection("prduct").add(data.toJson()).then((value) {
+    db.collection("product").add(data.toJson()).then((value) {
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("product added")));
     });
@@ -193,7 +193,7 @@ class  _AddProductState  extends State< AddProduct > {
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
-                    Icons.place_sharp,
+                    Icons.add_circle_outline,
                     color: Colors.black,
                   ),
                   hintText: "Product Name",
@@ -206,7 +206,7 @@ class  _AddProductState  extends State< AddProduct > {
               padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
               child: TextFormField(
                 style: TextStyle(color: Colors.black),
-                controller: product_location,
+                controller: product_category,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return "Product Location is required";
@@ -215,10 +215,10 @@ class  _AddProductState  extends State< AddProduct > {
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
-                    Icons.location_city,
+                    Icons.category,
                     color: Colors.black,
                   ),
-                  hintText: "Product Location",
+                  hintText: "Product Category",
                 ),
               ),
             ),
@@ -236,10 +236,10 @@ class  _AddProductState  extends State< AddProduct > {
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
-                    Icons.price_change,
-                    color: const Color.fromARGB(255, 151, 135, 135),
+                    Icons.price_change_outlined,
+                    color: Colors.black,
                   ),
-                  hintText: "Product Price",
+                  hintText: "Price",
                 ),
               ),
             ),
@@ -248,19 +248,19 @@ class  _AddProductState  extends State< AddProduct > {
               padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
               child: TextFormField(
                 style: TextStyle(color: Colors.black),
-                controller: product_description,
+                controller: product_offer,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return "Product description is required";
+                    return "Product offer is required";
                   }
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
-                    Icons.description,
+                    Icons.local_offer_outlined,
                     color: Colors.black,
                   ),
-                  hintText: "Product description",
+                  hintText: "Offers",
                 ),
               ),
             ),
@@ -269,7 +269,7 @@ class  _AddProductState  extends State< AddProduct > {
               padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 4.0),
               child: ElevatedButton.icon(
                   onPressed: () {
-                    add_hotel(ProductViewModel);
+                    add_product(ProductViewModel);
                   },
                   icon: const Icon(Icons.location_city),
                   label: const Text('Add Product')),
