@@ -28,10 +28,8 @@ final Map<String, WidgetBuilder> routes = {
   UpdateUserProfile.routeName: (context) => const UpdateUserProfile(),
   UserProfile.routeName: (context) => const UserProfile(),
   TripPlanDetails.routeName: (context) => const TripPlanDetails(),
-
   AdminDashboard.routeName: (context) => const AdminDashboard(),
   UserHotelScreen.routeName: (context) => const UserHotelScreen(),
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   Homepage.routeName: (context) => const Homepage(),
- };
-
+};
