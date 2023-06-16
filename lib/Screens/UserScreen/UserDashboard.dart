@@ -703,6 +703,366 @@ class _UserDashboardState extends State<UserDashboard> {
                             ),
                           ),
 
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right: 20,top: 16,),
+                                child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    "Popular Destination",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right: 20,top: 16,),
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    "View All",
+                                    style: TextStyle(
+                                      color: Colors.blueAccent,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            height: 150,
+                            width: 500,
+                            margin: const EdgeInsets.only(left: 15,right: 15,top: 10),
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height:120,
+                                    width: 90,
+                                    margin: const EdgeInsets.only(left: 10,),
+                                    foregroundDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      image: const DecorationImage(
+                                        image: AssetImage('Assets/images/userDashboard/sPlace4.png',),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  const Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 25.0,top: 25,bottom: 30),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Padding(
+                                              padding:  EdgeInsets.only(right: 5,),
+                                              child: Text(
+                                                "Enjoy Summer Vaccation",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.star,color: Colors.yellow,),
+                                                Text("4.5")
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 15.0,top: 10,right: 5),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.location_on,color: Colors.blue,size: 20,),
+                                                Text(" San Francisco")
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 5,),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text.rich(
+                                                  TextSpan(
+                                                    children: [
+                                                      WidgetSpan(
+                                                        child: Icon(
+                                                          Icons.attach_money,
+                                                          color: Color(0xff03bdc9),
+                                                          size: 18,),
+                                                      ),
+                                                      TextSpan(
+                                                        text: "200",
+                                                        style: TextStyle(
+                                                          color: Color(0xff03bdc9),
+                                                          fontSize: 12,
+                                                          fontWeight: FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: " /Per Person",
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 10,
+                                                          fontWeight: FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          Container(
+                            height: 150,
+                            width: 500,
+                            margin: const EdgeInsets.only(left: 15,right: 15,top: 10),
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height:120,
+                                    width: 90,
+                                    margin: const EdgeInsets.only(left: 10,),
+                                    foregroundDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      image: const DecorationImage(
+                                        image: AssetImage('Assets/images/userDashboard/sPlace2.png',),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  const Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 25.0,top: 25,bottom: 30),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Padding(
+                                              padding:  EdgeInsets.only(right: 5,),
+                                              child: Text(
+                                                "Enjoy Summer Vaccation",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.star,color: Colors.yellow,),
+                                                Text("4.5")
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 15.0,top: 10,right: 5),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.location_on,color: Colors.blue,size: 20,),
+                                                Text(" San Francisco")
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 5,),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text.rich(
+                                                  TextSpan(
+                                                    children: [
+                                                      WidgetSpan(
+                                                        child: Icon(
+                                                          Icons.attach_money,
+                                                          color: Color(0xff03bdc9),
+                                                          size: 18,),
+                                                      ),
+                                                      TextSpan(
+                                                        text: "200",
+                                                        style: TextStyle(
+                                                          color: Color(0xff03bdc9),
+                                                          fontSize: 12,
+                                                          fontWeight: FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: " /Per Person",
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 10,
+                                                          fontWeight: FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          //popular destination
+
+                          Container(
+                            height: 150,
+                            width: 500,
+                            margin: const EdgeInsets.only(left: 15,right: 15,top: 10),
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height:120,
+                                    width: 90,
+                                    margin: const EdgeInsets.only(left: 10,),
+                                    foregroundDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      image: const DecorationImage(
+                                        image: AssetImage('Assets/images/userDashboard/sPlace1.png',),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  const Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 25.0,top: 25,bottom: 30),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Padding(
+                                              padding:  EdgeInsets.only(right: 5,),
+                                              child: Text(
+                                                "Enjoy Summer Vaccation",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.star,color: Colors.yellow,),
+                                                Text("4.5")
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 15.0,top: 10,right: 5),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.location_on,color: Colors.blue,size: 20,),
+                                                Text(" San Francisco")
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 5,),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text.rich(
+                                                  TextSpan(
+                                                    children: [
+                                                      WidgetSpan(
+                                                        child: Icon(
+                                                          Icons.attach_money,
+                                                          color: Color(0xff03bdc9),
+                                                          size: 18,),
+                                                      ),
+                                                      TextSpan(
+                                                        text: "200",
+                                                        style: TextStyle(
+                                                          color: Color(0xff03bdc9),
+                                                          fontSize: 12,
+                                                          fontWeight: FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: " /Per Person",
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 10,
+                                                          fontWeight: FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          ),
+
+                       
 
 
 
@@ -711,7 +1071,6 @@ class _UserDashboardState extends State<UserDashboard> {
                     ),
                   ),
                 ),
-
 
 
               ]
