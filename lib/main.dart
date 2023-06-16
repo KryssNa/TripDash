@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
 
         debugShowCheckedModeBanner: false,
-          initialRoute: UpdateUserProfile.routeName,
+          initialRoute: AddProduct.routeName,
           routes: routes,
       ),
     );
