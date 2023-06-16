@@ -5,7 +5,7 @@ import '../../../../constant/Colors.dart';
 class textField extends StatelessWidget {
   textField({
     super.key, required this.titleHeading, required this.hintText, required this.controller,this.prefixIcon
-    ,this.suffixIcon,  this.obscureText, this.Validator
+    ,this.suffixIcon,  this.obscureText, this.Validator, required String? Function(dynamic value) validator
   });
   final String titleHeading;
   final String hintText;

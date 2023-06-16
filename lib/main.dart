@@ -1,5 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/LoginScreen.dart';
+import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
@@ -20,14 +24,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_typing_uninitialized_variables
-    var login;
     return   multiProvider(
       child: MaterialApp(
 
         debugShowCheckedModeBanner: false,
-          initialRoute: login.routeName,
-          routes: routes,
+        initialRoute: LoginScreen.routeName,
+        routes: routes,
 
       ),
     );
