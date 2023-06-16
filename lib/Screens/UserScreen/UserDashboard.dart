@@ -248,7 +248,154 @@ class _UserDashboardState extends State<UserDashboard> {
                 const SizedBox(
                   height: 10,
                 ),
-               
+                SingleChildScrollView(
+
+                  child: Container(
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.all(5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal ,
+                            child: Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    print('Dubai button tapped!');
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      children: [
+                                        CircleAvatar(
+                                          foregroundImage: AssetImage('Assets/images/Hotel.png'),
+                                          radius: 30,
+                                        ),
+                                        Text("Dubai")
+                                      ],
+                                    ),
+                                  ),
+                                ),
+
+                                GestureDetector(
+                                  onTap: () {
+                                    print('Bali button tapped!');
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      children: [
+                                        CircleAvatar(
+                                          foregroundImage: AssetImage('Assets/images/Hotel.png'),
+                                          radius: 30,
+                                        ),
+                                        Text("Bali")
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    print('Antartica button tapped!');
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      children: [
+                                        CircleAvatar(
+                                          foregroundImage: AssetImage('Assets/images/Hotel.png'),
+                                          radius: 30,
+                                        ),
+                                        Text("Antartica")
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    print('London button tapped!');
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      children: [
+                                        CircleAvatar(
+                                          foregroundImage: AssetImage('Assets/images/Hotel.png'),
+                                          radius: 30,
+                                        ),
+                                        Text("London")
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    print('Maldives button tapped!');
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      children: [
+                                        CircleAvatar(
+                                          foregroundImage: AssetImage('Assets/images/Hotel.png'),
+                                          radius: 30,
+                                        ),
+                                        Text("Maldives")
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right: 20,top: 8,bottom: 8),
+                                child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    "Recomended",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right: 20,top: 8,bottom: 8),
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    "View All",
+                                    style: TextStyle(
+                                      color: Colors.blueAccent,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                         
+
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
 
 
 
