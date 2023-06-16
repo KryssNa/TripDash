@@ -1061,8 +1061,320 @@ class _UserDashboardState extends State<UserDashboard> {
                               ),
                             ),
                           ),
+                          //Events
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right: 20,top: 20),
+                                child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    "Events",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right: 20,top: 20),
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    "View All",
+                                    style: TextStyle(
+                                      color: Colors.blueAccent,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
 
-                       
+                          Container(
+                            height: 150,
+                            width: 500,
+                            margin: const EdgeInsets.only(left: 15,right: 15,top: 10),
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height:140,
+                                    width: 140,
+                                    margin: const EdgeInsets.only(left: 10,),
+                                    foregroundDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      image: const DecorationImage(
+                                        image: AssetImage('Assets/images/userDashboard/sPlace4.png',),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Padding(
+                                        padding: EdgeInsets.all(5),
+                                        child: Padding(
+                                          padding:  EdgeInsets.only(right: 5,left: 8),
+                                          child: Text(
+                                            "Kathmandu, Nepal",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+
+                                      const Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 15.0,top: 0,right: 5),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.location_on,color: Colors.blue,size: 20,),
+                                                Text(" Sundarijal"),
+
+                                              ],
+                                            ),
+                                          ),
+
+                                        ],
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                          ],
+                                        ),
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.only(top: 5,left: 8),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text.rich(
+                                              TextSpan(
+                                                children: [
+                                                  WidgetSpan(
+                                                    child: Icon(
+                                                      Icons.attach_money,
+                                                      color: Color(0xff03bdc9),
+                                                      size: 18,),
+                                                  ),
+                                                  TextSpan(
+                                                    text: "200",
+                                                    style: TextStyle(
+                                                      color: Color(0xff03bdc9),
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: " /night",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      //view details button on bottom right
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10,left: 80),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            Container(
+                                              height: 30,
+                                              width: 90,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(10),
+                                                color: Colors.blue,
+                                              ),
+                                              child: const Center(
+                                                child: Text(
+                                                  "View Details",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 150,
+                            width: 500,
+                            margin: const EdgeInsets.only(left: 15,right: 15,top: 10),
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height:140,
+                                    width: 140,
+                                    margin: const EdgeInsets.only(left: 10,),
+                                    foregroundDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      image: const DecorationImage(
+                                        image: AssetImage('Assets/images/userDashboard/sPlace1.png',),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Padding(
+                                        padding: EdgeInsets.all(5),
+                                        child: Padding(
+                                          padding:  EdgeInsets.only(right: 5,left: 8),
+                                          child: Text(
+                                            "Kathmandu, Nepal",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+
+                                      const Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 15.0,top: 0,right: 5),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.location_on,color: Colors.blue,size: 20,),
+                                                Text(" Sundarijal"),
+
+                                              ],
+                                            ),
+                                          ),
+
+                                        ],
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                            Icon(Icons.star,color: Colors.yellow,),
+                                          ],
+                                        ),
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.only(top: 5,left: 8),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text.rich(
+                                              TextSpan(
+                                                children: [
+                                                  WidgetSpan(
+                                                    child: Icon(
+                                                      Icons.attach_money,
+                                                      color: Color(0xff03bdc9),
+                                                      size: 18,),
+                                                  ),
+                                                  TextSpan(
+                                                    text: "200",
+                                                    style: TextStyle(
+                                                      color: Color(0xff03bdc9),
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: " /night",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      //view details button on bottom right
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10,left: 80),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            Container(
+                                              height: 30,
+                                              width: 90,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(10),
+                                                color: Colors.blue,
+                                              ),
+                                              child: const Center(
+                                                child: Text(
+                                                  "View Details",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          ),
+
+
+
 
 
 
