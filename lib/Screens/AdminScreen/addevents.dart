@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tripdash/ViewModel/event_viewmodel.dart';
 import '../../model/event_Model.dart';
+import 'package:quickalert/quickalert.dart';
 
 
 class AdminAddEvents extends StatefulWidget {
@@ -144,6 +145,43 @@ class  _EventEvent  extends State< AdminAddEvents > {
   ) as SnackBar);
     });
     }
+  }
+  void showAlert(){
+    showDialog(context: context,
+     builder: (context){
+      return AlertDialog(
+        backgroundColor: Colors.green,
+        actions: [
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: [
+          MaterialButton(
+            onPressed: (){
+              add_event(EventViewModel);
+              Navigator.pop(context);
+            },
+            child: Text("Add more Events"),
+            color: Colors.blue, // Customize the button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0), // Customize the button shape
+            ),
+          ),
+          MaterialButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            child: Text("Done"),
+            color: Colors.blue, // Customize the button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0), // Customize the button shape
+            ),
+          ),
+        ],
+        ),
+        ],
+      );
+     }
+    );
   }
   @override
   Widget build(BuildContext context) {
@@ -466,9 +504,11 @@ class  _EventEvent  extends State< AdminAddEvents > {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton.icon(
-                            onPressed: () {
-                              add_event(EventViewModel);
-                            },
+                            onPressed: showAlert,
+                            // () {
+                            //   add_event(EventViewModel);
+                              
+                            // },
                             icon: const Icon(Icons.event_available_rounded),
                             label: const Text('Add Event')),
                       ),
