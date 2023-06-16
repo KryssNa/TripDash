@@ -389,7 +389,322 @@ class _UserDashboardState extends State<UserDashboard> {
                             ],
                           ),
 
-                         
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SizedBox(
+                                  height: 250,
+                                  width: 200,
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height:150,
+                                          width: 200,
+                                          foregroundDecoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(25),
+                                            image: const DecorationImage(
+                                              image: AssetImage('Assets/images/userDashboard/place3.png'),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(right: 8.0),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.only(left: 20),
+                                                child: Text(
+                                                  "Golden Gate",
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.star,color: Colors.yellow,),
+                                                  Text("4.5")
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 15.0,top: 10,right: 5),
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.location_on,color: Colors.grey,size: 20,),
+                                              Text(" San Francisco")
+                                            ],
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 15.0,top: 5,right: 10),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text. rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.attach_money,
+                                                        color: Color(0xff03bdc9),
+                                                        size: 18,),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "200",
+                                                      style: TextStyle(
+                                                        color: Color(0xff03bdc9),
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: " /Visit",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Icon(Icons.favorite,
+                                                color: Color(0xff056e73),
+                                                size: 20,)
+
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                ),
+
+                                SizedBox(
+                                  height: 250,
+                                  width: 200,
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height:150,
+                                          width: 200,
+                                          foregroundDecoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(25),
+                                            image: const DecorationImage(
+                                              image: AssetImage('Assets/images/userDashboard/place2.png'),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(right: 8.0),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.only(left: 20),
+                                                child: Text(
+                                                  "Golden Gate",
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.star,color: Colors.yellow,),
+                                                  Text("4.5")
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 15.0,top: 10,right: 5),
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.location_on,color: Colors.grey,size: 20,),
+                                              Text(" San Francisco")
+                                            ],
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 15.0,top: 5,right: 10),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.attach_money,
+                                                        color: Color(0xff03bdc9),
+                                                        size: 18,),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "200",
+                                                      style: TextStyle(
+                                                        color: Color(0xff03bdc9),
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: " /Visit",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Icon(Icons.favorite,
+                                                color: Color(0xff056e73),
+                                                size: 20,)
+
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                ),
+
+                                SizedBox(
+                                  height: 250,
+                                  width: 200,
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height:150,
+                                          width: 200,
+                                          foregroundDecoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(25),
+                                            image: const DecorationImage(
+                                              image: AssetImage('Assets/images/userDashboard/place4.png'),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(right: 8.0),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.only(left: 20),
+                                                child: Text(
+                                                  "Golden Gate",
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.star,color: Colors.yellow,),
+                                                  Text("4.5")
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 15.0,top: 10,right: 5),
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.location_on,color: Colors.grey,size: 20,),
+                                              Text(" San Francisco")
+                                            ],
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 15.0,top: 5,right: 10),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.attach_money,
+                                                        color: Color(0xff03bdc9),
+                                                        size: 18,),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "200",
+                                                      style: TextStyle(
+                                                        color: Color(0xff03bdc9),
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: " /Visit",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Icon(Icons.favorite,
+                                                color: Color(0xff056e73),
+                                                size: 20,)
+
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                ),
+                              ],
+                            ),
+                          ),
+
+
+
 
                         ],
                       ),
