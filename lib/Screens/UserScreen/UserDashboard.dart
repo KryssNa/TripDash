@@ -1376,7 +1376,60 @@ class _UserDashboardState extends State<UserDashboard> {
 
 
 
+                          //find place in a map
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right: 20,top: 20),
+                                child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    "View Places on map",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
 
+                            ],
+                          ),
+                          //show map below in a sized box using iframe tag
+                          Container(
+                            height: 200,
+                            width: 500,
+                            margin: const EdgeInsets.only(left: 15,right: 15,top: 10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child:
+                            WebViewWidget(
+                                controller: WebViewController()
+                                  ..setJavaScriptMode(JavaScriptMode.unrestricted)
+                                  ..setBackgroundColor(const Color(0x00000000))
+                                  ..setNavigationDelegate(
+                                    NavigationDelegate(
+                                      onProgress: (int progress) {
+                                        // Update loading bar.
+                                      },
+                                      onPageStarted: (String url) {},
+                                      onPageFinished: (String url) {},
+                                      onWebResourceError: (WebResourceError error) {},
+                                      onNavigationRequest: (NavigationRequest request) {
+                                        if (request.url.startsWith('https://www.youtube.com/')) {
+                                          return NavigationDecision.prevent;
+                                        }
+                                        return NavigationDecision.navigate;
+                                      },
+                                    ),
+                                  )
+                                  ..loadRequest(Uri.parse(
+                                      'https://maps.google.com/maps?q=Tangesir%20Dates%20Products&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed'))
+                            ),
+                          )
 
                         ],
                       ),
