@@ -1,8 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/homepage/home_page.dart';
+
+
 import 'package:get/get.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
+import '../Screens/UserScreen/Profile/UserProfile.dart';
 
 import 'Screens/AdminScreen/AdminDashboard.dart';
 
@@ -30,7 +38,9 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
 
         debugShowCheckedModeBanner: false,
-          initialRoute: AdminAddEvents.routeName,
+
+          initialRoute: UserProfile.routeName,
+
           routes: routes,
 
       ),
