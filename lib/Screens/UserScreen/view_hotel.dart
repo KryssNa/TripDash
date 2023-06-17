@@ -19,8 +19,17 @@ class view_hotel extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          Text(activity.name),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment:CrossAxisAlignment.start,
+            children:<Widget>[
+              Text(activity.name),
           Text('\$${activity.price}'),
+            ]
+            
+          )
+          Text(activity.type),
+          
         ]),
     );
   }
