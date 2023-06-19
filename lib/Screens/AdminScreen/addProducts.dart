@@ -4,8 +4,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tripdash/ViewModel/product_view_model.dart';
-import 'package:tripdash/model/Product_Model.dart';
+import 'package:tripdash/ViewModel/ProductViewModel.dart';
+import 'package:tripdash/model/ProductModel.dart';
 import '../../widget/textFieldWidget.dart';
 
 class AddProduct extends StatefulWidget {
