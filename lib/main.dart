@@ -7,7 +7,7 @@ import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 
 import 'package:get/get.dart';
-import 'package:tripdash/Screens/AdminScreen/addProducts.dart';
+import 'package:tripdash/Screens/AdminScreen/AddProduct.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/UpdateUserProfile.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
