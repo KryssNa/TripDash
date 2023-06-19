@@ -9,7 +9,7 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.0.1 <4.0.0"
 
-# Dependencies  to be used in our project
+# Dependencies to be used in our project
 dependencies:
   flutter:
     sdk: flutter
@@ -54,18 +54,21 @@ flutter:
     - Assets/Images/
     - Assets/images/
     - Assets/icons/
+    - Assets/images/userDashboard/
 
   fonts:
-    - family: Poppains
+    - family: Poppins
       fonts:
         - asset: Assets/fonts/poppains/Poppins-Bold.ttf
         - asset: Assets/fonts/poppains/Poppins-Regular.ttf
         - asset: Assets/fonts/poppains/Poppins-ExtraBold.ttf
         - asset: Assets/fonts/poppains/Poppins-ExtraLight.ttf
           weight: 700
+
     - family: Pacifico
       fonts:
         - asset: Assets/fonts/pacifico/Pacifico-Regular.ttf
+
     - family: SSFPro
       fonts:
         - asset: Assets/fonts/ssfPro/SF-Pro.ttf
