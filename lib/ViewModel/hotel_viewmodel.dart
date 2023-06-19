@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:tripdash/model/Hotel_Model.dart';
 
 import '../Repositeries/hotel_repositories.dart';
-import 'package:tripdash/Screens/Hotel_view/hotel_list_view.dart';
 
 
 class HotelViewModel with ChangeNotifier{

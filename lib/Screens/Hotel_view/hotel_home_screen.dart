@@ -11,7 +11,7 @@ import 'hotel_list_view.dart';
 import 'hotel_theme.dart';
 
 class HotelHomeScreen extends StatefulWidget {
-  static var routeName;
+  static String  routeName='/HotelHomeScreen';
 
   const HotelHomeScreen({super.key});
 
