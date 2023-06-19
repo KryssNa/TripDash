@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/AdminScreen/AdminAppDrawer.dart';
 
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
@@ -34,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     return multiProvider(
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: UserDashboard.routeName,
+        initialRoute: AdminAppDrawer.routeName,
         routes: routes,
       ),
     );
