@@ -39,7 +39,12 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
 
         debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
           initialRoute: AdminAddEvents.routeName,
+=======
+
+          initialRoute: UserProfile.routeName,
+>>>>>>> 4f9985d96ed3e5d132becf029e0944a64068dcd9
 
           routes: routes,
 

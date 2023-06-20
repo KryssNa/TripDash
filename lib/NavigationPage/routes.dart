@@ -37,5 +37,6 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   Homepage.routeName: (context) => const Homepage(),
+
   UserDashboard.routeName: (context) => const UserDashboard(),
 };
