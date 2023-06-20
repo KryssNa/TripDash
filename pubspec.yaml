@@ -43,7 +43,6 @@ dependencies:
   fluttertoast: ^8.2.2
   table_calendar: ^3.0.9
   quickalert: ^1.0.1
-  
 
 
 dev_dependencies:

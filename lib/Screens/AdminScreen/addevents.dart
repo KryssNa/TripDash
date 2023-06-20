@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tripdash/ViewModel/event_viewmodel.dart';
-import '../../model/event_Model.dart';
+import 'package:tripdash/ViewModel/EventViewmodel.dart';
+import '../../model/EventModel.dart';
 import 'package:quickalert/quickalert.dart';
 
 
@@ -293,8 +293,6 @@ class  _EventEvent  extends State< AdminAddEvents > {
                                   Icons.location_on,
                                   color: Colors.black,
                                 ),
-                                hintText: "Event Catorogy",
-                                hintStyle: TextStyle(color: Colors.black),
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 219, 168, 168),
                                 contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
@@ -338,8 +336,6 @@ class  _EventEvent  extends State< AdminAddEvents > {
                                   Icons.location_on,
                                   color: Colors.black,
                                 ),
-                                hintText: "Event Location",
-                                hintStyle: TextStyle(color: Colors.black),
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 219, 168, 168),
                                 contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
@@ -383,8 +379,6 @@ class  _EventEvent  extends State< AdminAddEvents > {
                                   Icons.calendar_month,
                                   color: Colors.black,
                                 ),
-                                hintText: "yyyy/mm/dd",
-                                hintStyle: TextStyle(color: Colors.black),
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 219, 168, 168),
                                 contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
@@ -490,8 +484,6 @@ class  _EventEvent  extends State< AdminAddEvents > {
                                   Icons.description,
                                   color: Colors.black,
                                 ),
-                                hintText: "Event Description",
-                                hintStyle: TextStyle(color: Colors.black),
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 219, 168, 168),
                                 contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0), // Adjust the padding as needed
@@ -504,11 +496,10 @@ class  _EventEvent  extends State< AdminAddEvents > {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton.icon(
-                            onPressed: showAlert,
-                            // () {
-                            //   add_event(EventViewModel);
+                            onPressed:() {
+                              add_event(EventViewModel);
                               
-                            // },
+                            },
                             icon: const Icon(Icons.event_available_rounded),
                             label: const Text('Add Event')),
                       ),
