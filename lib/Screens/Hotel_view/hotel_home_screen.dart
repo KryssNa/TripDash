@@ -183,7 +183,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                   ),
                   cursorColor: HotelTheme.buildLightTheme().primaryColor,
                   decoration: InputDecoration(
-                      border: InputBorder.none, hintText: "Delhi...."),
+                      border: InputBorder.none, hintText: "Kathmandu..."),
                 ),
               ),
             ),
@@ -338,7 +338,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
             const Expanded(
                 child: Center(
               child: Text(
-                "Explore Hotel",
+                "View Hotel",
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
               ),
             )),

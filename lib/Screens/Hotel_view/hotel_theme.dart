@@ -21,7 +21,7 @@ class HotelTheme {
   }
 
   static ThemeData buildLightTheme() {
-    const Color primaryColor = Color(0xff7FBA67);
+    const Color primaryColor = Color.fromARGB(255, 74, 85, 185);
     const Color secondaryColor = Color(0xff7FBA67);
     final ColorScheme colorScheme = const ColorScheme.light()
         .copyWith(primary: primaryColor, secondary: secondaryColor);
