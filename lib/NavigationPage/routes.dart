@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/AdminScreen/AddProduct.dart';
 import 'package:tripdash/Screens/AdminScreen/AdminDashboard.dart';
 import 'package:tripdash/Screens/AdminScreen/addplaces.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
-
 import '../Screens/UserScreen/Profile/UpdateUserProfile.dart';
 import '../Screens/UserScreen/Profile/UserProfile.dart';
 
 import '../Screens/AdminScreen/addhotel.dart';
 import '../Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import '../Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import '../Screens/UserScreen/UserDashboard.dart';
 import '../Screens/add-hotels.dart';
 
 import '../Screens/AdminScreen/addhotel.dart';
@@ -35,4 +36,6 @@ final Map<String, WidgetBuilder> routes = {
   Homepage.routeName: (context) => const Homepage(),
   AdminAddPlaces.routeName: (context) => const AdminAddPlaces(),
 
+  UserDashboard.routeName: (context) => const UserDashboard(),
+  AddProduct.routeName: (context) => const AddProduct(),
 };

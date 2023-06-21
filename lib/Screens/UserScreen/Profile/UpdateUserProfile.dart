@@ -270,7 +270,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                               emailController.text.isEmpty ||
                               phoneNoController.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Please fill all fields')),
+                              const SnackBar(content: Text('Please fill all fields')),
                             );
                             return;
                           }
