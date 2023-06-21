@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     return multiProvider(
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AdminAppDrawer.routeName,
+        initialRoute: Homepage.routeName,
         routes: routes,
       ),
     );
