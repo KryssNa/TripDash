@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+import 'package:tripdash/Screens/UserScreen/AboutUs/AboutUs.dart';
 
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';

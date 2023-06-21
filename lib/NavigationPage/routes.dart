@@ -4,7 +4,7 @@ import 'package:tripdash/Screens/AdminScreen/AdminDashboard.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/main.dart';
 
-import '../Screens/UserScreen/AboutUs/about_us.dart';
+import '../Screens/UserScreen/AboutUs/AboutUs.dart';
 import '../Screens/UserScreen/Profile/UpdateUserProfile.dart';
 import '../Screens/UserScreen/Profile/UserProfile.dart';
 
