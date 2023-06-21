@@ -3,6 +3,7 @@ import 'package:tripdash/Repositeries/auth_repositeries.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
 
+import '../../Helper/ErrorDialogue.dart';
 import '../../ViewModel/auth_viewmodel.dart';
 import '../../constant/Colors.dart';
 import '../../widget/buttonWidget.dart';
@@ -11,7 +12,7 @@ import '../../widget/textFieldWidget.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
   static String routeName = "/LoginScreen";
-  static bool changePasswordState = false;
+
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -20,14 +21,16 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool changePasswordState = true;
 
   final _formKey = GlobalKey<FormState>();
   bool _isChecked = true;
-  late AuthViewModel _authen;
+  bool isLoading = false;
+
 
   void showHidePassword() {
     setState(() {
-      LoginScreen.changePasswordState = !LoginScreen.changePasswordState;
+      changePasswordState = !changePasswordState;
     });
   }
 
@@ -36,11 +39,11 @@ class _LoginScreenState extends State<LoginScreen> {
     if (showPassword == true) {
       icon = const Icon(Icons.visibility_off);
     }
-    return showPassword == LoginScreen.changePasswordState
+    return showPassword == changePasswordState
         ? InkWell(
       onTap: () {
         setState(() {
-          LoginScreen.changePasswordState = !LoginScreen.changePasswordState;
+          changePasswordState = !changePasswordState;
         });
       },
       child: icon,
@@ -48,33 +51,10 @@ class _LoginScreenState extends State<LoginScreen> {
         : InkWell(
       onTap: () {
         setState(() {
-          LoginScreen.changePasswordState = !LoginScreen.changePasswordState;
+          changePasswordState = !changePasswordState;
         });
       },
       child: const Icon(Icons.visibility_off),
-    );
-  }
-
-  void showErrorDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          title: const Text("Error"),
-          content: const Text("Failed to register user."),
-          actions: <Widget>[
-            TextButton(
-              child: const Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-            ),
-          ],
-        );
-      },
     );
   }
 
@@ -87,12 +67,14 @@ class _LoginScreenState extends State<LoginScreen> {
       final user = await AuthRepository().login(emailController.text, passwordController.text);
       Navigator.of(context).pushNamed(UserDashboard.routeName);
     }catch(e){
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+      showErrorDialog(context,"Invalid Credentials or \n User does not exist");
     }
 
     // Return whether the registration is successful or not
     return true;
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: const BoxDecoration(
             // color: ConstColors.primaryColor2,
             image: DecorationImage(
-              image: AssetImage('Assets/images/logo.png'),
+              image: AssetImage("Assets/images/logo.png"),
               alignment: Alignment.topCenter,
             ),
           ),
@@ -132,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 150,
                           width: 200,
-                          child: Image.asset('Assets/images/img.png'),
+                          child: Image.asset("Assets/images/login.png"),
                         ),
                       ],
                     ),
@@ -164,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       return "Please enter a valid email";
                                     }
                                     return null;
-                                  },
+                                  }, obscureText: false,
                                 ),
                                 const SizedBox(
                                   height: 20,
@@ -172,9 +154,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 textField(
                                   titleHeading: 'Password',
                                   hintText: 'Enter your password',
-                                  obscureText: true,
+                                  obscureText: changePasswordState,
                                   suffixIcon: showVisibilityIcon(
-                                      LoginScreen.changePasswordState),
+                                      changePasswordState),
                                   controller: passwordController,
                                   Validator: (value) {
                                     if (value == null || value.isEmpty) {
@@ -187,11 +169,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                                 ),
                                 const SizedBox(
-                                  height: 20,
+                                  height: 10,
                                 ),
 
                                 Container(
-                                  margin: const EdgeInsets.only(left: 20),
+                                  // margin: const EdgeInsets.only(left: 10),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
@@ -217,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Align(
                                   alignment: Alignment.bottomRight,
                                   child: TextButton(onPressed: (){},
-                                      child: Text("Forgot password?",
+                                      child: const Text("Forgot password?",
                                         style: TextStyle(
                                           fontSize: 17,
                                         ),)
@@ -228,16 +210,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
 
                                 ButtonWidget(
-                                  title: "LOGIN",
-                                  onPressed: () {
+                                  title:isLoading?"Logging in...": "LOGIN",
+                                  onPressed: isLoading?null:() async {
                                     if (_formKey.currentState!.validate()) {
+                                      setState(() {
+                                        isLoading = true;
+                                      });
                                       // Perform login logic
                                       ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(content: Text("Logging in...")),
                                       );
-                                      loginUser();
+                                      await loginUser();
+                                      setState(() {
+                                        isLoading = false;
+                                      });
                                     }
                                   },
+                                    showLoadingIndicator: isLoading,
+
                                 ),
                                 const SizedBox(
                                   height: 10,
@@ -274,7 +264,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
 
-                                SizedBox(height: 700,)
+                                SizedBox(height: 130,)
                               ],
                             ),
                           )
