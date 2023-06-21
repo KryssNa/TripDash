@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 
 import 'package:tripdash/main.dart';
 
