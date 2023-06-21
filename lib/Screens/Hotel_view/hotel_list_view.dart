@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/model/Hotel_Model.dart';
 import 'hotel_list_model.dart';
 import 'hotel_theme.dart';
 
@@ -35,7 +36,7 @@ class HotelListView extends StatelessWidget {
     this.animationController,
   }) : super(key: key);
 
-  final HotelListData? hotelData;
+  final HotelModel? hotelData;
   final Function? callback;
   final AnimationController? animationController;
   final Animation<double>? animation;
@@ -68,10 +69,17 @@ class HotelListView extends StatelessWidget {
                     children: <Widget>[
                       Column(
                         children: <Widget>[
+                          // AspectRatio(
+                          //   aspectRatio: 2,
+                          //   child: Image.asset(
+                          //     hotelData!.imagePath,
+                          //     fit: BoxFit.cover,
+                          //   ),
+                          // ),
                           AspectRatio(
                             aspectRatio: 2,
-                            child: Image.asset(
-                              hotelData!.imagePath,
+                            child: Image.network(
+                              hotelData!.imageUrl.toString(),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -89,7 +97,7 @@ class HotelListView extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          hotelData!.titleTxt,
+                                          hotelData!.hotelName.toString(),
                                           textAlign: TextAlign.left,
                                           style: const TextStyle(
                                             fontWeight: FontWeight.w600,
@@ -101,7 +109,7 @@ class HotelListView extends StatelessWidget {
                                           mainAxisAlignment: MainAxisAlignment.start,
                                           children: <Widget>[
                                             Text(
-                                              hotelData!.subTxt,
+                                              hotelData!.description.toString(),
                                               style: TextStyle(
                                                 color: Colors.grey.withOpacity(0.8),
                                                 fontSize: 14,
@@ -115,7 +123,8 @@ class HotelListView extends StatelessWidget {
                                             ),
                                             Expanded(
                                               child: Text(
-                                                '${hotelData!.dist.toStringAsFixed(1)} km to city',
+                                                // '${hotelData!..toStringAsFixed(1)} km to city',
+                                                'Data chaina yesko km to city',
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
                                                   fontSize: 14,
@@ -144,7 +153,8 @@ class HotelListView extends StatelessWidget {
                                                 ),
                                               ),
                                               Text(
-                                                '${hotelData!.reviews} Reviews',
+                                                // '${hotelData!.reviews} Reviews',
+                                                'no data Reviews',
                                                 style: TextStyle(
                                                   fontSize: 14,
                                                   color: Colors.grey.withOpacity(0.8),
@@ -164,7 +174,7 @@ class HotelListView extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text(
-                                        '\$${hotelData!.perNight}',
+                                        '\$${hotelData!.price.toString()}',
                                         textAlign: TextAlign.left,
                                         style: const TextStyle(
                                           fontSize: 22,

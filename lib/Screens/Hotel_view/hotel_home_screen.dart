@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -5,7 +6,9 @@ import 'package:flutter/src/widgets/framework.dart';
 // import 'package:flutter_ui/hotel_ui/hotel_list_view.dart';
 // import 'package:flutter_ui/hotel_ui/hotel_theme.dart';
 import 'package:intl/intl.dart';
+import 'package:tripdash/Repositeries/hotel_repositories.dart';
 
+import '../../model/Hotel_Model.dart';
 import 'hotel_list_model.dart';
 import 'hotel_list_view.dart';
 import 'hotel_theme.dart';
@@ -26,10 +29,17 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
 
   List<HotelListData> hotelList = HotelListData.hotelList;
   AnimationController? animationController;
-
+  List<QueryDocumentSnapshot<HotelModel>> hotelFirevase = [];
+  Future<void> getData() async {
+    final response  = await HotelRepository().getDataNormal();
+    setState(() {
+      hotelFirevase = response;
+    });
+  }
   @override
   void initState() {
     super.initState();
+    getData();
     animationController = AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: this);
   }
@@ -67,7 +77,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
               color: HotelTheme.buildLightTheme().backgroundColor,
               child: ListView.builder(
                 itemBuilder: (context, index) {
-                 final int count=hotelList.length > 10 ? 10 : hotelList.length;
+                 final int count=hotelFirevase.length > 10 ? 10 : hotelFirevase.length;
                  final Animation<double> animation =Tween<double>(
                   begin: 0.0,
                   end: 1.0
@@ -77,12 +87,12 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                  animationController!.forward();
                   return HotelListView(
                     callback: () {},
-                    hotelData: hotelList[index],
+                    hotelData: hotelFirevase[index]!.data()!,
                     animation: animation,
                     animationController: animationController,
                   );
                 },
-                itemCount: hotelList.length,
+                itemCount: hotelFirevase.length,
                 padding: const EdgeInsets.only(top: 8),
                 scrollDirection: Axis.vertical,
               ),
