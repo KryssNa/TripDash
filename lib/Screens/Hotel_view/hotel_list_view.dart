@@ -124,7 +124,7 @@ class HotelListView extends StatelessWidget {
                                             Expanded(
                                               child: Text(
                                                 // '${hotelData!..toStringAsFixed(1)} km to city',
-                                                'Data chaina yesko km to city',
+                                                '60km for Kathmandu',
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
                                                   fontSize: 14,
@@ -154,7 +154,7 @@ class HotelListView extends StatelessWidget {
                                               ),
                                               Text(
                                                 // '${hotelData!.reviews} Reviews',
-                                                'no data Reviews',
+                                                'Reviews',
                                                 style: TextStyle(
                                                   fontSize: 14,
                                                   color: Colors.grey.withOpacity(0.8),
