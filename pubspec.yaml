@@ -40,10 +40,6 @@ dependencies:
   fake_cloud_firestore: ^2.1.1+1
   get: ^4.3.8
   image_picker: ^0.8.4+4
-<<<<<<< HEAD
-=======
-
->>>>>>> 4f9985d96ed3e5d132becf029e0944a64068dcd9
   fluttertoast: ^8.2.2
   table_calendar: ^3.0.9
   quickalert: ^1.0.1
