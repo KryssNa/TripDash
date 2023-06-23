@@ -4,7 +4,7 @@ import 'package:tripdash/Screens/AdminScreen/AddHotel.dart';
 import 'package:tripdash/Screens/AdminScreen/AddProduct.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 
-
+//AdminAppDrawer
 class AdminAppDrawer extends StatefulWidget {
   const AdminAppDrawer({Key? key}) : super(key: key);
   static const routeName = '/AdminDashboard';
