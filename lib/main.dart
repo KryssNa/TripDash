@@ -5,6 +5,7 @@ import 'package:tripdash/Screens/UserScreen/AboutUs/AboutUs.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 
 
@@ -46,3 +47,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
