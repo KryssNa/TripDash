@@ -19,8 +19,11 @@ import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 
+
 import '../Screens/AdminScreen/addhotel.dart';
+import '../Screens/AdminScreen/addevents.dart';
 import '../Screens/add-hotels.dart';
+
 
 // We use name route
 
@@ -33,7 +36,9 @@ final Map<String, WidgetBuilder> routes = {
   AdminDashboard.routeName: (context) => const AdminDashboard(),
   UserHotelScreen.routeName: (context) => const UserHotelScreen(),
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
+  AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   Homepage.routeName: (context) => const Homepage(),
+
   UserDashboard.routeName: (context) => const UserDashboard(),
   AddProduct.routeName: (context) => const AddProduct(),
   AdminAppDrawer.routeName: (context) => const AdminAppDrawer(),
