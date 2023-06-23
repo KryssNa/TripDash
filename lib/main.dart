@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 
 
@@ -14,9 +15,7 @@ import '../Screens/UserScreen/Profile/UserProfile.dart';
 
 import 'Screens/AdminScreen/AdminDashboard.dart';
 
-import 'Screens/AdminScreen/addevents.dart';
 import 'Screens/AdminScreen/addhotel.dart';
-import 'Screens/UserScreen/UserDashboard.dart';
 
 
 Future<void> main() async{
@@ -39,16 +38,12 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
 
         debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-          initialRoute: AdminAddEvents.routeName,
-=======
 
-          initialRoute: UserProfile.routeName,
->>>>>>> 4f9985d96ed3e5d132becf029e0944a64068dcd9
-
+          initialRoute: UserDashboard.routeName,
           routes: routes,
 
       ),
     );
   }
 }
+
