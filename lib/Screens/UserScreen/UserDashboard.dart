@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/UserProfile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/UserAppDrawer.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class UserDashboard extends StatefulWidget {
@@ -15,55 +16,7 @@ class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
-      child: ListView(
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: Text("name",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-              ),),
-            accountEmail: Text("email",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-              ),),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.asset("avatar",
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,),
-              ),
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xFFFBDACE),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.place_outlined),
-            title: Text("Place"),
-            onTap: () => Navigator.pushReplacementNamed(context, TripPlanDetails.routeName),
-          ),
-          ListTile(
-            leading: Icon(Icons.hotel_outlined),
-            title: Text("Hotels"),
-            onTap: () => Navigator.pushReplacementNamed(context, UserProfile.routeName),
-          ),
-          ListTile(
-            leading: Icon(Icons.add_circle_outline),
-            title: Text("Product"),
-            onTap: () => Navigator.pop(context),
-          ),
-          ListTile(
-            leading: Icon(Icons.exit_to_app_outlined),
-            title: Text("Exit"),
-            onTap: () => Navigator.pop(context),
-          ),
-
-        ],
-      ),),
+        drawer: UserAppDrawer(),
         appBar: AppBar(
             toolbarHeight: 50,
             backgroundColor: Color(0xff5d9de7),

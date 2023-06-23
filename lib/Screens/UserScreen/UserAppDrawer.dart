@@ -2,6 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/AddHotel.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/UserProfile.dart';
+import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/add-hotels.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 
 
@@ -70,17 +74,22 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
           ListTile(
             leading: Icon(Icons.place_outlined),
             title: Text("Place"),
-            onTap: () => Navigator.pushReplacementNamed(context, Homepage.routeName),
+            onTap: () => Navigator.pushReplacementNamed(context, TripPlanDetails.routeName),
           ),
           ListTile(
             leading: Icon(Icons.hotel_outlined),
             title: Text("Hotels"),
-            onTap: () => Navigator.pushReplacementNamed(context, UserProfile.routeName),
+            onTap: () => Navigator.pushReplacementNamed(context, AdminAddHotels.routeName),
+          ),
+          ListTile(
+            leading: Icon(Icons.add_circle_outline),
+            title: Text("Trip Plan Overview"),
+            onTap: () => Navigator.pop(context,TripPlanOverview.routeName),
           ),
           ListTile(
             leading: Icon(Icons.add_circle_outline),
             title: Text("Product"),
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.pop(context,RegisterScreen.routeName),
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app_outlined),
