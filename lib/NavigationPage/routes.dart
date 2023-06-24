@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/AddProduct.dart';
+import 'package:tripdash/Screens/AdminScreen/AdminAppDrawer.dart';
 import 'package:tripdash/Screens/AdminScreen/AdminDashboard.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 
@@ -48,4 +49,5 @@ final Map<String, WidgetBuilder> routes = {
 
   UserDashboard.routeName: (context) => const UserDashboard(),
   AddProduct.routeName: (context) => const AddProduct(),
+  AdminAppDrawer.routeName: (context) => const AdminAppDrawer(),
 };
