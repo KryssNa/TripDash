@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/Profile/UserProfile.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/UserAppDrawer.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class UserDashboard extends StatefulWidget {
@@ -13,7 +16,7 @@ class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(),
+        drawer: UserAppDrawer(),
         appBar: AppBar(
             toolbarHeight: 50,
             backgroundColor: Color(0xff5d9de7),
