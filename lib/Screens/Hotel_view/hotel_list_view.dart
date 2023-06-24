@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/model/Hotel_Model.dart';
-import 'hotel_list_model.dart';
 import 'hotel_theme.dart';
 
 class RatingWidget extends StatelessWidget {

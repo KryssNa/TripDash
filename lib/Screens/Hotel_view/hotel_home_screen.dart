@@ -87,7 +87,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                  animationController!.forward();
                   return HotelListView(
                     callback: () {},
-                    hotelData: hotelFirevase[index]!.data()!,
+                    hotelData: hotelFirevase[index].data(),
                     animation: animation,
                     animationController: animationController,
                   );

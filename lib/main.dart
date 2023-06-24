@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:tripdash/Screens/Hotel_view/hotel_home_screen.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
-import 'Screens/AdminScreen/addhotel.dart';
 
 
 
