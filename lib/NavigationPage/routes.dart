@@ -22,6 +22,7 @@ import 'package:tripdash/Screens/homepage/home_page.dart';
 import '../Screens/AdminScreen/addhotel.dart';
 import '../Screens/AdminScreen/addevents.dart';
 import '../Screens/add-hotels.dart';
+import '../widget/BottomNavigationBar.dart';
 
 
 // We use name route
@@ -40,6 +41,8 @@ final Map<String, WidgetBuilder> routes = {
   AboutUs.routeName: (context) => const AboutUs(),
   UserDashboard.routeName: (context) => const UserDashboard(),
   AddProduct.routeName: (context) => const AddProduct(),
+  BottomNavigationBarWidget.routeName: (context) => const BottomNavigationBarWidget(),
   LoginScreen.routeName: (context) => const LoginScreen(),
   AdminAppDrawer.routeName: (context) => const AdminAppDrawer(),
+
 };

@@ -9,6 +9,7 @@ import 'package:tripdash/Screens/auth/LoginScreen.dart';
 import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:get/get.dart';
+import 'package:tripdash/widget/BottomNavigationBar.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
 import '../Screens/UserScreen/Profile/UserProfile.dart';
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
 
-          initialRoute: AboutUs.routeName,
+          initialRoute: BottomNavigationBarWidget.routeName,
           routes: routes,
       ),
     );

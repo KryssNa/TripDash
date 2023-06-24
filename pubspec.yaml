@@ -43,6 +43,7 @@ dependencies:
   fluttertoast: ^8.2.2
   table_calendar: ^3.0.9
   quickalert: ^1.0.1
+  curved_labeled_navigation_bar: ^2.0.2
 
 
 dev_dependencies:
