@@ -5,10 +5,9 @@ import 'package:tripdash/Screens/UserScreen/AboutUs/AboutUs.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/auth/LoginScreen.dart';
 import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
-
-
 import 'package:get/get.dart';
 import 'package:tripdash/widget/BottomNavigationBar.dart';
 import 'Helper/multiProvider.dart';
@@ -19,8 +18,7 @@ import 'Screens/AdminScreen/AdminDashboard.dart';
 
 import 'Screens/AdminScreen/addhotel.dart';
 
-
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -36,16 +34,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return   multiProvider(
+    return multiProvider(
       child: GetMaterialApp(
-
         debugShowCheckedModeBanner: false,
 
           initialRoute: BottomNavigationBarWidget.routeName,
           routes: routes,
-
       ),
     );
   }
 }
-

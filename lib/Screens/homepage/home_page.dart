@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/AdminScreen/AdminAppDrawer.dart';
 
 
 class Homepage extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer:const Drawer(),
+      drawer: AdminAppDrawer(),
       appBar: AppBar(
         actions: const [
           Padding(
