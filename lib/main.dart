@@ -17,8 +17,7 @@ import 'Screens/AdminScreen/AdminDashboard.dart';
 
 import 'Screens/AdminScreen/addhotel.dart';
 
-
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -34,9 +33,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return   multiProvider(
+    return multiProvider(
       child: GetMaterialApp(
-
         debugShowCheckedModeBanner: false,
 
           initialRoute: AboutUs.routeName,
@@ -45,4 +43,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
