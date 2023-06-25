@@ -1,9 +1,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:tripdash/model/Hotel_Model.dart';
 
 import '../Repositeries/hotel_repositories.dart';
-import '../Screens/add-hotels.dart';
 
 
 class HotelViewModel with ChangeNotifier{

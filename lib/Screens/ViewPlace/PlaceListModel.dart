@@ -17,7 +17,7 @@ class PlaceListData {
     this.perNight=180,
   });
 
-  static List<PlaceListData> hotelList = <PlaceListData>[
+  static List<PlaceListData> placeList = <PlaceListData>[
     PlaceListData(
       imagePath: 'Assets/hotel/hotel_5.png',
       titleTxt: 'Grand Royal Hotel',

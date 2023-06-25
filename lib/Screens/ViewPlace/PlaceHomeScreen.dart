@@ -7,9 +7,11 @@ import 'package:flutter/src/widgets/framework.dart';
 // import 'package:flutter_ui/place_ui/palce_theme.dart';
 import 'package:intl/intl.dart';
 import 'package:tripdash/Repositeries/PlaceRepositories.dart';
+import 'package:tripdash/Screens/ViewPlace/PlaceListModel.dart';
 
 import '../../model/PlaceModel.dart';
 import '../../model/PlaceModel.dart';
+import 'PlaceListModel.dart';
 import 'PlaceListModel.dart';
 import 'PlaceListView.dart';
 import 'PlaceListView.dart';
@@ -31,7 +33,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
   DateTime startDate = DateTime.now();
   DateTime endDate = DateTime.now().add(const Duration(days: 5));
 
-  List<PlaceListData> placeList = PlaceListData.PlaceListData;
+  List<PlaceListData> placeList = PlaceListData.placeList;
   AnimationController? animationController;
   List<QueryDocumentSnapshot<PlaceModel>> placeFirevase = [];
   Future<void> getData() async {
