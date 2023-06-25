@@ -7,14 +7,14 @@ import '../../../../constant/Colors.dart';
 class textField extends StatelessWidget {
   textField({
     super.key, required this.titleHeading, required this.hintText, required this.controller,this.prefixIcon
-    ,this.suffixIcon,  this.obscureText, this.Validator
+    ,this.suffixIcon,  required this.obscureText, this.Validator
   });
   final String titleHeading;
   final String hintText;
   final TextEditingController controller;
   IconData? prefixIcon;
   Widget? suffixIcon;
-  bool? obscureText=false;
+  final bool obscureText;
   String? Function(dynamic)? Validator;
 
   @override
@@ -36,7 +36,7 @@ class textField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             validator: Validator,
-            obscureText:false,
+            obscureText:obscureText,
             decoration: InputDecoration(
               suffixIcon: suffixIcon ,
               hintText: hintText ,

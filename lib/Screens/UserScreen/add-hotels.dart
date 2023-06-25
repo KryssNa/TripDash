@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
-
 class UserHotelScreen extends StatefulWidget {
   const UserHotelScreen({Key? key}) : super(key: key);
   static const routeName = '/UserHotelScreen';
@@ -14,18 +12,17 @@ class UserHotelScreen extends StatefulWidget {
 }
 
 class _UserHotelScreenState extends State<UserHotelScreen> {
-  FirebaseFirestore db = FirebaseFirestore.instance;
   late HotelViewModel _hotelViewModel;
+
   @override
-  void initState(){
+  void initState() {
+    super.initState();
     _hotelViewModel = Provider.of<HotelViewModel>(context, listen: false);
     _hotelViewModel.getHotel();
-
-    super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    var hotel =context.watch<HotelViewModel>().hotel;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -33,109 +30,112 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
             SizedBox(
               height: 20,
             ),
-            StreamBuilder(
-                stream: hotel,
-                builder: (context,
-                    AsyncSnapshot<QuerySnapshot<HotelModel>> snapshot) {
-                  if (snapshot.hasError) return Text("Error");
-                  return Container(
-                    margin: EdgeInsets.only(right: 20),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ...snapshot.data!.docs.map((document) {
-                            HotelModel hotel = document.data();
-
-                            return Container(
-                              margin: EdgeInsets.only(right: 20),
-                              child: Column(
-                                children: [
-                                  hotel.imageUrl == null || hotel.imageUrl == ""? Image.asset("Assets/Images/Pokhara.jpg",
-                                    height: 80,
-                                    width: 310, fit: BoxFit.cover,) :
-                                  Container(
-                                    height: 180,
-                                    width: 310,
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(hotel.imageUrl.toString()),
-                                        ),
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(20),
-                                          topRight: Radius.circular(20),
-                                        )),
+            StreamBuilder<QuerySnapshot<HotelModel>>(
+              stream: _hotelViewModel.hotel,
+              builder: (context, snapshot) {
+                if (snapshot.hasError) return Text("Error");
+                if (!snapshot.hasData) return CircularProgressIndicator();
+                final hotels = snapshot.data!.docs.map((doc) => doc.data()).toList();
+                return Container(
+                  margin: EdgeInsets.only(right: 20),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ...hotels.map((hotel) => Container(
+                          margin: EdgeInsets.only(right: 20),
+                          child: Column(
+                            children: [
+                              hotel.imageUrl == null || hotel.imageUrl == ""
+                                  ? Image.asset(
+                                "Assets/Images/Pokhara.jpg",
+                                height: 80,
+                                width: 310,
+                                fit: BoxFit.cover,
+                              )
+                                  : Container(
+                                height: 180,
+                                width: 310,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(hotel.imageUrl.toString()),
                                   ),
-                                  Container(
-                                    height: 100,
-                                    width: 310,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xfff1f1f1),
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(20),
-                                          bottomRight: Radius.circular(20),
-                                        )),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(15),
-                                      child: Column(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 100,
+                                width: 310,
+                                decoration: BoxDecoration(
+                                  color: Color(0xfff1f1f1),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(15),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        hotel.hotelName.toString(),
+                                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            hotel.hotelName.toString(),
-                                            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                          Icon(
+                                            Icons.location_on,
+                                            color: Color(0xffdf842b),
+                                            size: 20,
                                           ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Row(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Icon(
-                                                Icons.location_on,
-                                                color: Color(0xffdf842b),
-                                                size: 20,
-                                              ),
-                                              Container(
-                                                width: 260,
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      hotel.location.toString(),
-                                                      style: TextStyle(
-                                                        fontSize: 20,
-                                                        color: Colors.black,
-                                                        fontWeight: FontWeight.w300,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      hotel.price.toString(),
-                                                      style: TextStyle(
-                                                        fontSize: 20,
-                                                        fontWeight: FontWeight.bold,
-                                                      ),
-                                                    )
-                                                  ],
+                                          Container(
+                                            width: 260,
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                  hotel.location.toString(),
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.w300,
+                                                  ),
                                                 ),
-                                              )
-                                            ],
+                                                Text(
+                                                  hotel.price.toString(),
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
                                           )
                                         ],
-                                      ),
-                                    ),
+                                      )
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
-                            );
-                          }),
-                        ],
-                      ),
+                            ],
+                          ),
+                        )),
+                      ],
                     ),
-                  );
-                }
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -144,23 +144,18 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
   }
 }
 
-class HotelViewModel with ChangeNotifier{
-  get hotel => null;
+class HotelViewModel with ChangeNotifier {
+  late Stream<QuerySnapshot<HotelModel>> hotel;
 
-  void getHotel() {}
+  void getHotel() {
+    // Replace the code below with your own logic to fetch hotels from Firestore
+    hotel = FirebaseFirestore.instance.collection('hotels').snapshots() as Stream<QuerySnapshot<HotelModel>>;
+  }
 }
 
 class HotelModel {
-  get location => null;
-
-  get price => null;
-
-  get hotelName => null;
-
-  get imageUrl => null;
+  late String location;
+  late double price;
+  late String hotelName;
+  late String imageUrl;
 }
-
-
-
-
-

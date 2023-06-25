@@ -40,7 +40,10 @@ dependencies:
   fake_cloud_firestore: ^2.1.1+1
   get: ^4.3.8
   image_picker: ^0.8.4+4
-  
+  fluttertoast: ^8.2.2
+  table_calendar: ^3.0.9
+  quickalert: ^1.0.1
+  curved_labeled_navigation_bar: ^2.0.2
 
 
 dev_dependencies:
@@ -58,10 +61,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - Assets/images/
-     - Assets/hotel/
-
-
-
+     - Assets/icons/
+     - Assets/avatars/
+     - Assets/images/avatars/
+     - Assets/images/userDashboard/
 
   fonts:
     - family: Poppains
