@@ -17,6 +17,7 @@ import '../Screens/UserScreen/Profile/UserProfile.dart';
 import 'Screens/AdminScreen/AdminDashboard.dart';
 
 import 'Screens/AdminScreen/addhotel.dart';
+import 'Screens/UserScreen/AppBar.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
