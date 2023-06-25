@@ -9,6 +9,7 @@ import '../Screens/AdminScreen/addhotel.dart';
 import '../Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import '../Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import '../Screens/UserScreen/UserDashboard.dart';
+import '../Screens/ViewPlace/PlaceHomeScreen.dart';
 import '../Screens/add-hotels.dart';
 
 import '../Screens/AdminScreen/addhotel.dart';
@@ -35,4 +36,5 @@ final Map<String, WidgetBuilder> routes = {
   Homepage.routeName: (context) => const Homepage(),
   UserDashboard.routeName: (context) => const UserDashboard(),
   AddProduct.routeName: (context) => const AddProduct(),
+  PlaceHomeScreen.routeName:(context)=>const PlaceHomeScreen(),
 };
