@@ -17,6 +17,12 @@ class HotelRepository{
         .snapshots();
     return response;
   }
+  
+  Future<List<QueryDocumentSnapshot<HotelModel>>> getDataNormal() async {
+    QuerySnapshot<HotelModel> response = await ref.get();
+    
+    return response.docs;
+  }
   Future<HotelModel?> getOneData(String id) async {
     DocumentSnapshot<HotelModel> response = await ref.doc(id).get();
     return response.data();

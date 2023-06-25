@@ -5,24 +5,25 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tripdash/model/PlaceModel.dart';
 
-import '../../ViewModel/hotel_viewmodel.dart';
-import '../../model/Hotel_Model.dart';
+import '../../ViewModel/place_viewmodel.dart';
+// import '../../model/Place_Model.dart';
 // import 'package:uuid/uuid.dart';
 
+class AdminAddPlaces extends StatefulWidget {
+  const  AdminAddPlaces ({super.key});
+  static const routeName = '/PlaceAddPlace';
 
-class AdminAddHotels extends StatefulWidget {
-  const  AdminAddHotels ({super.key});
-  static const routeName = '/HotelAddPlace';
   @override
-  State< AdminAddHotels > createState() => _HotelPlace ();
+  State< AdminAddPlaces > createState() => _PlacePlace ();
 }
 
-class  _HotelPlace  extends State< AdminAddHotels > {
-  TextEditingController hotel_name = TextEditingController();
-  TextEditingController hotel_location = TextEditingController();
-  TextEditingController hotel_price = TextEditingController();
-  TextEditingController hotel_description = new TextEditingController();
+class  _PlacePlace  extends State< AdminAddPlaces > {
+  TextEditingController place_name = TextEditingController();
+  TextEditingController place_location = TextEditingController();
+  TextEditingController place_price = TextEditingController();
+  TextEditingController place_description = new TextEditingController();
   int id = new DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
   // var uuid = Uuid();
@@ -41,7 +42,6 @@ class  _HotelPlace  extends State< AdminAddHotels > {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-        
                 children: [
                   const Text(
                     "Pic Image From",
@@ -97,7 +97,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
     }
   }
 
-  Future<void> add_hotel(HotelViewModel) async {
+  Future<void> add_place(PlaceViewModel) async {
     if(pickedImage == null){
       // ScaffoldMessenger.of(context).showSnackBar(snackBar)
       return;
@@ -106,21 +106,21 @@ class  _HotelPlace  extends State< AdminAddHotels > {
     Reference storageRef = FirebaseStorage.instance.ref();
 
     String dt = DateTime.now().millisecondsSinceEpoch.toString();
-    var photo = await storageRef.child("hotels").child("$dt.jpg").putFile(File(pickedImage!.path));
+    var photo = await storageRef.child("places").child("$dt.jpg").putFile(File(pickedImage!.path));
     var url = await photo.ref.getDownloadURL();
 
-    final data = HotelModel(
-        hotelId: id.toString(),
-        hotelName:hotel_name.text,
-        location: hotel_location.text,
-        price: hotel_price.text,
-        description: hotel_description.text,
+    final data = PlaceModel(
+        placeId: id.toString(),
+        placeName:place_name.text,
+        location: place_location.text,
+        price: place_price.text,
+        description: place_description.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath
     );
-    db.collection("hotel").add(data.toJson()).then((value) {
+    db.collection("place").add(data.toJson()).then((value) {
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("hotel added")));
+          const SnackBar(content: Text("place added")));
     });
   }
 
@@ -130,7 +130,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
       appBar: AppBar(
           backgroundColor: Colors.white,
           centerTitle: true,
-        title: const Text('Add Hotel',
+        title: const Text('Add Place',
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,
@@ -169,114 +169,112 @@ class  _HotelPlace  extends State< AdminAddHotels > {
                 ],
               ),
             ),
-            
+            const SizedBox(
+              height: 20,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:16.0,vertical:4.0),
+              padding: const EdgeInsets.all(8.0),
               child: ElevatedButton.icon(
-                  onPressed: ()=>imagePickerOption(),
+                  onPressed: imagePickerOption,
                   icon: const Icon(Icons.add_a_photo_sharp),
-                  label: const Text('Hotel Image')),
+                  label: const Text('Place Image')),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
-              child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_name,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return "Place";
-                  }
-                  if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
-                    return "Please enter the hotel name";
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(),
-                  prefixIcon: Icon(
-                    Icons.place_sharp,
-                    color: Colors.black,
-                  ),
-                  hintText: "Hotel Name",
+            TextFormField(
+              style: TextStyle(color: Colors.black),
+              controller: place_name,
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return "Place";
+                }
+                if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
+                  return "Please enter the place name";
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(),
+                prefixIcon: Icon(
+                  Icons.place_sharp,
+                  color: Colors.black,
                 ),
+                hintText: "Place Name",
               ),
             ),
-           
-         
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
-              child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_location,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return "Hotel Location is required";
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(),
-                  prefixIcon: Icon(
-                    Icons.location_city,
-                    color: Colors.black,
-                  ),
-                  hintText: "Hotel Location",
+            SizedBox(
+              height: 20,
+              width: 10,
+            ),
+            TextFormField(
+              style: TextStyle(color: Colors.black),
+              controller: place_location,
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return "Place Location is required";
+                }
+              },
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(),
+                prefixIcon: Icon(
+                  Icons.location_city_sharp,
+                  color: Colors.black,
                 ),
+                hintText: "Place Location",
               ),
             ),
-          
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 4.0),
-              child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_price,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return "Hotel price is needed";
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(),
-                  prefixIcon: Icon(
-                    Icons.price_change,
-                    color: const Color.fromARGB(255, 151, 135, 135),
-                  ),
-                  hintText: "Hotel Price",
+            SizedBox(
+              height: 10,
+              width:10,
+            ),
+            TextFormField(
+              style: TextStyle(color: Colors.black),
+              controller: place_price,
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return "place price is needed";
+                }
+              },
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(),
+                prefixIcon: Icon(
+                  Icons.price_change_sharp,
+                  color: Colors.black,
                 ),
+                hintText: "Place Price",
               ),
             ),
-            
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
-              child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_description,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return "Hotel description is required";
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(),
-                  prefixIcon: Icon(
-                    Icons.description,
-                    color: Colors.black,
-                  ),
-                  hintText: "Hotel description",
+            SizedBox(
+              height: 10,
+              width:10,
+            ),
+            TextFormField(
+              style: TextStyle(color: Colors.black),
+              controller: place_description,
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return "Place description is required";
+                }
+              },
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(),
+                prefixIcon: Icon(
+                  Icons.description,
+                  color: Colors.black,
                 ),
+                hintText: "Place description",
               ),
             ),
-            
+            SizedBox(
+              height: 10,
+              width:10,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 4.0),
+              padding: const EdgeInsets.all(8.0),
               child: ElevatedButton.icon(
                   onPressed: () {
-                    add_hotel(HotelViewModel);
+                    add_place(placeViewModel);
                   },
-                  icon: const Icon(Icons.location_city),
-                  label: const Text('Add Hotel')),
+                  icon: const Icon(Icons.place_sharp),
+                  label: const Text('Add Place')),
             ),
           ],
         ),
