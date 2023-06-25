@@ -40,8 +40,8 @@ class _MyAppState extends State<MyApp> {
     return multiProvider(
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-          initialRoute: BottomNavigationBarWidget.routeName,
-          routes: routes,
+        initialRoute: BottomNavigationBarWidget.routeName,
+        routes: routes,
       ),
     );
   }

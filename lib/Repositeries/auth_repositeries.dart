@@ -57,8 +57,6 @@ class AuthRepository {
 
   Future<bool> resetPassword(String email) async {
     try {
-      var res = await FirebaseService.firebaseAuth
-          .sendPasswordResetEmail(email: email);
       return true;
     } catch (err) {
       rethrow;
