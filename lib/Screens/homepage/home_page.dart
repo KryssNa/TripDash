@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/AdminAppDrawer.dart';
 
+import '../UserScreen/AppBar.dart';
+
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -15,18 +17,10 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: AdminAppDrawer(),
-      appBar: AppBar(
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: CircleAvatar(
-              radius: 20,
-              child: Icon(Icons.notifications,color: Colors.black,),
-            ),
-          ),
-        ],
-        backgroundColor: const Color(0xFFCACCCE),
-      ),
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(60), // Change the height as desired
+          child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
+        ),
       body:Column(
         children: [
           const SizedBox(
@@ -89,7 +83,7 @@ class _HomepageState extends State<Homepage> {
                             onTap: () {
                               print('Dubai button tapped!');
                             },
-                            child: Padding(
+                            child: const Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Column(
                                 children: [

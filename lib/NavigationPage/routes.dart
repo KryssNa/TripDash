@@ -48,7 +48,6 @@ final Map<String, WidgetBuilder> routes = {
   UserDashboard.routeName: (context) => const UserDashboard(),
   AdminAddPlaces.routeName: (context) => const AdminAddPlaces(),
 
-  UserAppBar.routeName: (context) => const UserAppBar(),
   AboutUs.routeName: (context) => const AboutUs(),
   BottomNavigationBarWidget.routeName: (context) =>
       const BottomNavigationBarWidget(),

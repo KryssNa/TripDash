@@ -4,6 +4,8 @@ import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/UserAppDrawer.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import 'AppBar.dart';
+
 class UserDashboard extends StatefulWidget {
   const UserDashboard({super.key});
   static const routeName = '/UserDashboard';
@@ -17,34 +19,10 @@ class _UserDashboardState extends State<UserDashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: UserAppDrawer(),
-        appBar: AppBar(
-            toolbarHeight: 50,
-            backgroundColor: Color(0xff5d9de7),
-            shadowColor: Colors.transparent,
-            foregroundColor: Colors.transparent,
-            actions: [
-              Padding(
-                padding: EdgeInsets.only(top: 5.0, right: 10),
-                child: InkWell(
-                    borderRadius: BorderRadius.circular(40),
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundImage:
-                          AssetImage("Assets/images/avatars/av_1.png"),
-                    )),
-              ),
-            ],
-            leading: Builder(
-              builder: (context) => IconButton(
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: 35,
-                ),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              ),
-            )),
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(60), // Change the height as desired
+          child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
+        ),
         body: SafeArea(
             child: SingleChildScrollView(
                 child: Container(

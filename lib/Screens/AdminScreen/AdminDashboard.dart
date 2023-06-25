@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant/Colors.dart';
 import '../../widget/textStyle.dart';
+import '../UserScreen/AppBar.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -15,19 +16,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 65,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading:true,
-        leading: Image.asset("Assets/icons/sideIcon.png"),
-        actions: const [
-          Icon(Icons.search,
-            color: ConstColors.primaryColor,
-          size: 40,),
-
-        ],
-      ),
+      appBar:const PreferredSize(
+    preferredSize: Size.fromHeight(60), // Change the height as desired
+    child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
+    ),
       body: SafeArea(
         child:SingleChildScrollView(
           child: Container(
