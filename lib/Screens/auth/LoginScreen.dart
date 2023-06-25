@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Repositeries/auth_repositeries.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
+import 'package:tripdash/widget/BottomNavigationBar.dart';
 
 import '../../Helper/ErrorDialogue.dart';
 import '../../ViewModel/auth_viewmodel.dart';
@@ -65,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try{
 
       final user = await AuthRepository().login(emailController.text, passwordController.text);
-      Navigator.of(context).pushNamed(UserDashboard.routeName);
+      Navigator.of(context).pushNamed(BottomNavigationBarWidget.routeName);
     }catch(e){
       // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
       showErrorDialog(context,"Invalid Credentials or \n User does not exist");

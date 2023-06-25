@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
 
-          initialRoute: BottomNavigationBarWidget.routeName,
+          initialRoute: RegisterScreen.routeName,
           routes: routes,
       ),
     );

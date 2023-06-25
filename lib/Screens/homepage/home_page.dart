@@ -94,7 +94,7 @@ class _HomepageState extends State<Homepage> {
                               child: Column(
                                 children: [
                                   CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/Images/Dubai.png'),
+                                    foregroundImage: AssetImage('Assets/images/Dubai.png'),
                                     radius: 30,
                                   ),
                                   Text("Dubai")
@@ -111,7 +111,7 @@ class _HomepageState extends State<Homepage> {
                               child: Column(
                                 children: [
                                   CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/Images/Bali.png'),
+                                    foregroundImage: AssetImage('Assets/images/Bali.png'),
                                     radius: 30,
                                   ),
                                   Text("Bali")
@@ -128,7 +128,7 @@ class _HomepageState extends State<Homepage> {
                               child: Column(
                                 children: [
                                   CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/Images/Antartica.png'),
+                                    foregroundImage: AssetImage('Assets/images/Antartica.png'),
                                     radius: 30,
                                   ),
                                   Text("Antartica")
@@ -145,7 +145,7 @@ class _HomepageState extends State<Homepage> {
                               child: Column(
                                 children: [
                                   CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/Images/london.png'),
+                                    foregroundImage: AssetImage('Assets/images/london.png'),
                                     radius: 30,
                                   ),
                                   Text("London")
@@ -162,7 +162,7 @@ class _HomepageState extends State<Homepage> {
                               child: Column(
                                 children: [
                                   CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/Images/Maldives.png'),
+                                    foregroundImage: AssetImage('Assets/images/Maldives.png'),
                                     radius: 30,
                                   ),
                                   Text("Maldives")
@@ -188,7 +188,7 @@ class _HomepageState extends State<Homepage> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
-                                Image.asset('Assets/Images/ro.png'),
+                                Image.asset('Assets/images/ro.png'),
                                 Positioned.fill(
                                   child: FractionallySizedBox(
                                     alignment: Alignment.bottomLeft,
@@ -219,7 +219,7 @@ class _HomepageState extends State<Homepage> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
-                                Image.asset('Assets/Images/ro.png'),
+                                Image.asset('Assets/images/ro.png'),
                                 Positioned.fill(
                                   child: FractionallySizedBox(
                                     alignment: Alignment.bottomLeft,
@@ -250,7 +250,7 @@ class _HomepageState extends State<Homepage> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
-                                Image.asset('Assets/Images/location.png'),
+                                Image.asset('Assets/images/location.png'),
                                 Positioned.fill(
                                   child: FractionallySizedBox(
                                     alignment: Alignment.bottomLeft,
@@ -281,7 +281,7 @@ class _HomepageState extends State<Homepage> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
-                                Image.asset('Assets/Images/Paris.png'),
+                                Image.asset('Assets/images/Paris.png'),
                                 Positioned.fill(
                                   child: FractionallySizedBox(
                                     alignment: Alignment.bottomLeft,
@@ -331,28 +331,28 @@ class _HomepageState extends State<Homepage> {
                                   onTap: () {
                                     print("Popular1");
                                   },
-                                child: Container(child: Image.asset('Assets/Images/popular4.png'), 
+                                child: Container(child: Image.asset('Assets/images/popular4.png'), 
                                 ),
                                 ),
                                 GestureDetector(
                                   onTap: () {
                                     print("Popular2");
                                   },
-                                child: Container(child: Image.asset('Assets/Images/popular1.png'), 
+                                child: Container(child: Image.asset('Assets/images/popular1.png'), 
                                 ),
                                 ),
                                 GestureDetector(
                                   onTap: () {
                                     print("Popular3");
                                   },
-                                child: Container(child: Image.asset('Assets/Images/popular2.png'), 
+                                child: Container(child: Image.asset('Assets/images/popular2.png'), 
                                 ),
                                 ),
                                 GestureDetector(
                                   onTap: () {
                                     print("Popular4");
                                   },
-                                  child: Container(child: Image.asset('Assets/Images/popular3.png'), 
+                                  child: Container(child: Image.asset('Assets/images/popular3.png'), 
                                   ),
                                 ),
                               ],
@@ -381,7 +381,7 @@ class _HomepageState extends State<Homepage> {
                                   print("MAp");
                                 },
                                 child: Container(
-                                  child: Image.asset('Assets/Images/map2.png'), 
+                                  child: Image.asset('Assets/images/map2.png'), 
                                 ),
                               )
                             ],
@@ -425,7 +425,7 @@ class _HomepageState extends State<Homepage> {
                                               Container(
                                                 child: Padding(
                                                   padding: const EdgeInsets.all(8.0),
-                                                  child: Image.asset('Assets/Images/Recommended1.png'),
+                                                  child: Image.asset('Assets/images/Recommended1.png'),
                                                 ),
                                               ),
                                               SizedBox(width: 10,),
@@ -511,7 +511,7 @@ class _HomepageState extends State<Homepage> {
                                               Container(
                                                 child: Padding(
                                                   padding: const EdgeInsets.all(8.0),
-                                                  child: Image.asset('Assets/Images/Recommended2.png'),
+                                                  child: Image.asset('Assets/images/Recommended2.png'),
                                                 ),
                                               ),
                                               SizedBox(width: 10,),
@@ -597,7 +597,7 @@ class _HomepageState extends State<Homepage> {
                                               Container(
                                                 child: Padding(
                                                   padding: const EdgeInsets.all(8.0),
-                                                  child: Image.asset('Assets/Images/Recommended3.png'),
+                                                  child: Image.asset('Assets/images/Recommended3.png'),
                                                 ),
                                               ),
                                               SizedBox(width: 10,),
