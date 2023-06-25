@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../model/Place_Model.dart';
+import '../model/PlaceModel.dart';
 import '../services/firebase_service.dart';
 
 class PlaceRepository{
