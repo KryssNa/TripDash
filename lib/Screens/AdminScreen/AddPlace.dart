@@ -8,18 +8,19 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tripdash/model/PlaceModel.dart';
 
 import '../../ViewModel/place_viewmodel.dart';
+import '../ViewPlace/PlaceHomeScreen.dart';
 // import '../../model/Place_Model.dart';
 // import 'package:uuid/uuid.dart';
 
 class AdminAddPlaces extends StatefulWidget {
-  const  AdminAddPlaces ({super.key});
+  const AdminAddPlaces({super.key});
   static const routeName = '/PlaceAddPlace';
 
   @override
-  State< AdminAddPlaces > createState() => _PlacePlace ();
+  State<AdminAddPlaces> createState() => _PlacePlace();
 }
 
-class  _PlacePlace  extends State< AdminAddPlaces > {
+class _PlacePlace extends State<AdminAddPlaces> {
   TextEditingController place_name = TextEditingController();
   TextEditingController place_location = TextEditingController();
   TextEditingController place_price = TextEditingController();
@@ -83,6 +84,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
       ),
     );
   }
+
   pickImage(ImageSource imageType) async {
     try {
       final photo = await ImagePicker().pickImage(source: imageType);
@@ -98,7 +100,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
   }
 
   Future<void> add_place(PlaceViewModel) async {
-    if(pickedImage == null){
+    if (pickedImage == null) {
       // ScaffoldMessenger.of(context).showSnackBar(snackBar)
       return;
     }
@@ -106,21 +108,23 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
     Reference storageRef = FirebaseStorage.instance.ref();
 
     String dt = DateTime.now().millisecondsSinceEpoch.toString();
-    var photo = await storageRef.child("places").child("$dt.jpg").putFile(File(pickedImage!.path));
+    var photo = await storageRef
+        .child("places")
+        .child("$dt.jpg")
+        .putFile(File(pickedImage!.path));
     var url = await photo.ref.getDownloadURL();
 
     final data = PlaceModel(
         placeId: id.toString(),
-        placeName:place_name.text,
+        placeName: place_name.text,
         location: place_location.text,
         price: place_price.text,
         description: place_description.text,
         imageUrl: url,
-        imagepath: photo.ref.fullPath
-    );
+        imagepath: photo.ref.fullPath);
     db.collection("place").add(data.toJson()).then((value) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("place added")));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("place added")));
     });
   }
 
@@ -128,9 +132,10 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          centerTitle: true,
-        title: const Text('Add Place',
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          'Add Place',
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,
@@ -157,12 +162,13 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                       //     color: Colors.grey.withOpacity(0.6), width: 2),
                     ),
                     child: ClipRect(
-                      child: pickedImage != null ? Image.file(
-                        pickedImage!,
-                        width: 500,
-                        height: 200,
-                        fit: BoxFit.cover,
-                      )
+                      child: pickedImage != null
+                          ? Image.file(
+                              pickedImage!,
+                              width: 500,
+                              height: 200,
+                              fit: BoxFit.cover,
+                            )
                           : Image.asset('Assets/images/insert_image.png'),
                     ),
                   ),
@@ -223,7 +229,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
             ),
             SizedBox(
               height: 10,
-              width:10,
+              width: 10,
             ),
             TextFormField(
               style: TextStyle(color: Colors.black),
@@ -244,7 +250,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
             ),
             SizedBox(
               height: 10,
-              width:10,
+              width: 10,
             ),
             TextFormField(
               style: TextStyle(color: Colors.black),
@@ -265,13 +271,15 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
             ),
             SizedBox(
               height: 10,
-              width:10,
+              width: 10,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton.icon(
                   onPressed: () {
                     add_place(placeViewModel);
+                    Navigator.pushReplacementNamed(
+                        context, PlaceHomeScreen.routeName);
                   },
                   icon: const Icon(Icons.place_sharp),
                   label: const Text('Add Place')),

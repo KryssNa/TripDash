@@ -1,9 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-
 import 'package:tripdash/Screens/ViewPlace/PlaceHomeScreen.dart';
-
 
 import 'package:get/get.dart';
 
@@ -11,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:tripdash/widget/BottomNavigationBar.dart';
 import 'Helper/multiProvider.dart';
 import 'NavigationPage/routes.dart';
+import 'Screens/AdminScreen/AddPlace.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,8 +30,7 @@ class _MyAppState extends State<MyApp> {
     return multiProvider(
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: PlaceHomeScreen.routeName,
-
+        initialRoute: AdminAddPlaces.routeName,
         routes: routes,
       ),
     );

@@ -18,9 +18,8 @@ import 'PlaceListView.dart';
 import 'PlaceListView.dart';
 import 'PlaceTheme.dart';
 
-
 class PlaceHomeScreen extends StatefulWidget {
-  static String  routeName='/PlaceHomeScreen';
+  static String routeName = '/PlaceHomeScreen';
 
   const PlaceHomeScreen({super.key});
 
@@ -37,11 +36,12 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
   AnimationController? animationController;
   List<QueryDocumentSnapshot<PlaceModel>> placeFirevase = [];
   Future<void> getData() async {
-    final response  = await PlaceRepository().getDataNormal();
+    final response = await PlaceRepository().getDataNormal();
     setState(() {
       placeFirevase = response;
     });
   }
+
   @override
   void initState() {
     super.initState();
@@ -65,45 +65,46 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
           getAppBarUI(),
           Expanded(
               child: NestedScrollView(
-                headerSliverBuilder: (context, innerBoxIsScrolled) {
-                  return <Widget>[
-                    SliverList(
-                        delegate: SliverChildBuilderDelegate((context, index) {
-                          return Column(
-                            children: <Widget>[getSearchBarUI(), getTimeDateUI()],
-                          );
-                        }, childCount: 1)),
-                    SliverPersistentHeader(
-                        floating: true,
-                        pinned: true,
-                        delegate: ContestTabHeader(getFilterBarUI()))
-                  ];
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return <Widget>[
+                SliverList(
+                    delegate: SliverChildBuilderDelegate((context, index) {
+                  return Column(
+                    children: <Widget>[getSearchBarUI(), getTimeDateUI()],
+                  );
+                }, childCount: 1)),
+                SliverPersistentHeader(
+                    floating: true,
+                    pinned: true,
+                    delegate: ContestTabHeader(getFilterBarUI()))
+              ];
+            },
+            body: Container(
+              color: PlaceTheme.buildLightTheme().backgroundColor,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  final int count =
+                      placeFirevase.length > 10 ? 10 : placeFirevase.length;
+                  final Animation<double> animation =
+                      Tween<double>(begin: 0.0, end: 1.0).animate(
+                          CurvedAnimation(
+                              parent: animationController!,
+                              curve: Interval((1 / count) * index, 1.0,
+                                  curve: Curves.fastOutSlowIn)));
+                  animationController!.forward();
+                  return PlaceListView(
+                    callback: () {},
+                    placeData: placeFirevase[index]!.data()!,
+                    animation: animation,
+                    animationController: animationController,
+                  );
                 },
-                body: Container(
-                  color: PlaceTheme.buildLightTheme().backgroundColor,
-                  child: ListView.builder(
-                    itemBuilder: (context, index) {
-                      final int count=placeFirevase.length > 10 ? 10 : placeFirevase.length;
-                      final Animation<double> animation =Tween<double>(
-                          begin: 0.0,
-                          end: 1.0
-                      ).animate(CurvedAnimation(parent: animationController!, curve: Interval(
-                          (1/count) * index,1.0,curve: Curves.fastOutSlowIn
-                      )));
-                      animationController!.forward();
-                      return PlaceListView(
-                        callback: () {},
-                        placeData: placeFirevase[index]!.data()!,
-                        animation: animation,
-                        animationController: animationController,
-                      );
-                    },
-                    itemCount: placeFirevase.length,
-                    padding: const EdgeInsets.only(top: 8),
-                    scrollDirection: Axis.vertical,
-                  ),
-                ),
-              ))
+                itemCount: placeFirevase.length,
+                padding: const EdgeInsets.only(top: 8),
+                scrollDirection: Axis.vertical,
+              ),
+            ),
+          ))
         ],
       ),
     );
@@ -131,17 +132,17 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
           color: PlaceTheme.buildLightTheme().backgroundColor,
           child: Padding(
             padding:
-            const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
+                const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
             child: Row(
               children: <Widget>[
                 Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Text(
-                        '530 place Found',
-                        style: TextStyle(fontWeight: FontWeight.w100, fontSize: 16),
-                      ),
-                    )),
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    '530 place Found',
+                    style: TextStyle(fontWeight: FontWeight.w100, fontSize: 16),
+                  ),
+                )),
                 Material(
                   color: Colors.transparent,
                   child: Padding(
@@ -179,31 +180,31 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
         children: <Widget>[
           Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: PlaceTheme.buildLightTheme().colorScheme.background,
-                      borderRadius: const BorderRadius.all(Radius.circular(38.0)),
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            offset: const Offset(0, 2),
-                            blurRadius: 8.0)
-                      ]),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16, right: 16, top: 4, bottom: 4),
-                    child: TextField(
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
-                      cursorColor: PlaceTheme.buildLightTheme().primaryColor,
-                      decoration: InputDecoration(
-                          border: InputBorder.none, hintText: "Pokhara"),
-                    ),
+            padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: PlaceTheme.buildLightTheme().colorScheme.background,
+                  borderRadius: const BorderRadius.all(Radius.circular(38.0)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        offset: const Offset(0, 2),
+                        blurRadius: 8.0)
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 16, right: 16, top: 4, bottom: 4),
+                child: TextField(
+                  style: const TextStyle(
+                    fontSize: 18,
                   ),
+                  cursorColor: PlaceTheme.buildLightTheme().primaryColor,
+                  decoration: InputDecoration(
+                      border: InputBorder.none, hintText: "Search Place"),
                 ),
-              )),
+              ),
+            ),
+          )),
           Container(
             decoration: BoxDecoration(
                 color: PlaceTheme.buildLightTheme().primaryColor,
@@ -241,37 +242,37 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
         children: <Widget>[
           Expanded(
               child: Row(
-                children: <Widget>[
-                  Material(
-                    color: Colors.transparent,
-                    child: Padding(
-                      padding:
+            children: <Widget>[
+              Material(
+                color: Colors.transparent,
+                child: Padding(
+                  padding:
                       const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "Choose Date",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w100,
-                                color: Colors.grey.withOpacity(0.8)),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            "${DateFormat('dd, MMM').format(startDate)} - ${DateFormat('dd, MMM').format(endDate)}",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w100,
-                            ),
-                          ),
-                        ],
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Choose Date",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w100,
+                            color: Colors.grey.withOpacity(0.8)),
                       ),
-                    ),
-                  )
-                ],
-              )),
+                      const SizedBox(height: 8),
+                      Text(
+                        "${DateFormat('dd, MMM').format(startDate)} - ${DateFormat('dd, MMM').format(endDate)}",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          )),
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: Container(
@@ -282,37 +283,37 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
           ),
           Expanded(
               child: Row(
-                children: <Widget>[
-                  Material(
-                    color: Colors.transparent,
-                    child: Padding(
-                      padding:
+            children: <Widget>[
+              Material(
+                color: Colors.transparent,
+                child: Padding(
+                  padding:
                       const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            'Number of Rooms',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w100,
-                                fontSize: 16,
-                                color: Colors.grey.withOpacity(0.8)),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            '1 Room - 2 Adults',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w100,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Number of Rooms',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w100,
+                            fontSize: 16,
+                            color: Colors.grey.withOpacity(0.8)),
                       ),
-                    ),
-                  )
-                ],
-              ))
+                      const SizedBox(height: 8),
+                      Text(
+                        '1 Room - 2 Adults',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w100,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ))
         ],
       ),
     );
@@ -353,11 +354,11 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
             ),
             const Expanded(
                 child: Center(
-                  child: Text(
-                    "View Place",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
-                  ),
-                )),
+              child: Text(
+                "View Place",
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
+              ),
+            )),
             Container(
               width: AppBar().preferredSize.height + 40,
               height: AppBar().preferredSize.height,
@@ -369,7 +370,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius:
-                      const BorderRadius.all(Radius.circular(32.0)),
+                          const BorderRadius.all(Radius.circular(32.0)),
                       onTap: () {},
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
@@ -381,7 +382,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius:
-                      const BorderRadius.all(Radius.circular(32.0)),
+                          const BorderRadius.all(Radius.circular(32.0)),
                       onTap: () {},
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
