@@ -1,12 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 
-import 'app_bar.dart';
+import '../UserScreen/app_bar.dart';
 
 class UserDashboard extends StatefulWidget {
-  const UserDashboard({super.key});
+  const UserDashboard({Key? key}) : super(key: key);
   static const routeName = '/UserDashboard';
 
   @override
@@ -17,60 +16,62 @@ class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: const UserAppDrawer(),
+        backgroundColor: Colors.blueAccent,
+        drawer: const AdminAppDrawer(),
         appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(60), // Change the height as desired
+          preferredSize: Size.fromHeight(50), // Change the height as desired
           child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
         ),
-        body: SafeArea(
-            child: SingleChildScrollView(
-                child: Container(
-          color: Colors.blueAccent,
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        body: Column(
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 35.0,
-                right: 35,
-              ),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Hello, User",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Hello, User",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    InkWell(
-                      child: SizedBox(
-                        height: 30,
-                        width: 30,
-                        child: IconButton(
-                          onPressed: () {
-                            // Add your logic here
-                          },
-                          icon: const Icon(
-                            Icons.notifications,
-                            color: Colors.white,
-                            size: 35,
+                      InkWell(
+                        child: SizedBox(
+                          height: 30,
+                          width: 30,
+                          child: IconButton(
+                            onPressed: () {
+                              // Add your logic here
+                            },
+                            icon: const Icon(
+                              Icons.notifications,
+                              color: Colors.white,
+                              size: 35,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ]),
+                    ]),
+              ),
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 35.0, top: 10),
-              child: Text(
-                "Where do you want to go?",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  "Where do you want to go?",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
                 ),
-                textAlign: TextAlign.left,
               ),
             ),
             Row(
@@ -220,20 +221,25 @@ class _UserDashboardState extends State<UserDashboard> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
-            SingleChildScrollView(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
+            Expanded(
+              child: SingleChildScrollView(
                 child: Container(
-                  margin: const EdgeInsets.all(5),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                      bottomLeft: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                    ),
+                  ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+
+                      // ignore: sized_box_for_whitespace
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -250,7 +256,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                   children: [
                                     CircleAvatar(
                                       foregroundImage:
-                                          AssetImage('Assets/images/Hotel.png'),
+                                          AssetImage('Assets/images/Dubai.png'),
                                       radius: 30,
                                     ),
                                     Text("Dubai")
@@ -270,7 +276,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                   children: [
                                     CircleAvatar(
                                       foregroundImage:
-                                          AssetImage('Assets/images/Hotel.png'),
+                                          AssetImage('Assets/images/Bali.png'),
                                       radius: 30,
                                     ),
                                     Text("Bali")
@@ -289,8 +295,8 @@ class _UserDashboardState extends State<UserDashboard> {
                                 child: Column(
                                   children: [
                                     CircleAvatar(
-                                      foregroundImage:
-                                          AssetImage('Assets/images/Hotel.png'),
+                                      foregroundImage: AssetImage(
+                                          'Assets/images/Antartica.png'),
                                       radius: 30,
                                     ),
                                     Text("Antartica")
@@ -309,8 +315,8 @@ class _UserDashboardState extends State<UserDashboard> {
                                 child: Column(
                                   children: [
                                     CircleAvatar(
-                                      foregroundImage:
-                                          AssetImage('Assets/images/Hotel.png'),
+                                      foregroundImage: AssetImage(
+                                          'Assets/images/london.png'),
                                       radius: 30,
                                     ),
                                     Text("London")
@@ -329,8 +335,8 @@ class _UserDashboardState extends State<UserDashboard> {
                                 child: Column(
                                   children: [
                                     CircleAvatar(
-                                      foregroundImage:
-                                          AssetImage('Assets/images/Hotel.png'),
+                                      foregroundImage: AssetImage(
+                                          'Assets/images/Maldives.png'),
                                       radius: 30,
                                     ),
                                     Text("Maldives")
@@ -342,6 +348,7 @@ class _UserDashboardState extends State<UserDashboard> {
                         ),
                       ),
 
+                      //
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -378,354 +385,469 @@ class _UserDashboardState extends State<UserDashboard> {
                         ],
                       ),
 
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SizedBox(
-                              height: 250,
-                              width: 200,
-                              child: Card(
-                                elevation: 5,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 150,
-                                      width: 200,
-                                      foregroundDecoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(25),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                              'Assets/images/userDashboard/place3.png'),
-                                          fit: BoxFit.cover,
+                      // const SizedBox
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  if (kDebugMode) {
+                                    print("Rome");
+                                  }
+                                },
+                                child: SizedBox(
+                                  width: 205,
+                                  height: 250,
+                                  child: Stack(
+                                    // alignment: Alignment.center,
+                                    fit: StackFit.expand,
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    children: <Widget>[
+                                      Positioned(
+                                        top: 0,
+                                        // bottom: 250,
+                                        child: Container(
+                                          height: 150,
+                                          width: 200,
+                                          foregroundDecoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                            image: const DecorationImage(
+                                              image: AssetImage(
+                                                  'Assets/images/userDashboard/place3.png'),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(right: 8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(left: 20),
-                                            child: Text(
-                                              "Golden Gate",
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w500,
+                                      Positioned(
+                                        // top: 120,
+                                        left: 11,
+                                        bottom: 20,
+                                        child: Container(
+                                          height: 105,
+                                          width: 180,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.3),
+                                                spreadRadius: 5,
+                                                blurRadius: 5,
+                                                offset: const Offset(0, 3),
                                               ),
-                                            ),
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.yellow,
-                                              ),
-                                              Text("4.5")
                                             ],
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                            color: Colors.white,
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 15.0, top: 10, right: 5),
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.location_on,
-                                            color: Colors.grey,
-                                            size: 20,
-                                          ),
-                                          Text(" San Francisco")
-                                        ],
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 15.0, top: 5, right: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text.rich(
-                                            TextSpan(
-                                              children: [
-                                                WidgetSpan(
-                                                  child: Icon(
-                                                    Icons.attach_money,
-                                                    color: Color(0xff03bdc9),
-                                                    size: 18,
-                                                  ),
-                                                ),
+                                          child: const Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              Text.rich(
                                                 TextSpan(
-                                                  text: "200",
-                                                  style: TextStyle(
-                                                    color: Color(0xff03bdc9),
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                  children: [
+                                                    TextSpan(
+                                                      text: "Golden Gate     ",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.star,
+                                                        color: Colors.amber,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "4.5",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
+                                              ),
+                                              Text.rich(
                                                 TextSpan(
-                                                  text: " /Visit",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.place,
+                                                        color: Colors.green,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "  San Francisco,",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.attach_money,
+                                                        color: Color(0xff03bdc9),
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "200",
+                                                      style: TextStyle(
+                                                        color: Color(0xff03bdc9),
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+
+                                                    TextSpan(
+                                                      text: " /Visit",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    WidgetSpan(
+                                                      child: Icon(Icons.favorite,
+                                                      color: Color(0xff056e73),
+                                                      size: 20,)),
+                                                  ],
+                                                ),
+                                              ),
+                                             ],
                                           ),
-                                          Icon(
-                                            Icons.favorite,
-                                            color: Color(0xff056e73),
-                                            size: 20,
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                        ),
+                                      ), //Container
+
+                                      //container for text, location and price and rating to be placed on bottom of the image
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 250,
-                              width: 200,
-                              child: Card(
-                                elevation: 5,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 150,
-                                      width: 200,
-                                      foregroundDecoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(25),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                              'Assets/images/userDashboard/place2.png'),
-                                          fit: BoxFit.cover,
+                              GestureDetector(
+                                onTap: () {
+                                  if (kDebugMode) {
+                                    print("Rome");
+                                  }
+                                },
+                                child: SizedBox(
+                                  width: 205,
+                                  height: 250,
+                                  child: Stack(
+                                    // alignment: Alignment.center,
+                                    fit: StackFit.expand,
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    children: <Widget>[
+                                      Positioned(
+                                        top: 0,
+                                        // bottom: 250,
+                                        child: Container(
+                                          height: 150,
+                                          width: 200,
+                                          foregroundDecoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(25),
+                                            image: const DecorationImage(
+                                              image: AssetImage(
+                                                  'Assets/images/userDashboard/place3.png'),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(right: 8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(left: 20),
-                                            child: Text(
-                                              "Golden Gate",
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w500,
+                                      Positioned(
+                                        // top: 120,
+                                        left: 11,
+                                        bottom: 20,
+                                        child: Container(
+                                          height: 105,
+                                          width: 180,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.3),
+                                                spreadRadius: 5,
+                                                blurRadius: 5,
+                                                offset: const Offset(0, 3),
                                               ),
-                                            ),
+                                            ],
+                                            borderRadius:
+                                            BorderRadius.circular(25),
+                                            color: Colors.white,
                                           ),
-                                          Row(
+                                          child: const Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.yellow,
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                      text: "Golden Gate     ",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.star,
+                                                        color: Colors.amber,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "4.5",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                              Text("4.5")
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.place,
+                                                        color: Colors.green,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "  San Francisco,",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.attach_money,
+                                                        color: Color(0xff03bdc9),
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "200",
+                                                      style: TextStyle(
+                                                        color: Color(0xff03bdc9),
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+
+                                                    TextSpan(
+                                                      text: " /Visit",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    WidgetSpan(
+                                                        child: Icon(Icons.favorite,
+                                                          color: Color(0xff056e73),
+                                                          size: 20,)),
+                                                  ],
+                                                ),
+                                              ),
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 15.0, top: 10, right: 5),
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.location_on,
-                                            color: Colors.grey,
-                                            size: 20,
-                                          ),
-                                          Text(" San Francisco")
-                                        ],
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 15.0, top: 5, right: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text.rich(
-                                            TextSpan(
-                                              children: [
-                                                WidgetSpan(
-                                                  child: Icon(
-                                                    Icons.attach_money,
-                                                    color: Color(0xff03bdc9),
-                                                    size: 18,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: "200",
-                                                  style: TextStyle(
-                                                    color: Color(0xff03bdc9),
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: " /Visit",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Icon(
-                                            Icons.favorite,
-                                            color: Color(0xff056e73),
-                                            size: 20,
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                        ),
+                                      ), //Container
+
+                                      //container for text, location and price and rating to be placed on bottom of the image
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 250,
-                              width: 200,
-                              child: Card(
-                                elevation: 5,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 150,
-                                      width: 200,
-                                      foregroundDecoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(25),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                              'Assets/images/userDashboard/place4.png'),
-                                          fit: BoxFit.cover,
+                              GestureDetector(
+                                onTap: () {
+                                  if (kDebugMode) {
+                                    print("Rome");
+                                  }
+                                },
+                                child: SizedBox(
+                                  width: 205,
+                                  height: 250,
+                                  child: Stack(
+                                    // alignment: Alignment.center,
+                                    fit: StackFit.expand,
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    children: <Widget>[
+                                      Positioned(
+                                        top: 0,
+                                        // bottom: 250,
+                                        child: Container(
+                                          height: 150,
+                                          width: 200,
+                                          foregroundDecoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(25),
+                                            image: const DecorationImage(
+                                              image: AssetImage(
+                                                  'Assets/images/userDashboard/place3.png'),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(right: 8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(left: 20),
-                                            child: Text(
-                                              "Golden Gate",
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w500,
+                                      Positioned(
+                                        // top: 120,
+                                        left: 11,
+                                        bottom: 20,
+                                        child: Container(
+                                          height: 105,
+                                          width: 180,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.3),
+                                                spreadRadius: 5,
+                                                blurRadius: 5,
+                                                offset: const Offset(0, 3),
                                               ),
-                                            ),
+                                            ],
+                                            borderRadius:
+                                            BorderRadius.circular(25),
+                                            color: Colors.white,
                                           ),
-                                          Row(
+                                          child: const Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.yellow,
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                      text: "Golden Gate     ",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.star,
+                                                        color: Colors.amber,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "4.5",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                              Text("4.5")
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.place,
+                                                        color: Colors.green,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "  San Francisco,",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    WidgetSpan(
+                                                      child: Icon(
+                                                        Icons.attach_money,
+                                                        color: Color(0xff03bdc9),
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: "200",
+                                                      style: TextStyle(
+                                                        color: Color(0xff03bdc9),
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+
+                                                    TextSpan(
+                                                      text: " /Visit",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    WidgetSpan(
+                                                        child: Icon(Icons.favorite,
+                                                          color: Color(0xff056e73),
+                                                          size: 20,)),
+                                                  ],
+                                                ),
+                                              ),
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 15.0, top: 10, right: 5),
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.location_on,
-                                            color: Colors.grey,
-                                            size: 20,
-                                          ),
-                                          Text(" San Francisco")
-                                        ],
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 15.0, top: 5, right: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text.rich(
-                                            TextSpan(
-                                              children: [
-                                                WidgetSpan(
-                                                  child: Icon(
-                                                    Icons.attach_money,
-                                                    color: Color(0xff03bdc9),
-                                                    size: 18,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: "200",
-                                                  style: TextStyle(
-                                                    color: Color(0xff03bdc9),
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: " /Visit",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Icon(
-                                            Icons.favorite,
-                                            color: Color(0xff056e73),
-                                            size: 20,
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                        ),
+                                      ), //Container
+
+                                      //container for text, location and price and rating to be placed on bottom of the image
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
 
+                      //Popular Destination
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -767,11 +889,13 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                         ],
                       ),
+
+                      //Popular Destination Images
                       Container(
                         height: 150,
-                        width: 500,
+                        width: 525,
                         margin:
-                            const EdgeInsets.only(left: 15, right: 15, top: 10),
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
                         child: Card(
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -799,10 +923,10 @@ class _UserDashboardState extends State<UserDashboard> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        left: 25.0, top: 25, bottom: 30),
+                                        left: 25.0, top: 25, bottom: 30, right: 5),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
@@ -851,7 +975,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text.rich(
                                               TextSpan(
@@ -869,7 +993,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                     ),
                                                   ),
                                                   TextSpan(
@@ -878,7 +1002,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                       color: Colors.black,
                                                       fontSize: 10,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                     ),
                                                   ),
                                                 ],
@@ -895,12 +1019,11 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                         ),
                       ),
-
                       Container(
                         height: 150,
-                        width: 500,
+                        width: 525,
                         margin:
-                            const EdgeInsets.only(left: 15, right: 15, top: 10),
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
                         child: Card(
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -918,7 +1041,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                   borderRadius: BorderRadius.circular(18),
                                   image: const DecorationImage(
                                     image: AssetImage(
-                                      'Assets/images/userDashboard/sPlace2.png',
+                                      'Assets/images/userDashboard/sPlace4.png',
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -928,10 +1051,10 @@ class _UserDashboardState extends State<UserDashboard> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        left: 25.0, top: 25, bottom: 30),
+                                        left: 25.0, top: 25, bottom: 30, right: 5),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
@@ -980,7 +1103,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text.rich(
                                               TextSpan(
@@ -998,7 +1121,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                     ),
                                                   ),
                                                   TextSpan(
@@ -1007,7 +1130,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                       color: Colors.black,
                                                       fontSize: 10,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                     ),
                                                   ),
                                                 ],
@@ -1024,14 +1147,11 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                         ),
                       ),
-
-                      //popular destination
-
                       Container(
                         height: 150,
-                        width: 500,
+                        width: 525,
                         margin:
-                            const EdgeInsets.only(left: 15, right: 15, top: 10),
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
                         child: Card(
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -1049,7 +1169,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                   borderRadius: BorderRadius.circular(18),
                                   image: const DecorationImage(
                                     image: AssetImage(
-                                      'Assets/images/userDashboard/sPlace1.png',
+                                      'Assets/images/userDashboard/sPlace4.png',
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -1059,10 +1179,10 @@ class _UserDashboardState extends State<UserDashboard> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        left: 25.0, top: 25, bottom: 30),
+                                        left: 25.0, top: 25, bottom: 30, right: 5),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
@@ -1111,7 +1231,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text.rich(
                                               TextSpan(
@@ -1129,7 +1249,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                     ),
                                                   ),
                                                   TextSpan(
@@ -1138,7 +1258,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                       color: Colors.black,
                                                       fontSize: 10,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                     ),
                                                   ),
                                                 ],
@@ -1155,13 +1275,14 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                         ),
                       ),
+
                       //Events
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
                             padding:
-                                EdgeInsets.only(left: 20, right: 20, top: 20),
+                            EdgeInsets.only(left: 20, right: 20, top: 20),
                             child: Align(
                               alignment: Alignment.bottomLeft,
                               child: Text(
@@ -1176,7 +1297,7 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                           Padding(
                             padding:
-                                EdgeInsets.only(left: 20, right: 20, top: 20),
+                            EdgeInsets.only(left: 20, right: 20, top: 20),
                             child: Align(
                               alignment: Alignment.bottomRight,
                               child: Text(
@@ -1191,12 +1312,11 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                         ],
                       ),
-
                       Container(
                         height: 150,
                         width: 500,
                         margin:
-                            const EdgeInsets.only(left: 15, right: 15, top: 10),
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
                         child: Card(
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -1208,7 +1328,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                 height: 140,
                                 width: 140,
                                 margin: const EdgeInsets.only(
-                                  left: 10,
+                                  left: 5,
                                 ),
                                 foregroundDecoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(18),
@@ -1227,7 +1347,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                     padding: EdgeInsets.all(5),
                                     child: Padding(
                                       padding:
-                                          EdgeInsets.only(right: 5, left: 8),
+                                      EdgeInsets.only(right: 5, left: 8),
                                       child: Text(
                                         "Kathmandu, Nepal",
                                         style: TextStyle(
@@ -1288,7 +1408,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                     padding: EdgeInsets.only(top: 5, left: 8),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text.rich(
                                           TextSpan(
@@ -1325,7 +1445,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                   //view details button on bottom right
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 10, left: 80),
+                                        top: 5, left: 100),
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
@@ -1334,7 +1454,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                           width: 90,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                            BorderRadius.circular(10),
                                             color: Colors.blue,
                                           ),
                                           child: const Center(
@@ -1361,7 +1481,7 @@ class _UserDashboardState extends State<UserDashboard> {
                         height: 150,
                         width: 500,
                         margin:
-                            const EdgeInsets.only(left: 15, right: 15, top: 10),
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
                         child: Card(
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -1373,13 +1493,13 @@ class _UserDashboardState extends State<UserDashboard> {
                                 height: 140,
                                 width: 140,
                                 margin: const EdgeInsets.only(
-                                  left: 10,
+                                  left: 5,
                                 ),
                                 foregroundDecoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(18),
                                   image: const DecorationImage(
                                     image: AssetImage(
-                                      'Assets/images/userDashboard/sPlace1.png',
+                                      'Assets/images/userDashboard/sPlace4.png',
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -1392,7 +1512,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                     padding: EdgeInsets.all(5),
                                     child: Padding(
                                       padding:
-                                          EdgeInsets.only(right: 5, left: 8),
+                                      EdgeInsets.only(right: 5, left: 8),
                                       child: Text(
                                         "Kathmandu, Nepal",
                                         style: TextStyle(
@@ -1453,7 +1573,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                     padding: EdgeInsets.only(top: 5, left: 8),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text.rich(
                                           TextSpan(
@@ -1490,7 +1610,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                   //view details button on bottom right
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 10, left: 80),
+                                        top: 5, left: 100),
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
@@ -1499,7 +1619,172 @@ class _UserDashboardState extends State<UserDashboard> {
                                           width: 90,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                            BorderRadius.circular(10),
+                                            color: Colors.blue,
+                                          ),
+                                          child: const Center(
+                                            child: Text(
+                                              "View Details",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 150,
+                        width: 500,
+                        margin:
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
+                        child: Card(
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 140,
+                                width: 140,
+                                margin: const EdgeInsets.only(
+                                  left: 5,
+                                ),
+                                foregroundDecoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                      'Assets/images/userDashboard/sPlace4.png',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.all(5),
+                                    child: Padding(
+                                      padding:
+                                      EdgeInsets.only(right: 5, left: 8),
+                                      child: Text(
+                                        "Kathmandu, Nepal",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+
+                                  const Row(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 15.0, top: 0, right: 5),
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.location_on,
+                                              color: Colors.blue,
+                                              size: 20,
+                                            ),
+                                            Text(" Sundarijal"),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(left: 8.0),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.yellow,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.yellow,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.yellow,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.yellow,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.yellow,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 5, left: 8),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text.rich(
+                                          TextSpan(
+                                            children: [
+                                              WidgetSpan(
+                                                child: Icon(
+                                                  Icons.attach_money,
+                                                  color: Color(0xff03bdc9),
+                                                  size: 18,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: "200",
+                                                style: TextStyle(
+                                                  color: Color(0xff03bdc9),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: " /night",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  //view details button on bottom right
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 5, left: 100),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Container(
+                                          height: 30,
+                                          width: 90,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(10),
                                             color: Colors.blue,
                                           ),
                                           child: const Center(
@@ -1523,68 +1808,39 @@ class _UserDashboardState extends State<UserDashboard> {
                         ),
                       ),
 
-                      //find place in a map
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //Find the place in the map
+                      Column(
                         children: [
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: 20, right: 20, top: 20),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 18.0,left: 20,bottom: 10),
                             child: Align(
-                              alignment: Alignment.bottomLeft,
-                              child: Text(
-                                "View Places on map",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
+                                alignment: Alignment.bottomLeft,
+                                child: Text(
+                                  "Find the place in the map",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
                           ),
+                          GestureDetector(
+                            onTap: () {
+                              if (kDebugMode) {
+                                print("MAp");
+                              }
+                            },
+                            child: Image.asset('Assets/images/map2.png'),
+                          )
                         ],
                       ),
-                      //show map below in a sized box using iframe tag
-                      Container(
-                        height: 200,
-                        width: 500,
-                        margin:
-                            const EdgeInsets.only(left: 15, right: 15, top: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: WebViewWidget(
-                            controller: WebViewController()
-                              ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                              ..setBackgroundColor(const Color(0x00000000))
-                              ..setNavigationDelegate(
-                                NavigationDelegate(
-                                  onProgress: (int progress) {
-                                    // Update loading bar.
-                                  },
-                                  onPageStarted: (String url) {},
-                                  onPageFinished: (String url) {},
-                                  onWebResourceError:
-                                      (WebResourceError error) {},
-                                  onNavigationRequest:
-                                      (NavigationRequest request) {
-                                    if (request.url.startsWith(
-                                        'https://www.youtube.com/')) {
-                                      return NavigationDecision.prevent;
-                                    }
-                                    return NavigationDecision.navigate;
-                                  },
-                                ),
-                              )
-                              ..loadRequest(Uri.parse(
-                                  'https://maps.google.com/maps?q=Tangesir%20Dates%20Products&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed'))),
-                      )
+
                     ],
                   ),
                 ),
               ),
             ),
-          ]),
-        ))));
+          ],
+        ));
   }
 }
