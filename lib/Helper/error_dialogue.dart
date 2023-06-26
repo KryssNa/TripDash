@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../main.dart';
+import 'package:tripdash/main.dart';
 
 void showErrorDialog(BuildContext context, String text) {
   WidgetsBinding.instance.addPostFrameCallback((_) {

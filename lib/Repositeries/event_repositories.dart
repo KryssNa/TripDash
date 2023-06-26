@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../model/event_model.dart';
-import '../services/firebase_service.dart';
+import 'package:tripdash/Services/firebase_service.dart';
+import 'package:tripdash/model/event_model.dart';
 
 class EventRepository{
   CollectionReference<EventModel> ref =

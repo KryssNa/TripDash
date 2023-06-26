@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tripdash/Helper/error_dialogue.dart';
+import 'package:tripdash/ViewModel/auth_viewmodel.dart';
+import 'package:tripdash/constant/colors.dart';
+import 'package:tripdash/model/user_model.dart';
+import 'package:tripdash/widget/button_widget.dart';
+import 'package:tripdash/widget/text_field_widget.dart';
 
-import '../../Helper/error_dialogue.dart';
-import '../../ViewModel/auth_viewmodel.dart';
-import '../../constant/colors.dart';
-import '../../model/user_model.dart';
-import '../../widget/button_widget.dart';
-import '../../widget/text_field_widget.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {

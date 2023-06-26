@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../model/product_model.dart';
-import '../services/firebase_service.dart';
+import 'package:tripdash/Services/firebase_service.dart';
+import 'package:tripdash/model/product_model.dart';
 
 class ProductRepository{
   CollectionReference<ProductModel> ref =

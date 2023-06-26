@@ -1,8 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-
-import '../../../../constant/colors.dart';
+import 'package:tripdash/constant/colors.dart';
 
 class TextFieldWidget extends StatelessWidget {
   TextFieldWidget({

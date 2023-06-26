@@ -5,11 +5,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tripdash/ViewModel/place_viewmodel.dart';
 import 'package:tripdash/model/place_model.dart';
 
-import '../../ViewModel/place_viewmodel.dart';
-// import '../../model/Place_Model.dart';
-// import 'package:uuid/uuid.dart';
 
 class AdminAddPlaces extends StatefulWidget {
   const  AdminAddPlaces ({super.key});

@@ -5,10 +5,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tripdash/ViewModel/hotel_viewmodel.dart';
+import 'package:tripdash/model/hotel_model.dart';
 
-import '../../ViewModel/hotel_viewmodel.dart';
-import '../../model/hotel_model.dart';
-// import 'package:uuid/uuid.dart';
 
 
 class AdminAddHotels extends StatefulWidget {

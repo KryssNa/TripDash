@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/app_bar.dart';
+import 'package:tripdash/constant/colors.dart';
+import 'package:tripdash/widget/text_style.dart';
 
-import '../../constant/colors.dart';
-import '../../widget/text_style.dart';
-import '../UserScreen/app_bar.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});

@@ -1,9 +1,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-import '../Repositeries/product_repositories.dart';
-import '../model/product_model.dart';
+import 'package:tripdash/Repositeries/product_repositories.dart';
+import 'package:tripdash/model/product_model.dart';
 
 
 class ProductViewModel with ChangeNotifier{

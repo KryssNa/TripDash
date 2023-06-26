@@ -1,9 +1,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../Repositeries/event_repositories.dart';
-import '../model/event_model.dart';
+import 'package:tripdash/Repositeries/event_repositories.dart';
+import 'package:tripdash/model/event_model.dart';
 
 
 class EventViewModel with ChangeNotifier{

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Repositeries/auth_repositeries.dart';
 import 'package:tripdash/Screens/auth/register_screen.dart';
+import 'package:tripdash/constant/colors.dart';
+import 'package:tripdash/main.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
-import '../../Repositeries/auth_repositeries.dart';
-import '../../constant/colors.dart';
-import '../../main.dart';
-import '../../widget/button_widget.dart';
-import '../../widget/text_field_widget.dart';
+import 'package:tripdash/widget/button_widget.dart';
+import 'package:tripdash/widget/text_field_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

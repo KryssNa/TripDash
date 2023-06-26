@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tripdash/Repositeries/hotel_repositories.dart';
-import '../../model/hotel_model.dart';
+import 'package:tripdash/model/hotel_model.dart';
 import 'hotel_list_model.dart';
 import 'hotel_list_view.dart';
 import 'hotel_theme.dart';

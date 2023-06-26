@@ -1,9 +1,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../Repositeries/place_repositories.dart';
-import '../Screens/AdminScreen/add_places.dart';
+import 'package:tripdash/Repositeries/place_repositories.dart';
+import 'package:tripdash/model/place_model.dart';
 
 
 class PlaceViewModel with ChangeNotifier{
