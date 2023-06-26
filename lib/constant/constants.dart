@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/constant/size_config.dart';
 
-import 'Colors.dart';
+import 'colors.dart';
 
 
 const kAnimationDuration = Duration(milliseconds: 200);

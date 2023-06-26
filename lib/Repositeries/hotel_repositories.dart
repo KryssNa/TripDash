@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../model/Hotel_Model.dart';
+import '../model/hotel_model.dart';
 import '../services/firebase_service.dart';
 
 class HotelRepository{

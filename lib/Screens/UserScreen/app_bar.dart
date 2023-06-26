@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 
@@ -39,14 +40,14 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color(0xff0079c0),
-      shape: RoundedRectangleBorder(
+      backgroundColor: const Color(0xff0079c0),
+      shape: const RoundedRectangleBorder(
       ),
       leading: IconButton(
         onPressed: () {
           Scaffold.of(context).openDrawer(); // Open the drawer
         },
-        icon: Icon(Icons.menu_sharp),
+        icon: const Icon(Icons.menu_sharp),
         iconSize: 40,
       ),
       actions: [
@@ -58,16 +59,16 @@ class AppBarWidget extends StatelessWidget {
                 child: Text('Account'),
               ),
               const PopupMenuItem(
-                child: Text('Dashboard'),
                 value: 2,
+                child: Text('Dashboard'),
               ),
-              PopupMenuItem(
-                child: Text('Settings'),
+              const PopupMenuItem(
                 value: 4,
+                child: Text('Settings'),
               ),
-              PopupMenuItem(
-                child: Text('Logout'),
+              const PopupMenuItem(
                 value: 3,
+                child: Text('Logout'),
               ),
             ];
           },
@@ -75,13 +76,19 @@ class AppBarWidget extends StatelessWidget {
             // Handle dropdown menu selection
             if (value == 1) {
               // Option 1 selected
-              print('Account selected');
+              if (kDebugMode) {
+                print('Account selected');
+              }
             } else if (value == 2) {
               // Option 2 selected
-              print('Dashboard selected');
+              if (kDebugMode) {
+                print('Dashboard selected');
+              }
             } else if (value == 3) {
               // Option 3 selected
-              print('Logout selected');
+              if (kDebugMode) {
+                print('Logout selected');
+              }
             }
           },
           child: CircleAvatar(

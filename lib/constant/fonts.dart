@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class ConstFonts {
   static const String fontRegular = "Poppins-Regular";
@@ -11,5 +10,5 @@ class ConstFonts {
   static const String fontExtraLight = "Poppins-ExtraLight";
   static const String fontBlack = "Poppins-Black";
 
-  static const String PrimaryFont = "SSFPro";
+  static const String primaryFont = "SSFPro";
 }

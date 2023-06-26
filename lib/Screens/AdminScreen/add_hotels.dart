@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -99,7 +98,7 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
                                             color: Color(0xffdf842b),
                                             size: 20,
                                           ),
-                                          Container(
+                                          SizedBox(
                                             width: 260,
                                             child: Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

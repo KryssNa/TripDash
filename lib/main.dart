@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tripdash/widget/BottomNavigationBar.dart';
-import 'Helper/multiProvider.dart';
+import 'package:tripdash/widget/bottom_navigation_bar.dart';
+import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
 
 Future<void> main() async {
@@ -18,11 +18,15 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
-    return multiProvider(
+    return MultiProviderWidget(
       child: GetMaterialApp(
+        navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         initialRoute: BottomNavigationBarWidget.routeName,
         routes: routes,

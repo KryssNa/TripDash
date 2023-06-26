@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../model/EventModel.dart';
+import '../model/event_model.dart';
 import '../services/firebase_service.dart';
 
 class EventRepository{

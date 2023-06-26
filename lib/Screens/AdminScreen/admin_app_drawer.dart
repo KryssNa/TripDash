@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/AdminScreen/AddHotel.dart';
-import 'package:tripdash/Screens/AdminScreen/AddProduct.dart';
+import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
+import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 
 //AdminAppDrawer
@@ -46,12 +46,12 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
         children: [
           UserAccountsDrawerHeader(
             accountName: Text(name,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 18,
               ),),
             accountEmail: Text(email,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 15,
               ),),
@@ -63,28 +63,28 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
                   fit: BoxFit.cover,),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFFFBDACE),
             ),
           ),
           ListTile(
-            leading: Icon(Icons.place_outlined),
-            title: Text("Place"),
+            leading: const Icon(Icons.place_outlined),
+            title: const Text("Place"),
             onTap: () => Navigator.pushReplacementNamed(context, Homepage.routeName),
           ),
           ListTile(
-            leading: Icon(Icons.hotel_outlined),
-            title: Text("Hotels"),
+            leading: const Icon(Icons.hotel_outlined),
+            title: const Text("Hotels"),
             onTap: () => Navigator.pushReplacementNamed(context, AdminAddHotels.routeName),
           ),
           ListTile(
-            leading: Icon(Icons.add_circle_outline),
-            title: Text("Product"),
+            leading: const Icon(Icons.add_circle_outline),
+            title: const Text("Product"),
             onTap: () => Navigator.pushReplacementNamed(context, AddProduct.routeName),
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app_outlined),
-            title: Text("Exit"),
+            leading: const Icon(Icons.exit_to_app_outlined),
+            title: const Text("Exit"),
             onTap: () => Navigator.pop(context),
           ),
 

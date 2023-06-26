@@ -5,7 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tripdash/model/PlaceModel.dart';
+import 'package:tripdash/model/place_model.dart';
 
 import '../../ViewModel/place_viewmodel.dart';
 // import '../../model/Place_Model.dart';
@@ -20,11 +20,11 @@ class AdminAddPlaces extends StatefulWidget {
 }
 
 class  _PlacePlace  extends State< AdminAddPlaces > {
-  TextEditingController place_name = TextEditingController();
-  TextEditingController place_location = TextEditingController();
-  TextEditingController PlacePrice = TextEditingController();
-  TextEditingController place_description = new TextEditingController();
-  int id = new DateTime.now().millisecondsSinceEpoch;
+  TextEditingController placeName = TextEditingController();
+  TextEditingController placeLocation = TextEditingController();
+  TextEditingController placePrice = TextEditingController();
+  TextEditingController placeDescription = TextEditingController();
+  int id = DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
   // var uuid = Uuid();
   void imagePickerOption() {
@@ -97,7 +97,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
     }
   }
 
-  Future<void> add_place(PlaceViewModel) async {
+  Future<void> addPlace(placeViewModel) async {
     if(pickedImage == null){
       // ScaffoldMessenger.of(context).showSnackBar(snackBar)
       return;
@@ -111,10 +111,10 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
 
     final data = PlaceModel(
         placeId: id.toString(),
-        placeName:place_name.text,
-        location: place_location.text,
-        price: PlacePrice.text,
-        description: place_description.text,
+        placeName:placeName.text,
+        location: placeLocation.text,
+        price: placePrice.text,
+        description: placeDescription.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath
     );
@@ -181,7 +181,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
             ),
             TextFormField(
               style: const TextStyle(color: Colors.black),
-              controller: place_name,
+              controller: placeName,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "Place";
@@ -206,11 +206,12 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
             ),
             TextFormField(
               style: const TextStyle(color: Colors.black),
-              controller: place_location,
+              controller: placeLocation,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "Place Location is required";
                 }
+                return null;
               },
               decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(),
@@ -227,11 +228,12 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
             ),
             TextFormField(
               style: const TextStyle(color: Colors.black),
-              controller: PlacePrice,
+              controller: placePrice,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "place price is needed";
                 }
+                return null;
               },
               decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(),
@@ -248,11 +250,12 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
             ),
             TextFormField(
               style: const TextStyle(color: Colors.black),
-              controller: place_description,
+              controller: placeDescription,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "Place description is required";
                 }
+                return null;
               },
               decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(),
@@ -271,7 +274,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton.icon(
                   onPressed: () {
-                    add_place(placeViewModel);
+                    addPlace(PlaceViewModel);
                   },
                   icon: const Icon(Icons.place_sharp),
                   label: const Text('Add Place')),

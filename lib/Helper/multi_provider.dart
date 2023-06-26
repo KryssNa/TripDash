@@ -9,8 +9,8 @@ import 'package:get/get.dart';
 
 import '../ViewModel/hotel_viewmodel.dart';
 
-class multiProvider extends StatelessWidget {
-  const multiProvider({Key? key,  required this.child}) : super(key: key);
+class MultiProviderWidget extends StatelessWidget {
+  const MultiProviderWidget({Key? key,  required this.child}) : super(key: key);
   final GetMaterialApp child;
 
   @override

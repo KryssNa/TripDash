@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/model/Hotel_Model.dart';
+import 'package:tripdash/model/hotel_model.dart';
 import 'hotel_theme.dart';
 
 class RatingWidget extends StatelessWidget {
@@ -7,7 +7,7 @@ class RatingWidget extends StatelessWidget {
   final Icon half;
   final Icon empty;
 
-  const RatingWidget({
+  const RatingWidget({super.key,
     required this.full,
     required this.half,
     required this.empty,
@@ -83,7 +83,7 @@ class HotelListView extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            color: HotelTheme.buildLightTheme().backgroundColor,
+                            color: HotelTheme.buildLightTheme().colorScheme.background,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,

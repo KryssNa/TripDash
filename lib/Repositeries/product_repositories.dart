@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../model/ProductModel.dart';
+import '../model/product_model.dart';
 import '../services/firebase_service.dart';
 
 class ProductRepository{

@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-
 
 class UserplaceScreen extends StatefulWidget {
   const UserplaceScreen({Key? key}) : super(key: key);
@@ -15,41 +12,41 @@ class UserplaceScreen extends StatefulWidget {
 
 class _UserplaceScreenState extends State<UserplaceScreen> {
   FirebaseFirestore db = FirebaseFirestore.instance;
-  late placeViewModel _placeViewModel;
+  late PlaceViewModel _placeViewModel;
   @override
   void initState(){
-    _placeViewModel = Provider.of<placeViewModel>(context, listen: false);
+    _placeViewModel = Provider.of<PlaceViewModel>(context, listen: false);
     _placeViewModel.getplace();
 
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    var place =context.watch<placeViewModel>().place;
+    var place =context.watch<PlaceViewModel>().place;
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             StreamBuilder(
                 stream: place,
                 builder: (context,
-                    AsyncSnapshot<QuerySnapshot<placeModel>> snapshot) {
-                  if (snapshot.hasError) return Text("Error");
+                    AsyncSnapshot<QuerySnapshot<PlaceModel>> snapshot) {
+                  if (snapshot.hasError) return const Text("Error");
                   return Container(
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ...snapshot.data!.docs.map((document) {
-                            placeModel place = document.data();
+                            PlaceModel place = document.data();
 
                             return Container(
-                              margin: EdgeInsets.only(right: 20),
+                              margin: const EdgeInsets.only(right: 20),
                               child: Column(
                                 children: [
                                   place.imageUrl == null || place.imageUrl == ""? Image.asset("Assets/Images/Pokhara.jpg",
@@ -64,7 +61,7 @@ class _UserplaceScreenState extends State<UserplaceScreen> {
                                           fit: BoxFit.cover,
                                           image: NetworkImage(place.imageUrl.toString()),
                                         ),
-                                        borderRadius: BorderRadius.only(
+                                        borderRadius: const BorderRadius.only(
                                           topLeft: Radius.circular(20),
                                           topRight: Radius.circular(20),
                                         )),
@@ -72,40 +69,40 @@ class _UserplaceScreenState extends State<UserplaceScreen> {
                                   Container(
                                     height: 100,
                                     width: 310,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: Color(0xfff1f1f1),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(20),
                                           bottomRight: Radius.circular(20),
                                     )),
                                     child: Padding(
-                                      padding: EdgeInsets.all(15),
+                                      padding: const EdgeInsets.all(15),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             place.placeName.toString(),
-                                            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
                                           Row(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Icon(
+                                              const Icon(
                                                 Icons.location_on,
                                                 color: Color(0xffdf842b),
                                                 size: 20,
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width: 260,
                                                 child: Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     Text(
                                                       place.location.toString(),
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                         fontSize: 20,
                                                         color: Colors.black,
                                                         fontWeight: FontWeight.w300,
@@ -113,7 +110,7 @@ class _UserplaceScreenState extends State<UserplaceScreen> {
                                                     ),
                                                     Text(
                                                       place.price.toString(),
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                         fontSize: 20,
                                                         fontWeight: FontWeight.bold,
                                                       ),
@@ -144,13 +141,13 @@ class _UserplaceScreenState extends State<UserplaceScreen> {
   }
 }
 
-class placeViewModel with ChangeNotifier{
+class PlaceViewModel with ChangeNotifier{
   get place => null;
 
   void getplace() {}
 }
 
-class placeModel {
+class PlaceModel {
   get location => null;
 
   get price => null;

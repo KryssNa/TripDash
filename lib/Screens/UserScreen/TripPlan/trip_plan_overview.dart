@@ -134,7 +134,7 @@ class _TripPlanState extends State<TripPlanOverview> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10,),
+                  padding: const EdgeInsets.only(right: 12, left: 10,),
                   child: TextButton(onPressed: (){
                     Navigator.of(context).pushReplacementNamed(TripPlanDetails.routeName);
                     },
@@ -147,7 +147,7 @@ class _TripPlanState extends State<TripPlanOverview> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10,),
+                  padding: const EdgeInsets.only(right: 12, left: 10,),
                   child: TextButton(onPressed: (){},
                     child: const Text("Budget",
                       style: TextStyle(

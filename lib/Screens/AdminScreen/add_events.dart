@@ -1,16 +1,14 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tripdash/ViewModel/EventViewmodel.dart';
-import '../../model/EventModel.dart';
-import 'package:quickalert/quickalert.dart';
-
+import 'package:tripdash/ViewModel/event_viewmodel.dart';
+import '../../model/event_model.dart';
 
 class AdminAddEvents extends StatefulWidget {
   const  AdminAddEvents ({super.key});
@@ -21,12 +19,12 @@ class AdminAddEvents extends StatefulWidget {
 }
 
 class  _EventEvent  extends State< AdminAddEvents > {
-  TextEditingController event_title = TextEditingController();
-  TextEditingController event_location = TextEditingController();
-  TextEditingController event_category = TextEditingController();
-  TextEditingController event_date = TextEditingController();
-  TextEditingController event_description = new TextEditingController();
-  int id = new DateTime.now().millisecondsSinceEpoch;
+  TextEditingController eventTitle = TextEditingController();
+  TextEditingController eventLocation = TextEditingController();
+  TextEditingController eventCategory = TextEditingController();
+  TextEditingController eventDate = TextEditingController();
+  TextEditingController eventDescription = TextEditingController();
+  int id = DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
   final _formKey = GlobalKey<FormState>();
 
@@ -39,7 +37,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
             topRight: Radius.circular(0.0),
           ),
           child: Container(
-            color: Color.fromARGB(255, 190, 216, 238),
+            color: const Color.fromARGB(255, 190, 216, 238),
             height: 250,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -103,7 +101,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
     }
   }
  
-  Future<void> add_event(EventViewModel) async {
+  Future<void> addEvent(eventViewModel) async {
     if(_formKey.currentState!.validate())
     {if (pickedImage == null){
         ScaffoldMessenger.of(context).showSnackBar(
@@ -111,7 +109,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
             msg: "Event Image is not Provided",
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
-            backgroundColor: Color.fromARGB(255, 231, 4, 4),
+            backgroundColor: const Color.fromARGB(255, 231, 4, 4),
             textColor: Colors.white,
           ) as SnackBar
         );
@@ -126,11 +124,11 @@ class  _EventEvent  extends State< AdminAddEvents > {
 
     final data = EventModel (
         eventId: id.toString(),
-        title:event_title.text,
-        location: event_location.text,
-        category:event_category.text,
-        date: event_date.text,
-        description: event_description.text,
+        title:eventTitle.text,
+        location: eventLocation.text,
+        category:eventCategory.text,
+        date: eventDate.text,
+        description: eventDescription.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath
     );
@@ -140,7 +138,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
     msg: "Event Added Successfully",
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.TOP,
-    backgroundColor: Color.fromARGB(255, 16, 176, 45),
+    backgroundColor: const Color.fromARGB(255, 16, 176, 45),
     textColor: Colors.white,
   ) as SnackBar);
     });
@@ -157,24 +155,24 @@ class  _EventEvent  extends State< AdminAddEvents > {
             children: [
           MaterialButton(
             onPressed: (){
-              add_event(EventViewModel);
+              addEvent(EventViewModel);
               Navigator.pop(context);
             },
-            child: Text("Add more Events"),
             color: Colors.blue, // Customize the button background color
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0), // Customize the button shape
             ),
+            child: const Text("Add more Events"),
           ),
           MaterialButton(
             onPressed: (){
               Navigator.pop(context);
             },
-            child: Text("Done"),
             color: Colors.blue, // Customize the button background color
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0), // Customize the button shape
             ),
+            child: const Text("Done"),
           ),
         ],
         ),
@@ -187,328 +185,328 @@ class  _EventEvent  extends State< AdminAddEvents > {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: SingleChildScrollView(
-            child:Form(
-              key: _formKey,
-                child: Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const SizedBox(
-                        height: 25,
+        child: SingleChildScrollView(
+          child:Form(
+            key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: Center(
+                      child: Text(
+                        'Add Event',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Center(
-                          child: Text(
-                            'Add Event',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                            ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Title',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Title',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10,
-                              ),
+                        TextFormField(
+                          style: const TextStyle(color: Colors.black),
+                          controller: eventTitle,
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Event Title is required";
+                            }
+                            if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
+                              return "Please enter a valid Event Title";
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
                             ),
-                            TextFormField(
-                              style: TextStyle(color: Colors.black),
-                              controller: event_title,
-                              validator: (String? value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Event Title is required";
-                                }
-                                if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
-                                  return "Please enter a valid Event Title";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                suffixIcon: Icon(
-                                  Icons.title,
-                                  color: Colors.black,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 219, 168, 168),
-                                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
-                              ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
                             ),
-                          ],
+                            suffixIcon: const Icon(
+                              Icons.title,
+                              color: Colors.black,
+                            ),
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 219, 168, 168),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Event Category',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10,
-                              ),
-                            ),
-                            TextFormField(
-                              style: TextStyle(color: Colors.black),
-                              controller: event_category,
-                              validator: (String? value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Event Catorogy is required";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                suffixIcon: Icon(
-                                  Icons.location_on,
-                                  color: Colors.black,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 219, 168, 168),
-                                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Location',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10,
-                              ),
-                            ),
-                            TextFormField(
-                              style: TextStyle(color: Colors.black),
-                              controller: event_location,
-                              validator: (String? value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Event Location is required";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                suffixIcon: Icon(
-                                  Icons.location_on,
-                                  color: Colors.black,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 219, 168, 168),
-                                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Date',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10,
-                              ),
-                            ),
-                            TextFormField(
-                              style: TextStyle(color: Colors.black),
-                              controller: event_date,
-                              validator: (String? value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Event Date is needed";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                suffixIcon: Icon(
-                                  Icons.calendar_month,
-                                  color: Colors.black,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 219, 168, 168),
-                                contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
-                              ),
-                              readOnly: true,
-                              onTap: () async {
-                            DateTime? pickedDate = await showDatePicker(
-                                context: context, initialDate: DateTime.now(),
-                                firstDate: DateTime.now(),
-                                lastDate: DateTime(2101)
-                            );
-                            if(pickedDate != null ){
-                                print(pickedDate); 
-                                String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate); 
-                                print(formattedDate); 
-                                setState(() {
-                                   event_date.text = formattedDate;
-                                });
-                                }
-                              }
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(9.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Image',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: ClipRect(
-                                      child: pickedImage != null ? Image.file(
-                                        pickedImage!,
-                                        width: 500,
-                                        height: 200,
-                                        fit: BoxFit.cover,
-                                      )
-                                          : Image.asset('Assets/images/insert_image.png'),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton.icon(
-                            onPressed: imagePickerOption,
-                            icon: const Icon(Icons.add_a_photo_sharp),
-                            label: const Text('Event Image')),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(9.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Description',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10,
-                              ),
-                            ),
-                            TextFormField(
-                              style: TextStyle(color: Colors.black),
-                              controller: event_description,
-                              validator: (String? value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Description is required";
-                                }
-                                return null;
-                              },
-                              minLines: 1,
-                              maxLines: null,
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(color: Colors.black),
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.description,
-                                  color: Colors.black,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 219, 168, 168),
-                                contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0), // Adjust the padding as needed
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                        
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton.icon(
-                            onPressed:() {
-                              add_event(EventViewModel);
-                              
-                            },
-                            icon: const Icon(Icons.event_available_rounded),
-                            label: const Text('Add Event')),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Event Category',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                          ),
+                        ),
+                        TextFormField(
+                          style: const TextStyle(color: Colors.black),
+                          controller: eventCategory,
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Event Catorogy is required";
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            suffixIcon: const Icon(
+                              Icons.location_on,
+                              color: Colors.black,
+                            ),
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 219, 168, 168),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Location',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                          ),
+                        ),
+                        TextFormField(
+                          style: const TextStyle(color: Colors.black),
+                          controller: eventLocation,
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Event Location is required";
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            suffixIcon: const Icon(
+                              Icons.location_on,
+                              color: Colors.black,
+                            ),
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 219, 168, 168),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Date',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                          ),
+                        ),
+                        TextFormField(
+                          style: const TextStyle(color: Colors.black),
+                          controller: eventDate,
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Event Date is needed";
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            suffixIcon: const Icon(
+                              Icons.calendar_month,
+                              color: Colors.black,
+                            ),
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 219, 168, 168),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+                          ),
+                          readOnly: true,
+                          onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context, initialDate: DateTime.now(),
+                            firstDate: DateTime.now(),
+                            lastDate: DateTime(2101)
+                        );
+                        if(pickedDate != null ){
+                            if (kDebugMode) {
+                              print(pickedDate);
+                            }
+                            String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+                            if (kDebugMode) {
+                              print(formattedDate);
+                            }
+                            setState(() {
+                               eventDate.text = formattedDate;
+                            });
+                            }
+                          }
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(9.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Image',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Stack(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: ClipRect(
+                                  child: pickedImage != null ? Image.file(
+                                    pickedImage!,
+                                    width: 500,
+                                    height: 200,
+                                    fit: BoxFit.cover,
+                                  )
+                                      : Image.asset('Assets/images/insert_image.png'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                        onPressed: imagePickerOption,
+                        icon: const Icon(Icons.add_a_photo_sharp),
+                        label: const Text('Event Image')),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(9.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Description',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                          ),
+                        ),
+                        TextFormField(
+                          style: const TextStyle(color: Colors.black),
+                          controller: eventDescription,
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Description is required";
+                            }
+                            return null;
+                          },
+                          minLines: 1,
+                          maxLines: null,
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            prefixIcon: const Icon(
+                              Icons.description,
+                              color: Colors.black,
+                            ),
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 219, 168, 168),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0), // Adjust the padding as needed
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                        onPressed:() {
+                          addEvent(EventViewModel);
+
+                        },
+                        icon: const Icon(Icons.event_available_rounded),
+                        label: const Text('Add Event')),
+                  ),
+                ],
               ),
-            
-          ),
+            ),
+
         ),
       ),
     );

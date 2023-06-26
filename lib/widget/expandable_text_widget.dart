@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class ExpandableTextWidget extends StatefulWidget {
-  final String Des_text;
-  const ExpandableTextWidget({Key? key, required this.Des_text})
+  final String desText;
+  const ExpandableTextWidget({Key? key, required this.desText})
       : super(key: key);
 
   @override
@@ -22,12 +22,12 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   @override
   void initState() {
     super.initState();
-    if (widget.Des_text.length > textHeight) {
-      firstHalf = widget.Des_text.substring(0, textHeight.toInt());
-      secondHalf = widget.Des_text.substring(
-          textHeight.toInt() + 1, widget.Des_text.length);
+    if (widget.desText.length > textHeight) {
+      firstHalf = widget.desText.substring(0, textHeight.toInt());
+      secondHalf = widget.desText.substring(
+          textHeight.toInt() + 1, widget.desText.length);
     } else {
-      firstHalf = widget.Des_text;
+      firstHalf = widget.desText;
       //becoz yo late variable ho ani initialize garnai parxa
       secondHalf = "";
     }
@@ -37,16 +37,16 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   Widget build(BuildContext context) {
     return Container(
       child: secondHalf.isEmpty
-          ? Text(firstHalf, style: TextStyle(fontSize: 15, height: 1.8))
+          ? Text(firstHalf, style: const TextStyle(fontSize: 15, height: 1.8))
           : Column(
               children: [
                 Text(
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 15,
                       height: 1.8,
                     ),
                     hiddenText
-                        ? (firstHalf + "...")
+                        ? ("$firstHalf...")
                         : (firstHalf + secondHalf)),
                 InkWell(
                   onTap: () {
@@ -58,7 +58,7 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
                     children: [
                       Text(
                         hiddenText ? "Show more" : "Show less",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color(0xff956d54),
                             fontSize: 18,
                             height: 1.8),

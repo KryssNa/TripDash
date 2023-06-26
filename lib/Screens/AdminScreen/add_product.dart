@@ -4,23 +4,23 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tripdash/ViewModel/ProductViewModel.dart';
-import 'package:tripdash/model/ProductModel.dart';
+import 'package:tripdash/ViewModel/product_viewmodel.dart';
+import 'package:tripdash/model/product_model.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({Key? key}) : super(key: key);
   static const routeName = '/AddProducts';
 
   @override
-  _AddProductState createState() => _AddProductState();
+  AddProductState createState() => AddProductState();
 }
 
-class _AddProductState extends State<AddProduct> {
+class AddProductState extends State<AddProduct> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController product_name = TextEditingController();
-  TextEditingController product_category = TextEditingController();
-  TextEditingController product_price = TextEditingController();
-  TextEditingController product_offer = TextEditingController();
+  TextEditingController productName = TextEditingController();
+  TextEditingController productCategory = TextEditingController();
+  TextEditingController productPrice = TextEditingController();
+  TextEditingController productOffer = TextEditingController();
   int id = DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
 
@@ -95,7 +95,7 @@ class _AddProductState extends State<AddProduct> {
     }
   }
 
-  Future<void> add_product(ProductViewModel) async {
+  Future<void> addProduct(productViewModel) async {
     if (_formKey.currentState!.validate()) {
       if (pickedImage == null) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -113,10 +113,10 @@ class _AddProductState extends State<AddProduct> {
 
       final data = ProductModel(
         productId: id.toString(),
-        productName: product_name.text,
-        category: product_category.text,
-        price: product_price.text,
-        offer: product_offer.text,
+        productName: productName.text,
+        category: productCategory.text,
+        price: productPrice.text,
+        offer: productOffer.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath,
       );
@@ -190,15 +190,15 @@ class _AddProductState extends State<AddProduct> {
                   vertical: 4.0,
                 ),
                 child: TextFormField(
-                  style: TextStyle(color: Colors.black),
-                  controller: product_name,
+                  style: const TextStyle(color: Colors.black),
+                  controller: productName,
                   validator: (value) {
                     if (value?.isEmpty ?? true) {
                       return 'Please enter a product name';
                     }
                     return null;
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(),
                     prefixIcon: Icon(
                       Icons.add_circle_outline,
@@ -214,14 +214,15 @@ class _AddProductState extends State<AddProduct> {
                   vertical: 4.0,
                 ),
                 child: TextFormField(
-                  style: TextStyle(color: Colors.black),
-                  controller: product_category,
+                  style: const TextStyle(color: Colors.black),
+                  controller: productCategory,
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return "Product Location is required";
                     }
+                    return null;
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(),
                     prefixIcon: Icon(
                       Icons.category,
@@ -237,14 +238,15 @@ class _AddProductState extends State<AddProduct> {
                   vertical: 4.0,
                 ),
                 child: TextFormField(
-                  style: TextStyle(color: Colors.black),
-                  controller: product_price,
+                  style: const TextStyle(color: Colors.black),
+                  controller: productPrice,
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return "Product price is needed";
                     }
+                    return null;
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(),
                     prefixIcon: Icon(
                       Icons.price_change_outlined,
@@ -260,14 +262,15 @@ class _AddProductState extends State<AddProduct> {
                   vertical: 4.0,
                 ),
                 child: TextFormField(
-                  style: TextStyle(color: Colors.black),
-                  controller: product_offer,
+                  style: const TextStyle(color: Colors.black),
+                  controller: productOffer,
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return "Product offer is required";
                     }
+                    return null;
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(),
                     prefixIcon: Icon(
                       Icons.local_offer_outlined,
@@ -284,7 +287,7 @@ class _AddProductState extends State<AddProduct> {
                 ),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    add_product(ProductViewModel);
+                    addProduct(ProductViewModel);
                   },
                   icon: const Icon(Icons.location_city),
                   label: const Text('Add Product'),

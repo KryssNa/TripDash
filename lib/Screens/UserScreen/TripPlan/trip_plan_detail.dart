@@ -139,7 +139,7 @@ class _TripPlanState extends State<TripPlanDetails> {
                   ),
                 ),
                Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10,),
+                  padding: const EdgeInsets.only(right: 12, left: 10,),
                   child: TextButton(onPressed: (){},
                     child: Text("Trip Plan",
                       style: TextStyle(
@@ -150,7 +150,7 @@ class _TripPlanState extends State<TripPlanDetails> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10, top: 5, bottom:5),
+                  padding: const EdgeInsets.only(right: 12, left: 10, top: 5, bottom:5),
                   child: TextButton(onPressed: (){},
                     child: const Text("Budget",
                       style: TextStyle(

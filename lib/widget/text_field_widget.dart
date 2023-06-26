@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../constant/colors.dart';
 
-class textField extends StatelessWidget {
-  textField({
+class TextFieldWidget extends StatelessWidget {
+  TextFieldWidget({
     super.key, required this.titleHeading, required this.hintText, required this.controller,this.prefixIcon
-    ,this.suffixIcon,  required this.obscureText, this.Validator
+    ,this.suffixIcon,  required this.obscureText, this.validator
   });
   final String titleHeading;
   final String hintText;
@@ -15,7 +15,7 @@ class textField extends StatelessWidget {
   IconData? prefixIcon;
   Widget? suffixIcon;
   final bool obscureText;
-  String? Function(dynamic)? Validator;
+  String? Function(dynamic)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class textField extends StatelessWidget {
 
           child: TextFormField(
             controller: controller,
-            validator: Validator,
+            validator: validator,
             obscureText:obscureText,
             decoration: InputDecoration(
               suffixIcon: suffixIcon ,

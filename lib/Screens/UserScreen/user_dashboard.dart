@@ -1,10 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/Profile/UserProfile.dart';
-import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
-import 'package:tripdash/Screens/UserScreen/UserAppDrawer.dart';
+import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'AppBar.dart';
+import 'app_bar.dart';
 
 class UserDashboard extends StatefulWidget {
   const UserDashboard({super.key});
@@ -18,7 +17,7 @@ class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: UserAppDrawer(),
+        drawer: const UserAppDrawer(),
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(60), // Change the height as desired
           child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
@@ -46,7 +45,7 @@ class _UserDashboardState extends State<UserDashboard> {
                       ),
                     ),
                     InkWell(
-                      child: Container(
+                      child: SizedBox(
                         height: 30,
                         width: 30,
                         child: IconButton(
@@ -241,7 +240,9 @@ class _UserDashboardState extends State<UserDashboard> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                print('Dubai button tapped!');
+                                if (kDebugMode) {
+                                  print('Dubai button tapped!');
+                                }
                               },
                               child: const Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -259,7 +260,9 @@ class _UserDashboardState extends State<UserDashboard> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                print('Bali button tapped!');
+                                if (kDebugMode) {
+                                  print('Bali button tapped!');
+                                }
                               },
                               child: const Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -277,7 +280,9 @@ class _UserDashboardState extends State<UserDashboard> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                print('Antartica button tapped!');
+                                if (kDebugMode) {
+                                  print('Antartica button tapped!');
+                                }
                               },
                               child: const Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -295,7 +300,9 @@ class _UserDashboardState extends State<UserDashboard> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                print('London button tapped!');
+                                if (kDebugMode) {
+                                  print('London button tapped!');
+                                }
                               },
                               child: const Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -313,7 +320,9 @@ class _UserDashboardState extends State<UserDashboard> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                print('Maldives button tapped!');
+                                if (kDebugMode) {
+                                  print('Maldives button tapped!');
+                                }
                               },
                               child: const Padding(
                                 padding: EdgeInsets.all(8.0),

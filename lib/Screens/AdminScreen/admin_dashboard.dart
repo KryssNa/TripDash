@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../constant/colors.dart';
-import '../../widget/textStyle.dart';
-import '../UserScreen/AppBar.dart';
+import '../../widget/text_style.dart';
+import '../UserScreen/app_bar.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -28,7 +28,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               children: [
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: const EdgeInsets.only(left: 20),
                   child: Text("Dashboard",
                   style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
                 ),
@@ -143,12 +143,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Container(
-                                child: Text(
-                                  "Revenue Graph",
-                                  style: buildTextStyle(
-                                      ConstColors.adminPrimaryHeadingText),
-                                ),
+                              Text(
+                                "Revenue Graph",
+                                style: buildTextStyle(
+                                    ConstColors.adminPrimaryHeadingText),
                               ),
                               const SizedBox(
                                 width: 60,
@@ -181,10 +179,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           ),
                         ),
                       ),
-                      Container(
-                        // height: 200,
-                        // width: 200,
-                          child: Image.asset("Assets/images/Graph.png")),
+                      Image.asset("Assets/images/Graph.png"),
                     ]),
                   ),
                 ),
@@ -262,12 +257,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Container(
-                                child: Text(
-                                  "Statistics Graph",
-                                  style: buildTextStyle(
-                                      ConstColors.adminPrimaryHeadingText),
-                                ),
+                              Text(
+                                "Statistics Graph",
+                                style: buildTextStyle(
+                                    ConstColors.adminPrimaryHeadingText),
                               ),
                               const SizedBox(
                                 width: 60,
@@ -300,10 +293,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           ),
                         ),
                       ),
-                      Container(
-                        // height: 200,
-                        // width: 200,
-                          child: Image.asset("Assets/images/Graph.png")),
+                      Image.asset("Assets/images/Graph.png"),
                     ]),
                   ),
                 ),

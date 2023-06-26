@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class IconAndTextWidget extends StatelessWidget {
@@ -21,7 +21,7 @@ class IconAndTextWidget extends StatelessWidget {
           icon,
           color: iconColor,
         ),
-        SizedBox(
+        const SizedBox(
           height: 1,
         ),
         Text(

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-ProductModel? ProductModelFromJson(String str) => ProductModel.fromJson(json.decode(str));
+ProductModel? productModelFromJson(String str) => ProductModel.fromJson(json.decode(str));
 
 String productModelToJson(ProductModel? data) => json.encode(data!.toJson());
 

@@ -17,7 +17,7 @@ class BottomNavigationBarWidget extends StatefulWidget {
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int index = 0;
-
+  @override
   void initState() {
     super.initState();
   }
@@ -26,8 +26,8 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
-        color: Color(0xfff1eded),
-        buttonBackgroundColor: Color(0xffe7f3f1),
+        color: const Color(0xfff1eded),
+        buttonBackgroundColor: const Color(0xffe7f3f1),
         items: [ CurvedNavigationBarItem(
           child: Icon(Icons.home_outlined,color: (index == 0)? Colors.green : Colors.black,size: 30,),
           label: 'Home',

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Repositeries/auth_repositeries.dart';
-import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
-import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
-import 'package:tripdash/widget/BottomNavigationBar.dart';
-
-import '../../Helper/error_dialogue.dart';
-import '../../ViewModel/auth_viewmodel.dart';
+import 'package:tripdash/Screens/auth/register_screen.dart';
+import 'package:tripdash/widget/bottom_navigation_bar.dart';
+import '../../Repositeries/auth_repositeries.dart';
 import '../../constant/colors.dart';
-import '../../widget/buttonWidget.dart';
-import '../../widget/textFieldWidget.dart';
+import '../../main.dart';
+import '../../widget/button_widget.dart';
+import '../../widget/text_field_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -63,18 +60,20 @@ class _LoginScreenState extends State<LoginScreen> {
     // Simulating a delay for user registration
     await Future.delayed(const Duration(seconds: 2));
     // _authen.
-    try{
-
-      final user = await AuthRepository().login(emailController.text, passwordController.text);
-      Navigator.of(context).pushNamed(BottomNavigationBarWidget.routeName);
-    }catch(e){
-      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-      showErrorDialog(context,"Invalid Credentials or \n User does not exist");
+    try {
+      // final user = await AuthRepository().login(emailController.text, passwordController.text);
+      await AuthRepository().login(emailController.text, passwordController.text);
+      // Navigate to the home page
+      navigatorKey.currentState!.pushNamed(BottomNavigationBarWidget.routeName);
+    } catch (e) {
+      // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Invalid Credentials or \n User does not exist")));
+      // showErrorDialog(context, "Invalid Credentials or \n User does not exist");
     }
 
     // Return whether the registration is successful or not
     return true;
   }
+
 
 
   @override
@@ -133,11 +132,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             margin: const EdgeInsets.all(20),
                             child: Column(
                               children: [
-                                textField(
+                                TextFieldWidget(
                                   titleHeading: 'Email',
                                   hintText: 'Enter your email',
                                   controller: emailController,
-                                  Validator: (value) {
+                                  validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return "Email is required";
                                     }
@@ -152,14 +151,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                textField(
+                                TextFieldWidget(
                                   titleHeading: 'Password',
                                   hintText: 'Enter your password',
                                   obscureText: changePasswordState,
                                   suffixIcon: showVisibilityIcon(
                                       changePasswordState),
                                   controller: passwordController,
-                                  Validator: (value) {
+                                  validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return "Password is required";
                                     }
@@ -173,29 +172,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                   height: 10,
                                 ),
 
-                                Container(
-                                  // margin: const EdgeInsets.only(left: 10),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Checkbox(
-                                        value: _isChecked,
-                                        onChanged: (val) {
-                                          setState(() {
-                                            _isChecked = val!;
-                                          });
-                                        },
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Checkbox(
+                                      value: _isChecked,
+                                      onChanged: (val) {
+                                        setState(() {
+                                          _isChecked = val!;
+                                        });
+                                      },
+                                    ),
+                                    const Text(
+                                      'Keep me logged in',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'SSFPro',
+                                        color: ConstColors.primaryTextColor,
                                       ),
-                                      const Text(
-                                        'Keep me logged in',
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          fontFamily: 'SSFPro',
-                                          color: ConstColors.primaryTextColor,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                                 Align(
                                   alignment: Alignment.bottomRight,
@@ -265,7 +261,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
 
-                                SizedBox(height: 130,)
+                                const SizedBox(height: 130,)
                               ],
                             ),
                           )

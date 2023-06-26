@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../ViewModel/hotel_viewmodel.dart';
-import '../../model/Hotel_Model.dart';
+import '../../model/hotel_model.dart';
 // import 'package:uuid/uuid.dart';
 
 
@@ -19,11 +19,11 @@ class AdminAddHotels extends StatefulWidget {
 }
 
 class  _HotelPlace  extends State< AdminAddHotels > {
-  TextEditingController hotel_name = TextEditingController();
-  TextEditingController hotel_location = TextEditingController();
-  TextEditingController hotel_price = TextEditingController();
-  TextEditingController hotel_description = new TextEditingController();
-  int id = new DateTime.now().millisecondsSinceEpoch;
+  TextEditingController hotelName = TextEditingController();
+  TextEditingController hotelLocation = TextEditingController();
+  TextEditingController hotelPrice = TextEditingController();
+  TextEditingController hotelDescription = TextEditingController();
+  int id = DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
   // var uuid = Uuid();
   void imagePickerOption() {
@@ -97,7 +97,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
     }
   }
 
-  Future<void> add_hotel(HotelViewModel) async {
+  Future<void> addHotel(hotelViewModel) async {
     if(pickedImage == null){
       // ScaffoldMessenger.of(context).showSnackBar(snackBar)
       return;
@@ -111,10 +111,10 @@ class  _HotelPlace  extends State< AdminAddHotels > {
 
     final data = HotelModel(
         hotelId: id.toString(),
-        hotelName:hotel_name.text,
-        location: hotel_location.text,
-        price: hotel_price.text,
-        description: hotel_description.text,
+        hotelName:hotelName.text,
+        location: hotelLocation.text,
+        price: hotelPrice.text,
+        description: hotelDescription.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath
     );
@@ -180,8 +180,8 @@ class  _HotelPlace  extends State< AdminAddHotels > {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
               child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_name,
+                style: const TextStyle(color: Colors.black),
+                controller: hotelName,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return "Place";
@@ -191,7 +191,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
                   }
                   return null;
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
                     Icons.place_sharp,
@@ -206,15 +206,15 @@ class  _HotelPlace  extends State< AdminAddHotels > {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
               child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_location,
+                style: const TextStyle(color: Colors.black),
+                controller: hotelLocation,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return "Hotel Location is required";
                   }
                   return null;
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
                     Icons.location_city,
@@ -228,19 +228,19 @@ class  _HotelPlace  extends State< AdminAddHotels > {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 4.0),
               child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_price,
+                style: const TextStyle(color: Colors.black),
+                controller: hotelPrice,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return "Hotel price is needed";
                   }
                   return null;
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
                     Icons.price_change,
-                    color: const Color.fromARGB(255, 151, 135, 135),
+                    color: Color.fromARGB(255, 151, 135, 135),
                   ),
                   hintText: "Hotel Price",
                 ),
@@ -250,15 +250,15 @@ class  _HotelPlace  extends State< AdminAddHotels > {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 4.0),
               child: TextFormField(
-                style: TextStyle(color: Colors.black),
-                controller: hotel_description,
+                style: const TextStyle(color: Colors.black),
+                controller: hotelDescription,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return "Hotel description is required";
                   }
                   return null;
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
                     Icons.description,
@@ -273,7 +273,7 @@ class  _HotelPlace  extends State< AdminAddHotels > {
               padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 4.0),
               child: ElevatedButton.icon(
                   onPressed: () {
-                    add_hotel(HotelViewModel);
+                    addHotel(HotelViewModel);
                   },
                   icon: const Icon(Icons.location_city),
                   label: const Text('Add Hotel')),

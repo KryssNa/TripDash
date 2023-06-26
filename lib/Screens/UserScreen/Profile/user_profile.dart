@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tripdash/Screens/UserScreen/Profile/UpdateUserProfile.dart';
-import 'package:tripdash/widget/UserProfile/UserDetail.dart';
+import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
+import 'package:tripdash/widget/UserProfile/user_detail.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);
@@ -93,13 +93,13 @@ class _UserProfileState extends State<UserProfile> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.only(bottom: 8),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => UpdateUserProfile()),
+                              builder: (context) => const UpdateUserProfile()),
                         );
                       },
                       child: const Text(
@@ -121,7 +121,7 @@ class _UserProfileState extends State<UserProfile> {
               ),
               UserDetails(
                 type: 'Name',
-                value: '$name',
+                value: name,
                 rightValue: 60,
                 secondaryText: secondaryText,
               ),
@@ -134,7 +134,7 @@ class _UserProfileState extends State<UserProfile> {
               ),
               UserDetails(
                 type: 'Address',
-                value: address.isEmpty ? '--Not Provided--' : '$address',
+                value: address.isEmpty ? '--Not Provided--' : address,
                 rightValue: 40,
                 secondaryText: secondaryText,
               ),
@@ -147,7 +147,7 @@ class _UserProfileState extends State<UserProfile> {
               ),
               UserDetails(
                 type: 'Email',
-                value: '$email',
+                value: email,
                 rightValue: 62,
                 secondaryText: secondaryText,
               ),
@@ -160,7 +160,7 @@ class _UserProfileState extends State<UserProfile> {
               ),
               UserDetails(
                 type: 'Gender',
-                value: '$gender',
+                value: gender,
                 rightValue: 50,
                 secondaryText: secondaryText,
               ),
@@ -173,7 +173,7 @@ class _UserProfileState extends State<UserProfile> {
               ),
               UserDetails(
                 type: 'Phone No.',
-                value: '$phone',
+                value: phone,
                 rightValue: 26,
                 secondaryText: secondaryText,
               ),

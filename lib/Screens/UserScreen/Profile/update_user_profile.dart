@@ -51,7 +51,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
       setState(() {
         emailController.text = data['email'] ?? '';
         nameController.text = data['name'] ?? '';
-        phoneNoController.text = data['phone'].toString() ?? '';
+        phoneNoController.text = data['phone'].toString();
         addressController.text = data['address'] ?? '';
         selectedGender = data['gender'] ?? '';
         avatarController.text = data['avatar'] ?? '';
@@ -105,7 +105,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Center(
             child: Column(
               children: [
@@ -117,14 +117,14 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: TextButton(
                         onPressed: () {
                           showDialog(
                               context: context,
                               builder: (context) {
                                 return AlertDialog(
-                                  title: Text("Pick Avatar"),
+                                  title: const Text("Pick Avatar"),
                                   actions: [
                                     GestureDetector(
                                       onTap: () {
@@ -184,7 +184,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                 Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
+                      padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: nameController,
                         decoration: InputDecoration(
@@ -194,7 +194,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
+                      padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: addressController,
                         decoration: InputDecoration(
@@ -205,7 +205,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
+                      padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: emailController,
                         decoration: InputDecoration(
@@ -215,9 +215,9 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
+                      padding: const EdgeInsets.only(left: 8, right: 8),
                       child: DropdownButtonFormField<String>(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Gender',
                           hintText: 'Update your gender',
                         ),
@@ -242,7 +242,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
+                      padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: phoneNoController,
                         decoration: InputDecoration(
@@ -255,10 +255,9 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                       padding:
                           const EdgeInsets.only(right: 12, left: 15, top: 40),
                       child: ElevatedButton(
-                        child: Text("Update Proflie"),
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all<Size>(Size(350, 50)),
+                              MaterialStateProperty.all<Size>(const Size(350, 50)),
                           backgroundColor: MaterialStateProperty.all<Color>(
                               ConstColors.buttonColor),
                           foregroundColor: MaterialStateProperty.all<Color>(
@@ -284,7 +283,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                               'avatar': avatarController.text,
                             }).then((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                     content:
                                         Text('Profile updated successfully!')),
                               );
@@ -302,6 +301,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                             );
                           }
                         },
+                        child: const Text("Update Proflie"),
                       ),
                     ),
                   ],
