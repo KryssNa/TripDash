@@ -4,7 +4,7 @@
 
 ## Features
 
-### Trip Details
+### :world_map: Trip Details
 
 The Trip Details feature provides a centralized location for storing and accessing all essential information related to a trip. Here are four points highlighting its benefits:
 
@@ -16,7 +16,7 @@ The Trip Details feature provides a centralized location for storing and accessi
 
 4. **Offline Accessibility**: Many trip details features offer offline accessibility, allowing users to access their trip information even without an internet connection. This is beneficial when traveling to areas with limited or no internet access, providing peace of mind during the journey.
 
-### Trip Packages
+### :package: Trip Packages
 
 Trip packages offer several advantages:
 
@@ -28,7 +28,7 @@ Trip packages offer several advantages:
 
 4. **Peace of Mind**: Booking a trip package provides reassurance as major aspects of the trip, such as accommodation and transportation, are taken care of. Travel agencies often offer customer support and assistance throughout the trip.
 
-### Explore New Places
+### :mag: Explore New Places
 
 The "Explore New Places" feature can be useful in several ways. Here are four points highlighting its benefits:
 
@@ -40,7 +40,7 @@ The "Explore New Places" feature can be useful in several ways. Here are four po
 
 4. **Serendipitous Adventures**: This feature suggests nearby attractions, hidden gems, or unique experiences, encouraging users to embrace spontaneity and create memorable travel experiences.
 
-### Custom Navigation
+### :pushpin: Custom Navigation
 
 The Custom Navigation feature offers several benefits:
 
