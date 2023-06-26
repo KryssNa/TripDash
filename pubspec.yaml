@@ -52,7 +52,7 @@ flutter:
   assets:
     - Assets/images/avatars/
     - Assets/Images/
-    -Assets/images/
+    - Assets/images/
     - Assets/icons/
 
   fonts:
