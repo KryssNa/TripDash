@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ViewProducts extends StatefulWidget {
+  static const routeName = '/ViewProducts';
   const ViewProducts({Key? key}) : super(key: key);
 
   @override
