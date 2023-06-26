@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../user_app_drawer.dart';
+
 class ViewProducts extends StatefulWidget {
   static const routeName = '/ViewProducts';
   const ViewProducts({Key? key}) : super(key: key);
@@ -11,6 +13,9 @@ class ViewProducts extends StatefulWidget {
 class _ViewProductsState extends State<ViewProducts> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      drawer: const UserAppDrawer(),
+      appBar: AppBar(),
+    );
   }
 }
