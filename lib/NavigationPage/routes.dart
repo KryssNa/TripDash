@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/AddProduct.dart';
-import 'package:tripdash/Screens/AdminScreen/AdminAppDrawer.dart';
+import 'package:tripdash/widget/AdminAppDrawer/AdminAppDrawer.dart';
 import 'package:tripdash/Screens/AdminScreen/AdminDashboard.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 
