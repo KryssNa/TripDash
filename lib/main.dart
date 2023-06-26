@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
     return multiProvider(
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: UserDashboard.routeName,
+        initialRoute: AddProduct.routeName,
         routes: routes,
       ),
     );
