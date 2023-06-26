@@ -22,6 +22,7 @@ class _AddProductState extends State<AddProduct> {
   TextEditingController product_category = TextEditingController();
   TextEditingController product_price = TextEditingController();
   TextEditingController product_offer = TextEditingController();
+  TextEditingController product_description = TextEditingController();
   int id = DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
 
@@ -118,6 +119,7 @@ class _AddProductState extends State<AddProduct> {
         category: product_category.text,
         price: product_price.text,
         offer: product_offer.text,
+        description : product_description.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath,
       );
@@ -275,6 +277,29 @@ class _AddProductState extends State<AddProduct> {
                       color: Colors.black,
                     ),
                     hintText: "Offers",
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 4.0,
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.black),
+                  controller: product_description,
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Product description is required";
+                    }
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(),
+                    prefixIcon: Icon(
+                      Icons.description_rounded,
+                      color: Colors.black,
+                    ),
+                    hintText: "Description",
                   ),
                 ),
               ),
