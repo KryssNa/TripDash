@@ -12,7 +12,7 @@ class PlaceViewModel with ChangeNotifier{
 
   Future<void> getplace() async{
     var response = _placeRepository.getData();
-    _place = response as Stream<QuerySnapshot<PlaceModel>>?;
+    _place = response;
     notifyListeners();
   }
 

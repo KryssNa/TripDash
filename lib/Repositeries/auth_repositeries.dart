@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tripdash/model/user_model.dart';
-import 'package:tripdash/services/firebase_service.dart';
+import 'package:tripdash/Services/firebase_service.dart';
 
 class AuthRepository {
   CollectionReference<UserModel> userRef =
