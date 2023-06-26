@@ -44,6 +44,9 @@ dependencies:
   table_calendar: ^3.0.9
   quickalert: ^1.0.1
   curved_labeled_navigation_bar: ^2.0.2
+  flutter_bloc: ^8.0.1
+  equatable: ^2.0.3
+  
 
 
 dev_dependencies:
