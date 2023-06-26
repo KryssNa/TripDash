@@ -85,6 +85,11 @@ class ChooseTransportation extends StatelessWidget {
         child: Row(
           children: [
             const SizedBox(width: 20),
+            Icon(
+              icon,
+              size: 36,
+              color: color,
+            ),
             const SizedBox(width: 20),
             Text(
               title,
