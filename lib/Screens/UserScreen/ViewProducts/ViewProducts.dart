@@ -85,7 +85,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                 BorderRadius.circular(25),
                                 image: const DecorationImage(
                                   image: AssetImage(
-                                      'Assets/images/userDashboard/place3.png'),
+                                      'Assets/images/ProductImages/AnnapurnaBc.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -121,7 +121,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                     TextSpan(
                                       children: [
                                         TextSpan(
-                                          text: "Golden Gate     ",
+                                          text: "Annapurna BC   ",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 15,
@@ -137,7 +137,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "4.5",
+                                          text: "4.1",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 12,
@@ -157,7 +157,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "  San Francisco,",
+                                          text: "Narchyang Myagdi",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 12,
@@ -177,7 +177,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "200",
+                                          text: "500",
                                           style: TextStyle(
                                             color: Color(0xff03bdc9),
                                             fontSize: 15,
@@ -186,7 +186,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                         ),
 
                                         TextSpan(
-                                          text: " /Visit",
+                                          text: " /person",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 15,
@@ -233,7 +233,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                 BorderRadius.circular(25),
                                 image: const DecorationImage(
                                   image: AssetImage(
-                                      'Assets/images/userDashboard/place3.png'),
+                                      'Assets/images/ProductImages/Lumbini.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -269,7 +269,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                     TextSpan(
                                       children: [
                                         TextSpan(
-                                          text: "Golden Gate     ",
+                                          text: "Lumbini     ",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 15,
@@ -285,7 +285,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "4.5",
+                                          text: "4.2",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 12,
@@ -305,7 +305,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "  San Francisco,",
+                                          text: "  Rupandehi",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 12,
@@ -334,7 +334,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                         ),
 
                                         TextSpan(
-                                          text: " /Visit",
+                                          text: " /person",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 15,
@@ -380,7 +380,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                 BorderRadius.circular(25),
                                 image: const DecorationImage(
                                   image: AssetImage(
-                                      'Assets/images/userDashboard/place3.png'),
+                                      'Assets/images/ProductImages/Pokhara.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -416,7 +416,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                     TextSpan(
                                       children: [
                                         TextSpan(
-                                          text: "Golden Gate     ",
+                                          text: "Pokhara     ",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 15,
@@ -432,7 +432,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "4.5",
+                                          text: "4.6",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 12,
@@ -452,7 +452,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "  San Francisco,",
+                                          text: "  Pokhara,",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 12,
@@ -472,7 +472,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "200",
+                                          text: "350",
                                           style: TextStyle(
                                             color: Color(0xff03bdc9),
                                             fontSize: 15,
@@ -481,7 +481,7 @@ class _ViewProductsState extends State<ViewProducts> {
                                         ),
 
                                         TextSpan(
-                                          text: " /Visit",
+                                          text: " /person",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 15,
