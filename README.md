@@ -54,25 +54,25 @@ The Custom Navigation feature offers several benefits:
 
 ## Usage
 
-### Home Page
+### :house: Home Page
 
 - Engaging and visually appealing design that catches the attention of visitors.
 - Easy-to-use navigation menu that helps users quickly find the information they need.
 - Social media integration, allowing users to connect and engage with the brand on various platforms.
 
-### Trip Plan
+### :memo: Trip Plan
 
 - A trip plan is a detailed outline or schedule that helps you organize and structure your travel arrangements.
 - A trip plan enables you to research and explore various destinations, attractions, and points of interest.
 - It can be shared with travel companions, allowing for collaboration and decision-making.
 
-### View Place
+### :world_map: View Place
 
-- The "View Plan" feature allows users to access and review their trip plan in a convenient and user-friendly manner.
+- The "View Place" feature allows users to access and review their trip plan in a convenient and user-friendly manner.
 - It provides a comprehensive overview of the trip plan, displaying all the details and information in a clear and organized format.
 - Users can view the destinations, dates, accommodations, transportation, and activities included in the plan at a glance.
 
-### Bookings
+### :calendar: Bookings
 
 - The "Bookings" feature enables users to make reservations or bookings for various aspects of their trip, such as flights, accommodations, rental cars, and activities.
 - Users can search for available options based on their desired dates, location, preferences, and budget.
