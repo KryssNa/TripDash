@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/constant/Colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'UserProfile.dart';
+
 class UpdateUserProfile extends StatefulWidget {
   const UpdateUserProfile({Key? key}) : super(key: key);
   static String routeName = "/UpdateUserProfile";
@@ -79,7 +81,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
-            // Add your logic here
+            Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
           },
           icon: const Icon(
             Icons.arrow_back,
