@@ -18,7 +18,7 @@ class TripButton extends StatelessWidget {
       ),
       child: Text(
         texts,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
         ),
       ),

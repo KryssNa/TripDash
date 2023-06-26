@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../Repositeries/auth_repositeries.dart';
-import '../model/user_model.dart';
-import '../services/firebase_service.dart';
+import 'package:tripdash/Repositeries/auth_repositeries.dart';
+import 'package:tripdash/Services/firebase_service.dart';
+import 'package:tripdash/model/user_model.dart';
 
 class AuthViewModel with ChangeNotifier {
   User? _user = FirebaseService.firebaseAuth.currentUser;
