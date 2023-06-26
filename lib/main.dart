@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
 
         debugShowCheckedModeBanner: false,
 
-          initialRoute: TripPlanOverview.routeName,
+          initialRoute: TripPlanDetails.routeName,
           routes: routes,
 
       ),
