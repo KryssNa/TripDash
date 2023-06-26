@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/AdminScreen/AddProduct.dart';
-import 'package:tripdash/Screens/AdminScreen/AddPlace.dart';
+import 'package:tripdash/Screens/AdminScreen/add_events.dart';
+import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
+import 'package:tripdash/Screens/AdminScreen/add_product.dart';
+import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 
-import 'package:tripdash/Screens/AdminScreen/AdminAppDrawer.dart';
-import 'package:tripdash/Screens/AdminScreen/AdminDashboard.dart';
-import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
-import 'package:tripdash/Screens/UserScreen/AppBar.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
+import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
+import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
+import 'package:tripdash/Screens/auth/register_screen.dart';
 
-import 'package:tripdash/Screens/auth/LoginScreen.dart';
-import '../Screens/UserScreen/AboutUs/AboutUs.dart';
-import '../Screens/UserScreen/Profile/UpdateUserProfile.dart';
-import '../Screens/UserScreen/Profile/UserProfile.dart';
-import '../Screens/AdminScreen/addhotel.dart';
-import '../Screens/UserScreen/TripPlan/trip_plan_detail.dart';
-import '../Screens/UserScreen/TripPlan/trip_plan_overview.dart';
-import '../Screens/UserScreen/UserDashboard.dart';
-import '../Screens/UserScreen/add-hotels.dart';
+import 'package:tripdash/Screens/auth/login_screen.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
-import '../Screens/AdminScreen/addevents.dart';
-import '../widget/BottomNavigationBar.dart';
+import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
 // We use name route
 
@@ -29,7 +26,6 @@ final Map<String, WidgetBuilder> routes = {
   UserProfile.routeName: (context) => const UserProfile(),
   TripPlanDetails.routeName: (context) => const TripPlanDetails(),
   AdminDashboard.routeName: (context) => const AdminDashboard(),
-  UserHotelScreen.routeName: (context) => const UserHotelScreen(),
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   Homepage.routeName: (context) => const Homepage(),

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tripdash/Services/firebase_service.dart';
+import 'package:tripdash/model/hotel_model.dart';
 
-import '../model/Hotel_Model.dart';
-import '../services/firebase_service.dart';
 
 class HotelRepository{
   CollectionReference<HotelModel> ref =

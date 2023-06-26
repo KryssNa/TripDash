@@ -1,7 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/AdminScreen/AdminAppDrawer.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 
-import '../UserScreen/AppBar.dart';
+import '../UserScreen/app_bar.dart';
 
 
 class Homepage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AdminAppDrawer(),
+      drawer: const AdminAppDrawer(),
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(60), // Change the height as desired
           child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
@@ -74,128 +75,135 @@ class _HomepageState extends State<Homepage> {
             child: SingleChildScrollView(
               child:Column(
                 children: [
-                  Container(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal ,
-                      child: Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal ,
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            if (kDebugMode) {
                               print('Dubai button tapped!');
-                            },
-                            child: const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/images/Dubai.png'),
-                                    radius: 30,
-                                  ),
-                                  Text("Dubai")
-                                ],
-                              ),
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  foregroundImage: AssetImage('Assets/images/Dubai.png'),
+                                  radius: 30,
+                                ),
+                                Text("Dubai")
+                              ],
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            if (kDebugMode) {
                               print('Bali button tapped!');
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/images/Bali.png'),
-                                    radius: 30,
-                                  ),
-                                  Text("Bali")
-                                ],
-                              ),
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  foregroundImage: AssetImage('Assets/images/Bali.png'),
+                                  radius: 30,
+                                ),
+                                Text("Bali")
+                              ],
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            if (kDebugMode) {
                               print('Antartica button tapped!');
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/images/Antartica.png'),
-                                    radius: 30,
-                                  ),
-                                  Text("Antartica")
-                                ],
-                              ),
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  foregroundImage: AssetImage('Assets/images/Antartica.png'),
+                                  radius: 30,
+                                ),
+                                Text("Antartica")
+                              ],
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            if (kDebugMode) {
                               print('London button tapped!');
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/images/london.png'),
-                                    radius: 30,
-                                  ),
-                                  Text("London")
-                                ],
-                              ),
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  foregroundImage: AssetImage('Assets/images/london.png'),
+                                  radius: 30,
+                                ),
+                                Text("London")
+                              ],
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            if (kDebugMode) {
                               print('Maldives button tapped!');
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  CircleAvatar(
-                                    foregroundImage: AssetImage('Assets/images/Maldives.png'),
-                                    radius: 30,
-                                  ),
-                                  Text("Maldives")
-                                ],
-                              ),
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  foregroundImage: AssetImage('Assets/images/Maldives.png'),
+                                  radius: 30,
+                                ),
+                                Text("Maldives")
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-              ),
+                  ),
                   Padding(
-                    padding: EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal ,
                       child: Row(
                         children: [
                           GestureDetector(
                             onTap: () {
-                              print("Rome");
+                              if (kDebugMode) {
+                                print("Rome");
+                              }
                             },
-                            child:Container(
-                            child: Stack(
+                            child:Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
                                 Image.asset('Assets/images/ro.png'),
-                                Positioned.fill(
+                                const Positioned.fill(
                                   child: FractionallySizedBox(
                                     alignment: Alignment.bottomLeft,
                                     heightFactor: 0.3,
-                                    child: Container(
-                                      child: Center(
-                                        child: Text(
-                                          "Rome",
-                                          style: TextStyle(
-                                            color: Color.fromARGB(255, 219, 17, 30),
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                    child: Center(
+                                      child: Text(
+                                        "Rome",
+                                        style: TextStyle(
+                                          color: Color.fromARGB(255, 219, 17, 30),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ),
@@ -203,99 +211,92 @@ class _HomepageState extends State<Homepage> {
                                 ),
                               ],
                             ),
+                      ),
+                          GestureDetector(
+                            onTap: () {
+                              if (kDebugMode) {
+                                print("Rome");
+                              }
+                            },
+                          child:Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image.asset('Assets/images/ro.png'),
+                              const Positioned.fill(
+                                child: FractionallySizedBox(
+                                  alignment: Alignment.bottomLeft,
+                                  heightFactor: 0.3,
+                                  child: Center(
+                                    child: Text(
+                                      "Rome",
+                                      style: TextStyle(
+                                        color: Color.fromARGB(255, 219, 17, 30),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                       ),
                           GestureDetector(
                             onTap: () {
-                              print("Rome");
+                              if (kDebugMode) {
+                                print("London");
+                              }
                             },
-                          child:Container(
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: <Widget>[
-                                Image.asset('Assets/images/ro.png'),
-                                Positioned.fill(
-                                  child: FractionallySizedBox(
-                                    alignment: Alignment.bottomLeft,
-                                    heightFactor: 0.3,
-                                    child: Container(
-                                      child: Center(
-                                        child: Text(
-                                          "Rome",
-                                          style: TextStyle(
-                                            color: Color.fromARGB(255, 219, 17, 30),
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                          child:Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image.asset('Assets/images/location.png'),
+                              const Positioned.fill(
+                                child: FractionallySizedBox(
+                                  alignment: Alignment.bottomLeft,
+                                  heightFactor: 0.3,
+                                  child: Center(
+                                    child: Text(
+                                      "London",
+                                      style: TextStyle(
+                                        color: Color.fromARGB(255, 219, 17, 30),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                       ),
                           GestureDetector(
                             onTap: () {
-                              print("London");
+                              if (kDebugMode) {
+                                print("Paris");
+                              }
                             },
-                          child:Container(
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: <Widget>[
-                                Image.asset('Assets/images/location.png'),
-                                Positioned.fill(
-                                  child: FractionallySizedBox(
-                                    alignment: Alignment.bottomLeft,
-                                    heightFactor: 0.3,
-                                    child: Container(
-                                      child: Center(
-                                        child: Text(
-                                          "London",
-                                          style: TextStyle(
-                                            color: Color.fromARGB(255, 219, 17, 30),
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                          child:Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image.asset('Assets/images/Paris.png'),
+                              const Positioned.fill(
+                                child: FractionallySizedBox(
+                                  alignment: Alignment.bottomLeft,
+                                  heightFactor: 0.3,
+                                  child: Center(
+                                    child: Text(
+                                      "Paris",
+                                      style: TextStyle(
+                                        color: Color.fromARGB(255, 219, 17, 30),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                      ),
-                          GestureDetector(
-                            onTap: () {
-                              print("Paris");
-                            },
-                          child:Container(
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: <Widget>[
-                                Image.asset('Assets/images/Paris.png'),
-                                Positioned.fill(
-                                  child: FractionallySizedBox(
-                                    alignment: Alignment.bottomLeft,
-                                    heightFactor: 0.3,
-                                    child: Container(
-                                      child: Center(
-                                        child: Text(
-                                          "Paris",
-                                          style: TextStyle(
-                                            color: Color.fromARGB(255, 219, 17, 30),
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                       ),],   
                       ),
@@ -316,348 +317,330 @@ class _HomepageState extends State<Homepage> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal ,
                             child: Row(
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    print("Popular1");
+                                    if (kDebugMode) {
+                                      print("Popular1");
+                                    }
                                   },
-                                child: Container(child: Image.asset('Assets/images/popular4.png'), 
-                                ),
+                                child: Image.asset('Assets/images/popular4.png'),
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    print("Popular2");
+                                    if (kDebugMode) {
+                                      print("Popular2");
+                                    }
                                   },
-                                child: Container(child: Image.asset('Assets/images/popular1.png'), 
-                                ),
+                                child: Image.asset('Assets/images/popular1.png'),
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    print("Popular3");
+                                    if (kDebugMode) {
+                                      print("Popular3");
+                                    }
                                   },
-                                child: Container(child: Image.asset('Assets/images/popular2.png'), 
-                                ),
+                                child: Image.asset('Assets/images/popular2.png'),
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    print("Popular4");
+                                    if (kDebugMode) {
+                                      print("Popular4");
+                                    }
                                   },
-                                  child: Container(child: Image.asset('Assets/images/popular3.png'), 
-                                  ),
+                                  child: Image.asset('Assets/images/popular3.png'),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        Container(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child:  Text(
-                                    "Find the place in the map",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                ),
+                        Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Align(
+                                alignment: Alignment.bottomLeft,
+                                child:  Text(
+                                  "Find the place in the map",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
                               ),
-                              GestureDetector(
-                                onTap: () {
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                if (kDebugMode) {
                                   print("MAp");
-                                },
-                                child: Container(
-                                  child: Image.asset('Assets/images/map2.png'), 
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(10.0),
-                                child:  Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Text(
-                                    "Recommended",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  print("Recommended 1");
-                                },
-                              child:Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Align(
-                                  alignment: Alignment.center,
-                                    child: Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 100,
-                                      width: 350,
-                                      color: Color.fromARGB(255, 245, 212, 80),
-                                        child:Column(
-                                          children: [
-                                            Row(
-                                            children: [
-                                              Container(
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Image.asset('Assets/images/Recommended1.png'),
-                                                ),
-                                              ),
-                                              SizedBox(width: 10,),
-                                              Container(
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: [
-                                                        Text(
-                                                          "Paris",
-                                                          style: TextStyle(
-                                                            fontSize: 16,
-                                                            fontWeight: FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding: const EdgeInsets.all(8.0),
-                                                          child: Row(
-                                                            children: [
-                                                              Align(
-                                                                alignment: Alignment.bottomLeft,
-                                                                child: Icon(
-                                                                  Icons.location_on,
-                                                                  color: Colors.black,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                "Eiffel Tower",
-                                                                textAlign: TextAlign.left,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          children: [
-                                                            Text(
-                                                              '50/per person',
-                                                              textAlign: TextAlign.left,
-                                                            ),
-                                                            const SizedBox(
-                                                              width: 40,
-                                                            ),
-                                                            Text(
-                                                              '4.5',
-                                                              textAlign: TextAlign.left,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          ],
-                                        ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                          ),
-                          GestureDetector(
-                                onTap: () {
-                                  print("Recommended 2");
-                                },
-                              child:Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Align(
-                                  alignment: Alignment.center,
-                                    child: Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 100,
-                                      width: 350,
-                                      color: Color.fromARGB(255, 245, 212, 80),
-                                        child:Column(
-                                          children: [
-                                            Row(
-                                            children: [
-                                              Container(
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Image.asset('Assets/images/Recommended2.png'),
-                                                ),
-                                              ),
-                                              SizedBox(width: 10,),
-                                              Container(
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: [
-                                                        Text(
-                                                          "Nepal",
-                                                          style: TextStyle(
-                                                            fontSize: 16,
-                                                            fontWeight: FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding: const EdgeInsets.all(8.0),
-                                                          child: Row(
-                                                            children: [
-                                                              Align(
-                                                                alignment: Alignment.bottomLeft,
-                                                                child: Icon(
-                                                                  Icons.location_on,
-                                                                  color: Colors.black,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                "Tara Bhir",
-                                                                textAlign: TextAlign.left,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          children: [
-                                                            Text(
-                                                              '50/per person',
-                                                              textAlign: TextAlign.left,
-                                                            ),
-                                                            const SizedBox(
-                                                              width: 40,
-                                                            ),
-                                                            Text(
-                                                              '4.5',
-                                                              textAlign: TextAlign.left,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          ],
-                                        ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                          ),
-                          GestureDetector(
-                                onTap: () {
-                                  print("Recommended 3");
-                                },
-                              child:Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Align(
-                                  alignment: Alignment.center,
-                                    child: Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 100,
-                                      width: 350,
-                                      color: Color.fromARGB(255, 245, 212, 80),
-                                        child:Column(
-                                          children: [
-                                            Row(
-                                            children: [
-                                              Container(
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Image.asset('Assets/images/Recommended3.png'),
-                                                ),
-                                              ),
-                                              SizedBox(width: 10,),
-                                              Container(
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: [
-                                                        Text(
-                                                          "Maldives",
-                                                          style: TextStyle(
-                                                            fontSize: 16,
-                                                            fontWeight: FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding: const EdgeInsets.all(8.0),
-                                                          child: Row(
-                                                            children: [
-                                                              Align(
-                                                                alignment: Alignment.bottomLeft,
-                                                                child: Icon(
-                                                                  Icons.location_on,
-                                                                  color: Colors.black,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                "East coast",
-                                                                textAlign: TextAlign.left,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          children: [
-                                                            Text(
-                                                              '50/per person',
-                                                              textAlign: TextAlign.left,
-                                                            ),
-                                                            const SizedBox(
-                                                              width: 40,
-                                                            ),
-                                                            Text(
-                                                              '4.5',
-                                                              textAlign: TextAlign.left,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          ],
-                                        ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                          ),
+                                }
+                              },
+                              child: Image.asset('Assets/images/map2.png'),
+                            )
                           ],
-                          ),
+                        ),
+                        Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child:  Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Text(
+                                  "Recommended",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                if (kDebugMode) {
+                                  print("Recommended 1");
+                                }
+                              },
+                            child:Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                              alignment: Alignment.center,
+                                child: Container(
+                                  alignment: Alignment.centerRight,
+                                  height: 100,
+                                  width: 350,
+                                  color: const Color.fromARGB(255, 245, 212, 80),
+                                    child:Column(
+                                      children: [
+                                        Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Image.asset('Assets/images/Recommended1.png'),
+                                          ),
+                                          const SizedBox(width: 10,),
+                                          const Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "Paris",
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Row(
+                                                    children: [
+                                                      Align(
+                                                        alignment: Alignment.bottomLeft,
+                                                        child: Icon(
+                                                          Icons.location_on,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "Eiffel Tower",
+                                                        textAlign: TextAlign.left,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      '50/per person',
+                                                      textAlign: TextAlign.left,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 40,
+                                                    ),
+                                                    Text(
+                                                      '4.5',
+                                                      textAlign: TextAlign.left,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      ],
+                                    ),
+                                ),
+                              ),
+                            ),
+                        ),
+                        GestureDetector(
+                              onTap: () {
+                                if (kDebugMode) {
+                                  print("Recommended 2");
+                                }
+                              },
+                            child:Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                              alignment: Alignment.center,
+                                child: Container(
+                                  alignment: Alignment.centerRight,
+                                  height: 100,
+                                  width: 350,
+                                  color: const Color.fromARGB(255, 245, 212, 80),
+                                    child:Column(
+                                      children: [
+                                        Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Image.asset('Assets/images/Recommended2.png'),
+                                          ),
+                                          const SizedBox(width: 10,),
+                                          const Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "Nepal",
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Row(
+                                                    children: [
+                                                      Align(
+                                                        alignment: Alignment.bottomLeft,
+                                                        child: Icon(
+                                                          Icons.location_on,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "Tara Bhir",
+                                                        textAlign: TextAlign.left,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      '50/per person',
+                                                      textAlign: TextAlign.left,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 40,
+                                                    ),
+                                                    Text(
+                                                      '4.5',
+                                                      textAlign: TextAlign.left,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      ],
+                                    ),
+                                ),
+                              ),
+                            ),
+                        ),
+                        GestureDetector(
+                              onTap: () {
+                                if (kDebugMode) {
+                                  print("Recommended 3");
+                                }
+                              },
+                            child:Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                              alignment: Alignment.center,
+                                child: Container(
+                                  alignment: Alignment.centerRight,
+                                  height: 100,
+                                  width: 350,
+                                  color: const Color.fromARGB(255, 245, 212, 80),
+                                    child:Column(
+                                      children: [
+                                        Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Image.asset('Assets/images/Recommended3.png'),
+                                          ),
+                                          const SizedBox(width: 10,),
+                                          const Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "Maldives",
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Row(
+                                                    children: [
+                                                      Align(
+                                                        alignment: Alignment.bottomLeft,
+                                                        child: Icon(
+                                                          Icons.location_on,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "East coast",
+                                                        textAlign: TextAlign.left,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      '50/per person',
+                                                      textAlign: TextAlign.left,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 40,
+                                                    ),
+                                                    Text(
+                                                      '4.5',
+                                                      textAlign: TextAlign.left,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      ],
+                                    ),
+                                ),
+                              ),
+                            ),
+                        ),
+                        ],
                         ),  
                       ] ,
                     ),

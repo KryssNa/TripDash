@@ -1,14 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-// import 'package:flutter_ui/hotel_ui/hotel_list_model.dart';
-// import 'package:flutter_ui/hotel_ui/hotel_list_view.dart';
-// import 'package:flutter_ui/hotel_ui/hotel_theme.dart';
 import 'package:intl/intl.dart';
 import 'package:tripdash/Repositeries/hotel_repositories.dart';
-
-import '../../model/Hotel_Model.dart';
+import 'package:tripdash/model/hotel_model.dart';
 import 'hotel_list_model.dart';
 import 'hotel_list_view.dart';
 import 'hotel_theme.dart';
@@ -74,7 +68,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
               ];
             },
             body: Container(
-              color: HotelTheme.buildLightTheme().backgroundColor,
+              color: HotelTheme.buildLightTheme().colorScheme.background,
               child: ListView.builder(
                 itemBuilder: (context, index) {
                  final int count=hotelFirevase.length > 10 ? 10 : hotelFirevase.length;
@@ -113,24 +107,24 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
             child: Container(
               height: 24,
               decoration: BoxDecoration(
-                  color: HotelTheme.buildLightTheme().backgroundColor,
+                  color: HotelTheme.buildLightTheme().colorScheme.background,
                   boxShadow: [
                     BoxShadow(
-                        offset: Offset(0, 2),
+                        offset: const Offset(0, 2),
                         color: Colors.grey.withOpacity(0.2),
                         blurRadius: 8.0)
                   ]),
             )),
         Container(
-          color: HotelTheme.buildLightTheme().backgroundColor,
+          color: HotelTheme.buildLightTheme().colorScheme.background,
           child: Padding(
             padding:
                 const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
             child: Row(
               children: <Widget>[
-                Expanded(
+                const Expanded(
                     child: Padding(
-                  padding: const EdgeInsets.all(8),
+                  padding: EdgeInsets.all(8),
                   child: Text(
                     '530 hotel Found',
                     style: TextStyle(fontWeight: FontWeight.w100, fontSize: 16),
@@ -142,7 +136,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                     padding: const EdgeInsets.only(left: 8),
                     child: Row(
                       children: <Widget>[
-                        Text(
+                        const Text(
                           'Filter',
                           style: TextStyle(
                               fontWeight: FontWeight.w100, fontSize: 16),
@@ -176,7 +170,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
             padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
             child: Container(
               decoration: BoxDecoration(
-                  color: HotelTheme.buildLightTheme().backgroundColor,
+                  color: HotelTheme.buildLightTheme().colorScheme.background,
                   borderRadius: const BorderRadius.all(Radius.circular(38.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
@@ -192,7 +186,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                     fontSize: 18,
                   ),
                   cursorColor: HotelTheme.buildLightTheme().primaryColor,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: InputBorder.none, hintText: "Kathmandu..."),
                 ),
               ),
@@ -201,7 +195,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
           Container(
             decoration: BoxDecoration(
                 color: HotelTheme.buildLightTheme().primaryColor,
-                borderRadius: BorderRadius.all(Radius.circular(38.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(38.0)),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
                       color: Colors.grey.withOpacity(0.4),
@@ -211,14 +205,14 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                 onTap: () {},
                 child: Padding(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Icon(
                       Icons.search,
                       size: 26,
-                      color: HotelTheme.buildLightTheme().backgroundColor,
+                      color: HotelTheme.buildLightTheme().colorScheme.background,
                     )),
               ),
             ),
@@ -255,7 +249,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                       const SizedBox(height: 8),
                       Text(
                         "${DateFormat('dd, MMM').format(startDate)} - ${DateFormat('dd, MMM').format(endDate)}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w100,
                         ),
@@ -294,7 +288,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                             color: Colors.grey.withOpacity(0.8)),
                       ),
                       const SizedBox(height: 8),
-                      Text(
+                      const Text(
                         '1 Room - 2 Adults',
                         style: TextStyle(
                           fontWeight: FontWeight.w100,
@@ -315,7 +309,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
   Widget getAppBarUI() {
     return Container(
       decoration: BoxDecoration(
-          color: HotelTheme.buildLightTheme().backgroundColor,
+          color: HotelTheme.buildLightTheme().colorScheme.background,
           boxShadow: [
             BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
@@ -352,7 +346,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
               ),
             )),
-            Container(
+            SizedBox(
               width: AppBar().preferredSize.height + 40,
               height: AppBar().preferredSize.height,
               child: Row(
