@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../Helper/ErrorDialogue.dart';
+import '../../Helper/error_dialogue.dart';
 import '../../ViewModel/auth_viewmodel.dart';
-import '../../constant/Colors.dart';
+import '../../constant/colors.dart';
 import '../../model/user_model.dart';
-import '../../widget/buttonWidget.dart';
-import '../../widget/textFieldWidget.dart';
-import '../auth/LoginScreen.dart';
+import '../../widget/button_widget.dart';
+import '../../widget/text_field_widget.dart';
+import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -175,11 +175,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 margin: const EdgeInsets.all(20),
                                 child: Column(
                                   children: [
-                                    textField(
+                                    TextFieldWidget(
                                         titleHeading: 'Name',
                                         hintText: 'Enter your name',
                                         controller: nameController,
-                                        Validator: (value) {
+                                        validator: (value) {
                                           if (value == null || value.isEmpty) {
                                             return "Name cannot be empty";
                                           }
@@ -188,11 +188,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     const SizedBox(
                                       height: 20,
                                     ),
-                                    textField(
+                                    TextFieldWidget(
                                       titleHeading: 'Email',
                                       hintText: 'Enter your email',
                                       controller: emailController,
-                                      Validator: (value) {
+                                      validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return "Email is required";
                                         }
@@ -207,11 +207,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     const SizedBox(
                                       height: 20,
                                     ),
-                                    textField(
+                                    TextFieldWidget(
                                       titleHeading: 'Phone Number',
                                       hintText: 'Enter your phone number',
                                       controller: phoneController,
-                                      Validator: (value) {
+                                      validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return "phone number is required";
                                         }
@@ -225,14 +225,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     const SizedBox(
                                       height: 20,
                                     ),
-                                    textField(
+                                    TextFieldWidget(
                                       titleHeading: 'Password',
                                       hintText: 'Enter your password',
                                       obscureText: changePaswordState,
                                       suffixIcon: showVisibilityIcon(
                                           changePaswordState),
                                       controller: passwordController,
-                                      Validator: (value) {
+                                      validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return "password is required";
                                         }
@@ -246,14 +246,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     const SizedBox(
                                       height: 20,
                                     ),
-                                    textField(
+                                    TextFieldWidget(
                                       titleHeading: 'Confirm Password',
                                       hintText: 'Confirm your password',
                                       obscureText: changePaswordState,
                                       suffixIcon: showVisibilityIcon(
                                           changePaswordState),
                                       controller: confirmPasswordController,
-                                      Validator: (value) {
+                                      validator: (value) {
                                         if (value == null ||
                                             value != passwordController.text) {
                                           return "password does not match";

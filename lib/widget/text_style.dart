@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constant/Fonts.dart';
+import '../constant/fonts.dart';
 
 TextStyle buildTextStyle(Color? color) {
   return TextStyle(

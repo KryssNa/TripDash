@@ -22,7 +22,7 @@ class AdminAddPlaces extends StatefulWidget {
 class  _PlacePlace  extends State< AdminAddPlaces > {
   TextEditingController place_name = TextEditingController();
   TextEditingController place_location = TextEditingController();
-  TextEditingController place_price = TextEditingController();
+  TextEditingController PlacePrice = TextEditingController();
   TextEditingController place_description = new TextEditingController();
   int id = new DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
@@ -113,7 +113,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
         placeId: id.toString(),
         placeName:place_name.text,
         location: place_location.text,
-        price: place_price.text,
+        price: PlacePrice.text,
         description: place_description.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath
@@ -180,7 +180,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                   label: const Text('Place Image')),
             ),
             TextFormField(
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               controller: place_name,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
@@ -191,7 +191,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                 }
                 return null;
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(),
                 prefixIcon: Icon(
                   Icons.place_sharp,
@@ -200,19 +200,19 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                 hintText: "Place Name",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
               width: 10,
             ),
             TextFormField(
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               controller: place_location,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "Place Location is required";
                 }
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(),
                 prefixIcon: Icon(
                   Icons.location_city_sharp,
@@ -221,19 +221,19 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                 hintText: "Place Location",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
               width:10,
             ),
             TextFormField(
-              style: TextStyle(color: Colors.black),
-              controller: place_price,
+              style: const TextStyle(color: Colors.black),
+              controller: PlacePrice,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "place price is needed";
                 }
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(),
                 prefixIcon: Icon(
                   Icons.price_change_sharp,
@@ -242,19 +242,19 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                 hintText: "Place Price",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
               width:10,
             ),
             TextFormField(
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               controller: place_description,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "Place description is required";
                 }
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(),
                 prefixIcon: Icon(
                   Icons.description,
@@ -263,7 +263,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                 hintText: "Place description",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
               width:10,
             ),

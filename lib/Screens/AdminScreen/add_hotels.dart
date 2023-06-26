@@ -27,27 +27,27 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             StreamBuilder<QuerySnapshot<HotelModel>>(
               stream: _hotelViewModel.hotel,
               builder: (context, snapshot) {
-                if (snapshot.hasError) return Text("Error");
-                if (!snapshot.hasData) return CircularProgressIndicator();
+                if (snapshot.hasError) return const Text("Error");
+                if (!snapshot.hasData) return const CircularProgressIndicator();
                 final hotels = snapshot.data!.docs.map((doc) => doc.data()).toList();
                 return Container(
-                  margin: EdgeInsets.only(right: 20),
+                  margin: const EdgeInsets.only(right: 20),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ...hotels.map((hotel) => Container(
-                          margin: EdgeInsets.only(right: 20),
+                          margin: const EdgeInsets.only(right: 20),
                           child: Column(
                             children: [
-                              hotel.imageUrl == null || hotel.imageUrl == ""
+                              hotel.imageUrl == ""
                                   ? Image.asset(
                                 "Assets/Images/Pokhara.jpg",
                                 height: 80,
@@ -63,7 +63,7 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
                                     fit: BoxFit.cover,
                                     image: NetworkImage(hotel.imageUrl.toString()),
                                   ),
-                                  borderRadius: BorderRadius.only(
+                                  borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(20),
                                     topRight: Radius.circular(20),
                                   ),
@@ -72,7 +72,7 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
                               Container(
                                 height: 100,
                                 width: 310,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0xfff1f1f1),
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(20),
@@ -80,21 +80,21 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(15),
+                                  padding: const EdgeInsets.all(15),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         hotel.hotelName.toString(),
-                                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                        style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 5,
                                       ),
                                       Row(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          Icon(
+                                          const Icon(
                                             Icons.location_on,
                                             color: Color(0xffdf842b),
                                             size: 20,
@@ -106,7 +106,7 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
                                               children: [
                                                 Text(
                                                   hotel.location.toString(),
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     fontSize: 20,
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.w300,
@@ -114,7 +114,7 @@ class _UserHotelScreenState extends State<UserHotelScreen> {
                                                 ),
                                                 Text(
                                                   hotel.price.toString(),
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                   ),

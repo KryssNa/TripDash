@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/constant/Colors.dart';
+import 'package:tripdash/constant/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UpdateUserProfile extends StatefulWidget {

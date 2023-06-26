@@ -4,9 +4,9 @@ import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/UserDashboard.dart';
 import 'package:tripdash/widget/BottomNavigationBar.dart';
 
-import '../../Helper/ErrorDialogue.dart';
+import '../../Helper/error_dialogue.dart';
 import '../../ViewModel/auth_viewmodel.dart';
-import '../../constant/Colors.dart';
+import '../../constant/colors.dart';
 import '../../widget/buttonWidget.dart';
 import '../../widget/textFieldWidget.dart';
 
