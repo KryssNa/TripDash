@@ -33,7 +33,7 @@ class SeatBookingModel {
       sourceLocation: data['sourceLocation'] ?? '',
       destinationLocation: data['destinationLocation'] ?? '',
       date: data['date'] ?? '',
-      seatNumbers: List<String>.from(data['seatNumbers']) ?? [],
+      seatNumbers: List<String>.from(data['seatNumbers']) ,
     );
   }
 
@@ -59,7 +59,7 @@ class SeatBookingModel {
       sourceLocation: map['sourceLocation'] ?? '',
       destinationLocation: map['destinationLocation'] ?? '',
       date: map['date'] ?? '',
-      seatNumbers: List<String>.from(map['seatNumbers']) ?? [],
+      seatNumbers: List<String>.from(map['seatNumbers']),
     );
   }
 
