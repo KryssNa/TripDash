@@ -4,7 +4,6 @@ import 'package:tripdash/Screens/AdminScreen/add_events.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
-
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
@@ -14,7 +13,6 @@ import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:tripdash/Screens/UserScreen/ViewProducts/ViewProducts.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
 import 'package:tripdash/Screens/auth/register_screen.dart';
-
 import 'package:tripdash/Screens/auth/login_screen.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
@@ -31,12 +29,10 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   Homepage.routeName: (context) => const Homepage(),
-
   AddProduct.routeName: (context) => const AddProduct(),
   ViewProducts.routeName: (context) => const ViewProducts(),
   UserDashboard.routeName: (context) => const UserDashboard(),
   AdminAddPlaces.routeName: (context) => const AdminAddPlaces(),
-
   AboutUs.routeName: (context) => const AboutUs(),
   BottomNavigationBarWidget.routeName: (context) =>
       const BottomNavigationBarWidget(),
