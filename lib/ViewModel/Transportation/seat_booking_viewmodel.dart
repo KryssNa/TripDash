@@ -26,7 +26,17 @@ class TransactionViewModel {
       }
       rethrow;
     }
+
   }
+  Future<int> getTotalBalance() async {
+    try {
+      return await SeatBookingRepository.getTotalBalance();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+
 
 
 }
