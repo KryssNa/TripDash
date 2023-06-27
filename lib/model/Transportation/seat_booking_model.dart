@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SeatBookingModel {
@@ -47,5 +49,23 @@ class SeatBookingModel {
       'seatNumbers': seatNumbers,
     };
   }
+
+  factory SeatBookingModel.fromMap(Map<String, dynamic> map) {
+    return SeatBookingModel(
+      userId: map['userId'] ?? '',
+      transactionId: map['transactionId'] ?? '',
+      total: map['total']  ?? 0,
+      noOfTickets: map['noOfTickets'] ?? '',
+      sourceLocation: map['sourceLocation'] ?? '',
+      destinationLocation: map['destinationLocation'] ?? '',
+      date: map['date'] ?? '',
+      seatNumbers: List<String>.from(map['seatNumbers']) ?? [],
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory SeatBookingModel.fromJson(String source) =>
+      SeatBookingModel.fromMap(json.decode(source));
 
 }
