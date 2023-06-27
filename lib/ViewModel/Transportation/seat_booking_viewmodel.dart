@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:tripdash/model/Transportation/seat_booking_model.dart';
 
@@ -26,8 +25,8 @@ class TransactionViewModel {
       }
       rethrow;
     }
-
   }
+
   Future<int> getTotalBalance() async {
     try {
       return await SeatBookingRepository.getTotalBalance();
@@ -36,7 +35,11 @@ class TransactionViewModel {
     }
   }
 
-
-
-
+  Future<List<SeatBookingModel>> getBookedSeatByUserId() async {
+    try {
+      return await SeatBookingRepository.getTransactionsByUserId();
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
