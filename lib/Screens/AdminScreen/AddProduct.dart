@@ -23,6 +23,10 @@ class _AddProductState extends State<AddProduct> {
   TextEditingController product_price = TextEditingController();
   TextEditingController product_offer = TextEditingController();
   TextEditingController product_description = TextEditingController();
+  TextEditingController product_rating = TextEditingController();
+  TextEditingController product_people = TextEditingController();
+  TextEditingController product_location = TextEditingController();
+
   int id = DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
 
@@ -120,6 +124,7 @@ class _AddProductState extends State<AddProduct> {
         price: product_price.text,
         offer: product_offer.text,
         description : product_description.text,
+        location : product_location.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath,
       );
