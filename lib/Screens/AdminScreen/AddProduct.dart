@@ -225,10 +225,82 @@ class _AddProductState extends State<AddProduct> {
                 ),
                 child: TextFormField(
                   style: TextStyle(color: Colors.black),
+                  controller: product_location,
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'Please enter a product location';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(),
+                    prefixIcon: Icon(
+                      Icons.location_city_outlined,
+                      color: Colors.black,
+                    ),
+                    hintText: "Location",
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 4.0,
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.black),
+                  controller: product_rating,
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'Please enter a product rating';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(),
+                    prefixIcon: Icon(
+                      Icons.rate_review_outlined,
+                      color: Colors.black,
+                    ),
+                    hintText: "Product rating",
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 4.0,
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.black),
+                  controller: product_people,
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'Please enter a product is for a group or individual';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(),
+                    prefixIcon: Icon(
+                      Icons.people_outline,
+                      color: Colors.black,
+                    ),
+                    hintText: "person or group",
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 4.0,
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.black),
                   controller: product_category,
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Product Location is required";
+                      return "Product Category is required";
                     }
                   },
                   decoration: InputDecoration(
