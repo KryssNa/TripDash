@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tripdash/ViewModel/ProductViewModel.dart';
 import 'package:tripdash/model/ProductModel.dart';
-import '../../widget/textFieldWidget.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({Key? key}) : super(key: key);
