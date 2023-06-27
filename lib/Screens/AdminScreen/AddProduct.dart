@@ -125,6 +125,8 @@ class _AddProductState extends State<AddProduct> {
         offer: product_offer.text,
         description : product_description.text,
         location : product_location.text,
+        rating: product_rating.text,
+        people: product_people.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath,
       );
