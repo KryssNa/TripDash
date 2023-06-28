@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/booking.dart';
 import '../Screens/AdminScreen/addhotel.dart';
 import '../Screens/Hotel_view/hotel_home_screen.dart';
 import '../Screens/UserScreen/add-hotels.dart';
@@ -16,4 +17,5 @@ final Map<String, WidgetBuilder> routes = {
   UserHotelScreen.routeName: (context) => const UserHotelScreen(),
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   HotelHomeScreen.routeName: (context) => const HotelHomeScreen(),
+  Booking.routeName: (context) => const Booking(),
 };
