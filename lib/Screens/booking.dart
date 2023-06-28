@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
     
 class Booking extends StatefulWidget {
-  static var routeName;
+  static const routeName = '/Booking';
 
   const Booking({Key? key}) : super(key: key);
 
@@ -10,6 +10,7 @@ class Booking extends StatefulWidget {
 }
 
 class _BookingState extends State<Booking> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
