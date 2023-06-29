@@ -231,7 +231,47 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
             ),
           ),
           const SizedBox(height: 16.0),
-
+          Padding(
+            padding:  const EdgeInsets.only(left: 16.0,right: 16,bottom:8),
+            child: ElevatedButton(
+              onPressed: () {
+                if(selectedSeats.isEmpty){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      showCloseIcon: true,
+                      backgroundColor: Colors.red,
+                      closeIconColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                      ),
+                      content: Text('Please select at least one seat'),
+                    ),
+                  );
+                  return;
+                }
+                // Navigator.push(
+                //     context, MaterialPageRoute(builder: (context) =>   CheckoutPage(selectedSeats:selectedSeats,totalPrice:totalPrice)));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff4ecc40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32.0,
+                  vertical: 16.0,
+                ),
+              ),
+              child: const Text(
+                'Confirm',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
