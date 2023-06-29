@@ -35,10 +35,6 @@ class ProductRepository{
     return response;
   }
 
-
-
-
-
   Future<bool> addProduct(ProductModel data) async {
     await ref.add(data);
     return true;
