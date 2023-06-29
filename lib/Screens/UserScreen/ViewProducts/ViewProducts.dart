@@ -76,20 +76,20 @@ class _ViewProductsState extends State<ViewProducts> {
                       return Row(
                         children: documents.map((doc) {
                           final data = doc.data() as Map<String, dynamic>; // Cast to Map<String, dynamic>
-                          final name = data['name'] ?? '';
+                          final name = data['productName'] ?? '';
                           final location = data['location'] ?? '';
-                          final numberOfPeople = data['numberofpep'] ?? '';
+                          final people = data['people'] ?? '';
                           final price = data['price'] ?? '';
-                          final stars = data['stars'] ?? '';
-                          final imagePath = data['imgpath'] ?? '';
+                          final rating = data['rating'] ?? '';
+                          final imageUrl = data['imageUrl'] ?? '';
 
                           return PackagaeGestureDetector(
                             name: name,
                             location: location,
-                            numberofpep: numberOfPeople,
+                            people: people,
                             price: price,
-                            stars: stars,
-                            imgpath: imagePath,
+                            rating: rating,
+                            imageUrl: imageUrl,
                           );
                         }).toList(),
                       );
@@ -102,20 +102,6 @@ class _ViewProductsState extends State<ViewProducts> {
                 ),
 
               ),
-            ),
-            const Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    PackagaeGestureDetector(name: 'Pokhara', location: 'Pokhara', numberofpep: 'group', price: '1050', stars: '4.6', imgpath: 'Assets/images/ProductImages/Pokhara.jpg'),
-                    PackagaeGestureDetector(name: 'Annapurna BC', location: 'Narchyang Myagdi', numberofpep: 'person', price: '500', stars: '4.1', imgpath: 'Assets/images/ProductImages/AnnapurnaBc.jpg'),
-                    PackagaeGestureDetector(name: 'Lumbini', location: 'Rupandehi', numberofpep: 'person', price: '200', stars: '4.2', imgpath: 'Assets/images/ProductImages/Lumbini.jpg'),
-                  ],
-                ),
-              ),
-
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,9 +144,45 @@ class _ViewProductsState extends State<ViewProducts> {
                 ),
               ],
             ),
-            PackageContainer(numberofpep: "Per Person", price: "300", location: "Mustang", stars: "4.4", imgpath: "Assets/images/ProductImages/Mustang.jpg", name: "Mustang"),
-            PackageContainer(numberofpep: "Per Person", price: "250", location: "Chitwan", stars: "4.5", imgpath: "Assets/images/ProductImages/Chitwan.jpg", name: "Chitwan"),
-            PackageContainer(numberofpep: "Per Person", price: "150", location: "Rara", stars: "4.0", imgpath: "Assets/images/ProductImages/Rara.jpg", name: "Rara"),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: StreamBuilder<QuerySnapshot>(
+                  stream: _productCollection.where("category", isEqualTo: "cus").snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      final List<QueryDocumentSnapshot> documents = snapshot.data!.docs;
+
+                      return Column(
+                        children: documents.map((doc) {
+                          final data = doc.data() as Map<String, dynamic>;
+                          final name = data['productName'] ?? '';
+                          final location = data['location'] ?? '';
+                          final people = data['people'] ?? '';
+                          final price = data['price'] ?? '';
+                          final rating = data['rating'] ?? '';
+                          final imageUrl = data['imageUrl'] ?? '';
+
+                          return PackageContainer(
+                            name: name,
+                            location: location,
+                            people: people,
+                            price: price,
+                            rating: rating,
+                            imageUrl: imageUrl,
+                          );
+                        }).toList(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else {
+                      return CircularProgressIndicator();
+                    }
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),

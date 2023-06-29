@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class PackageContainer extends StatelessWidget {
   final String name;
-  final String stars;
+  final String rating;
   final String location;
   final String price;
-  final String imgpath;
-  final String numberofpep;
+  final String imageUrl;
+  final String people;
 
 
-  const PackageContainer({Key? key, required this.numberofpep, required this.price, required this.location, required this.stars, required this.imgpath, required this.name}) : super(key: key);
+  const PackageContainer({Key? key, required this.people, required this.price, required this.location, required this.rating, required this.imageUrl, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class PackageContainer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
                   image: NetworkImage(
-                    'https://firebasestorage.googleapis.com/v0/b/tripdash-e3d02.appspot.com/o/product%2F1687862043603.jpg?alt=media&token=9167d8fa-676d-4fc0-a99e-0c7a7bce2480',
+                    imageUrl,
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -69,7 +69,7 @@ class PackageContainer extends StatelessWidget {
                             Icons.star,
                             color: Colors.yellow,
                           ),
-                          Text(stars)
+                          Text(rating)
                         ],
                       ),
                     ],
@@ -119,7 +119,7 @@ class PackageContainer extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: " /$numberofpep",
+                                  text: " /$people",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 10,

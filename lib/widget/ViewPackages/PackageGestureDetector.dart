@@ -4,12 +4,12 @@ class PackagaeGestureDetector extends StatelessWidget {
   final String name;
   final String location;
   final String price;
-  final String numberofpep;
-  final String stars;
-  final String imgpath;
+  final String people;
+  final String rating;
+  final String imageUrl;
 
 
-  const PackagaeGestureDetector({Key? key, required this.name, required this.location, required this.numberofpep, required this.price, required this.stars, required this.imgpath}) : super(key: key);
+  const PackagaeGestureDetector({Key? key, required this.name, required this.location, required this.people, required this.price, required this.rating, required this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,8 @@ class PackagaeGestureDetector extends StatelessWidget {
                   borderRadius:
                   BorderRadius.circular(25),
                   image: DecorationImage(
-                    image: AssetImage(
-                        imgpath),
+                    image: NetworkImage(
+                      imageUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -87,7 +87,7 @@ class PackagaeGestureDetector extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: stars,
+                            text: rating,
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 12,
@@ -136,7 +136,7 @@ class PackagaeGestureDetector extends StatelessWidget {
                           ),
 
                           TextSpan(
-                            text: " /$numberofpep",
+                            text: " /$people",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 15,
