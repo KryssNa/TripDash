@@ -182,7 +182,31 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
               },
             ),
           ),
-      
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              scrollDirection: selectedSeats.length>9?Axis.horizontal:Axis.vertical,
+
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Selected Seats:',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    selectedSeats.isNotEmpty ? selectedSeats.join(', ') : 'None',
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
 
           const SizedBox(height: 16.0),
 
