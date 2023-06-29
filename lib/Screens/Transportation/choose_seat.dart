@@ -207,7 +207,29 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
               ),
             ),
           ),
-
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Total Price:',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'RS. $totalPrice',
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff5C40CC),
+                  ),
+                ),
+              ],
+            ),
+          ),
           const SizedBox(height: 16.0),
 
         ],
