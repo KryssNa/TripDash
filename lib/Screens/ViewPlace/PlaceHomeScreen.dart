@@ -294,7 +294,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Number of Rooms',
+                        '',
                         style: TextStyle(
                             fontWeight: FontWeight.w100,
                             fontSize: 16,
@@ -302,7 +302,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '1 Room - 2 Adults',
+                        '',
                         style: TextStyle(
                           fontWeight: FontWeight.w100,
                           fontSize: 16,
