@@ -7,7 +7,7 @@ name: Dart
 
 on:
   push:
-#     branches: [ "master" ]
+    #     branches: [ "master" ]
     branches: []
   pull_request:
     branches: [ "master" ]
@@ -21,11 +21,11 @@ jobs:
       - name: Flutter SDK
         # You may pin to the exact commit or the version.
         uses: MobileDevOps/flutter-sdk-action@a93694305106b954a8b85195ab7cd4bfec0401bf
-#         uses: MobileDevOps/flutter-sdk-action@v1.0.0
-#         with:
-#           # The Flutter SDK Version
-#           flutter-sdk-version:V3.0.5 # optional, default is stable
-          
+          #         uses: MobileDevOps/flutter-sdk-action@v1.0.0
+          #         with:
+          #           # The Flutter SDK Version
+          #           flutter-sdk-version:V3.0.5 # optional, default is stable
+
       - uses: actions/checkout@v3
 
       # Note: This workflow uses the latest stable version of the Dart SDK.
@@ -46,7 +46,8 @@ jobs:
         run: dart analyze
 
       # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
       - name: Run tests
         run: flutter test
+      # Runs a set of commands using the runners shell
+      - name: Start release build
+        run: flutter build appbundle
