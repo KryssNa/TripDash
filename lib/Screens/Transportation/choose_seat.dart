@@ -1,0 +1,195 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+
+class ChooseSeatPage extends StatefulWidget {
+  const ChooseSeatPage({Key? key}) : super(key: key);
+
+  @override
+  State<ChooseSeatPage> createState() => _ChooseSeatPageState();
+}
+
+class _ChooseSeatPageState extends State<ChooseSeatPage> {
+  List<String> selectedSeats = [];
+  double totalPrice = 0.0;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Seat Selection'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'Select your seat(s):',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20),
+            child: Row(children: [
+              //AVAILABLE
+              Container(
+                width: 16,
+                height: 16,
+                margin: const EdgeInsets.only(right: 6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(3.0),
+                    color: const Color(0xffdfd8fe)
+                ),
+              ),
+              const Text(
+                'Available',
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+
+              //SELECTED
+              Container(
+                width: 16,
+                height: 16,
+                margin: const EdgeInsets.only(left: 10, right: 6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(3.0),
+                    color: Colors.green
+                ),
+              ),
+              const Text(
+                'Selected',
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+
+              //UNAVAILABLE
+              Container(
+                width: 16,
+                height: 16,
+                margin: const EdgeInsets.only(left: 10, right: 6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(3.0),
+                    color: Colors.red
+                ),
+              ),
+              const Text(
+                  'Already Booked',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                  )
+              )
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 85.0,top: 20.0,bottom: 10),
+            child: Row(
+              //row A and B
+              children: [
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24.0),
+                    color: const Color(0xffcdf1ed),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'A',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        color: Color(0xff653b3b),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 155,
+                ),
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24.0),
+                    color: const Color(0xffcdf1ed),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'B',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        color: Color(0xff653b3b),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.all(16.0),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                crossAxisSpacing: 8.0, // Add cross-axis spacing
+                mainAxisSpacing: 16.0,
+              ),
+              itemCount: 40,
+              itemBuilder: (context, index) {
+                final row = index % 2 == 0 ? 'A' : 'B';
+                final column = (index ~/ 2) + 1;
+                final seat = row + column.toString();
+                return GestureDetector(
+                  onTap: () {if(selectedSeats.length>=8) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        showCloseIcon: true,
+                        backgroundColor: Colors.red,
+                        closeIconColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                        ),
+                        content: Text('You can only select 8 seats'),
+                      ),
+                    );
+
+                  }
+                  selectSeat(seat);
+                  },
+                  child: Container(
+                    width: 50,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: getSeatBackgroundColor(seat),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Icon(
+                      getSeatIcon(seat),
+                      color: Colors.white,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+      
+
+          const SizedBox(height: 16.0),
+
+        ],
+      ),
+    );
+  }
+}
+
+
