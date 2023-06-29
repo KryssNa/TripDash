@@ -14,6 +14,17 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
   List<String> selectedSeats = [];
   double totalPrice = 0.0;
 
+  bool isBusinessClassSeat(String seat) {
+    List<String> businessClass = [
+      'A1', 'A2',   'B1', 'B2',
+      'A3', 'A4',   'B3', 'B4',
+      'A5', 'A6',   'B5', 'B6',
+
+    ]; // Example list of business class seats
+
+    return businessClass.contains(seat);
+  }
+
 
   @override
   Widget build(BuildContext context) {
