@@ -25,6 +25,17 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
     return businessClass.contains(seat);
   }
 
+  bool isFirstClassSeat(String seat) {
+    List<String> firstClass = [
+      'A7', 'A8',   'B7', 'B8',
+      'A9', 'A10',  'B9', 'B10',
+      'A11', 'A12', 'B11', 'B12',
+      'A13', 'A14', 'B13', 'B14',
+    ]; // Example list of first class seats
+
+    return firstClass.contains(seat);
+  }
+
 
   @override
   Widget build(BuildContext context) {
