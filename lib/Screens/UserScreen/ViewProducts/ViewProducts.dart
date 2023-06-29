@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/app_bar.dart';
 import 'package:tripdash/widget/ViewPackages/PackageCategory.dart';
@@ -14,13 +15,15 @@ class ViewProducts extends StatefulWidget {
 }
 
 class _ViewProductsState extends State<ViewProducts> {
+  final CollectionReference _productCollection = FirebaseFirestore.instance.collection('product');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const UserAppDrawer(),
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50), // Change the height as desired
-        child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
+        child: AppBarWidget(avatar:'Assets/avatars/av_1.png'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -59,6 +62,46 @@ class _ViewProductsState extends State<ViewProducts> {
                   ),
                 ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: StreamBuilder<QuerySnapshot>(
+                  stream: _productCollection.where("category", isEqualTo: "fix").snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      final List<QueryDocumentSnapshot> documents = snapshot.data!.docs;
+
+                      return Row(
+                        children: documents.map((doc) {
+                          final data = doc.data() as Map<String, dynamic>; // Cast to Map<String, dynamic>
+                          final name = data['name'] ?? '';
+                          final location = data['location'] ?? '';
+                          final numberOfPeople = data['numberofpep'] ?? '';
+                          final price = data['price'] ?? '';
+                          final stars = data['stars'] ?? '';
+                          final imagePath = data['imgpath'] ?? '';
+
+                          return PackagaeGestureDetector(
+                            name: name,
+                            location: location,
+                            numberofpep: numberOfPeople,
+                            price: price,
+                            stars: stars,
+                            imgpath: imagePath,
+                          );
+                        }).toList(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else {
+                      return CircularProgressIndicator();
+                    }
+                  },
+                ),
+
+              ),
             ),
             const Padding(
               padding: const EdgeInsets.all(5.0),

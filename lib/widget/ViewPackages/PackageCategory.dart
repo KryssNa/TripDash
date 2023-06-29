@@ -34,8 +34,8 @@ class PackageContainer extends StatelessWidget {
               foregroundDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
-                  image: AssetImage(
-                    imgpath,
+                  image: NetworkImage(
+                    'https://firebasestorage.googleapis.com/v0/b/tripdash-e3d02.appspot.com/o/product%2F1687862043603.jpg?alt=media&token=9167d8fa-676d-4fc0-a99e-0c7a7bce2480',
                   ),
                   fit: BoxFit.cover,
                 ),

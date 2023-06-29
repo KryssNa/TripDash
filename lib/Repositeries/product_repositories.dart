@@ -21,8 +21,25 @@ class ProductRepository{
     return response.data();
   }
 
+  Stream<QuerySnapshot<ProductModel>> getFixedCategoryData() {
+    Stream<QuerySnapshot<ProductModel>> response = ref
+        .where("category", isEqualTo: "fix")
+        .snapshots();
+    return response;
+  }
 
-  Future<bool> addHotel(ProductModel data) async {
+  Stream<QuerySnapshot<ProductModel>> getCustomizedCategoryData() {
+    Stream<QuerySnapshot<ProductModel>> response = ref
+        .where("category", isEqualTo: "cus")
+        .snapshots();
+    return response;
+  }
+
+
+
+
+
+  Future<bool> addProduct(ProductModel data) async {
     await ref.add(data);
     return true;
   }
