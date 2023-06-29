@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/app_bar.dart';
-import 'package:tripdash/widget/ViewPackages/PackageCategory.dart';
-import 'package:tripdash/widget/ViewPackages/PackageGestureDetector.dart';
+import 'package:tripdash/widget/ViewPackages/package_container.dart';
+import 'package:tripdash/widget/ViewPackages/package_gesture_detector.dart';
 
 import '../user_app_drawer.dart';
 

@@ -1,10 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tripdash/Screens/Hotel_view/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/ViewProducts/ViewProducts.dart';
-import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
-import 'package:tripdash/widget/bottom_navigation_bar.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
 
