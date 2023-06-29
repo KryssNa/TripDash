@@ -72,14 +72,14 @@ class PackagaeGestureDetector extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: "$name   ",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
 
-                          WidgetSpan(
+                          const WidgetSpan(
                             child: Icon(
                               Icons.star,
                               color: Colors.amber,
@@ -88,7 +88,7 @@ class PackagaeGestureDetector extends StatelessWidget {
                           ),
                           TextSpan(
                             text: rating,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 12,
                             ),
@@ -99,7 +99,7 @@ class PackagaeGestureDetector extends StatelessWidget {
                     Text.rich(
                       TextSpan(
                         children: [
-                          WidgetSpan(
+                          const WidgetSpan(
                             child: Icon(
                               Icons.place,
                               color: Colors.green,
@@ -108,7 +108,7 @@ class PackagaeGestureDetector extends StatelessWidget {
                           ),
                           TextSpan(
                             text: location,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 12,
                             ),
@@ -119,7 +119,7 @@ class PackagaeGestureDetector extends StatelessWidget {
                     Text.rich(
                       TextSpan(
                         children: [
-                          WidgetSpan(
+                          const WidgetSpan(
                             child: Icon(
                               Icons.attach_money,
                               color: Color(0xff03bdc9),
@@ -128,7 +128,7 @@ class PackagaeGestureDetector extends StatelessWidget {
                           ),
                           TextSpan(
                             text: price,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Color(0xff03bdc9),
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -137,13 +137,13 @@ class PackagaeGestureDetector extends StatelessWidget {
 
                           TextSpan(
                             text: " /$people",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          WidgetSpan(
+                          const WidgetSpan(
                               child: Icon(Icons.favorite,
                                 color: Color(0xff056e73),
                                 size: 20,)),

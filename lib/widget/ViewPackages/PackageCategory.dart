@@ -17,7 +17,7 @@ class PackageContainer extends StatelessWidget {
       height: 150,
       width: 525,
       margin:
-      EdgeInsets.only(left: 15, right: 15, top: 10),
+      const EdgeInsets.only(left: 15, right: 15, top: 10),
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
@@ -44,19 +44,19 @@ class PackageContainer extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                       left: 25.0, top: 25, bottom: 30, right: 5),
                   child: Row(
                     mainAxisAlignment:
                     MainAxisAlignment.spaceAround,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           right: 5,
                         ),
                         child: Text(
                           name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 13,
                             fontWeight: FontWeight.w500,
@@ -65,7 +65,7 @@ class PackageContainer extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.star,
                             color: Colors.yellow,
                           ),
@@ -78,11 +78,11 @@ class PackageContainer extends StatelessWidget {
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           left: 15.0, top: 10, right: 5),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.location_on,
                             color: Colors.blue,
                             size: 20,
@@ -92,7 +92,7 @@ class PackageContainer extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         top: 5,
                       ),
                       child: Row(
@@ -102,7 +102,7 @@ class PackageContainer extends StatelessWidget {
                           Text.rich(
                             TextSpan(
                               children: [
-                                WidgetSpan(
+                                const WidgetSpan(
                                   child: Icon(
                                     Icons.attach_money,
                                     color: Color(0xff03bdc9),
@@ -111,7 +111,7 @@ class PackageContainer extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text: price,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color(0xff03bdc9),
                                     fontSize: 12,
                                     fontWeight:
@@ -120,7 +120,7 @@ class PackageContainer extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text: " /$people",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 10,
                                     fontWeight:
