@@ -57,7 +57,7 @@ class _ViewEventsState extends State<ViewEvents> {
                       ),
                     ),
                   ),
-                 )
+                 ),
               ]
           )
         ],
