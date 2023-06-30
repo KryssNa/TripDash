@@ -22,7 +22,20 @@ class DetailPage extends StatelessWidget {
       );
     }
 
- 
+    Widget customShadow() {
+      return Container(
+          width: double.infinity,
+          height: 214,
+          margin: const EdgeInsets.only(top: 236),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    ConstColors.kWhiteColor.withOpacity(0),
+                    Colors.black.withOpacity(0.95)
+                  ])));
+    }
 
 
 
