@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'chekout_screen.dart';
+
 
 class ChooseSeatPage extends StatefulWidget {
   const ChooseSeatPage({Key? key}) : super(key: key);
@@ -342,8 +344,8 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                   );
                   return;
                 }
-                // Navigator.push(
-                //     context, MaterialPageRoute(builder: (context) =>   CheckoutPage(selectedSeats:selectedSeats,totalPrice:totalPrice)));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) =>   CheckoutPage(selectedSeats:selectedSeats,totalPrice:totalPrice)));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff4ecc40),
