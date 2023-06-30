@@ -62,6 +62,25 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
     }
   }
 
+  Future<List<String>> fetchBookedSeats() async {
+    List<String> fetchBookedSeats = [];
+    try {
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('transactions')
+          .get();
+
+      for (var doc in querySnapshot.docs) {
+        List<dynamic> seats = doc['seatNumbers'];
+        fetchBookedSeats.addAll(seats.map((seat) => seat.toString()).toList());
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Failed to fetch booked seats: $e');
+      }
+    }
+    return fetchBookedSeats;
+  }
+
 
   @override
   Widget build(BuildContext context) {
