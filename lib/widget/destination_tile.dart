@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:aeroplane/shared/theme.dart';
-import 'package:aeroplane/ui/pages/detail_page.dart';
+import 'package:tripdash/shared/theme.dart';
+import 'package:tripdash/ui/pages/detail_page.dart';
 
 class DestinationTile extends StatelessWidget {
   final String name;

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/RegisterScreen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
-import 'package:tripdash/Screens/booking.dart';
+import 'package:tripdash/widget/booking.dart';
 import '../Screens/AdminScreen/addhotel.dart';
 import '../Screens/Hotel_view/hotel_home_screen.dart';
 import '../Screens/UserScreen/add-hotels.dart';
