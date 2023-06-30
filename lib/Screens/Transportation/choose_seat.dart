@@ -81,6 +81,16 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
     return fetchBookedSeats;
   }
 
+  List<String> bookedSeats = [];
+
+  IconData getSeatIcon(String seat) {
+    if (isSeatBooked(seat)) {
+      return Icons.check_circle;
+    } else {
+      return Icons.airline_seat_recline_normal;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
