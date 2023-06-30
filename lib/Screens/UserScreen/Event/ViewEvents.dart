@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../app_bar.dart';
@@ -12,6 +13,7 @@ class ViewEvents extends StatefulWidget {
 }
 
 class _ViewEventsState extends State<ViewEvents> {
+  final CollectionReference _EventCollection = FirebaseFirestore.instance.collection('event');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
