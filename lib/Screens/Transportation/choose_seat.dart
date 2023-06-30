@@ -91,6 +91,22 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
     }
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchBookedSeats().then((value) {
+      setState(() {
+        bookedSeats = value;
+      });
+    });
+  }
+  bool isSeatBooked(String seat) {
+    // List<String> bookedSeats = bookedSeats;
+    // Example list of booked seats
+    return bookedSeats.contains(seat);
+  }
+
 
   @override
   Widget build(BuildContext context) {
