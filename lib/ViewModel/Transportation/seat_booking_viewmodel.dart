@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:tripdash/Repositeries/seat_booking_repositeries.dart';
 import 'package:tripdash/model/Transportation/seat_booking_model.dart';
 
-class TransactionViewModel {
+class SeatBookingViewModel {
   Future<SeatBookingModel> bookSeat({
     required int total,
     required String noOfTickets,
