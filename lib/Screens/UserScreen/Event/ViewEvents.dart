@@ -21,7 +21,48 @@ class _ViewEventsState extends State<ViewEvents> {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50), // Change the height as desired
         child: AppBarWidget(avatar:'Assets/avatars/av_1.png'),
-    )
+    ),
+    body: SingleChildScrollView(
+      child: Column(
+        children: [
+          const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: 20, right: 20, top: 15, bottom: 8),
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      "UpComming Events ",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                 Padding(
+                  padding: EdgeInsets.only(
+                      left: 20, right: 20, top: 8, bottom: 8),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                 )
+              ]
+          )
+        ],
+      ),
+    ),
     );
   }
 }
