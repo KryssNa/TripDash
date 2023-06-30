@@ -23,13 +23,13 @@ class CustomButton extends StatelessWidget {
       height: 55,
       child: TextButton(
           style: TextButton.styleFrom(
-              backgroundColor: Color(0xff5C40CC),
+              backgroundColor: const Color(0xff5C40CC),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(17))),
           onPressed: onPressed,
           child: Text(
             title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF)),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF)),
           )),
     );
   }

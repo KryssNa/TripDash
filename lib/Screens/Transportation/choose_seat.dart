@@ -345,7 +345,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                   return;
                 }
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) =>   CheckoutPage(selectedSeats:selectedSeats,totalPrice:totalPrice)));
+                    context, MaterialPageRoute(builder: (context) =>   CheckoutScreen(selectedSeats:selectedSeats,totalPrice:totalPrice)));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff4ecc40),
