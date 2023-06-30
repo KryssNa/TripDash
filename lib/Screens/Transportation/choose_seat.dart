@@ -52,6 +52,16 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
     });
   }
 
+  Color getSeatBackgroundColor(String seat) {
+    if (selectedSeats.contains(seat)) {
+      return Colors.green;
+    } else if (isSeatBooked(seat)) {
+      return Colors.red;
+    } else {
+      return const Color(0xffE0D9FF);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
