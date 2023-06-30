@@ -11,6 +11,7 @@ class AuthRepository {
     },
     toFirestore: (model, _) => model.toJson(),
   );
+
   Future<UserCredential?> register(UserModel user) async {
     try {
       final response =
