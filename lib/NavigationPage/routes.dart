@@ -11,6 +11,7 @@ import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
+import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 import 'package:tripdash/Screens/auth/register_screen.dart';
 
 import 'package:tripdash/Screens/auth/login_screen.dart';
@@ -39,5 +40,6 @@ final Map<String, WidgetBuilder> routes = {
   BottomNavigationBarWidget.routeName: (context) =>
       const BottomNavigationBarWidget(),
   LoginScreen.routeName: (context) => const LoginScreen(),
+  PlaceHomeScreen.routeName: (context) => const PlaceHomeScreen(),
   // AdminAppDrawer.routeName: (context) => const AdminAppDrawer(),
 };
