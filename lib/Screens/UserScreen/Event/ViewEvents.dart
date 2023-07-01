@@ -16,7 +16,7 @@ class ViewEvents extends StatefulWidget {
 }
 
 class _ViewEventsState extends State<ViewEvents> {
-  final CollectionReference _eventCollection = FirebaseFirestore.instance.collection('events');
+  final CollectionReference _eventCollection = FirebaseFirestore.instance.collection('event');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,12 +85,13 @@ class _ViewEventsState extends State<ViewEvents> {
                           final imageUrl = data['imageUrl'] ?? '';
 
                           return PackageContainer(
+                            title: title,
+                            description: description,
                             location: location,
                             imageUrl: imageUrl, 
                             category: category,
                             date: date,
-                            description: description,
-                            title: title,
+                            
                           );
                         }).toList(),
                       );
@@ -103,6 +104,7 @@ class _ViewEventsState extends State<ViewEvents> {
                 ),
               ),
             ),
+            
         ],
       ),
     ),

@@ -20,7 +20,7 @@ class EventRepository{
     DocumentSnapshot<EventModel> response = await ref.doc(id).get();
     return response.data();
   }
-    Future<List<QueryDocumentSnapshot<EventModel>>> getDataNormal() async {
+  Future<List<QueryDocumentSnapshot<EventModel>>> getDataNormal() async {
     QuerySnapshot<EventModel> response = await ref.get();
     
     return response.docs;
