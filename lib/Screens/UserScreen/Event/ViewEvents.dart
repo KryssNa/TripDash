@@ -1,5 +1,8 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/widget/viewevent/Event.dart';
 
 import '../app_bar.dart';
 import '../user_app_drawer.dart';
@@ -13,7 +16,7 @@ class ViewEvents extends StatefulWidget {
 }
 
 class _ViewEventsState extends State<ViewEvents> {
-  final CollectionReference _EventCollection = FirebaseFirestore.instance.collection('event');
+  final CollectionReference _eventCollection = FirebaseFirestore.instance.collection('events');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,8 +61,48 @@ class _ViewEventsState extends State<ViewEvents> {
                     ),
                   ),
                  ),
-              ]
-          )
+              ],
+              
+          ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: StreamBuilder<QuerySnapshot>(
+                  stream: _eventCollection.snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      final List<QueryDocumentSnapshot> documents = snapshot.data!.docs;
+
+                      return Column(
+                        children: documents.map((doc) {
+                          final data = doc.data() as Map<String, dynamic>;
+                          final title = data['title'] ?? '';
+                          final location = data['location'] ?? '';
+                          final date = data['date'] ?? '';
+                          final category = data['category'] ?? '';
+                          final description = data['description'] ?? '';
+                          final imageUrl = data['imageUrl'] ?? '';
+
+                          return PackageContainer(
+                            location: location,
+                            imageUrl: imageUrl, 
+                            category: category,
+                            date: date,
+                            description: description,
+                            title: title,
+                          );
+                        }).toList(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else {
+                      return const CircularProgressIndicator();
+                    }
+                  },
+                ),
+              ),
+            ),
         ],
       ),
     ),
