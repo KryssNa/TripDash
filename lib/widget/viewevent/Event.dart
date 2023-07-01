@@ -23,7 +23,27 @@ class PackageContainer extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        
+        child: Row(
+          children: [
+            Container(
+              height: 120,
+              width: 90,
+              margin: const EdgeInsets.only(
+                left: 10,
+              ),
+              foregroundDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    imageUrl,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            
+          ],
+        ),
       ),
     );
   }
