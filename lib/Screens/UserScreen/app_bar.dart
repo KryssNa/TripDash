@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
+import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
 
   //to use appBar flow this code
@@ -27,6 +29,7 @@ import 'package:flutter/material.dart';
 
     }
   }
+  AuthViewModel _authViewModel = AuthViewModel();
 
 
 class AppBarWidget extends StatelessWidget {
@@ -72,7 +75,7 @@ class AppBarWidget extends StatelessWidget {
               ),
             ];
           },
-          onSelected: (value) {
+          onSelected: (value) async {
             // Handle dropdown menu selection
             if (value == 1) {
               // Option 1 selected
@@ -86,9 +89,10 @@ class AppBarWidget extends StatelessWidget {
               }
             } else if (value == 3) {
               // Option 3 selected
-              if (kDebugMode) {
-                print('Logout selected');
-              }
+               _authViewModel.logout();
+              Navigator.pushNamedAndRemoveUntil(
+                  context,LoginScreen.routeName, (route) => false);
+
             }
           },
           child: CircleAvatar(

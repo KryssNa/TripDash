@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
+import 'package:tripdash/Screens/Transportation/view_details.dart';
 
 import '../UserScreen/app_bar.dart';
 
@@ -1202,7 +1203,7 @@ class RecomendedPlace extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-
+                Navigator.pushNamed(context, DetailPage.routName);
               },
               child: SizedBox(
                 width: 205,
@@ -1351,7 +1352,7 @@ class RecomendedPlace extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 if (kDebugMode) {
-                  print("Rome");
+                  print("Rommmme");
                 }
               },
               child: SizedBox(
