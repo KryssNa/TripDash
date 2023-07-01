@@ -7,6 +7,7 @@ import 'chekout_screen.dart';
 
 class ChooseSeatPage extends StatefulWidget {
   const ChooseSeatPage({Key? key}) : super(key: key);
+  static String routeName="/chooseSeatPage";
 
   @override
   State<ChooseSeatPage> createState() => _ChooseSeatPageState();
@@ -95,13 +96,19 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    // // TODO: implement initState
     super.initState();
-    fetchBookedSeats().then((value) {
-      setState(() {
-        bookedSeats = value;
+    try {
+      fetchBookedSeats().then((value) {
+        setState(() {
+          bookedSeats = value;
+        });
       });
-    });
+    } catch (e) {
+      if (kDebugMode) {
+        print('Failed to fetch booked seats: $e');
+      }
+    }
   }
   bool isSeatBooked(String seat) {
     // List<String> bookedSeats = bookedSeats;
@@ -344,8 +351,9 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                   );
                   return;
                 }
+
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) =>   CheckoutScreen(selectedSeats:selectedSeats,totalPrice:totalPrice)));
+                    context,MaterialPageRoute(builder: (context) =>  CheckoutScreen(selectedSeats: selectedSeats, totalPrice: totalPrice)));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff4ecc40),

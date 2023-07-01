@@ -22,7 +22,7 @@ class BookingDetailsItem extends StatelessWidget {
           height: 16,
           margin: const EdgeInsets.only(right: 6),
           decoration: const BoxDecoration(
-            image: DecorationImage(image: AssetImage('assets/icon_check.png')),
+            image: DecorationImage(image: AssetImage('Assets/icons/icon_check.png')),
           ),
         ),
         Text(title, style: const TextStyle(color: Color(0xff1F1449))),

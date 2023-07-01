@@ -19,7 +19,7 @@ class InterestItem extends StatelessWidget {
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage('assets/icon_check.png'))),
+                    image: AssetImage('Assets/icons/icon_check.png'))),
           ),
           Text(
             text,

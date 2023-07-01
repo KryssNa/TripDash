@@ -1,6 +1,11 @@
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Repositeries/seat_booking_repositeries.dart';
+import 'package:tripdash/Screens/Transportation/success_checkout.dart';
 import 'package:tripdash/ViewModel/Transportation/seat_booking_viewmodel.dart';
+import 'package:tripdash/constant/colors.dart';
+import 'package:tripdash/constant/fonts.dart';
 import 'package:tripdash/model/Transportation/seat_booking_model.dart';
 import 'Widgets/booking_details_item.dart';
 import 'Widgets/custom_button.dart';
@@ -14,101 +19,87 @@ class CheckoutScreen extends StatelessWidget {
   void fetchTotalBalance() async {
     try {
       int totalBalance = await SeatBookingRepositery.getTotalBalance();
-      print('Total balance: $totalBalance');
+      if (kDebugMode) {
+        print('Total balance: $totalBalance');
+      }
     } catch (error) {
-      print('Error fetching total balance: $error');
+      if (kDebugMode) {
+        print('Error fetching total balance: $error');
+      }
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-
-    Color kPrimaryColor = Color(0xff5C40CC);
-    Color kBlackColor = Color(0xff1F1449);
-    Color kWhiteColor = Color(0xffFFFFFF);
-    Color kGreyColor = Color(0xff9698A9);
-    Color kGreenColor = Color(0xff0EC3AE);
-    Color kRedColor = Color(0xffEB70A5);
-    Color kBackgroundColor = Color(0xffFAFAFA);
-    FontWeight light = FontWeight.w300;
-    FontWeight medium = FontWeight.w500;
-    FontWeight semiBold = FontWeight.w600;
-
-
-
-    // final user = FirebaseAuth.instance.currentUser;
-    // final userId = user?.uid;
-    // final userData = FirebaseFirestore.instance.collection('users').doc(userId).get();
-    // UserRepositeries userService = UserRepositeries();
-    // grandTotal=totalPrice + (totalPrice * 0.15);
-
+    grandTotal=totalPrice + (totalPrice * 0.15);
     // Example usage
     void performTransaction(BuildContext context) async {
       try {
-        // Show a circular progress indicator while performing the transaction
+        final GlobalKey<State> dialogKey = GlobalKey<State>();
+
         showDialog(
           context: context,
           barrierDismissible: false,
           builder: (BuildContext context) {
             return Center(
-              child: CircularProgressIndicator(),
+              key: dialogKey,
+              child: const CircularProgressIndicator(),
             );
           },
         );
 
-        // Provide the required data for the transaction
         int total = grandTotal!.toInt();
         String noOfTickets = selectedSeats.length.toString();
-        String sourceLocation = 'Location A';
-        String destinationLocation = 'Location B';
+        String sourceLocation = 'Kathmandu';
+        String destinationLocation = 'Pokhara';
         String date = '2023-06-28';
         List<String> seatNumbers = selectedSeats;
 
-        // Call the Transaction() method
-         SeatBookingModel transaction = await SeatBookingViewModel().bookSeat(
-          total: total,
-          noOfTickets: noOfTickets,
-          sourceLocation: sourceLocation,
-          destinationLocation: destinationLocation,
-          date: date,
-          seatNumbers: seatNumbers,
-        );
-        print(transaction.transactionId);
+        try {
+          SeatBookingModel transaction = await SeatBookingViewModel().bookSeat(
+            total: total,
+            noOfTickets: noOfTickets,
+            sourceLocation: sourceLocation,
+            destinationLocation: destinationLocation,
+            date: date,
+            seatNumbers: seatNumbers,
+          );
+          if (kDebugMode) {
+            print(transaction.transactionId);
+          }
+        } catch (error) {
+          if (kDebugMode) {
+            print('Error performing transaction: $error');
+          }
+        }
 
-        // The transaction was successful
-        Navigator.pop(context); // Dismiss the progress indicator
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //       builder: (context) =>SuccessCheckoutPage()
-        //     //     TransactionSuccessfulPage(
-        //     //   transactionId: transaction.transactionId,
-        //     // ),
-        //   ),
-        // );
+        Navigator.pop(dialogKey.currentContext!);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SuccessCheckoutPage()),
+        );
       } catch (error) {
-        // Handle any errors that occur during the transaction
-        Navigator.pop(context); // Dismiss the progress indicator
-        print('Transaction failed: $error');
+        Navigator.pop(context);
+        if (kDebugMode) {
+          print('Transaction failed: $error');
+        }
       }
     }
-
 // Call the performTransaction() function to initiate the transaction
 
 
     Widget route() {
       return Container(
-        margin: EdgeInsets.only(top: 50),
+        margin: const EdgeInsets.only(top: 50),
         child: Column(
           children: [
             Container(
               width: 291,
               height: 65,
-              margin: EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(bottom: 10),
+              decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/image_checkout.png'))),
+                      image: AssetImage('Assets/images/image_checkout.png'))),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,12 +109,12 @@ class CheckoutScreen extends StatelessWidget {
                   children: [
                     Text(
                       'CGK',
-                      style: TextStyle(
-                          fontSize: 24, fontWeight: medium, color: kBlackColor),
+                      style: ConstFonts.blackTextStyle.copyWith(
+                          fontSize: 24, fontWeight: ConstFonts.medium,),
                     ),
                     Text(
                       'Tangerang',
-                      style: TextStyle(fontWeight: light, color: kGreyColor),
+                      style: ConstFonts.greyTextStyle.copyWith(fontWeight: ConstFonts.light,),
                     )
                   ],
                 ),
@@ -132,14 +123,14 @@ class CheckoutScreen extends StatelessWidget {
                   children: [
                     Text(
                       'TLC',
-                      style: TextStyle(
-                          fontSize: 24, fontWeight: semiBold,
-                          color: kBlackColor),
+                      style: ConstFonts.blackTextStyle.copyWith(
+                          fontSize: 24, fontWeight: ConstFonts.semiBold,
+                          ),
                     ),
                     Text(
                       'Ciliwung',
-                      style: TextStyle(fontWeight: light
-                          , color: kGreyColor),
+                      style: ConstFonts.greyTextStyle.copyWith(fontWeight: ConstFonts.light
+                          , ),
                     )
                   ],
                 )
@@ -152,10 +143,10 @@ class CheckoutScreen extends StatelessWidget {
 
     Widget bookingDetails() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+        margin: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18), color: kWhiteColor),
+            borderRadius: BorderRadius.circular(18), color: ConstColors.kWhiteColor),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //NOTE : DESTINATION TILE
           Row(
@@ -163,29 +154,29 @@ class CheckoutScreen extends StatelessWidget {
               Container(
                 width: 70,
                 height: 70,
-                margin: EdgeInsets.only(right: 16),
+                margin: const EdgeInsets.only(right: 16),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage('assets/image_destination1.png'))),
+                        image: AssetImage('Assets/images/image_destination1.png'))),
               ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lake Ciliwung',
-                      style: TextStyle(
+                      'Lake PhewaTal',
+                      style: ConstFonts.blackTextStyle.copyWith(
                         fontSize: 18,
-                        fontWeight: medium,
-                        color: kBlackColor,
+                        fontWeight: ConstFonts.medium,
+
                       ),
                     ),
-                    SizedBox(height: 5),
-                    Text('Tangerang',
-                        style: TextStyle(fontWeight: light,
-                            color: kGreyColor)),
+                    const SizedBox(height: 5),
+                    Text('Pokhara',
+                        style: ConstFonts.greyTextStyle.copyWith(fontWeight: ConstFonts.light,
+                            )),
                   ],
                 ),
               ),
@@ -196,18 +187,18 @@ class CheckoutScreen extends StatelessWidget {
                   Container(
                     width: 20,
                     height: 20,
-                    margin: EdgeInsets.only(right: 2),
-                    decoration: BoxDecoration(
+                    margin: const EdgeInsets.only(right: 2),
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/icon_star.png'),
+                        image: AssetImage('Assets/icons/icon_star.png'),
                       ),
                     ),
                   ),
                   Text(
                     '4.8',
-                    style: TextStyle(
-                      fontWeight: medium,
-                      color: kBlackColor,
+                    style: ConstFonts.blackTextStyle.copyWith(
+                      fontWeight: ConstFonts.medium,
+
                     ),
                   )
                 ],
@@ -217,13 +208,13 @@ class CheckoutScreen extends StatelessWidget {
 
           //NOTE : BOOKING DETAIL LIST
           Container(
-            margin: EdgeInsets.only(top: 20),
+            margin: const EdgeInsets.only(top: 20),
             child: Text(
               'Booking Details',
               style: TextStyle(
                 fontSize: 16,
-                fontWeight: semiBold,
-                color: kBlackColor,
+                fontWeight: ConstFonts.semiBold,
+                color: ConstColors.kBlackColor,
               ),
             ),
           ),
@@ -231,37 +222,37 @@ class CheckoutScreen extends StatelessWidget {
           //NOTE : BOOKING DETAILS ITEM
           BookingDetailsItem(
               title: 'Traveler',
-              valueText: selectedSeats.length.toString()+' persons',
-              valueColor: kBlackColor),
+              valueText: '${selectedSeats.length} persons',
+              valueColor: ConstColors.kBlackColor),
           BookingDetailsItem(
-              title: 'Seat', valueText: selectedSeats.toString(), valueColor: kBlackColor),
+              title: 'Seat', valueText: selectedSeats.toString(), valueColor: ConstColors.kBlackColor),
           BookingDetailsItem(
-              title: 'Insurance', valueText: 'YES', valueColor: kGreenColor),
+              title: 'Insurance', valueText: 'YES', valueColor: ConstColors.kGreenColor),
           BookingDetailsItem(
-              title: 'Refundable', valueText: 'NO', valueColor: kRedColor),
+              title: 'Refundable', valueText: 'NO', valueColor: ConstColors.kRedColor),
           BookingDetailsItem(
-              title: 'VAT', valueText: '15%', valueColor: kBlackColor),
+              title: 'VAT', valueText: '15%', valueColor: ConstColors.kBlackColor),
           BookingDetailsItem(
               title: 'Price',
               valueText: 'RS. $totalPrice',
-              valueColor: kBlackColor),
+              valueColor: ConstColors.kBlackColor),
           BookingDetailsItem(
               title: 'Grand Total',
               valueText: 'RS. $grandTotal',
-              valueColor: kPrimaryColor),
+              valueColor: ConstColors.kPrimaryColor),
         ]),
       );
     }
 
     Widget paymentDetails() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        padding: EdgeInsets.symmetric(
+        margin: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 30,
         ),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18), color: kWhiteColor),
+            borderRadius: BorderRadius.circular(18), color: ConstColors.kWhiteColor),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -269,23 +260,23 @@ class CheckoutScreen extends StatelessWidget {
               'Payment Details',
               style: TextStyle(
                 fontSize: 16,
-                fontWeight: semiBold,
-                color: kBlackColor,
+                fontWeight: ConstFonts.semiBold,
+                color: ConstColors.kBlackColor,
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 16),
+              margin: const EdgeInsets.only(top: 16),
               child: Row(
                 children: [
                   Container(
                     width: 100,
                     height: 70,
-                    margin: EdgeInsets.only(right: 16),
+                    margin: const EdgeInsets.only(right: 16),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage('assets/image_card.png')),
+                          image: AssetImage('Assets/images/image_card.png')),
                     ),
                     child: Center(
                       child: Row(
@@ -294,17 +285,17 @@ class CheckoutScreen extends StatelessWidget {
                           Container(
                             width: 24,
                             height: 24,
-                            margin: EdgeInsets.only(right: 6),
-                            decoration: BoxDecoration(
+                            margin: const EdgeInsets.only(right: 6),
+                            decoration: const BoxDecoration(
                                 image: DecorationImage(
                                     image:
-                                    AssetImage('assets/icon_plane.png'))),
+                                    AssetImage('Assets/icons/icon_plane.png'))),
                           ),
                           Text(
                             'Pay',
                             style: TextStyle(
-                                fontSize: 16, fontWeight: medium,
-                                color: kWhiteColor),
+                                fontSize: 16, fontWeight: ConstFonts.medium,
+                                color: ConstColors.kWhiteColor),
                           )
                         ],
                       ),
@@ -318,31 +309,34 @@ class CheckoutScreen extends StatelessWidget {
                           future: SeatBookingViewModel().getTotalBalance(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState == ConnectionState.waiting) {
-                              return CircularProgressIndicator(); // Display a loading indicator while waiting for data
-                            } else if (snapshot.hasError) {
+                              return const CircularProgressIndicator(); // Display a loading indicator while waiting for data
+                            } else
+                              if (snapshot.hasError) {
                               return Text('Error: ${snapshot.error}');
-                            } else {
-                              int totalBalance = snapshot.data ?? 0; // Retrieve the total balance or set a default value
+                            } else
+                            {
+                              int? totalBalance = snapshot.data ; // Retrieve the total balance or set a default value
 
                               return Text(
-                                'Rs. $totalBalance',
+                                'Rs. ${totalBalance ?? 0}',
+
                                 style: TextStyle(
                                   fontSize: 18,
-                                  fontWeight: medium,
-                                  color: kBlackColor,
+                                  fontWeight: ConstFonts.medium,
+                                  color: ConstColors.kBlackColor,
                                 ),
                                 overflow: TextOverflow.ellipsis,
                               );
                             }
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
                           'Current Balance',
-                          style: TextStyle(fontWeight: light,
-                              color: kGreyColor
+                          style: TextStyle(fontWeight: ConstFonts.light,
+                              color: ConstColors.kGreyColor
                           ),
                         )
                       ],
@@ -364,18 +358,20 @@ class CheckoutScreen extends StatelessWidget {
           //   Navigator.push(context,
           //       MaterialPageRoute(builder: (context) => SuccessCheckoutPage()));
           // },
-          print('Performing Transaction........');
+          if (kDebugMode) {
+            print('Performing Transaction........');
+          }
           performTransaction(context);
 
         },
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
       );
     }
 
     Widget tacButton() {
       return Container(
           alignment: Alignment.center,
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
             top: 30,
             bottom: 30,
           ),
@@ -383,16 +379,16 @@ class CheckoutScreen extends StatelessWidget {
             'Tearms and Conditions',
             style: TextStyle(
                 fontSize: 16,
-                fontWeight: light,
+                fontWeight: ConstFonts.light,
                 decoration: TextDecoration.underline,
-                color: kPrimaryColor),
+                ),
           ));
     }
 
     return Scaffold(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: ConstColors.kBackgroundColor,
       body: ListView(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 24.0,
         ),
         children: [

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 class ChooseTransportation extends StatelessWidget {
   const ChooseTransportation({super.key});
+  static String routeName="/chooseTransportations";
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ChooseTransportation extends StatelessWidget {
                 Colors.blue,
                 context,
                     (){
-                  Navigator.pushNamed(context, '/ChooseSeatPage');
+                  // Navigator.pushNamed(context, ChooseSeatPage.routeName);
                 }
             ),
             const SizedBox(height: 20),
@@ -39,7 +39,7 @@ class ChooseTransportation extends StatelessWidget {
                 Colors.orange,
                 context,
                     (){
-                  Navigator.pushNamed(context, '/ChooseSeatPage');
+                  // Navigator.pushNamed(context, ChooseSeatPage.routeName);
                 }
             ),
             const SizedBox(height: 20),
@@ -49,7 +49,9 @@ class ChooseTransportation extends StatelessWidget {
                 Colors.red,
                 context,
                     (){
-                  Navigator.pushNamed(context, '/ChooseSeatPage');
+
+
+
                 }
             ),
           ],

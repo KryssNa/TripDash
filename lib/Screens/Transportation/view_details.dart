@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
+import 'package:tripdash/Screens/Transportation/choose_seat.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 import 'Widgets/custom_button.dart';
@@ -8,6 +8,7 @@ import 'Widgets/photo_item.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
+  static String routName="/detailPage";
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class DetailPage extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/image_destination1.png'))),
+                image: AssetImage('Assets/images/image_destination1.png'))),
       );
     }
 
@@ -48,7 +49,7 @@ class DetailPage extends StatelessWidget {
             decoration: const BoxDecoration(
                 image: DecorationImage(
               image: AssetImage(
-                'assets/icon_emblem.png',
+                'Assets/icons/icon_emblem.png',
               ),
             )),
           ),
@@ -63,14 +64,14 @@ class DetailPage extends StatelessWidget {
                   children: [
                     Text(
                       'Lake Tilicho',
-                      style: TextStyle(
+                      style: ConstFonts.whiteTextStyle.copyWith(
                           fontSize: 24, fontWeight: ConstFonts.semiBold),
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       'Manang',
                       style:
-                          TextStyle(fontSize: 16, fontWeight: ConstFonts.light),
+                      ConstFonts.whiteTextStyle.copyWith(fontSize: 16, fontWeight: ConstFonts.light),
                     )
                   ],
                 ),
@@ -85,14 +86,13 @@ class DetailPage extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 2),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/icon_star.png'),
+                        image: AssetImage('Assets/icons/icon_star.png'),
                       ),
                     ),
                   ),
                   Text(
                     '4.8',
-                    style: TextStyle(
-                      color: ConstColors.kWhiteColor,
+                    style: ConstFonts.whiteTextStyle.copyWith(
                       fontWeight: ConstFonts.medium,
                     ),
                   )
@@ -118,7 +118,7 @@ class DetailPage extends StatelessWidget {
                 Text(
                   'About',
                   style:
-                      TextStyle(fontSize: 16, fontWeight: ConstFonts.semiBold),
+                  ConstFonts.blackTextStyle.copyWith(fontSize: 16, fontWeight: ConstFonts.semiBold),
                 ),
                 const SizedBox(
                   height: 6,
@@ -134,7 +134,7 @@ class DetailPage extends StatelessWidget {
                 ),
                 Text(
                   'Photos',
-                  style: TextStyle(
+                  style: ConstFonts.blackTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: ConstFonts.semiBold,
                   ),
@@ -145,13 +145,13 @@ class DetailPage extends StatelessWidget {
                 const Row(
                   children: [
                     PhotoItem(
-                      imageUrl: 'assets/image_photo1.png',
+                      imageUrl: 'Assets/images/image_photo1.png',
                     ),
                     PhotoItem(
-                      imageUrl: 'assets/image_photo2.png',
+                      imageUrl: 'Assets/images/image_photo2.png',
                     ),
                     PhotoItem(
-                      imageUrl: 'assets/image_photo3.png',
+                      imageUrl: 'Assets/images/image_photo3.png',
                     ),
                   ],
                 ),
@@ -162,8 +162,7 @@ class DetailPage extends StatelessWidget {
                 ),
                 Text(
                   'Interests',
-                  style: TextStyle(
-                    color: ConstColors.kBlackColor,
+                  style: ConstFonts.blackTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: ConstFonts.semiBold,
                   ),
@@ -209,8 +208,7 @@ class DetailPage extends StatelessWidget {
                     children: [
                       Text(
                         'Rs. 15000',
-                        style: TextStyle(
-                            color: ConstColors.kBlackColor,
+                        style: ConstFonts.blackTextStyle.copyWith(
                             fontSize: 18,
                             fontWeight: ConstFonts.medium),
                       ),
@@ -219,8 +217,7 @@ class DetailPage extends StatelessWidget {
                       ),
                       Text(
                         'per person',
-                        style: TextStyle(
-                            color: ConstColors.kGreyColor,
+                        style: ConstFonts.greenTextStyle.copyWith(
                             fontWeight: ConstFonts.light),
                       ),
                     ],
@@ -231,11 +228,7 @@ class DetailPage extends StatelessWidget {
                 CustomButton(
                   title: 'Book Now',
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ChooseTransportation(),
-                        ));
+                    Navigator.pushNamed(context, ChooseSeatPage.routeName);
                   },
                   width: 170,
                 )
