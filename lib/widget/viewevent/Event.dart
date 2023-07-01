@@ -91,7 +91,48 @@ class PackageContainer extends StatelessWidget {
                         ],
                       ),
                     ),
-                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 5,
+                      ),
+                      child: Row(
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                const WidgetSpan(
+                                  child: Icon(
+                                    Icons.attach_money,
+                                    color: Color(0xff03bdc9),
+                                    size: 18,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: description,
+                                  style: const TextStyle(
+                                    color: Color(0xff03bdc9),
+                                    fontSize: 12,
+                                    fontWeight:
+                                    FontWeight.w500,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: " /$title",
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 10,
+                                    fontWeight:
+                                    FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 )
               ],
