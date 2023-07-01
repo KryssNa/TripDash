@@ -75,7 +75,25 @@ class PackageContainer extends StatelessWidget {
                     ],
                   ),
                 ),
-                
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 15.0, top: 10, right: 5),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on,
+                            color: Colors.blue,
+                            size: 20,
+                          ),
+                          Text(" $location")
+                        ],
+                      ),
+                    ),
+                    
+                  ],
+                )
               ],
             )
           ],
