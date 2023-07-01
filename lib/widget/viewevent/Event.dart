@@ -15,7 +15,7 @@ class PackageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 150,
-      width: 525,
+      width: 405,
       margin:
       const EdgeInsets.only(left: 15, right: 15, top: 10),
       child: Card(
@@ -45,36 +45,66 @@ class PackageContainer extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
-                      left: 25.0, top: 25, bottom: 30, right: 5),
+                       top: 25, bottom: 10,),
                   child: Row(
-                    mainAxisAlignment:
-                    MainAxisAlignment.spaceAround,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                          right: 5,
                         ),
                         child: Text(
-                          category,
+                          title,
                           style: const TextStyle(
                             color: Colors.black,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                      ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.star,
-                            color: Colors.yellow,
-                          ),
-                          Text(date)
-                        ],
                       ),
                     ],
                   ),
                 ),
+                Padding(
+                        padding: const EdgeInsets.only(
+                          right: 5,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Date : ',
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              date,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              description,
+                              style: const TextStyle(
+                                      color: Color(0xff03bdc9),
+                                      fontSize: 14,
+                                      fontWeight:
+                                      FontWeight.w500,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
                 Row(
                   children: [
                     Padding(
@@ -99,32 +129,28 @@ class PackageContainer extends StatelessWidget {
                         mainAxisAlignment:
                         MainAxisAlignment.spaceBetween,
                         children: [
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                const WidgetSpan(
-                                  child: Icon(
-                                    Icons.attach_money,
-                                    color: Color(0xff03bdc9),
-                                    size: 18,
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    description,
+                                    style: const TextStyle(
+                                      color: Color(0xff03bdc9),
+                                      fontSize: 12,
+                                      fontWeight:
+                                      FontWeight.w500,
+                                    ),
                                   ),
                                 ),
-                                TextSpan(
-                                  text: description,
-                                  style: const TextStyle(
-                                    color: Color(0xff03bdc9),
-                                    fontSize: 12,
-                                    fontWeight:
-                                    FontWeight.w500,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: " /$title",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 10,
-                                    fontWeight:
-                                    FontWeight.w500,
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    category,
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 10,
+                                      fontWeight:
+                                      FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -132,14 +158,12 @@ class PackageContainer extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
+                    
                   ],
                 )
               ],
             )
-          ],
         ),
-      ),
-    );
+      );
   }
 }
