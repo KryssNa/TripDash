@@ -28,17 +28,17 @@ class ConstColors {
  static const Color adminPanelSecondaryTextColor = Color(0xFF000000);
  static const Color adminPanelButtonColor = Color(0xA25A9AE5);
 
- static Color kPrimaryColor = Color(0xff5C40CC);
- static Color kBlackColor = Color(0xff1F1449);
- static Color kWhiteColor = Color(0xffFFFFFF);
- static Color kGreyColor = Color(0xff9698A9);
- static Color kGreenColor = Color(0xff0EC3AE);
- static Color kRedColor = Color(0xffEB70A5);
- static Color kBackgroundColor = Color(0xffFAFAFA);
- static Color kInactiveColor = Color(0xffDBD7EC);
+ static Color kPrimaryColor = const Color(0xff5C40CC);
+ static Color kBlackColor = const Color(0xff1F1449);
+ static Color kWhiteColor = const Color(0xffFFFFFF);
+ static Color kGreyColor = const Color(0xff9698A9);
+ static Color kGreenColor = const Color(0xff0EC3AE);
+ static Color kRedColor = const Color(0xffEB70A5);
+ static Color kBackgroundColor = const Color(0xffFAFAFA);
+ static Color kInactiveColor = const Color(0xffDBD7EC);
  static Color kTransparentColor = Colors.transparent;
- static Color kAvailableColor = Color(0xffE0D9FF);
- static Color kUnavailableColor = Color(0xffEBECF1);
+ static Color kAvailableColor = const Color(0xffE0D9FF);
+ static Color kUnavailableColor = const Color(0xffEBECF1);
 
 
  static const primaryGradientColor = LinearGradient(

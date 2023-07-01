@@ -1,5 +1,6 @@
-
-import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tripdash/constant/colors.dart';
 
 class ConstFonts {
   static const String fontRegular = "Poppins-Regular";
@@ -21,4 +22,28 @@ class ConstFonts {
   static FontWeight black = FontWeight.w900;
 
   static const String primaryFont = "SSFPro";
+
+  static TextStyle blackTextStyle = GoogleFonts.poppins(
+    color: ConstColors.kBlackColor,
+  );
+
+  static TextStyle whiteTextStyle = GoogleFonts.poppins(
+    color: ConstColors.kWhiteColor,
+  );
+
+  static TextStyle greyTextStyle = GoogleFonts.poppins(
+    color: ConstColors.kGreyColor,
+  );
+
+  static TextStyle greenTextStyle = GoogleFonts.poppins(
+    color: ConstColors.kGreenColor,
+  );
+
+  static TextStyle redTextStyle = GoogleFonts.poppins(
+    color: ConstColors.kRedColor,
+  );
+
+  static TextStyle purpleTextStyle = GoogleFonts.poppins(
+    color: ConstColors.kPrimaryColor,
+  );
 }
