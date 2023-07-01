@@ -41,7 +41,43 @@ class PackageContainer extends StatelessWidget {
                 ),
               ),
             ),
-            
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 25.0, top: 25, bottom: 30, right: 5),
+                  child: Row(
+                    mainAxisAlignment:
+                    MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          right: 5,
+                        ),
+                        child: Text(
+                          category,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                          ),
+                          Text(date)
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                
+              ],
+            )
           ],
         ),
       ),
