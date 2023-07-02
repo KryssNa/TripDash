@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
+import 'Screens/AdminScreen/add_events.dart';
 import 'Screens/UserScreen/Event/ViewEvents.dart';
 
 Future<void> main() async {

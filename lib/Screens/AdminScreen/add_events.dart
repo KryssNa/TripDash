@@ -137,12 +137,13 @@ class  _EventEvent  extends State< AdminAddEvents > {
     db.collection("event").add(data.toJson()).then((value) {
       ScaffoldMessenger.of(context).showSnackBar(
       Fluttertoast.showToast(
-    msg: "Event Added Successfully",
-    toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.TOP,
-    backgroundColor: const Color.fromARGB(255, 16, 176, 45),
-    textColor: Colors.white,
-  ) as SnackBar);
+        msg: "Event Added Successfully",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        backgroundColor: const Color.fromARGB(255, 16, 176, 45),
+        textColor: Colors.white,
+      ) as SnackBar
+      );
     });
     }
   }
