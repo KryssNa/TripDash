@@ -82,6 +82,7 @@ class _ViewEventsState extends State<ViewEvents> {
                           final date = data['date'] ?? '';
                           final category = data['category'] ?? '';
                           final description = data['description'] ?? '';
+                          final price = data['price'] ?? '';
                           final imageUrl = data['imageUrl'] ?? '';
 
                           return PackageContainer(
@@ -91,6 +92,7 @@ class _ViewEventsState extends State<ViewEvents> {
                             imageUrl: imageUrl, 
                             category: category,
                             date: date,
+                            price: price,
                             
                           );
                         }).toList(),

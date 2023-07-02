@@ -7,6 +7,7 @@ class PackageContainer extends StatelessWidget {
   final String description;
   final String imageUrl;
   final String title;
+  final String price;
 
   const PackageContainer({
     Key? key,
@@ -16,6 +17,7 @@ class PackageContainer extends StatelessWidget {
     required this.date,
     required this.imageUrl,
     required this.category,
+    required this.price,
   }) : super(key: key);
 
   @override
@@ -122,23 +124,18 @@ class PackageContainer extends StatelessWidget {
                                 color: Colors.blue,
                                 size: 20,
                               ),
-                              Text(" $location")
+                              Text("$location"),
+                              const Icon(
+                                Icons.price_check,
+                                color: Colors.blue,
+                                size: 20,
+                              ),
+                              Text("$price")
                             ],
                           ),
                         ),
                         Row(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                description,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
