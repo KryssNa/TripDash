@@ -47,12 +47,12 @@ class PlaceModel {
   };
   factory PlaceModel.fromFirebaseSnapshot(
       DocumentSnapshot<Map<String, dynamic>> json) => PlaceModel(
-  placeId: json.id,
-  placeName: json["place_name"],
-  description: json["description"],
-  price: json["price"],
-  location: json["location"],
-  imagepath: json["imagepath"],
-  imageUrl: json["imageUrl"],
+    placeId: json.id,
+    placeName: json["place_name"],
+    description: json["description"],
+    price: json["price"],
+    location: json["location"],
+    imagepath: json["imagepath"],
+    imageUrl: json["imageUrl"],
   );
 }
