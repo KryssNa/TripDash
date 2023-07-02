@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: BottomNavigationBarWidget.routeName,
+        initialRoute: ViewProducts.routeName,
         routes: routes,
       ),
     );
