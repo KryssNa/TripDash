@@ -47,84 +47,86 @@ class PackageContainer extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25, bottom: 10),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(),
-                          child: Text(
-                            title,
+              Container(
+                padding: const EdgeInsets.only(left: 20.0), // Add left padding here
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(),
+                            child: Text(
+                              title,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 5),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Date: ',
                             style: const TextStyle(
                               color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 5),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Date: ',
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          date,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          description,
-                          style: const TextStyle(
-                            color: Color(0xff03bdc9),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 15.0,
-                          top: 10,
-                          right: 5,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.location_on,
-                              color: Colors.blue,
-                              size: 20,
+                          Text(
+                            date,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
                             ),
-                            Text(" $location")
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      Row(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            description,
+                            style: const TextStyle(
+                              color: Color(0xff03bdc9),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 10,
+                            right: 5,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.location_on,
+                                color: Colors.blue,
+                                size: 20,
+                              ),
+                              Text(" $location")
+                            ],
+                          ),
+                        ),
+                        Row(
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -150,17 +152,15 @@ class PackageContainer extends StatelessWidget {
                             ),
                           ],
                         ),
-                       ]
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            
+            ],
           ),
         ),
-      );
-  
-    
+      ),
+    );  
   }
 }
