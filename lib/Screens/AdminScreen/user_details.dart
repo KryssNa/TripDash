@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UserDetails extends StatefulWidget {
+  static const routeName = '/UserDetails';
   const UserDetails({Key? key}) : super(key: key);
 
   @override
