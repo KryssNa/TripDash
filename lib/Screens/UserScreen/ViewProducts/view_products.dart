@@ -15,7 +15,8 @@ class ViewProducts extends StatefulWidget {
 }
 
 class _ViewProductsState extends State<ViewProducts> {
-  final CollectionReference _productCollection = FirebaseFirestore.instance.collection('product');
+  final CollectionReference _productCollection =
+      FirebaseFirestore.instance.collection('product');
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class _ViewProductsState extends State<ViewProducts> {
       drawer: const UserAppDrawer(),
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50), // Change the height as desired
-        child: AppBarWidget(avatar:'Assets/avatars/av_1.png'),
+        child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -32,8 +33,8 @@ class _ViewProductsState extends State<ViewProducts> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(
-                      left: 20, right: 20, top: 15, bottom: 8),
+                  padding:
+                      EdgeInsets.only(left: 20, right: 20, top: 15, bottom: 8),
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: Text(
@@ -47,8 +48,8 @@ class _ViewProductsState extends State<ViewProducts> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                      left: 20, right: 20, top: 8, bottom: 8),
+                  padding:
+                      EdgeInsets.only(left: 20, right: 20, top: 8, bottom: 8),
                   child: Align(
                     alignment: Alignment.bottomRight,
                     child: Text(
@@ -68,14 +69,18 @@ class _ViewProductsState extends State<ViewProducts> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: StreamBuilder<QuerySnapshot>(
-                  stream: _productCollection.where("category", isEqualTo: "fix").snapshots(),
+                  stream: _productCollection
+                      .where("category", isEqualTo: "fix")
+                      .snapshots(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      final List<QueryDocumentSnapshot> documents = snapshot.data!.docs;
+                      final List<QueryDocumentSnapshot> documents =
+                          snapshot.data!.docs;
 
                       return Row(
                         children: documents.map((doc) {
-                          final data = doc.data() as Map<String, dynamic>; // Cast to Map<String, dynamic>
+                          final data = doc.data() as Map<String,
+                              dynamic>; // Cast to Map<String, dynamic>
                           final name = data['productName'] ?? '';
                           final location = data['location'] ?? '';
                           final people = data['people'] ?? '';
@@ -100,7 +105,6 @@ class _ViewProductsState extends State<ViewProducts> {
                     }
                   },
                 ),
-
               ),
             ),
             const Row(
@@ -149,10 +153,13 @@ class _ViewProductsState extends State<ViewProducts> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: StreamBuilder<QuerySnapshot>(
-                  stream: _productCollection.where("category", isEqualTo: "cus").snapshots(),
+                  stream: _productCollection
+                      .where("category", isEqualTo: "cus")
+                      .snapshots(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      final List<QueryDocumentSnapshot> documents = snapshot.data!.docs;
+                      final List<QueryDocumentSnapshot> documents =
+                          snapshot.data!.docs;
 
                       return Column(
                         children: documents.map((doc) {

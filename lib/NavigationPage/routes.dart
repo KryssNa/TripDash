@@ -5,22 +5,24 @@ import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
+import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
+import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
+import 'package:tripdash/Screens/Transportation/choose_seat.dart';
+import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
+import 'package:tripdash/Screens/Transportation/my_bookings.dart';
+import 'package:tripdash/Screens/Transportation/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
-<<<<<<< HEAD
 import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
-=======
-import 'package:tripdash/Screens/UserScreen/ViewProducts/view_prodcuts.dart';
->>>>>>> master
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
-import 'package:tripdash/Screens/auth/register_screen.dart';
-
-import 'package:tripdash/Screens/auth/login_screen.dart';
+import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
+
+import '../Screens/splash_screen.dart';
 
 // We use name route
 
@@ -34,9 +36,7 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   Homepage.routeName: (context) => const Homepage(),
-
   AddProduct.routeName: (context) => const AddProduct(),
-
   UserDashboard.routeName: (context) => const UserDashboard(),
   AdminAddPlaces.routeName: (context) => const AdminAddPlaces(),
   ViewProducts.routeName: (context) => const ViewProducts(),
@@ -44,5 +44,10 @@ final Map<String, WidgetBuilder> routes = {
   BottomNavigationBarWidget.routeName: (context) =>
       const BottomNavigationBarWidget(),
   LoginScreen.routeName: (context) => const LoginScreen(),
-  // AdminAppDrawer.routeName: (context) => const AdminAppDrawer(),
+  PlaceHomeScreen.routeName: (context) => const PlaceHomeScreen(),
+  DetailPage.routName: (context) => const DetailPage(),
+  ChooseSeatPage.routeName: (context) => const ChooseSeatPage(),
+  SplashPage.routeName: (context) => const SplashPage(),
+  ChooseTransportation.routeName: (context) => const ChooseTransportation(),
+  MyBookings.routeName: (context) => const MyBookings(),
 };

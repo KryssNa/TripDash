@@ -1,14 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-<<<<<<< HEAD
-import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
-=======
-import 'package:tripdash/Screens/UserScreen/ViewProducts/view_prodcuts.dart';
->>>>>>> master
-import 'package:tripdash/widget/bottom_navigation_bar.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
+import 'Screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,14 +21,13 @@ class MyApp extends StatefulWidget {
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MultiProviderWidget(
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: ViewProducts.routeName,
+        initialRoute: SplashPage.routeName,
         routes: routes,
       ),
     );
