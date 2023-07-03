@@ -21,7 +21,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   String nameValue = "";
   String addressValue = "";
   num? phoneNoValue;
-  String passwordValue = "";
+  String password = "";
   String emailValue = "";
   String? selectedGender;
   String gender = "";
@@ -60,6 +60,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
           addressController.text = data['address'] ?? '';
           selectedGender = data['gender'] ?? '';
           avatarController.text = data['avatar'] ?? '';
+          passwordController.text = data['password'] ?? '';
         });
       }
     } catch (error) {
@@ -77,6 +78,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
     emailController.dispose();
     passwordController.dispose();
     genderController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 
@@ -207,38 +209,21 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
-                      child: DropdownButtonFormField<String>(
-                        decoration: const InputDecoration(
-                          labelText: 'Gender',
-                          hintText: 'Update your gender',
-                        ),
-                        value: selectedGender, // Add this line
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedGender = newValue;
-                          });
-                        },
-                        items: <String>[
-                          'Male',
-                          'Female',
-                          'Other',
-                        ].map<DropdownMenuItem<String>>(
-                              (String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          },
-                        ).toList(),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
                         controller: phoneNoController,
                         decoration: InputDecoration(
                           labelText: 'Phone No.',
                           hintText: '$phone',
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: TextField(
+                        controller: passwordController,
+                        decoration: InputDecoration(
+                          labelText: 'Password.',
+                          hintText: '$password',
                         ),
                       ),
                     ),
@@ -254,7 +239,8 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                           if (nameController.text.isEmpty ||
                               addressController.text.isEmpty ||
                               emailController.text.isEmpty ||
-                              phoneNoController.text.isEmpty) {
+                              phoneNoController.text.isEmpty||
+                              passwordController.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Please fill all fields')),
                             );
@@ -268,6 +254,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                               'address': addressController.text,
                               'gender': selectedGender,
                               'avatar': avatarController.text,
+                              'password': passwordController.text,
                             }).then((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Profile updated successfully!')),
