@@ -28,14 +28,14 @@ class _UserDashboardState extends State<UserDashboard> {
             const SizedBox(
               height: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20, right: 20),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         "Hello, User",
                         style: TextStyle(
                           fontSize: 20,
@@ -47,15 +47,15 @@ class _UserDashboardState extends State<UserDashboard> {
                         child: SizedBox(
                           height: 30,
                           width: 30,
-                          child: IconButton(
-                            onPressed: () {
-                              // Add your logic here
-                            },
-                            icon: const Icon(
-                              Icons.notifications,
-                              color: Colors.white,
-                              size: 35,
-                            ),
+                          child: IconButtonWidget(
+                            // onPressed: () {
+                            //   // Add your logic here
+                            // },
+                            // icon: const Icon(
+                            //   Icons.notifications,
+                            //   color: Colors.white,
+                            //   size: 35,
+                            // ),
                           ),
                         ),
                       ),
@@ -96,7 +96,7 @@ class _UserDashboardState extends State<UserDashboard> {
                     children: [
 
                       // ignore: sized_box_for_whitespace
-                      const iconbutton(),
+                      const IconButtonWidget(),
 
                       //
                       const Row(
@@ -1656,8 +1656,8 @@ class RecomendedPlace extends StatelessWidget {
   }
 }
 
-class iconbutton extends StatelessWidget {
-  const iconbutton({
+class IconButtonWidget extends StatelessWidget {
+  const IconButtonWidget({
     super.key,
   });
 

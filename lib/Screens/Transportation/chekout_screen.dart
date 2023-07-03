@@ -11,10 +11,13 @@ import 'Widgets/booking_details_item.dart';
 import 'Widgets/custom_button.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  CheckoutScreen({Key? key,required this.selectedSeats,required this.totalPrice, this.grandTotal}) : super(key: key);
+  CheckoutScreen({Key? key,required this.selectedSeats,required this.totalPrice, this.grandTotal}) : super(key: key) {
+    // TODO: implement CheckoutScreen
+    throw UnimplementedError();
+  }
   final List<String> selectedSeats ;
   final double totalPrice ;
-  double? grandTotal ;
+  late final double? grandTotal ;
 
   void fetchTotalBalance() async {
     try {
@@ -27,6 +30,12 @@ class CheckoutScreen extends StatelessWidget {
         print('Error fetching total balance: $error');
       }
     }
+  }
+  void pushToSuccessPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SuccessCheckoutPage()),
+    );
   }
 
   @override
@@ -74,20 +83,16 @@ class CheckoutScreen extends StatelessWidget {
         }
 
         Navigator.pop(dialogKey.currentContext!);
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const SuccessCheckoutPage()),
-        );
+
       } catch (error) {
         Navigator.pop(context);
+        pushToSuccessPage(context);
         if (kDebugMode) {
           print('Transaction failed: $error');
         }
       }
     }
 // Call the performTransaction() function to initiate the transaction
-
-
     Widget route() {
       return Container(
         margin: const EdgeInsets.only(top: 50),
