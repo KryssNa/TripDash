@@ -5,7 +5,7 @@ import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
-import 'package:tripdash/Screens/AdminScreen/user_details.dart';
+import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
 import 'package:tripdash/Screens/Transportation/choose_seat.dart';
@@ -24,6 +24,7 @@ import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
 import '../Screens/splash_screen.dart';
+import '../widget/UserProfile/user_detail.dart';
 
 // We use name route
 
@@ -51,5 +52,5 @@ final Map<String, WidgetBuilder> routes = {
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),
   MyBookings.routeName: (context) => const MyBookings(),
-  UserDetails.routeName: (context) => const UserDetails(),
+  CustomerDetail.routeName:(context) => CustomerDetail(),
 };
