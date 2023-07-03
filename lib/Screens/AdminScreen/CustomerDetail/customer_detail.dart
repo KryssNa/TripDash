@@ -93,7 +93,9 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => UpdateCustomerDetail(UserDocumentName: userSnapshot.id),
+                            builder: (context) => UpdateCustomerDetail(
+                              UserDocumentName: userSnapshot.id,
+                            ),
                           ),
                         );
                       },

@@ -5,11 +5,13 @@ import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart
 import '../../../constant/colors.dart';
 
 class UpdateCustomerDetail extends StatefulWidget {
-  String UserDocumentName;
-  UpdateCustomerDetail({Key? key, required this.UserDocumentName}) : super(key: key);
+  final String UserDocumentName;
+
+  UpdateCustomerDetail({Key? key, required this.UserDocumentName})
+      : super(key: key);
 
   @override
-  State<UpdateCustomerDetail> createState() => _UpdateCustomerDetailState();
+  _UpdateCustomerDetailState createState() => _UpdateCustomerDetailState();
 }
 
 class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
@@ -40,27 +42,29 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   @override
   void initState() {
     super.initState();
-    docUser = FirebaseFirestore.instance
-        .collection('users')
-        .doc(widget.UserDocumentName);
+    docUser = FirebaseFirestore.instance.collection('users').doc(widget.UserDocumentName);
     fetchData();
   }
 
   Future<void> fetchData() async {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    DocumentSnapshot document =
-    await firestore.collection('users').doc(widget.UserDocumentName).get();
+    try {
+      DocumentSnapshot document =
+      await FirebaseFirestore.instance.collection('users').doc(widget.UserDocumentName).get();
 
-    if (document.exists) {
-      var data = document.data() as Map<String, dynamic>;
-      setState(() {
-        emailController.text = data['email'] ?? '';
-        nameController.text = data['name'] ?? '';
-        phoneNoController.text = data['phone'].toString();
-        addressController.text = data['address'] ?? '';
-        selectedGender = data['gender'] ?? '';
-        avatarController.text = data['avatar'] ?? '';
-      });
+      if (document.exists) {
+        var data = document.data() as Map<String, dynamic>;
+        setState(() {
+          emailController.text = data['email'] ?? '';
+          nameController.text = data['name'] ?? '';
+          phoneNoController.text = data['phone'].toString();
+          addressController.text = data['address'] ?? '';
+          selectedGender = data['gender'] ?? '';
+          avatarController.text = data['avatar'] ?? '';
+        });
+      }
+    } catch (error) {
+      print('Error fetching data: $error');
+      // Handle the error gracefully
     }
   }
 
@@ -80,8 +84,9 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+        title: Text('Update User List'),
+        centerTitle: true,
+        backgroundColor: Color(0xFF007096),
         leading: IconButton(
           onPressed: () {
             Navigator.push(
@@ -95,22 +100,6 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-        ),
-        title: const Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 85),
-              child: Center(
-                child: Text(
-                  " Profile",
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -131,48 +120,41 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                       child: TextButton(
                         onPressed: () {
                           showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: const Text("Pick Avatar"),
-                                  actions: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          avatarController.text =
-                                          'Assets/images/avatars/av_1.png';
-                                          avatar =
-                                          'Assets/images/avatars/av_1.png';
-                                        });
-                                        Navigator.pop(
-                                            context); // Close the dialog
-                                      },
-                                      child: const CircleAvatar(
-                                        radius: 65,
-                                        backgroundImage: AssetImage(
-                                            'Assets/images/avatars/av_1.png'),
-                                      ),
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text("Pick Avatar"),
+                                actions: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        avatarController.text = 'Assets/images/avatars/av_1.png';
+                                        avatar = 'Assets/images/avatars/av_1.png';
+                                      });
+                                      Navigator.pop(context); // Close the dialog
+                                    },
+                                    child: const CircleAvatar(
+                                      radius: 65,
+                                      backgroundImage: AssetImage('Assets/images/avatars/av_1.png'),
                                     ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          avatarController.text =
-                                          'Assets/images/avatars/av_2.png';
-                                          avatar =
-                                          'Assets/images/avatars/av_2.png';
-                                        });
-                                        Navigator.pop(
-                                            context); // Close the dialog
-                                      },
-                                      child: const CircleAvatar(
-                                        radius: 65,
-                                        backgroundImage: AssetImage(
-                                            'Assets/images/avatars/av_2.png'),
-                                      ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        avatarController.text = 'Assets/images/avatars/av_2.png';
+                                        avatar = 'Assets/images/avatars/av_2.png';
+                                      });
+                                      Navigator.pop(context); // Close the dialog
+                                    },
+                                    child: const CircleAvatar(
+                                      radius: 65,
+                                      backgroundImage: AssetImage('Assets/images/avatars/av_2.png'),
                                     ),
-                                  ],
-                                );
-                              });
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         },
                         child: const Text(
                           "Update Profile Avatar",
@@ -209,8 +191,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                         controller: addressController,
                         decoration: InputDecoration(
                           labelText: 'Address',
-                          hintText:
-                          address.isEmpty ? '--Not Provided--' : address,
+                          hintText: address.isEmpty ? '--Not Provided--' : address,
                         ),
                       ),
                     ),
@@ -262,16 +243,12 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                       ),
                     ),
                     Padding(
-                      padding:
-                      const EdgeInsets.only(right: 12, left: 15, top: 40),
+                      padding: const EdgeInsets.only(right: 12, left: 15, top: 40),
                       child: ElevatedButton(
                         style: ButtonStyle(
-                          minimumSize:
-                          MaterialStateProperty.all<Size>(const Size(350, 50)),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              ConstColors.buttonColor),
-                          foregroundColor: MaterialStateProperty.all<Color>(
-                              ConstColors.buttonColor2),
+                          minimumSize: MaterialStateProperty.all<Size>(const Size(350, 50)),
+                          backgroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor),
+                          foregroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor2),
                         ),
                         onPressed: () {
                           if (nameController.text.isEmpty ||
@@ -293,25 +270,20 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                               'avatar': avatarController.text,
                             }).then((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content:
-                                    Text('Profile updated successfully!')),
+                                const SnackBar(content: Text('Profile updated successfully!')),
                               );
                             }).catchError((error) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                    content: Text('Failed to update: $error')),
+                                SnackBar(content: Text('Failed to update: $error')),
                               );
                             });
                           } catch (error) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                  content: Text(
-                                      'An error occurred while updating the profile: $error')),
+                              SnackBar(content: Text('An error occurred while updating the profile: $error')),
                             );
                           }
                         },
-                        child: const Text("Update Proflie"),
+                        child: const Text("Update Profile"),
                       ),
                     ),
                   ],
