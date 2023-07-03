@@ -46,7 +46,8 @@ jobs:
         run: dart analyze
 
       # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
       - name: Run tests
-        run: dart test
+        run: flutter test
+      # Runs a set of commands using the runners shell
+      - name: Start release build
+        run: flutter build appbundle
