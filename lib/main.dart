@@ -1,7 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+<<<<<<< HEAD
 import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
+=======
+import 'package:tripdash/Screens/UserScreen/ViewProducts/view_prodcuts.dart';
+>>>>>>> master
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
