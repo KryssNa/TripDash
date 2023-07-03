@@ -6,6 +6,7 @@ import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+import 'package:tripdash/Screens/UserScreen/forgot_password.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
@@ -29,6 +30,8 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddHotels.routeName: (context) => const AdminAddHotels(),
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   Homepage.routeName: (context) => const Homepage(),
+
+  ForgotPassword.routeName: (context) => const ForgotPassword(),
 
   AddProduct.routeName: (context) => const AddProduct(),
 

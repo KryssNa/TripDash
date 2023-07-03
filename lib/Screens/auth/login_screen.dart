@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Repositeries/auth_repositeries.dart';
+import 'package:tripdash/Screens/UserScreen/forgot_password.dart';
 import 'package:tripdash/Screens/auth/register_screen.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/main.dart';
@@ -195,7 +196,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 Align(
                                   alignment: Alignment.bottomRight,
-                                  child: TextButton(onPressed: (){},
+                                  child: TextButton(onPressed: (){
+                                    Navigator.push(context,
+                                    MaterialPageRoute(
+                                        builder:(context)=> const ForgotPassword())
+                                    );
+                                  },
                                       child: const Text("Forgot password?",
                                         style: TextStyle(
                                           fontSize: 17,
