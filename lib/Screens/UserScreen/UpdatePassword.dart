@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UpdatePassword extends StatefulWidget {
+  static const routeName = '/UpdatePassword';
   const UpdatePassword({super.key});
 
   @override

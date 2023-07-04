@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/add_events.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
@@ -16,6 +18,7 @@ import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/UserScreen/UpdatePassword.dart';
 import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
 import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
@@ -50,4 +53,5 @@ final Map<String, WidgetBuilder> routes = {
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),
   MyBookings.routeName: (context) => const MyBookings(),
+  UpdatePassword.routeName: (context) => const UpdatePassword(),
 };
