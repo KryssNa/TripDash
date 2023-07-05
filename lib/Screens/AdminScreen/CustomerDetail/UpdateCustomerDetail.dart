@@ -24,6 +24,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   String password = "";
   String emailValue = "";
   String? selectedGender;
+  num? balance;
   String gender = "";
   String address = "";
   String email = '';
@@ -38,6 +39,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController genderController = TextEditingController();
   TextEditingController avatarController = TextEditingController();
+  TextEditingController balanceController = TextEditingController();
 
   @override
   void initState() {
@@ -61,6 +63,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
           selectedGender = data['gender'] ?? '';
           avatarController.text = data['avatar'] ?? '';
           passwordController.text = data['password'] ?? '';
+          balanceController.text  = data['balance'].toString();
         });
       }
     } catch (error) {
@@ -79,6 +82,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
     passwordController.dispose();
     genderController.dispose();
     passwordController.dispose();
+    balanceController.dispose();
     super.dispose();
   }
 
@@ -227,6 +231,18 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                         ),
                       ),
                     ),
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8, right: 8),
+                          child: TextField(
+                            controller: balanceController,
+                            decoration: InputDecoration(
+                              labelText: 'Balance.',
+                              hintText: '$balance',
+                            ),
+                          ),
+                        ),
                     Padding(
                       padding: const EdgeInsets.only(right: 12, left: 15, top: 40),
                       child: ElevatedButton(
@@ -240,7 +256,8 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                               addressController.text.isEmpty ||
                               emailController.text.isEmpty ||
                               phoneNoController.text.isEmpty||
-                              passwordController.text.isEmpty) {
+                              passwordController.text.isEmpty ||
+                              balanceController.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Please fill all fields')),
                             );
@@ -255,6 +272,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                               'gender': selectedGender,
                               'avatar': avatarController.text,
                               'password': passwordController.text,
+                              'balance': balanceController.text,
                             }).then((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Profile updated successfully!')),
@@ -277,9 +295,11 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                 ),
               ],
             ),
+              ]
+            ),
           ),
-        ),
       ),
+    )
     );
   }
 }
