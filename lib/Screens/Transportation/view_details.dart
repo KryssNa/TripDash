@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/Transportation/choose_seat.dart';
+import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 import 'Widgets/custom_button.dart';
@@ -228,7 +229,7 @@ class DetailPage extends StatelessWidget {
                 CustomButton(
                   title: 'Book Now',
                   onPressed: () {
-                    Navigator.pushNamed(context, ChooseSeatPage.routeName);
+                    Navigator.pushNamed(context, ChooseTransportation.routeName);
                   },
                   width: 170,
                 )

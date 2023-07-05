@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
+import 'package:tripdash/Screens/homepage/home_page.dart';
+
+import 'UserScreen/home_page.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key, });
@@ -67,10 +70,13 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         widget = const UserDashboard();
         break;
       case 1:
-        widget = const AdminDashboard();
+        widget = const HomePages();
+        break;
+        case 2:
+        widget = const UserProfile();
         break;
       default:
-        widget = const UserProfile();
+        widget = const UserDashboard();
         break;
     }
     return widget;
