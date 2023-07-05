@@ -46,7 +46,7 @@ dependencies:
   curved_labeled_navigation_bar: ^2.0.2
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
-
+  flutter_svg: any
   google_fonts: 4.0.1
 
 
