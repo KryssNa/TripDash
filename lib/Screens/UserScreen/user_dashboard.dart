@@ -43,22 +43,6 @@ class _UserDashboardState extends State<UserDashboard> {
                           color: Colors.white,
                         ),
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          height: 30,
-                          width: 30,
-                          child: IconButtonWidget(
-                            // onPressed: () {
-                            //   // Add your logic here
-                            // },
-                            // icon: const Icon(
-                            //   Icons.notifications,
-                            //   color: Colors.white,
-                            //   size: 35,
-                            // ),
-                          ),
-                        ),
-                      ),
                     ]),
               ),
             ),
@@ -94,10 +78,6 @@ class _UserDashboardState extends State<UserDashboard> {
                   ),
                   child: Column(
                     children: [
-
-                      // ignore: sized_box_for_whitespace
-                      const IconButtonWidget(),
-
                       //
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1656,122 +1636,6 @@ class RecomendedPlace extends StatelessWidget {
   }
 }
 
-class IconButtonWidget extends StatelessWidget {
-  const IconButtonWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          GestureDetector(
-            onTap: () {
-              if (kDebugMode) {
-                print('Dubai button tapped!');
-              }
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    foregroundImage:
-                        AssetImage('Assets/images/Dubai.png'),
-                    radius: 30,
-                  ),
-                  Text("Dubai")
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              if (kDebugMode) {
-                print('Bali button tapped!');
-              }
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    foregroundImage:
-                        AssetImage('Assets/images/Bali.png'),
-                    radius: 30,
-                  ),
-                  Text("Bali")
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              if (kDebugMode) {
-                print('Antartica button tapped!');
-              }
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    foregroundImage: AssetImage(
-                        'Assets/images/Antartica.png'),
-                    radius: 30,
-                  ),
-                  Text("Antartica")
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              if (kDebugMode) {
-                print('London button tapped!');
-              }
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    foregroundImage: AssetImage(
-                        'Assets/images/london.png'),
-                    radius: 30,
-                  ),
-                  Text("London")
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              if (kDebugMode) {
-                print('Maldives button tapped!');
-              }
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    foregroundImage: AssetImage(
-                        'Assets/images/Maldives.png'),
-                    radius: 30,
-                  ),
-                  Text("Maldives")
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class NavigationButton extends StatelessWidget {
   const NavigationButton({
