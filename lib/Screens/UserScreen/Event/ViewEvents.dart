@@ -2,7 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/widget/viewevent/Event.dart';
+import 'package:tripdash/widget/viewevent/event.dart';
 
 import '../app_bar.dart';
 import '../user_app_drawer.dart';
