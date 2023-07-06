@@ -5,7 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
+import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 import 'package:tripdash/ViewModel/place_viewmodel.dart';
 import 'package:tripdash/model/place_model.dart';
 

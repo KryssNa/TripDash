@@ -2,7 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Repositeries/seat_booking_repositeries.dart';
-import 'package:tripdash/Screens/Transportation/success_checkout.dart';
+import 'package:tripdash/Screens/TransportationScreen/success_checkout.dart';
 import 'package:tripdash/ViewModel/Transportation/seat_booking_viewmodel.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';

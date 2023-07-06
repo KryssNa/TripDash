@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tripdash/Repositeries/place_repositories.dart';
-import 'package:tripdash/Screens/ViewPlace/place_list_model.dart';
+import 'package:tripdash/Screens/ViewPlaceScreen/place_list_model.dart';
 import 'package:tripdash/model/place_model.dart';
 import 'place_listview.dart';
 import 'place_theme.dart';

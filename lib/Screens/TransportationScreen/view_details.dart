@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
+import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 import 'Widgets/custom_button.dart';

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
-import 'package:tripdash/Screens/homepage/home_page.dart';
+import 'package:tripdash/Screens/HomeScreen/home_page.dart';
 
 //AdminAppDrawer
 class AdminAppDrawer extends StatefulWidget {
