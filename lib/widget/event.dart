@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PackageContaine extends StatelessWidget {
+class EventContainer extends StatelessWidget {
   final String category;
   final String date;
   final String location;
@@ -9,7 +9,7 @@ class PackageContaine extends StatelessWidget {
   final String title;
   final String price;
 
-  const PackageContaine({
+  const EventContainer({
     Key? key,
     required this.title,
     required this.description,
