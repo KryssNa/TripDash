@@ -76,9 +76,9 @@ class PackageContainer extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 5),
                       child: Row(
                         children: [
-                          Text(
+                          const Text(
                             'Date: ',
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
@@ -124,10 +124,10 @@ class PackageContainer extends StatelessWidget {
                                 color: Colors.blue,
                                 size: 20,
                               ),
-                              Text("$location"),
-                              SizedBox(width: 10,),
-                              Text("Rs "),
-                              Text("$price")
+                              Text(location),
+                              const SizedBox(width: 10,),
+                              const Text("Rs "),
+                              Text(price)
                             ],
                           ),
                         ),
