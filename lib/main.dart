@@ -1,11 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-<<<<<<< HEAD
-import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
-
-=======
->>>>>>> master
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
 import 'Screens/splash_screen.dart';
