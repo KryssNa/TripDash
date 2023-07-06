@@ -83,7 +83,7 @@ class _ViewEventsState extends State<ViewEvents> {
                           final price = data['price'] ?? '';
                           final imageUrl = data['imageUrl'] ?? '';
 
-                          return PackageContainer(
+                          return PackageContaine(
                             title: title,
                             description: description,
                             location: location,
