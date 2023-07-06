@@ -128,8 +128,8 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                     child: Padding(
                   padding: EdgeInsets.all(8),
                   child: Text(
-                    '530 place Found',
-                    style: TextStyle(fontWeight: FontWeight.w100, fontSize: 16),
+                    '5 place Found',
+                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
                   ),
                 )),
                 Material(
@@ -186,6 +186,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                 child: TextField(
                   style: const TextStyle(
                     fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
                   cursorColor: PlaceTheme.buildLightTheme().primaryColor,
                   decoration: const InputDecoration(
@@ -245,15 +246,15 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                         "Choose Date",
                         style: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.w100,
-                            color: Colors.grey.withOpacity(0.8)),
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black12.withOpacity(1)),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         "${DateFormat('dd, MMM').format(startDate)} - ${DateFormat('dd, MMM').format(endDate)}",
                         style: const TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
