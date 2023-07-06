@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 
 import 'Helper/multi_provider.dart';
