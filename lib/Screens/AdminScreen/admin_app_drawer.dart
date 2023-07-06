@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
+import 'package:intl/intl.dart';
+
 
 //AdminAppDrawer
 class AdminAppDrawer extends StatefulWidget {
@@ -41,30 +43,60 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+  String formattedDateTime = DateFormat('yyyy-MM-dd HH:mm:ss').format(now);
     return Drawer(
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text(name,
+  accountName: Text(
+    name,
+    style: const TextStyle(
+      color: Colors.black,
+      fontSize: 18,
+    ),
+  ),
+  accountEmail: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        email,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 15,
+        ),
+      ),
+      const SizedBox(height: 4),
+      Text(
+        formattedDateTime,
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 12,
+        ),
+      ),
+    ],
+  ),
+  currentAccountPicture: CircleAvatar(
+    child: ClipOval(
+      child: Image.asset(
+        avatar,
+        width: 90,
+        height: 90,
+        fit: BoxFit.cover,
+      ),
+    ),
+  ),
+  decoration: const BoxDecoration(
+    color: Color(0xFFFBDACE),
+  ),
+),
+          ListTile(
+            title: Text(
+              formattedDateTime,
               style: const TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-              ),),
-            accountEmail: Text(email,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-              ),),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.asset(avatar,
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,),
+                color: Colors.grey,
+                fontSize: 12,
               ),
-            ),
-            decoration: const BoxDecoration(
-              color: Color(0xFFFBDACE),
             ),
           ),
           ListTile(
