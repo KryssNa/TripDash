@@ -23,6 +23,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
   TextEditingController eventLocation = TextEditingController();
   TextEditingController eventCategory = TextEditingController();
   TextEditingController eventDate = TextEditingController();
+  TextEditingController eventPrice = TextEditingController();
   TextEditingController eventDescription = TextEditingController();
   int id = DateTime.now().millisecondsSinceEpoch;
   File? pickedImage;
@@ -128,6 +129,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
         location: eventLocation.text,
         category:eventCategory.text,
         date: eventDate.text,
+        price: eventPrice.text,
         description: eventDescription.text,
         imageUrl: url,
         imagepath: photo.ref.fullPath
@@ -135,12 +137,13 @@ class  _EventEvent  extends State< AdminAddEvents > {
     db.collection("event").add(data.toJson()).then((value) {
       ScaffoldMessenger.of(context).showSnackBar(
       Fluttertoast.showToast(
-    msg: "Event Added Successfully",
-    toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.TOP,
-    backgroundColor: const Color.fromARGB(255, 16, 176, 45),
-    textColor: Colors.white,
-  ) as SnackBar);
+        msg: "Event Added Successfully",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        backgroundColor: const Color.fromARGB(255, 16, 176, 45),
+        textColor: Colors.white,
+      ) as SnackBar
+      );
     });
     }
   }
@@ -287,6 +290,49 @@ class  _EventEvent  extends State< AdminAddEvents > {
                             ),
                             suffixIcon: const Icon(
                               Icons.location_on,
+                              color: Colors.black,
+                            ),
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 219, 168, 168),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Price',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                          ),
+                        ),
+                        TextFormField(
+                          style: const TextStyle(color: Colors.black),
+                          controller: eventPrice,
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Event Price is required";
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: const BorderSide(color: Colors.black),
+                            ),
+                            suffixIcon: const Icon(
+                              Icons.price_change,
                               color: Colors.black,
                             ),
                             filled: true,
