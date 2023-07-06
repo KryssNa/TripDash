@@ -24,7 +24,6 @@ import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
 import '../Screens/splash_screen.dart';
-import '../widget/UserProfile/user_detail.dart';
 
 // We use name route
 
@@ -52,5 +51,5 @@ final Map<String, WidgetBuilder> routes = {
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),
   MyBookings.routeName: (context) => const MyBookings(),
-  CustomerDetail.routeName:(context) => CustomerDetail(),
+  CustomerDetail.routeName:(context) => const CustomerDetail(),
 };
