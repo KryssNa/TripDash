@@ -5,6 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 import 'package:tripdash/ViewModel/place_viewmodel.dart';
 import 'package:tripdash/model/place_model.dart';
 
@@ -14,10 +15,10 @@ class AdminAddPlaces extends StatefulWidget {
   static const routeName = '/PlaceAddPlace';
 
   @override
-  State< AdminAddPlaces > createState() => _PlacePlace ();
+  State<AdminAddPlaces> createState() => _PlacePlace();
 }
 
-class  _PlacePlace  extends State< AdminAddPlaces > {
+class _PlacePlace extends State<AdminAddPlaces> {
   TextEditingController placeName = TextEditingController();
   TextEditingController placeLocation = TextEditingController();
   TextEditingController placePrice = TextEditingController();
@@ -81,6 +82,7 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
       ),
     );
   }
+
   pickImage(ImageSource imageType) async {
     try {
       final photo = await ImagePicker().pickImage(source: imageType);
@@ -95,8 +97,8 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
     }
   }
 
-  Future<void> addPlace(placeViewModel) async {
-    if(pickedImage == null){
+  Future<void> addPlace(placeViewModels) async {
+    if (pickedImage == null) {
       // ScaffoldMessenger.of(context).showSnackBar(snackBar)
       return;
     }
@@ -104,21 +106,23 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
     Reference storageRef = FirebaseStorage.instance.ref();
 
     String dt = DateTime.now().millisecondsSinceEpoch.toString();
-    var photo = await storageRef.child("places").child("$dt.jpg").putFile(File(pickedImage!.path));
+    var photo = await storageRef
+        .child("places")
+        .child("$dt.jpg")
+        .putFile(File(pickedImage!.path));
     var url = await photo.ref.getDownloadURL();
 
     final data = PlaceModel(
         placeId: id.toString(),
-        placeName:placeName.text,
+        placeName: placeName.text,
         location: placeLocation.text,
         price: placePrice.text,
         description: placeDescription.text,
         imageUrl: url,
-        imagepath: photo.ref.fullPath
-    );
+        imagepath: photo.ref.fullPath);
     db.collection("place").add(data.toJson()).then((value) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("place added")));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("place added")));
     });
   }
 
@@ -126,9 +130,10 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          centerTitle: true,
-        title: const Text('Add Place',
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          'Add Place',
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,
@@ -155,7 +160,8 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                       //     color: Colors.grey.withOpacity(0.6), width: 2),
                     ),
                     child: ClipRect(
-                      child: pickedImage != null ? Image.file(
+                      child: pickedImage != null
+                          ? Image.file(
                         pickedImage!,
                         width: 500,
                         height: 200,
@@ -177,102 +183,116 @@ class  _PlacePlace  extends State< AdminAddPlaces > {
                   icon: const Icon(Icons.add_a_photo_sharp),
                   label: const Text('Place Image')),
             ),
-            TextFormField(
-              style: const TextStyle(color: Colors.black),
-              controller: placeName,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "Place";
-                }
-                if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
-                  return "Please enter the place name";
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.place_sharp,
-                  color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextFormField(
+                style: const TextStyle(color: Colors.black),
+                controller: placeName,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Place";
+                  }
+                  if (!RegExp(r"^[a-zA-Z]").hasMatch(value)) {
+                    return "Please enter the place name";
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.drive_file_rename_outline_sharp,
+                    color: Colors.black,
+                  ),
+                  hintText: "Place Name",
                 ),
-                hintText: "Place Name",
               ),
             ),
             const SizedBox(
               height: 20,
               width: 10,
             ),
-            TextFormField(
-              style: const TextStyle(color: Colors.black),
-              controller: placeLocation,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "Place Location is required";
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.location_city_sharp,
-                  color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextFormField(
+                style: const TextStyle(color: Colors.black),
+                controller: placeLocation,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Place Location is required";
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.place_sharp,
+                    color: Colors.black,
+                  ),
+                  hintText: "Place Location",
                 ),
-                hintText: "Place Location",
               ),
             ),
             const SizedBox(
               height: 10,
-              width:10,
+              width: 10,
             ),
-            TextFormField(
-              style: const TextStyle(color: Colors.black),
-              controller: placePrice,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "place price is needed";
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.price_change_sharp,
-                  color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextFormField(
+                style: const TextStyle(color: Colors.black),
+                controller: placePrice,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "place price is needed";
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.price_change_sharp,
+                    color: Colors.black,
+                  ),
+                  hintText: "Place Price",
                 ),
-                hintText: "Place Price",
               ),
             ),
             const SizedBox(
               height: 10,
-              width:10,
+              width: 10,
             ),
-            TextFormField(
-              style: const TextStyle(color: Colors.black),
-              controller: placeDescription,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return "Place description is required";
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                enabledBorder: OutlineInputBorder(),
-                prefixIcon: Icon(
-                  Icons.description,
-                  color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextFormField(
+                style: const TextStyle(color: Colors.black),
+                controller: placeDescription,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Place description is required";
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(),
+                  prefixIcon: Icon(
+                    Icons.description,
+                    color: Colors.black,
+                  ),
+                  hintText: "Place description",
                 ),
-                hintText: "Place description",
               ),
             ),
             const SizedBox(
               height: 10,
-              width:10,
+              width: 10,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton.icon(
                   onPressed: () {
                     addPlace(PlaceViewModel);
+                    Navigator.pushReplacementNamed(
+                        context, PlaceHomeScreen.routeName);
                   },
                   icon: const Icon(Icons.place_sharp),
                   label: const Text('Add Place')),

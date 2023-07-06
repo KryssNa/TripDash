@@ -16,13 +16,20 @@ class PlaceRepository{
         .snapshots();
     return response;
   }
+
+
+  Future<List<QueryDocumentSnapshot<PlaceModel>>> getDataNormal() async {
+    QuerySnapshot<PlaceModel> response = await ref.get();
+
+    return response.docs;
+  }
   Future<PlaceModel?> getOneData(String id) async {
     DocumentSnapshot<PlaceModel> response = await ref.doc(id).get();
     return response.data();
   }
 
 
-  Future<bool> addPlace(PlaceModel data) async {
+  Future<bool> addplace(PlaceModel data) async {
     await ref.add(data);
     return true;
   }
