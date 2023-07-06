@@ -22,7 +22,7 @@ import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
-import '../Screens/UserScreen/Event/ViewEvents.dart';
+import '../Screens/UserScreen/Event/viewevents.dart';
 import '../Screens/splash_screen.dart';
 
 // We use name route

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
-import 'Screens/UserScreen/Event/ViewEvents.dart';
 import 'Screens/splash_screen.dart';
 
 Future<void> main() async {
@@ -27,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: ViewEvents.routeName,
+        initialRoute: SplashPage.routeName,
         routes: routes,
       ),
     );
