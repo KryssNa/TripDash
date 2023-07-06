@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
@@ -5,8 +6,6 @@ import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:intl/intl.dart';
 
-
-//AdminAppDrawer
 class AdminAppDrawer extends StatefulWidget {
   const AdminAppDrawer({Key? key}) : super(key: key);
   static const routeName = '/AdminDashboard';
@@ -19,17 +18,35 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
   String name = '';
   String avatar = '';
   String email = '';
+  late Timer _timer;
+  String formattedDateTime = '';
 
   @override
   void initState() {
     super.initState();
     fetchData();
+    _startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      setState(() {
+        formattedDateTime =
+            DateFormat('yyyy-MM-dd ').format(DateTime.now());
+      });
+    });
   }
 
   Future<void> fetchData() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     DocumentSnapshot document =
-    await firestore.collection('Admin').doc('Admin_1').get();
+        await firestore.collection('Admin').doc('Admin_1').get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
@@ -44,7 +61,8 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
-  String formattedDateTime = DateFormat('yyyy-MM-dd HH:mm').format(now);
+    String formattedDate = DateFormat('yyyy-MM-dd').format(now);
+    String formattedTime = DateFormat('hh-mm-ss').format(now);
     return Drawer(
       child: ListView(
         children: [
@@ -53,7 +71,7 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
               name,
               style: const TextStyle(
                 color: Colors.black,
-                fontSize: 18,
+                fontSize: 17,
               ),
             ),
             accountEmail: Column(
@@ -66,12 +84,18 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
                     fontSize: 15,
                   ),
                 ),
-                const SizedBox(height: 4),
                 Text(
-                  formattedDateTime,
+                  formattedDate,
                   style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12,
+                    color: Colors.black,
+                    fontSize: 14,
+                  ),
+                ),
+                Text(
+                  formattedTime,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
                   ),
                 ),
               ],
@@ -89,7 +113,7 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             decoration: const BoxDecoration(
               color: Color(0xFFFBDACE),
             ),
-          ), 
+          ),
           ListTile(
             leading: const Icon(Icons.place_outlined),
             title: const Text("Place"),
