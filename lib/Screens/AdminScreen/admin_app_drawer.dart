@@ -66,9 +66,19 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
     return Drawer(
       child: ListView(
         children: [
-          Container(
+          SizedBox(
             height: 210,
             child: UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                child: ClipOval(
+                  child: Image.asset(
+                    avatar,
+                    width: 90,
+                    height: 90,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
               accountName: Text(
                 name,
                 style: const TextStyle(
@@ -87,7 +97,6 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
                       fontSize: 15,
                     ),
                   ),
-                  SizedBox(height: 4), 
                   Text(
                     formattedDate,
                     style: const TextStyle(
@@ -96,7 +105,7 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
                       fontSize: 14,
                     ),
                   ),
-                  SizedBox(height: 4), 
+                  const SizedBox(height: 4), 
                   Text(
                     formattedTime,
                     style: const TextStyle(
@@ -106,16 +115,6 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
                     ),
                   ),
                 ],
-              ),
-              currentAccountPicture: CircleAvatar(
-                child: ClipOval(
-                  child: Image.asset(
-                    avatar,
-                    width: 90,
-                    height: 90,
-                    fit: BoxFit.cover,
-                  ),
-                ),
               ),
               decoration: const BoxDecoration(
                 color: Color(0xFFFBDACE),
