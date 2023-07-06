@@ -12,6 +12,7 @@ import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
 import 'package:tripdash/Screens/Transportation/my_bookings.dart';
 import 'package:tripdash/Screens/Transportation/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
@@ -22,7 +23,6 @@ import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
-import '../Screens/UserScreen/Event/viewevents.dart';
 import '../Screens/splash_screen.dart';
 
 // We use name route
