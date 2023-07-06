@@ -66,52 +66,60 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
     return Drawer(
       child: ListView(
         children: [
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              name,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 17,
-              ),
-            ),
-            accountEmail: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  email,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                ),
-                Text(
-                  formattedDate,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-                Text(
-                  formattedTime,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.asset(
-                  avatar,
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,
+          Container(
+            height: 210,
+            child: UserAccountsDrawerHeader(
+              accountName: Text(
+                name,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 19,
                 ),
               ),
-            ),
-            decoration: const BoxDecoration(
-              color: Color(0xFFFBDACE),
+              accountEmail: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    email,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                  ),
+                  SizedBox(height: 4), 
+                  Text(
+                    formattedDate,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                  SizedBox(height: 4), 
+                  Text(
+                    formattedTime,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+              currentAccountPicture: CircleAvatar(
+                child: ClipOval(
+                  child: Image.asset(
+                    avatar,
+                    width: 90,
+                    height: 90,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              decoration: const BoxDecoration(
+                color: Color(0xFFFBDACE),
+              ),
             ),
           ),
           ListTile(
