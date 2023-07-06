@@ -44,61 +44,52 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
-  String formattedDateTime = DateFormat('yyyy-MM-dd HH:mm:ss').format(now);
+  String formattedDateTime = DateFormat('yyyy-MM-dd HH:mm').format(now);
     return Drawer(
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-  accountName: Text(
-    name,
-    style: const TextStyle(
-      color: Colors.black,
-      fontSize: 18,
-    ),
-  ),
-  accountEmail: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        email,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 15,
-        ),
-      ),
-      const SizedBox(height: 4),
-      Text(
-        formattedDateTime,
-        style: const TextStyle(
-          color: Colors.grey,
-          fontSize: 12,
-        ),
-      ),
-    ],
-  ),
-  currentAccountPicture: CircleAvatar(
-    child: ClipOval(
-      child: Image.asset(
-        avatar,
-        width: 90,
-        height: 90,
-        fit: BoxFit.cover,
-      ),
-    ),
-  ),
-  decoration: const BoxDecoration(
-    color: Color(0xFFFBDACE),
-  ),
-),
-          ListTile(
-            title: Text(
-              formattedDateTime,
+            accountName: Text(
+              name,
               style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 12,
+                color: Colors.black,
+                fontSize: 18,
               ),
             ),
-          ),
+            accountEmail: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  email,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  formattedDateTime,
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+            currentAccountPicture: CircleAvatar(
+              child: ClipOval(
+                child: Image.asset(
+                  avatar,
+                  width: 90,
+                  height: 90,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            decoration: const BoxDecoration(
+              color: Color(0xFFFBDACE),
+            ),
+          ), 
           ListTile(
             leading: const Icon(Icons.place_outlined),
             title: const Text("Place"),
