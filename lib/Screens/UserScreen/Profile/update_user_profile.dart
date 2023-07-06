@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -11,7 +12,10 @@ class UpdateUserProfile extends StatefulWidget {
 }
 
 class _UpdateUserProfileState extends State<UpdateUserProfile> {
-  final docUser = FirebaseFirestore.instance.collection('users').doc('user_1');
+
+  static final userId = FirebaseAuth.instance.currentUser!.uid;
+
+  final docUser = FirebaseFirestore.instance.collection('users').doc(userId);
   String avatar = "";
   String avatarValue = "";
   String nameValue = "";
@@ -44,7 +48,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
   Future<void> fetchData() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     DocumentSnapshot document =
-        await firestore.collection('users').doc('user_1').get();
+    await firestore.collection('users').doc(userId).get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
@@ -53,7 +57,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
         nameController.text = data['name'] ?? '';
         phoneNoController.text = data['phone'].toString();
         addressController.text = data['address'] ?? '';
-        selectedGender = data['gender'] ?? '';
+        selectedGender = data['gender'] ?? 1;
         avatarController.text = data['avatar'] ?? '';
       });
     }
@@ -130,9 +134,9 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                                       onTap: () {
                                         setState(() {
                                           avatarController.text =
-                                              'Assets/images/avatars/av_1.png';
+                                          'Assets/images/avatars/av_1.png';
                                           avatar =
-                                              'Assets/images/avatars/av_1.png';
+                                          'Assets/images/avatars/av_1.png';
                                         });
                                         Navigator.pop(
                                             context); // Close the dialog
@@ -147,9 +151,9 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                                       onTap: () {
                                         setState(() {
                                           avatarController.text =
-                                              'Assets/images/avatars/av_2.png';
+                                          'Assets/images/avatars/av_2.png';
                                           avatar =
-                                              'Assets/images/avatars/av_2.png';
+                                          'Assets/images/avatars/av_2.png';
                                         });
                                         Navigator.pop(
                                             context); // Close the dialog
@@ -200,7 +204,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                         decoration: InputDecoration(
                           labelText: 'Address',
                           hintText:
-                              address.isEmpty ? '--Not Provided--' : address,
+                          address.isEmpty ? '--Not Provided--' : address,
                         ),
                       ),
                     ),
@@ -232,7 +236,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                           'Female',
                           'Other',
                         ].map<DropdownMenuItem<String>>(
-                          (String value) {
+                              (String value) {
                             return DropdownMenuItem<String>(
                               value: value,
                               child: Text(value),
@@ -253,11 +257,11 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(right: 12, left: 15, top: 40),
+                      const EdgeInsets.only(right: 12, left: 15, top: 40),
                       child: ElevatedButton(
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all<Size>(const Size(350, 50)),
+                          MaterialStateProperty.all<Size>(const Size(350, 50)),
                           backgroundColor: MaterialStateProperty.all<Color>(
                               ConstColors.buttonColor),
                           foregroundColor: MaterialStateProperty.all<Color>(
@@ -285,7 +289,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content:
-                                        Text('Profile updated successfully!')),
+                                    Text('Profile updated successfully!')),
                               );
                             }).catchError((error) {
                               ScaffoldMessenger.of(context).showSnackBar(
