@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Repositeries/auth_repositeries.dart';
+import 'package:tripdash/Services/firebase_service.dart';
 
 class UpdatePassword extends StatefulWidget {
   static const routeName = '/UpdatePassword';
@@ -13,6 +15,10 @@ class _UpdatePasswordState extends State<UpdatePassword> {
   final TextEditingController _currentPasswordController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
+
+  bool _obscureCurrentPassword = true;
+  bool _obscureNewPassword = true;
+  bool _obscureConfirmPassword = true;
 
   @override
   void dispose() {
@@ -65,7 +71,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
       );
       return;
     }
-
+    AuthRepository().resetPassword(newPassword.toString());
     // TODO: Implement password update logic here
     // You can perform the necessary actions to update the password,
     // such as making API requests or updating the database.
@@ -90,8 +96,10 @@ class _UpdatePasswordState extends State<UpdatePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // Set the background color to blue
       appBar: AppBar(
         title: Text('Update Password'),
+        toolbarHeight: 100, // Customize the app bar height
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -99,18 +107,48 @@ class _UpdatePasswordState extends State<UpdatePassword> {
           children: [
             TextField(
               controller: _currentPasswordController,
-              decoration: InputDecoration(labelText: 'Current Password'),
-              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Current Password',
+                suffixIcon: IconButton(
+                  icon: Icon(_obscureCurrentPassword ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    setState(() {
+                      _obscureCurrentPassword = !_obscureCurrentPassword;
+                    });
+                  },
+                ),
+              ),
+              obscureText: _obscureCurrentPassword,
             ),
             TextField(
               controller: _newPasswordController,
-              decoration: InputDecoration(labelText: 'New Password'),
-              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'New Password',
+                suffixIcon: IconButton(
+                  icon: Icon(_obscureNewPassword ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    setState(() {
+                      _obscureNewPassword = !_obscureNewPassword;
+                    });
+                  },
+                ),
+              ),
+              obscureText: _obscureNewPassword,
             ),
             TextField(
               controller: _confirmPasswordController,
-              decoration: InputDecoration(labelText: 'Confirm Password'),
-              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Confirm Password',
+                suffixIcon: IconButton(
+                  icon: Icon(_obscureConfirmPassword ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    setState(() {
+                      _obscureConfirmPassword = !_obscureConfirmPassword;
+                    });
+                  },
+                ),
+              ),
+              obscureText: _obscureConfirmPassword,
             ),
             SizedBox(height: 16.0),
             ElevatedButton(

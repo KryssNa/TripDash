@@ -57,8 +57,10 @@ class AuthRepository {
     }
   }
 
-  Future<bool> resetPassword(String email) async {
+  Future<bool> resetPassword(String password) async {
     try {
+      await FirebaseService.firebaseAuth.currentUser!.updatePassword(password);
+
       return true;
     } catch (err) {
       rethrow;
