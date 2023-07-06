@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
@@ -5,16 +6,16 @@ import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart
 import '../../../constant/colors.dart';
 
 class UpdateCustomerDetail extends StatefulWidget {
-  final String UserDocumentName;
+  final String userDocumentName;
 
-  UpdateCustomerDetail({Key? key, required this.UserDocumentName})
+  const UpdateCustomerDetail({Key? key, required this.userDocumentName})
       : super(key: key);
 
   @override
-  _UpdateCustomerDetailState createState() => _UpdateCustomerDetailState();
+  UpdateCustomerDetailState createState() => UpdateCustomerDetailState();
 }
 
-class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
+class UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   late final DocumentReference docUser;
   String avatar = "";
   String avatarValue = "";
@@ -44,14 +45,14 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   @override
   void initState() {
     super.initState();
-    docUser = FirebaseFirestore.instance.collection('users').doc(widget.UserDocumentName);
+    docUser = FirebaseFirestore.instance.collection('users').doc(widget.userDocumentName);
     fetchData();
   }
 
   Future<void> fetchData() async {
     try {
       DocumentSnapshot document =
-      await FirebaseFirestore.instance.collection('users').doc(widget.UserDocumentName).get();
+      await FirebaseFirestore.instance.collection('users').doc(widget.userDocumentName).get();
 
       if (document.exists) {
         var data = document.data() as Map<String, dynamic>;
@@ -67,7 +68,9 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
         });
       }
     } catch (error) {
-      print('Error fetching data: $error');
+      if (kDebugMode) {
+        print('Error fetching data: $error');
+      }
       // Handle the error gracefully
     }
   }
@@ -90,15 +93,15 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Update User List'),
+        title: const Text('Update User List'),
         centerTitle: true,
-        backgroundColor: Color(0xFF007096),
+        backgroundColor: const Color(0xFF007096),
         leading: IconButton(
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CustomerDetail(),
+                builder: (context) => const CustomerDetail(),
               ),
             );
           },
@@ -227,7 +230,7 @@ class _UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                         controller: passwordController,
                         decoration: InputDecoration(
                           labelText: 'Password.',
-                          hintText: '$password',
+                          hintText: password,
                         ),
                       ),
                     ),
