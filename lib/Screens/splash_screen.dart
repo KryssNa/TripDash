@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/constant/colors.dart';
@@ -16,7 +17,6 @@ class SplashPage extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _SplashPageState();
-
 }
 
 class _SplashPageState extends State<SplashPage> {
@@ -27,17 +27,24 @@ class _SplashPageState extends State<SplashPage> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Timer(const Duration(seconds: 3), () {
         _auth = Provider.of<AuthViewModel>(context, listen: false);
-        _auth.checkLogin();
-        User? user = FirebaseAuth.instance.currentUser;
+        _auth.checkLogin().then((value) {
+          User? user = FirebaseAuth.instance.currentUser;
 
-        if (user == null) {
-          // route to onboarding
+          if (user == null) {
+            // route to onboarding
 
-          Navigator.pushNamedAndRemoveUntil(
-              context, LoginScreen.routeName, (route) => false);
-        } else {
-          Navigator.pushNamedAndRemoveUntil(context, BottomNavigationBarWidget.routeName, (route) => false);
-        }
+            Navigator.pushNamedAndRemoveUntil(
+                context, LoginScreen.routeName, (route) => false);
+          } else {
+            if (_auth.loggedInUser!.role == 'admin') {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, AdminDashboard.routeName, (route) => false);
+            } else {
+              Navigator.pushNamedAndRemoveUntil(context,
+                  BottomNavigationBarWidget.routeName, (route) => false);
+            }
+          }
+        });
       });
     });
 
@@ -63,7 +70,9 @@ class _SplashPageState extends State<SplashPage> {
             Text(
               'AIRPLANE',
               style: ConstFonts.whiteTextStyle.copyWith(
-                  fontSize: 32, fontWeight: ConstFonts.medium, letterSpacing: 10),
+                  fontSize: 32,
+                  fontWeight: ConstFonts.medium,
+                  letterSpacing: 10),
             )
           ],
         ),
