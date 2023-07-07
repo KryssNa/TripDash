@@ -18,6 +18,7 @@ import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
+import 'package:tripdash/Screens/UserScreen/faq.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
 import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
@@ -52,4 +53,5 @@ final Map<String, WidgetBuilder> routes = {
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),
   MyBookings.routeName: (context) => const MyBookings(),
+  FAQ.routeName : (context) => const FAQ(),
 };
