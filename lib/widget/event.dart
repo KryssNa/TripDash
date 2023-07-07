@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class EventContainer extends StatelessWidget {
   final String category;
@@ -19,9 +20,12 @@ class EventContainer extends StatelessWidget {
     required this.category,
     required this.price,
   }) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
+    var format = DateFormat.yMd('ar');
+
     return Container(
         height: 150,
         width: 350,
@@ -85,7 +89,7 @@ class EventContainer extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "$date",
+                            "${DateFormat.yMMMEd().format(date)}",
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 13,

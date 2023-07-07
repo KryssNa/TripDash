@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:tripdash/Screens/AdminScreen/add_events.dart';
 import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
@@ -10,6 +11,7 @@ import 'NavigationPage/routes.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  initializeDateFormatting();
   runApp(const MyApp());
 }
 
