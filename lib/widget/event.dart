@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class EventContainer extends StatelessWidget {
   final String category;
-  final String date;
+  final DateTime date;
   final String location;
   final String description;
   final String imageUrl;
@@ -85,7 +85,7 @@ class EventContainer extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            date,
+                            "$date",
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 13,
