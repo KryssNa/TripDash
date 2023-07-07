@@ -14,7 +14,7 @@ class AuthViewModel with ChangeNotifier {
   UserModel? _loggedInUser;
   UserModel? get loggedInUser => _loggedInUser;
 
-
+  // register
   Future<void> register(UserModel user) async {
     try {
       var response = await AuthRepository().register(user);
@@ -27,13 +27,14 @@ class AuthViewModel with ChangeNotifier {
     }
   }
 
+  // check login
   Future<void> checkLogin() async {
     try {
       _loggedInUser = await UserRepositeries.getLoggedInUser();
       if(_loggedInUser== null){
         _user = null;
         AuthRepository().logout();
-        throw Exception();
+        // throw Exception();
       }
       notifyListeners();
     } catch (err) {

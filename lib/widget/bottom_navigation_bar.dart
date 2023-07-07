@@ -2,9 +2,9 @@
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
+import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key, });
@@ -67,7 +67,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         widget = const UserDashboard();
         break;
       case 1:
-        widget = const AdminDashboard();
+        widget = const PlaceHomeScreen();
         break;
       default:
         widget = const UserProfile();
