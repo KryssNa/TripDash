@@ -63,24 +63,28 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('yyyy-MM-dd').format(now);
     String formattedTime = DateFormat('hh-mm-ss').format(now);
-    return Drawer(
-      child: ListView(
-        children: [UserAccountsDrawerHeader(
-          currentAccountPicture: CircleAvatar(
-            child: ClipOval(
-              child: Image.asset(
-                avatar,
-                width: 90,
-                height: 90,
-                fit: BoxFit.cover,
+    var userAccountsDrawerHeader = UserAccountsDrawerHeader(
+          currentAccountPicture: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: CircleAvatar(
+              child: ClipOval(
+                child: Image.asset(
+                  avatar,
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
-          accountName: Text(
-            name,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 19,
+          accountName: Padding(
+            padding: const EdgeInsets.all(.0),
+            child: Text(
+              name,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 19,
+              ),
             ),
           ),
           accountEmail: Column(
@@ -91,18 +95,18 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
                 style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 7,
-                ),
-              ),
-              Text(
-                formattedDate,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
                   fontSize: 14,
                 ),
               ),
-              const SizedBox(height: 4),
+              Text(
+                    formattedDate,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
               Text(
                 formattedTime,
                 style: const TextStyle(
@@ -111,12 +115,19 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
                   fontSize: 14,
                 ),
               ),
+              
             ],
           ),
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
+          
+            borderRadius: BorderRadius.circular(8),
             color: Color(0xFFFBDACE),
           ),
-        ),
+        );
+    return Drawer(
+      child: ListView(
+        children: [
+          userAccountsDrawerHeader,
           ListTile(
             leading: const Icon(Icons.place_outlined),
             title: const Text("Place"),
