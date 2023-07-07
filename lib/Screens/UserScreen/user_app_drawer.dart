@@ -139,6 +139,12 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
             onTap: () => Navigator.pop(context, RegisterScreen.routeName),
           ),
           ListTile(
+            leading: const Icon(Icons.calendar_month),
+            title: const Text("Calender"),
+            onTap: () => Navigator.pushReplacementNamed(
+                context, AdminAddHotels.routeName),
+          ),
+          ListTile(
             leading: const Icon(Icons.exit_to_app_outlined),
             title: const Text("Exit"),
             onTap: () => Navigator.pop(context),
