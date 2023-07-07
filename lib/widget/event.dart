@@ -24,7 +24,6 @@ class EventContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var format = DateFormat.yMd('ar');
 
     return Container(
         height: 150,
