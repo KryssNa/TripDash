@@ -12,7 +12,11 @@ import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
 import 'package:tripdash/Screens/Transportation/my_bookings.dart';
 import 'package:tripdash/Screens/Transportation/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+
+import 'package:tripdash/Screens/UserScreen/forgot_password.dart';
+
 import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
+
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
@@ -38,6 +42,12 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   ViewEvents.routeName: (context) => const ViewEvents(),
   Homepage.routeName: (context) => const Homepage(),
+
+
+  ForgotPassword.routeName: (context) => const ForgotPassword(),
+
+
+
   AddProduct.routeName: (context) => const AddProduct(),
   UserDashboard.routeName: (context) => const UserDashboard(),
   AdminAddPlaces.routeName: (context) => const AdminAddPlaces(),
