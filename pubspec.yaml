@@ -43,6 +43,12 @@ dependencies:
   fluttertoast: ^8.2.2
   table_calendar: ^3.0.9
   quickalert: ^1.0.1
+  curved_labeled_navigation_bar: ^2.0.2
+  flutter_bloc: ^8.0.1
+  equatable: ^2.0.3
+  flutter_svg: any
+  google_fonts: 4.0.1
+
 
 
 dev_dependencies:
@@ -51,6 +57,7 @@ dev_dependencies:
 
 
   flutter_lints: ^2.0.0
+  test: ^1.24.1
 
 
 flutter:
@@ -64,18 +71,3 @@ flutter:
      - Assets/avatars/
      - Assets/images/avatars/
      - Assets/images/userDashboard/
-
-  fonts:
-    - family: Poppains
-      fonts:
-        - asset: Assets/fonts/poppains/Poppins-Bold.ttf
-        - asset: Assets/fonts/poppains/Poppins-Regular.ttf
-        - asset: Assets/fonts/poppains/Poppins-ExtraBold.ttf
-        - asset: Assets/fonts/poppains/Poppins-ExtraLight.ttf
-          weight: 700
-    - family: Pacifico
-      fonts:
-        - asset: Assets/fonts/pacifico/Pacifico-Regular.ttf
-    - family: SSFPro
-      fonts:
-        - asset: Assets/fonts/ssfPro/SF-Pro.ttf

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../model/user_model.dart';
-import '../services/firebase_service.dart';
+import 'package:tripdash/model/user_model.dart';
+import 'package:tripdash/Services/firebase_service.dart';
 
 class AuthRepository {
   CollectionReference<UserModel> userRef =
@@ -11,6 +11,7 @@ class AuthRepository {
     },
     toFirestore: (model, _) => model.toJson(),
   );
+
   Future<UserCredential?> register(UserModel user) async {
     try {
       final response =
@@ -24,8 +25,10 @@ class AuthRepository {
 
       user.userId = uc.user!.uid;
       user.fcmToken = "";
+      user.balance=500000;
       // insert into firestore user table
-      await userRef.add(user);
+      // await userRef.add(user);
+      await userRef.doc(uc.user!.uid).set(user);
       return uc;
     } catch (err) {
       rethrow;
@@ -57,8 +60,6 @@ class AuthRepository {
 
   Future<bool> resetPassword(String email) async {
     try {
-      var res = await FirebaseService.firebaseAuth
-          .sendPasswordResetEmail(email: email);
       return true;
     } catch (err) {
       rethrow;

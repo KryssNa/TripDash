@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
-import '../../../widget/TripPlanWidgets/trip_activities.dart';
-import '../../../widget/TripPlanWidgets/trip_buttons.dart';
-import '../../../widget/TripPlanWidgets/trip_images.dart';
+import 'package:tripdash/widget/TripPlanWidgets/trip_activities.dart';
+import 'package:tripdash/widget/TripPlanWidgets/trip_buttons.dart';
+import 'package:tripdash/widget/TripPlanWidgets/trip_images.dart';
 
 class TripPlanOverview extends StatefulWidget {
   const TripPlanOverview({Key? key}) : super(key: key);
@@ -134,7 +134,7 @@ class _TripPlanState extends State<TripPlanOverview> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10,),
+                  padding: const EdgeInsets.only(right: 12, left: 10,),
                   child: TextButton(onPressed: (){
                     Navigator.of(context).pushReplacementNamed(TripPlanDetails.routeName);
                     },
@@ -147,7 +147,7 @@ class _TripPlanState extends State<TripPlanOverview> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 12, left: 10,),
+                  padding: const EdgeInsets.only(right: 12, left: 10,),
                   child: TextButton(onPressed: (){},
                     child: const Text("Budget",
                       style: TextStyle(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../constant/Colors.dart';
+import 'package:tripdash/constant/colors.dart';
 
 
 ThemeData theme() {
