@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
-import 'Screens/UserScreen/update_password.dart';
+
 import 'Screens/splash_screen.dart';
 
 Future<void> main() async {

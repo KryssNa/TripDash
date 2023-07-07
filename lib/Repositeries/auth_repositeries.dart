@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:tripdash/model/user_model.dart';
 import 'package:tripdash/Services/firebase_service.dart';
 
@@ -65,7 +66,9 @@ class AuthRepository {
 
       return true;
     } catch (err) {
-      print(err);
+      if (kDebugMode) {
+        print(err);
+      }
       rethrow;
     }
   }
