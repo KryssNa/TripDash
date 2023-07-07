@@ -1,6 +1,6 @@
+
 import 'package:flutter/material.dart';
 import 'package:tripdash/Repositeries/auth_repositeries.dart';
-import 'package:tripdash/Services/firebase_service.dart';
 
 class UpdatePassword extends StatefulWidget {
   static const routeName = '/UpdatePassword';
@@ -8,10 +8,11 @@ class UpdatePassword extends StatefulWidget {
   const UpdatePassword({Key? key}) : super(key: key);
 
   @override
-  _UpdatePasswordState createState() => _UpdatePasswordState();
+  State<UpdatePassword> createState() => _UpdatePasswordState();
 }
 
 class _UpdatePasswordState extends State<UpdatePassword> {
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _currentPasswordController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
@@ -22,6 +23,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   @override
   void dispose() {
+    _emailController.dispose();
     _currentPasswordController.dispose();
     _newPasswordController.dispose();
     _confirmPasswordController.dispose();
@@ -29,22 +31,23 @@ class _UpdatePasswordState extends State<UpdatePassword> {
   }
 
   void _updatePassword() {
+    String email = _emailController.text;
     String currentPassword = _currentPasswordController.text;
     String newPassword = _newPasswordController.text;
     String confirmPassword = _confirmPasswordController.text;
 
     // Validate input
-    if (currentPassword.isEmpty || newPassword.isEmpty || confirmPassword.isEmpty) {
+    if (email.isEmpty || currentPassword.isEmpty || newPassword.isEmpty || confirmPassword.isEmpty) {
       showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('Please fill in all fields.'),
+            title: const Text('Error'),
+            content: const Text('Please fill in all fields.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -58,12 +61,12 @@ class _UpdatePasswordState extends State<UpdatePassword> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('New password and confirm password do not match.'),
+            title: const Text('Error'),
+            content: const Text('New password and confirm password do not match.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -71,21 +74,22 @@ class _UpdatePasswordState extends State<UpdatePassword> {
       );
       return;
     }
-    AuthRepository().resetPassword(newPassword.toString());
+
     // TODO: Implement password update logic here
     // You can perform the necessary actions to update the password,
     // such as making API requests or updating the database.
+    AuthRepository().resetPassword(newPassword.toString());
 
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Success'),
-          content: Text('Password updated successfully.'),
+          title: const Text('Success'),
+          content: const Text('Password updated successfully.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );
@@ -96,15 +100,23 @@ class _UpdatePasswordState extends State<UpdatePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Set the background color to blue
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Update Password'),
-        toolbarHeight: 100, // Customize the app bar height
+        title: const Text('Update Password'),
+        toolbarHeight: 100,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            TextField(
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                prefixIcon: Icon(Icons.email),
+              ),
+            ),
             TextField(
               controller: _currentPasswordController,
               decoration: InputDecoration(
@@ -117,6 +129,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
                     });
                   },
                 ),
+                prefixIcon: const Icon(Icons.lock),
               ),
               obscureText: _obscureCurrentPassword,
             ),
@@ -132,6 +145,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
                     });
                   },
                 ),
+                prefixIcon: const Icon(Icons.lock),
               ),
               obscureText: _obscureNewPassword,
             ),
@@ -147,17 +161,26 @@ class _UpdatePasswordState extends State<UpdatePassword> {
                     });
                   },
                 ),
+                prefixIcon: const Icon(Icons.lock),
               ),
               obscureText: _obscureConfirmPassword,
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: _updatePassword,
-              child: Text('Update Password'),
+              child: const Text('Update Password'),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+
+void main(){
+  runApp(MaterialApp(
+    home:UpdatePassword()
+  )
+  );
 }
