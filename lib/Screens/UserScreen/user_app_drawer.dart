@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
-import 'package:tripdash/Screens/UserScreen/ViewProducts/view_prodcuts.dart';
+import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
 import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 
 class UserAppDrawer extends StatefulWidget {
@@ -76,19 +76,20 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
           ListTile(
             leading: const Icon(Icons.place_outlined),
             title: const Text("Place"),
-            onTap: () => Navigator.pushNamed(
-                context, PlaceHomeScreen.routeName),
+            onTap: () =>
+                Navigator.pushNamed(context, PlaceHomeScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.hotel_outlined),
             title: const Text("Hotels"),
-            onTap: () => Navigator.pushNamed(
-                context, HotelHomeScreen.routeName),
+            onTap: () =>
+                Navigator.pushNamed(context, HotelHomeScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.add_circle_outline),
             title: const Text("Trip Plan Overview"),
-            onTap: () => Navigator.pushNamed(context, TripPlanOverview.routeName),
+            onTap: () =>
+                Navigator.pushNamed(context, TripPlanOverview.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.add_circle_outline),
