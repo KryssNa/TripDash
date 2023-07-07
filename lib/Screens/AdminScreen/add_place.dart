@@ -200,7 +200,7 @@ class _PlacePlace extends State<AdminAddPlaces> {
                 decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
-                    Icons.place_sharp,
+                    Icons.drive_file_rename_outline_sharp,
                     color: Colors.black,
                   ),
                   hintText: "Place Name",
@@ -225,7 +225,7 @@ class _PlacePlace extends State<AdminAddPlaces> {
                 decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(),
                   prefixIcon: Icon(
-                    Icons.location_city_sharp,
+                    Icons.place_sharp,
                     color: Colors.black,
                   ),
                   hintText: "Place Location",

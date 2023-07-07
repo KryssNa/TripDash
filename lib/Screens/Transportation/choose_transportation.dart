@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'choose_seat.dart';
 class ChooseTransportation extends StatelessWidget {
   const ChooseTransportation({super.key});
   static String routeName="/chooseTransportations";
@@ -27,7 +29,7 @@ class ChooseTransportation extends StatelessWidget {
                 'Bus',
                 Icons.directions_bus,
                 Colors.blue,
-                context,
+                // context,
                     (){
                   // Navigator.pushNamed(context, ChooseSeatPage.routeName);
                 }
@@ -37,7 +39,7 @@ class ChooseTransportation extends StatelessWidget {
                 'Car',
                 Icons.directions_car,
                 Colors.orange,
-                context,
+                // context,
                     (){
                   // Navigator.pushNamed(context, ChooseSeatPage.routeName);
                 }
@@ -47,11 +49,9 @@ class ChooseTransportation extends StatelessWidget {
                 'Airplane',
                 Icons.airplanemode_active,
                 Colors.red,
-                context,
+                // context,
                     (){
-
-
-
+                      Navigator.pushNamed(context,ChooseSeatPage.routeName);
                 }
             ),
           ],
@@ -64,11 +64,11 @@ class ChooseTransportation extends StatelessWidget {
       String title,
       IconData icon,
       Color color,
-      BuildContext context,
+      // BuildContext context,
       Function voidCallback,
       ) {
     return GestureDetector(
-      onTap:voidCallback(),
+      onTap:()=>voidCallback(),
 
       child: Container(
         height: 100,

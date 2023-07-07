@@ -7,7 +7,7 @@ import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
-import 'package:tripdash/widget/bottom_navigation_bar.dart';
+import 'package:tripdash/Screens/bottom_navigation_bar.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -31,6 +31,7 @@ class _SplashPageState extends State<SplashPage> {
         User? user = FirebaseAuth.instance.currentUser;
 
         if (user == null) {
+          // route to onboarding
 
           Navigator.pushNamedAndRemoveUntil(
               context, LoginScreen.routeName, (route) => false);
@@ -59,7 +60,7 @@ class _SplashPageState extends State<SplashPage> {
                   image: DecorationImage(
                       image: AssetImage('Assets/icons/icon_plane.png'))),
             ),
-             Text(
+            Text(
               'AIRPLANE',
               style: ConstFonts.whiteTextStyle.copyWith(
                   fontSize: 32, fontWeight: ConstFonts.medium, letterSpacing: 10),

@@ -27,7 +27,8 @@ class AuthRepository {
       user.fcmToken = "";
       user.balance=500000;
       // insert into firestore user table
-      await userRef.add(user);
+      // await userRef.add(user);
+      await userRef.doc(uc.user!.uid).set(user);
       return uc;
     } catch (err) {
       rethrow;
