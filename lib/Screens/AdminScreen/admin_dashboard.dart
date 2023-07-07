@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
-import 'package:tripdash/Screens/UserScreen/ViewProducts/view_prodcuts.dart';
 import 'package:tripdash/Screens/UserScreen/app_bar.dart';
 import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 import 'package:tripdash/constant/colors.dart';
@@ -219,7 +218,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 //products container
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, ViewProducts.routeName);
+                    // Navigator.pushNamed(context, ViewProducts.routeName);
                   },
                   child: Container(
                     margin: const EdgeInsets.only( left: 18, right: 18, bottom: 6),
