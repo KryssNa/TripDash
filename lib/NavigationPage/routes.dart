@@ -47,6 +47,7 @@ final Map<String, WidgetBuilder> routes = {
   Homepage.routeName: (context) => const Homepage(),
 
 
+
   ForgotPassword.routeName: (context) => const ForgotPassword(),
   AddProduct.routeName: (context) => const AddProduct(),
   UserDashboard.routeName: (context) => const UserDashboard(),
@@ -64,5 +65,6 @@ final Map<String, WidgetBuilder> routes = {
   MyBookings.routeName: (context) => const MyBookings(),
   FAQ.routeName: (context) => const FAQ(),
   CustomerDetail.routeName: (context) => const CustomerDetail(),
+
   Calender.routeName: (context) => const Calender(),
 };
