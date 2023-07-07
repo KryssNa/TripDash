@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
+import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
 import 'package:tripdash/Screens/UserScreen/app_bar.dart';
 import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 import 'package:tripdash/constant/colors.dart';
@@ -83,7 +84,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
                     //total booking container
                     Container(
-                      height: 80,
+                      height: 90,
                       width: 170,
                       decoration: BoxDecoration(
                         color: ConstColors.adminPanelBoxColor1,
@@ -104,7 +105,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
                     //total client container
                     Container(
-                      height: 80,
+                      height: 90,
                       width: 170,
                       decoration: BoxDecoration(
                         color: ConstColors.adminPanelBoxColor4,
@@ -139,7 +140,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         Navigator.pushNamed(context, HotelHomeScreen.routeName);
                       },
                       child: Container(
-                        height: 80,
+                        height: 90,
                         width: 170,
                         decoration: BoxDecoration(
                           color: ConstColors.adminPanelBoxColor2,
@@ -161,7 +162,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
                     //revenue container
                     Container(
-                      height: 80,
+                      height: 90,
                       width: 175,
                       decoration: BoxDecoration(
                         color: ConstColors.adminPanelBoxColor3,
@@ -189,7 +190,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   },
                   child: Container(
                     margin: const EdgeInsets.all( 18),
-                    height: 180,
+                    height: 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: const Color(0xfffdddd5),
@@ -218,11 +219,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 //products container
                 GestureDetector(
                   onTap: () {
-                    // Navigator.pushNamed(context, ViewProducts.routeName);
+                    Navigator.pushNamed(context, ViewProducts.routeName);
                   },
                   child: Container(
                     margin: const EdgeInsets.only( left: 18, right: 18, bottom: 6),
-                    height: 180,
+                    height: 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: const Color(0xff71c3cc),
