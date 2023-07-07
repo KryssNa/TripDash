@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/intl.dart';
 import 'package:tripdash/ViewModel/event_viewmodel.dart';
 import 'package:tripdash/model/event_model.dart';
 
@@ -128,7 +130,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
         title:eventTitle.text,
         location: eventLocation.text,
         category:eventCategory.text,
-        date: eventDate.text,
+        date: DateTime.parse(eventDate.text),
         price: eventPrice.text,
         description: eventDescription.text,
         imageUrl: url,
