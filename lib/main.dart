@@ -28,7 +28,6 @@ class _MyAppState extends State<MyApp> {
 
           initialRoute: Booking.routeName,
           routes: routes,
-
       ),
     );
   }
