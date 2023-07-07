@@ -5,6 +5,7 @@ import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
+import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
 import 'package:tripdash/Screens/Transportation/choose_seat.dart';
@@ -12,7 +13,11 @@ import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
 import 'package:tripdash/Screens/Transportation/my_bookings.dart';
 import 'package:tripdash/Screens/Transportation/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+
+import 'package:tripdash/Screens/UserScreen/forgot_password.dart';
+
 import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
+
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
@@ -39,6 +44,7 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   ViewEvents.routeName: (context) => const ViewEvents(),
   Homepage.routeName: (context) => const Homepage(),
+  ForgotPassword.routeName: (context) => const ForgotPassword(),
   AddProduct.routeName: (context) => const AddProduct(),
   UserDashboard.routeName: (context) => const UserDashboard(),
   AdminAddPlaces.routeName: (context) => const AdminAddPlaces(),
@@ -53,5 +59,6 @@ final Map<String, WidgetBuilder> routes = {
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),
   MyBookings.routeName: (context) => const MyBookings(),
-  FAQ.routeName : (context) => const FAQ(),
+  FAQ.routeName: (context) => const FAQ(),
+  CustomerDetail.routeName: (context) => const CustomerDetail(),
 };
