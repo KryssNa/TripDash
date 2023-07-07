@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tripdash/Repositeries/auth_repositeries.dart';
+import 'package:tripdash/ViewModel/auth_viewmodel.dart';
+import 'package:tripdash/model/user_model.dart';
 
 class UpdatePassword extends StatefulWidget {
   static const routeName = '/UpdatePassword';
@@ -20,7 +23,15 @@ class _UpdatePasswordState extends State<UpdatePassword> {
   bool _obscureCurrentPassword = true;
   bool _obscureNewPassword = true;
   bool _obscureConfirmPassword = true;
+  late AuthViewModel authViewModel;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    authViewModel = Provider.of<AuthViewModel>(context,listen: false);
+
+    super.initState();
+  }
   @override
   void dispose() {
     _emailController.dispose();
@@ -78,7 +89,11 @@ class _UpdatePasswordState extends State<UpdatePassword> {
     // TODO: Implement password update logic here
     // You can perform the necessary actions to update the password,
     // such as making API requests or updating the database.
-    AuthRepository().resetPassword(newPassword.toString());
+    UserModel user = authViewModel.loggedInUser!;
+
+    user.password = _confirmPasswordController.text;
+
+    AuthRepository().resetPassword(newPassword.toString(), user);
 
     showDialog(
       context: context,
@@ -103,7 +118,8 @@ class _UpdatePasswordState extends State<UpdatePassword> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Update Password'),
-        toolbarHeight: 100,
+        centerTitle: true,
+        toolbarHeight: 60,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -178,9 +194,4 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 }
 
 
-void main(){
-  runApp(MaterialApp(
-    home:UpdatePassword()
-  )
-  );
-}
+

@@ -14,7 +14,10 @@ class AuthViewModel with ChangeNotifier {
   UserModel? _loggedInUser;
   UserModel? get loggedInUser => _loggedInUser;
 
-
+  setUser(UserModel user){
+    _loggedInUser = user;
+    notifyListeners();
+  }
   Future<void> register(UserModel user) async {
     try {
       var response = await AuthRepository().register(user);
