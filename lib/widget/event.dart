@@ -88,7 +88,7 @@ class EventContainer extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${DateFormat.yMMMEd().format(date)}",
+                            "${DateFormat.yMMM().format(date)}",
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 13,
