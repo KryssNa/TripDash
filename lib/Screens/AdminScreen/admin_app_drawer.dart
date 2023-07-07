@@ -63,41 +63,42 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('yyyy-MM-dd').format(now);
     String formattedTime = DateFormat('hh-mm-ss').format(now);
-    return Drawer(
-      child: ListView(
-        children: [
-          SizedBox(
-            height: 210,
-            child: UserAccountsDrawerHeader(
-              currentAccountPicture: CircleAvatar(
-                child: ClipOval(
-                  child: Image.asset(
-                    avatar,
-                    width: 90,
-                    height: 90,
-                    fit: BoxFit.cover,
-                  ),
+    var userAccountsDrawerHeader = UserAccountsDrawerHeader(
+          currentAccountPicture: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: CircleAvatar(
+              child: ClipOval(
+                child: Image.asset(
+                  avatar,
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.cover,
                 ),
               ),
-              accountName: Text(
-                name,
+            ),
+          ),
+          accountName: Padding(
+            padding: const EdgeInsets.all(7.0),
+            child: Text(
+              name,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 19,
+              ),
+            ),
+          ),
+          accountEmail: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                email,
                 style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
                 ),
               ),
-              accountEmail: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    email,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                    ),
-                  ),
-                  Text(
+              Text(
                     formattedDate,
                     style: const TextStyle(
                       color: Colors.black,
@@ -105,22 +106,29 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
                       fontSize: 14,
                     ),
                   ),
-                  const SizedBox(height: 4), 
-                  Text(
-                    formattedTime,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
+                  const SizedBox(height: 4),
+              Text(
+                formattedTime,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
               ),
-              decoration: const BoxDecoration(
-                color: Color(0xFFFBDACE),
-              ),
-            ),
+              
+            ],
           ),
+          decoration:  BoxDecoration(
+          
+            borderRadius: BorderRadius.circular(8),
+            color: Color(0xFFFBDACE),
+          ),
+        );
+    return Drawer(
+      child: ListView(
+        children: [
+          userAccountsDrawerHeader,
+      
           ListTile(
             leading: const Icon(Icons.place_outlined),
             title: const Text("Place"),

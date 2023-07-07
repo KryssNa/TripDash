@@ -4,7 +4,8 @@ import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
-
+import 'package:intl/intl.dart';
+import 'dart:async';
 class UserAppDrawer extends StatefulWidget {
   const UserAppDrawer({Key? key}) : super(key: key);
   static const routeName = '/UserAppDrawer';
@@ -17,11 +18,28 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
   String name = '';
   String avatar = '';
   String email = '';
+  late Timer _timer;
+  String formattedDateTime = '';
 
   @override
   void initState() {
     super.initState();
     fetchData();
+     _startTimer();
+  }
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      setState(() {
+        formattedDateTime =
+            DateFormat('yyyy-MM-dd ').format(DateTime.now());
+      });
+    });
   }
 
   Future<void> fetchData() async {
@@ -41,38 +59,63 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('yyyy-MM-dd').format(now);
+    String formattedTime = DateFormat('hh-mm-ss').format(now);
     return Drawer(
       child: ListView(
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              name,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 18,
+        children: [UserAccountsDrawerHeader(
+          currentAccountPicture: CircleAvatar(
+            child: ClipOval(
+              child: Image.asset(
+                avatar,
+                width: 90,
+                height: 90,
+                fit: BoxFit.cover,
               ),
-            ),
-            accountEmail: Text(
-              email,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-              ),
-            ),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.asset(
-                  avatar,
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            decoration: const BoxDecoration(
-              color: Color(0xFFFBDACE),
             ),
           ),
+          accountName: Text(
+            name,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 19,
+            ),
+          ),
+          accountEmail: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                email,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 7,
+                ),
+              ),
+              Text(
+                formattedDate,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                formattedTime,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+          decoration: const BoxDecoration(
+            color: Color(0xFFFBDACE),
+          ),
+        ),
           ListTile(
             leading: const Icon(Icons.place_outlined),
             title: const Text("Place"),
