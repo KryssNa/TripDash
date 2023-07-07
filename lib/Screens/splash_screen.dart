@@ -4,11 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
-import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
+import 'package:tripdash/Screens/SplashScreen/splash_screen1.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
-import 'package:tripdash/Screens/bottom_navigation_bar.dart';
+import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _SplashPageState extends State<SplashPage> {
             // route to onboarding
 
             Navigator.pushNamedAndRemoveUntil(
-                context, LoginScreen.routeName, (route) => false);
+                context, SplashScreen1.routeName, (route) => false);
           } else {
             if (_auth.loggedInUser!.role == 'admin') {
               Navigator.pushNamedAndRemoveUntil(
@@ -65,10 +65,10 @@ class _SplashPageState extends State<SplashPage> {
               margin: const EdgeInsets.only(bottom: 50),
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('Assets/icons/icon_plane.png'))),
+                      image: AssetImage('Assets/images/logo.png'))),
             ),
             Text(
-              'AIRPLANE',
+              'TripDash',
               style: ConstFonts.whiteTextStyle.copyWith(
                   fontSize: 32,
                   fontWeight: ConstFonts.medium,

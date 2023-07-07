@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'chekout_screen.dart';
 
@@ -121,7 +122,11 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Seat Selection'),
+        title:  Text('Aeroplane Seat Selection',style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w600),),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+        elevation: 0,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -351,10 +356,13 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                   );
                   return;
                 }
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => CheckoutScreen(selectedSeats: selectedSeats, totalPrice: totalPrice),
+                  ),
+                );
 
-                Navigator.push(
-                    context,MaterialPageRoute(builder: (context) =>  CheckoutScreen(selectedSeats: selectedSeats, totalPrice: totalPrice)));
-              },
+               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff4ecc40),
                 shape: RoundedRectangleBorder(

@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
+import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
+import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
+import 'package:tripdash/Screens/UserScreen/ViewProducts/view_prodcuts.dart';
 import 'package:tripdash/Screens/UserScreen/app_bar.dart';
+import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/widget/text_style.dart';
 
@@ -7,7 +13,6 @@ import 'package:tripdash/widget/text_style.dart';
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
   static const routeName = '/AdminDashboard';
-
   @override
   State<AdminDashboard> createState() => _AdminDashboardState();
 }
@@ -16,10 +21,45 @@ class _AdminDashboardState extends State<AdminDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const AdminAppDrawer(),
       appBar:const PreferredSize(
-    preferredSize: Size.fromHeight(60), // Change the height as desired
+    preferredSize: Size.fromHeight(50), // Change the height as desired
     child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
     ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0x51289a8e),
+        selectedItemColor: Colors.red,
+        elevation: 0,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+            backgroundColor: ConstColors.whiteColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Search",
+            backgroundColor: ConstColors.whiteColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+            backgroundColor: ConstColors.whiteColor,
+          ),
+        ],
+
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.pushNamed(context, AdminDashboard.routeName);
+          }
+          if (index == 1) {
+            Navigator.pushNamed(context, AdminDashboard.routeName);
+          }
+          if (index == 2) {
+            Navigator.pushNamed(context, UserProfile.routeName);
+          }
+        },
+      ),
       body: SafeArea(
         child:SingleChildScrollView(
           child: Container(
@@ -27,15 +67,22 @@ class _AdminDashboardState extends State<AdminDashboard> {
             child: Column(
               children: [
                 Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(left: 20),
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(left: 0),
                   child: Text("Dashboard",
-                  style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.green,
+                  ),
                 ),
-                const SizedBox(height: 20,),
+                ),
+                const SizedBox(height: 8,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+
+                    //total booking container
                     Container(
                       height: 80,
                       width: 170,
@@ -55,6 +102,8 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         ],
                       ),
                     ),
+
+                    //total client container
                     Container(
                       height: 80,
                       width: 170,
@@ -84,25 +133,34 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 80,
-                      width: 170,
-                      decoration: BoxDecoration(
-                        color: ConstColors.adminPanelBoxColor2,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("Assets/icons/icon-hotel.png"),
-                          Text(
-                            "Hotels",
-                            style: buildTextStyle(
-                                ConstColors.adminSecondaryHeadingText),
-                          ),
-                        ],
+
+                    //hotel container
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, HotelHomeScreen.routeName);
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          color: ConstColors.adminPanelBoxColor2,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("Assets/icons/icon-hotel.png"),
+                            Text(
+                              "Hotels",
+                              style: buildTextStyle(
+                                  ConstColors.adminSecondaryHeadingText),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
+
+                    //revenue container
                     Container(
                       height: 80,
                       width: 175,
@@ -125,335 +183,71 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   ],
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                //places container
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, PlaceHomeScreen.routeName);
+                  },
                   child: Container(
+                    margin: const EdgeInsets.all( 18),
+                    height: 180,
+                    width: double.infinity,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          color: ConstColors.adminPanelPrimaryTextColor),
-                      borderRadius: BorderRadius.circular(8),
+                      color: const Color(0xfffdddd5),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Column(children: [
-                      Container(
-                        color: ConstColors.adminPanelPrimaryHeadingColor,
-                        height: 30,
-                        child: Padding(
-                          padding:
-                          const EdgeInsets.only(left: 8.0, right: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                "Revenue Graph",
-                                style: buildTextStyle(
-                                    ConstColors.adminPrimaryHeadingText),
-                              ),
-                              const SizedBox(
-                                width: 60,
-                              ),
-                              Container(
-                                height: 20,
-                                color: ConstColors
-                                    .adminPanelSecondaryHeadingColor,
-                                child: const Row(
-                                  children: [
-                                    Text("Monthly"),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "Weekly",
-                                      style: TextStyle(
-                                        fontFamily: 'SSFPro',
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text("Yearly"),
-                                  ],
-                                ),
-                              )
-                            ],
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("Assets/icons/placeLogo.jpg",height: 150,
+                        width: 220,),
+                        Text(
+                          "Places",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black54,
+                            ),
                           ),
                         ),
-                      ),
-                      Image.asset("Assets/images/Graph.png"),
-                    ]),
-                  ),
-                ),
-
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(left: 20.0),
-                  child: Text("Featured Hotels",
-                    style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
-                ),
-
-                const SizedBox(height: 20,),
-
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(
-                    left: 16.0,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage("Assets/images/Hotel.png"),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 20,),
-
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: ConstColors.adminPanelPrimaryTextColor),
-                      borderRadius: BorderRadius.circular(8),
+                      ],
                     ),
-                    child: Column(children: [
-                      Container(
-                        color: ConstColors.adminPanelPrimaryHeadingColor,
-                        height: 30,
-                        child: Padding(
-                          padding:
-                          const EdgeInsets.only(left: 8.0, right: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                "Statistics Graph",
-                                style: buildTextStyle(
-                                    ConstColors.adminPrimaryHeadingText),
-                              ),
-                              const SizedBox(
-                                width: 60,
-                              ),
-                              Container(
-                                height: 20,
-                                color: ConstColors
-                                    .adminPanelSecondaryHeadingColor,
-                                child: const Row(
-                                  children: [
-                                    Text("Monthly"),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "Weekly",
-                                      style: TextStyle(
-                                        fontFamily: 'SSFPro',
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text("Yearly"),
-                                  ],
-                                ),
-                              )
-                            ],
+                  ),
+                ),
+
+                //products container
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, ViewProducts.routeName);
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only( left: 18, right: 18, bottom: 6),
+                    height: 180,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: const Color(0xff71c3cc),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("Assets/icons/productsL.jpg",height: 150,
+                        width: 210,),
+                        Text(
+                          "Products",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black54,
+                            ),
                           ),
                         ),
-                      ),
-                      Image.asset("Assets/images/Graph.png"),
-                    ]),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0, right: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Individual Hotels Update",
-                        style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 0.0),
-                        child: TextButton(
-                            onPressed: () {}, child: const Text("More >>",
-                            style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
-                      )
-                    ],
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                  child: Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: ConstColors.adminPanelPrimaryTextColor),
-                      borderRadius: BorderRadius.circular(8),
-                      color: ConstColors.adminPanelSecondaryHeadingColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset("Assets/images/hotelannapurna.png",
-                        ),
-                        Text("Hotel AnnaPurna",
-                          style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
-
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 65.0,left: 20),
-                          child: TextButton(
-                              onPressed: () {}, child: const Text("More info >>",
-                              style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
-                        )
                       ],
                     ),
                   ),
                 ),
-
-                const SizedBox(height: 10,),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                  child: Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: ConstColors.adminPanelPrimaryTextColor),
-                      borderRadius: BorderRadius.circular(8),
-                      color: ConstColors.adminPanelSecondaryHeadingColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset("Assets/images/hotelannapurna.png",
-                        ),
-                        Text("Hotel AnnaPurna",
-                          style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
-
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 65.0,left: 20),
-                          child: TextButton(
-                              onPressed: () {}, child: const Text("More info >>",
-                              style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 10,),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                  child: Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: ConstColors.adminPanelPrimaryTextColor),
-                      borderRadius: BorderRadius.circular(8),
-                      color: ConstColors.adminPanelSecondaryHeadingColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset("Assets/images/hotelannapurna.png",
-                        ),
-                        Text("Hotel AnnaPurna",
-                          style: buildTextStyle( ConstColors.adminPanelPrimaryTextColor,),
-
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 65.0,left: 20),
-                          child: TextButton(
-                              onPressed: () {}, child: const Text("More info >>",
-                              style: TextStyle(color: ConstColors.adminPanelButtonColor,))),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 10,),
-
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(left: 20.0),
-                  child: Text("Services",
-                    style: buildTextStyle(ConstColors.adminPrimaryHeadingText),),
-                ),
-
-                const SizedBox(height: 10,),
-
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.only(left: 16.0,right: 16.0,bottom: 20),
-                  child: Row(children: [
-                    // image button
-
-                    Container(
-                      margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R4.png"),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R2.png"),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R3.png"),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R4.png"),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R3.png"),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 10.0),
-                      child: Image.asset("Assets/images/R2.png"),
-                    ),
-
-
-                  ]),
-                )
 
               ],
             ),

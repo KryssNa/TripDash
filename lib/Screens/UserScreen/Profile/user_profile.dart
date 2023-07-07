@@ -57,15 +57,15 @@ class _UserProfileState extends State<UserProfile> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        // leading: IconButton(
-        //   onPressed: () {
-        //     // Add your logic here
-        //   },
-        //   icon: const Icon(
-        //     Icons.arrow_back,
-        //     color: Colors.black,
-        //   ),
-        // ),
+        leading: IconButton(
+          onPressed: () {
+            // Add your logic here
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
         title:  Text(
             "Profile",
             style:GoogleFonts.poppins(

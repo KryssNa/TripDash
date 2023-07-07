@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:tripdash/Repositeries/place_repositories.dart';
 import 'package:tripdash/Screens/ViewPlaceScreen/place_list_model.dart';
@@ -197,7 +198,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
           )),
           Container(
             decoration: BoxDecoration(
-                color: PlaceTheme.buildLightTheme().primaryColor,
+                color: Colors.green,
                 borderRadius: const BorderRadius.all(Radius.circular(38.0)),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
@@ -214,7 +215,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                     padding: const EdgeInsets.all(10.0),
                     child: Icon(
                       Icons.search,
-                      size: 26,
+                      size: 30,
                       color: PlaceTheme.buildLightTheme().colorScheme.background,
                     )),
               ),
@@ -333,7 +334,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                 child: InkWell(
                   borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                   onTap: () {
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
@@ -342,11 +343,11 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                 ),
               ),
             ),
-            const Expanded(
+             Expanded(
                 child: Center(
               child: Text(
                 "View Place",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22,color: Colors.green),
               ),
             )),
             SizedBox(

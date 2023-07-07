@@ -8,9 +8,8 @@ import 'hotel_list_view.dart';
 import 'hotel_theme.dart';
 
 class HotelHomeScreen extends StatefulWidget {
-  static String  routeName='/HotelHomeScreen';
-
   const HotelHomeScreen({super.key});
+  static String  routeName='/HotelHomeScreens';
 
   @override
   State<HotelHomeScreen> createState() => _HotelHomeScreenState();

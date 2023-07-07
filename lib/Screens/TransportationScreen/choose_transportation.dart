@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'choose_seat.dart';
 class ChooseTransportation extends StatelessWidget {
@@ -9,7 +10,11 @@ class ChooseTransportation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose Transportation'),
+        title:  Text('Choose Transportation',style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w600),),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -11,13 +11,10 @@ import 'Widgets/booking_details_item.dart';
 import 'Widgets/custom_button.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  CheckoutScreen({Key? key,required this.selectedSeats,required this.totalPrice, this.grandTotal}) : super(key: key) {
-    // TODO: implement CheckoutScreen
-    throw UnimplementedError();
-  }
+  const CheckoutScreen({Key? key,required this.selectedSeats,required this.totalPrice,}) : super(key: key) ;
   final List<String> selectedSeats ;
   final double totalPrice ;
-  late final double? grandTotal ;
+
 
   void fetchTotalBalance() async {
     try {
@@ -40,6 +37,35 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void wellBooked() {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            icon: const Icon(
+              Icons.check_circle,
+              color: Colors.green,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            title: const Text('Well Booked',style: TextStyle(color: Colors.green),),
+            content: const Text('Your seat has been booked successfully',),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const SuccessCheckoutPage()));
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+    double grandTotal=0 ;
     grandTotal=totalPrice + (totalPrice * 0.15);
     // Example usage
     void performTransaction(BuildContext context) async {
@@ -57,7 +83,7 @@ class CheckoutScreen extends StatelessWidget {
           },
         );
 
-        int total = grandTotal!.toInt();
+        int total = grandTotal.toInt();
         String noOfTickets = selectedSeats.length.toString();
         String sourceLocation = 'Kathmandu';
         String destinationLocation = 'Pokhara';
@@ -81,12 +107,10 @@ class CheckoutScreen extends StatelessWidget {
             print('Error performing transaction: $error');
           }
         }
-
         Navigator.pop(dialogKey.currentContext!);
-
+        wellBooked();
       } catch (error) {
         Navigator.pop(context);
-        pushToSuccessPage(context);
         if (kDebugMode) {
           print('Transaction failed: $error');
         }
@@ -113,12 +137,12 @@ class CheckoutScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'CGK',
+                      'TIA',
                       style: ConstFonts.blackTextStyle.copyWith(
                           fontSize: 24, fontWeight: ConstFonts.medium,),
                     ),
                     Text(
-                      'Tangerang',
+                      'Kathmandu',
                       style: ConstFonts.greyTextStyle.copyWith(fontWeight: ConstFonts.light,),
                     )
                   ],
@@ -127,13 +151,13 @@ class CheckoutScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'TLC',
+                      'PIA',
                       style: ConstFonts.blackTextStyle.copyWith(
                           fontSize: 24, fontWeight: ConstFonts.semiBold,
                           ),
                     ),
                     Text(
-                      'Ciliwung',
+                      'Pokhara',
                       style: ConstFonts.greyTextStyle.copyWith(fontWeight: ConstFonts.light
                           , ),
                     )
@@ -314,14 +338,14 @@ class CheckoutScreen extends StatelessWidget {
                           future: SeatBookingViewModel().getTotalBalance(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState == ConnectionState.waiting) {
-                              return const CircularProgressIndicator(); // Display a loading indicator while waiting for data
+                              return const CircularProgressIndicator();
+                              // Display a loading indicator while waiting for data
                             } else
                               if (snapshot.hasError) {
                               return Text('Error: ${snapshot.error}');
                             } else
                             {
                               int? totalBalance = snapshot.data ; // Retrieve the total balance or set a default value
-
                               return Text(
                                 'Rs. ${totalBalance ?? 0}',
 
@@ -359,14 +383,12 @@ class CheckoutScreen extends StatelessWidget {
     Widget payNowButton() {
       return CustomButton(
         title: 'Pay Now',
-        onPressed: () {
-          //   Navigator.push(context,
-          //       MaterialPageRoute(builder: (context) => SuccessCheckoutPage()));
-          // },
+        onPressed: (){
           if (kDebugMode) {
             print('Performing Transaction........');
           }
           performTransaction(context);
+          //alertDialog(context); to show trasaction status
 
         },
         margin: const EdgeInsets.only(top: 30),

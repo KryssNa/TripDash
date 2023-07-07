@@ -1,10 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
+import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
-
 import '../UserScreen/app_bar.dart';
 
 class UserDashboard extends StatefulWidget {
@@ -22,7 +21,7 @@ class _UserDashboardState extends State<UserDashboard> {
       builder: (context, auth , child) {
         return Scaffold(
             backgroundColor: Colors.blueAccent,
-            drawer: const AdminAppDrawer(),
+            drawer: const UserAppDrawer(),
             appBar: const PreferredSize(
               preferredSize: Size.fromHeight(50), // Change the height as desired
               child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
