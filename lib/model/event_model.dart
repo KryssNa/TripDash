@@ -12,6 +12,7 @@ class EventModel {
     this.title,
     this.description,
     this.date,
+    this.price,
     this.location,
     this.category,
     this.imagepath,
@@ -22,6 +23,7 @@ class EventModel {
   String? title;
   String? description;
   String? date;
+  String? price;
   String? category;
   String? location;
   String? imagepath;
@@ -33,6 +35,7 @@ class EventModel {
     title: json["tite"],
     description: json["description"],
     date: json["date"],
+    price: json["price"],
     location: json["location"],
     category: json["category"],
     imagepath: json["imagepath"],
@@ -44,6 +47,7 @@ class EventModel {
     "title": title,
     "description": description,
     "date": date,
+    "price": price,
     "location": location,
     "category":category,
     "imagepath": imagepath,
@@ -55,6 +59,7 @@ class EventModel {
   title: json["title"],
   description: json["description"],
   date: json["date"],
+  price: json["price"],
   location: json["location"],
   category:json['category'],
   imagepath: json["imagepath"],

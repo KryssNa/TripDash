@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
+import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:intl/intl.dart';
@@ -142,7 +143,7 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
             leading: const Icon(Icons.calendar_month),
             title: const Text("Calender"),
             onTap: () => Navigator.pushReplacementNamed(
-                context, AdminAddHotels.routeName),
+                context, Calender.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined),
