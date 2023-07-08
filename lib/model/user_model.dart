@@ -19,7 +19,8 @@ class UserModel {
     this.email,
     this.phone,
     this.password,
-    this.balance
+    this.balance,
+    this.role
   });
 
   String? userId;
@@ -28,6 +29,7 @@ class UserModel {
   String? email;
   String? phone;
   String? password;
+  String? role;
   int? balance;
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
@@ -37,6 +39,7 @@ class UserModel {
       email: json["email"],
       phone: json["phone"],
       balance: json["balance"],
+      role: json["role"],
       password: json["password"]);
 
   factory UserModel.fromFirebaseSnapshot(
@@ -47,6 +50,7 @@ class UserModel {
           name: json["name"],
           email: json["email"],
           phone: json["phone"],
+          role: json["role"],
           balance: json["balance"],
           password: json["password"]);
 
@@ -57,6 +61,7 @@ class UserModel {
     "email": email,
     "phone": phone,
     "balance":balance,
-    "password": password
+    "password": password,
+    "role": role
   };
 }

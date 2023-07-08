@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
-import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
-import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
+import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
+import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
+import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 
 class UserAppDrawer extends StatefulWidget {
   const UserAppDrawer({Key? key}) : super(key: key);
@@ -76,24 +76,25 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
           ListTile(
             leading: const Icon(Icons.place_outlined),
             title: const Text("Place"),
-            onTap: () => Navigator.pushReplacementNamed(
-                context, TripPlanDetails.routeName),
+            onTap: () =>
+                Navigator.pushNamed(context, PlaceHomeScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.hotel_outlined),
             title: const Text("Hotels"),
-            onTap: () => Navigator.pushReplacementNamed(
-                context, AdminAddHotels.routeName),
+            onTap: () =>
+                Navigator.pushNamed(context, HotelHomeScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.add_circle_outline),
             title: const Text("Trip Plan Overview"),
-            onTap: () => Navigator.pop(context, TripPlanOverview.routeName),
+            onTap: () =>
+                Navigator.pushNamed(context, TripPlanOverview.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.add_circle_outline),
             title: const Text("Product"),
-            onTap: () => Navigator.pop(context, RegisterScreen.routeName),
+            onTap: () => Navigator.pushNamed(context, ViewProducts.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined),
