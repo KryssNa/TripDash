@@ -35,9 +35,9 @@ class SeatBookingRepositery {
     required List<String> seatNumbers,
   }) async {
     try {
-      UserModel user = await UserRepositeries.getLoggedInUser();
-      int balance = user.balance!;
-      balance = balance - total;
+      UserModel? user = await UserRepositeries.getLoggedInUser();
+      int? balance = user?.balance!;
+      balance = balance! - total;
       final transactionRef =
       FirebaseFirestore.instance.collection('transactions').doc();
 
@@ -82,9 +82,9 @@ class SeatBookingRepositery {
 
   static Future<int> getTotalBalance() async {
     try {
-      UserModel user = await UserRepositeries.getLoggedInUser();
-      int balance = user.balance!;
-      return balance;
+      UserModel? user = await UserRepositeries.getLoggedInUser();
+      int? balance = user?.balance!;
+      return balance!;
     } catch (e) {
       rethrow;
     }

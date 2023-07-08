@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/app_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/widget/ViewPackages/package_container.dart';
 import 'package:tripdash/widget/ViewPackages/package_gesture_detector.dart';
-
-import '../user_app_drawer.dart';
 
 class ViewProducts extends StatefulWidget {
   static const routeName = '/ViewProducts';
@@ -21,10 +19,14 @@ class _ViewProductsState extends State<ViewProducts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const UserAppDrawer(),
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(50), // Change the height as desired
-        child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
+
+      appBar: AppBar(
+        title:  Text('Pre-Designed Packages',style: GoogleFonts.poppins(fontWeight: FontWeight.w600,fontSize: 20,color: Colors.green),),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+        elevation: 0,
+
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(

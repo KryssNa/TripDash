@@ -8,10 +8,14 @@ import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
-import 'package:tripdash/Screens/Transportation/choose_seat.dart';
-import 'package:tripdash/Screens/Transportation/choose_transportation.dart';
-import 'package:tripdash/Screens/Transportation/my_bookings.dart';
-import 'package:tripdash/Screens/Transportation/view_details.dart';
+import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
+import 'package:tripdash/Screens/SplashScreen/splash_screen1.dart';
+import 'package:tripdash/Screens/SplashScreen/splash_screen2.dart';
+import 'package:tripdash/Screens/SplashScreen/splash_scren3.dart';
+import 'package:tripdash/Screens/TransportationScreen/choose_seat.dart';
+import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart';
+import 'package:tripdash/Screens/TransportationScreen/my_bookings.dart';
+import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 
 import 'package:tripdash/Screens/UserScreen/forgot_password.dart';
@@ -26,11 +30,10 @@ import 'package:tripdash/Screens/UserScreen/update_password.dart';
 import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
 import 'package:tripdash/Screens/UserScreen/faq.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
-import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
-import 'package:tripdash/Screens/homepage/home_page.dart';
+import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
+import 'package:tripdash/Screens/HomeScreen/home_page.dart';
+import 'package:tripdash/Screens/splash_screen.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
-
-import '../Screens/splash_screen.dart';
 
 // We use name route
 
@@ -60,9 +63,11 @@ final Map<String, WidgetBuilder> routes = {
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),
   MyBookings.routeName: (context) => const MyBookings(),
-
   UpdatePassword.routeName: (context) => const UpdatePassword(),
-
+  SplashScreen1.routeName: (context) => const SplashScreen1(),
+  SplashScreen2.routeName: (context) => const SplashScreen2(),
+  SplashScreen2.routeName: (context) => const SplashScreen3(),
+  HotelHomeScreen.routeName: (context) => const HotelHomeScreen(),
   FAQ.routeName: (context) => const FAQ(),
   CustomerDetail.routeName: (context) => const CustomerDetail(),
 

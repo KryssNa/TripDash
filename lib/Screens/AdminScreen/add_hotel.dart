@@ -137,6 +137,15 @@ class  _HotelPlace  extends State< AdminAddHotels > {
             // fontFamily: 'SF-Pro',
           ),
         ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

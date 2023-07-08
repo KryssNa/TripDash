@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 
 class SplashScreen3 extends StatelessWidget {
   const SplashScreen3({super.key});
+  static String routeName = "/SplashScreen3";
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +114,7 @@ class SplashScreen3 extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: (){
-                      Navigator.pushNamed(context, '/onboard3');
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
                     },
                     child: Text(
                       'Get Started',
