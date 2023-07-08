@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
+import 'package:tripdash/Screens/UserScreen/update_password.dart';
 
 import '../../../constant/colors.dart';
 
@@ -227,27 +228,34 @@ class UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
-                        controller: passwordController,
+                        controller: balanceController,
                         decoration: InputDecoration(
-                          labelText: 'Password.',
-                          hintText: password,
+                          labelText: 'Balance.',
+                          hintText: '$balance',
                         ),
                       ),
                     ),
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8, right: 8),
-                          child: TextField(
-                            controller: balanceController,
-                            decoration: InputDecoration(
-                              labelText: 'Balance.',
-                              hintText: '$balance',
-                            ),
-                          ),
-                        ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 12, left: 15, top: 40),
+                      padding: const EdgeInsets.only(right: 12, left: 15, top: 30),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(const Size(350, 50)),
+                          backgroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor),
+                          foregroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor2),
+                        ),
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                              builder: (context) => const UpdatePassword(),
+                              ),
+                          );
+                        },
+                        child: const Text('Update Pasword'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12, left: 15, top: 20),
                       child: ElevatedButton(
                         style: ButtonStyle(
                           minimumSize: MaterialStateProperty.all<Size>(const Size(350, 50)),
@@ -292,17 +300,15 @@ class UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                           }
                         },
                         child: const Text("Update Profile"),
-                      ),
-                    ),
+                          ),
+                        ),
                   ],
                 ),
-              ],
-            ),
               ]
             ),
           ),
-      ),
-    )
+        ),
+      )
     );
   }
 }
