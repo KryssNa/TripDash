@@ -55,7 +55,7 @@ final Map<String, WidgetBuilder> routes = {
   ViewProducts.routeName: (context) => const ViewProducts(),
   AboutUs.routeName: (context) => const AboutUs(),
   BottomNavigationBarWidget.routeName: (context) =>
-  const BottomNavigationBarWidget(),
+      const BottomNavigationBarWidget(),
   LoginScreen.routeName: (context) => const LoginScreen(),
   PlaceHomeScreen.routeName: (context) => const PlaceHomeScreen(),
   DetailPage.routName: (context) => const DetailPage(),
@@ -63,12 +63,10 @@ final Map<String, WidgetBuilder> routes = {
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),
   MyBookings.routeName: (context) => const MyBookings(),
-  UpdatePassword.routeName: (context) => const UpdatePassword(),
   SplashScreen1.routeName: (context) => const SplashScreen1(),
   SplashScreen2.routeName: (context) => const SplashScreen2(),
   SplashScreen2.routeName: (context) => const SplashScreen3(),
   HotelHomeScreen.routeName: (context) => const HotelHomeScreen(),
   FAQ.routeName: (context) => const FAQ(),
   CustomerDetail.routeName: (context) => const CustomerDetail(),
-
 };
