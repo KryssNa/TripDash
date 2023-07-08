@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';

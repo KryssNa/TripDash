@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/homepage/home_page.dart';
@@ -83,9 +84,9 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             onTap: () => Navigator.pushReplacementNamed(context, AddProduct.routeName),
           ),
           ListTile(
-            leading: const Icon(Icons.password_outlined),
-            title: const Text("Update Password"),
-            onTap: () => Navigator.pushReplacementNamed(context, AddProduct.routeName),
+            leading: const Icon(Icons.update),
+            title: const Text("Update Customer Details"),
+            onTap: () => Navigator.pushReplacementNamed(context, CustomerDetail.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined),
