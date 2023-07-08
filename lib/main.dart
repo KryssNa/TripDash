@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
+import 'package:tripdash/Screens/UserScreen/HelpAndSupport.dart';
 import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
 
 import 'Helper/multi_provider.dart';
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: PlaceHomeScreen.routeName,
+        initialRoute: HelpSupportPage.routeName,
         routes: routes,
       ),
     );
