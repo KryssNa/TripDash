@@ -49,7 +49,6 @@ class UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
     docUser = FirebaseFirestore.instance.collection('users').doc(widget.userDocumentName);
     fetchData();
   }
-
   Future<void> fetchData() async {
     try {
       DocumentSnapshot document =
@@ -185,6 +184,43 @@ class UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                 ),
                 Column(
                   children: [
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8),
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 2, bottom: 2),
+                              child: Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Text(
+                                  'Email',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2, bottom: 2),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  emailController.text,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
@@ -205,16 +241,7 @@ class UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8),
-                      child: TextField(
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          hintText: email,
-                        ),
-                      ),
-                    ),
+
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
                       child: TextField(
@@ -283,7 +310,7 @@ class UpdateCustomerDetailState extends State<UpdateCustomerDetail> {
                               'gender': selectedGender,
                               'avatar': avatarController.text,
                               'password': passwordController.text,
-                              'balance': balanceController.text,
+                              'balance': num.parse(balanceController.text),
                             }).then((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Profile updated successfully!')),
