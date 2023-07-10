@@ -43,7 +43,7 @@ class _AccountState extends State<Account> {
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.yellow,
+                            color: Color(0xff9698A9),
                             blurRadius: 4,
                             spreadRadius: 1,
                             offset: Offset(0, 1))
@@ -112,7 +112,7 @@ class _AccountState extends State<Account> {
                   title: Text('Settings'),
                   subtitle: Text('Privacy and logout'),
                   leading: Image.asset('Assets/images/Bali.png', fit: BoxFit.scaleDown, width: 30, height: 30,),
-                  trailing: Icon(Icons.chevron_right, color: Colors.yellow),
+                  trailing: Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {},
                 ),
                 Divider(),
@@ -122,7 +122,7 @@ class _AccountState extends State<Account> {
                   leading: Image.asset('Assets/images/Bali.png'),
                   trailing: Icon(
                     Icons.chevron_right,
-                    color: Colors.yellow,
+                    color: Color(0xff9698A9),
                   ),
                 ),
                 Divider(),
@@ -130,7 +130,7 @@ class _AccountState extends State<Account> {
                   title: Text('FAQ'),
                   subtitle: Text('Questions and Answer'),
                   leading: Image.asset('Assets/images/Bali.png'),
-                  trailing: Icon(Icons.chevron_right, color: Colors.yellow),
+                  trailing: Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {},
                 ),
                 Divider(),
