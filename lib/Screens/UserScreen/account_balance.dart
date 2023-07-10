@@ -165,7 +165,7 @@ class _AccountBalanceState extends State<AccountBalance> {
                   ),
                 ),
                 const SizedBox(
-                  height: 8,
+                  height: 68,
                 ),
 
                 Align(
