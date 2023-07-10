@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/payment.dart';
 import 'package:tripdash/ViewModel/Transportation/seat_booking_viewmodel.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 
 class AccountBalance extends StatefulWidget {
   const AccountBalance({super.key});
+  static const routeName = '/accountBalance';
 
   @override
   State<AccountBalance> createState() => _AccountBalanceState();
@@ -43,7 +45,7 @@ class _AccountBalanceState extends State<AccountBalance> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height: 240,
+                  height: 280,
                   width: 350,
                   margin: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
@@ -54,7 +56,7 @@ class _AccountBalanceState extends State<AccountBalance> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 72,vertical: 24 ),
+                  margin: const EdgeInsets.symmetric(horizontal: 72,vertical: 48 ),
 
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
@@ -73,7 +75,7 @@ class _AccountBalanceState extends State<AccountBalance> {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(top: 16),
+                        margin: const EdgeInsets.only(top: 24),
                         child: Row(
                           children: [
                             Container(
@@ -158,13 +160,43 @@ class _AccountBalanceState extends State<AccountBalance> {
                             ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
                 const SizedBox(
                   height: 8,
                 ),
+
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    margin: const EdgeInsets.all( 24),
+                    width: double.infinity,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        color: ConstColors.kPrimaryColor),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, PaymentScreen.routeName);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: ConstColors.kPrimaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+                      child: Text(
+                        'Top Up',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: ConstFonts.medium,
+                            color: ConstColors.kWhiteColor),
+                      ),
+                    ),
+                  ),
+                )
 
               ],
             ),
