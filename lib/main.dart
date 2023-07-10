@@ -1,10 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tripdash/Screens/AdminScreen/add_place.dart';
-import 'package:tripdash/Screens/UserScreen/HelpAndSupport.dart';
-import 'package:tripdash/Screens/ViewPlace/place_screen.dart';
-
+import 'package:tripdash/Screens/UserScreen/help_support.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
 

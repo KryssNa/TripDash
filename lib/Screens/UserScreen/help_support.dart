@@ -15,7 +15,7 @@ class HelpSupportPage extends StatefulWidget {
   const HelpSupportPage({super.key});
 
   @override
-  _HelpSupportPageState createState() => _HelpSupportPageState();
+  State<HelpSupportPage> createState() => _HelpSupportPageState();
 }
 
 class _HelpSupportPageState extends State<HelpSupportPage> {
