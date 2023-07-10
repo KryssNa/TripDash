@@ -23,7 +23,7 @@ class _AccountState extends State<Account> {
               children: <Widget>[
                 CircleAvatar(
                   maxRadius: 48,
-                  backgroundImage: AssetImage('assets/background.jpg'),
+                  backgroundImage: AssetImage('Assets/images/Bali.png'),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -57,7 +57,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('assets/icons/wallet.png'),
+                              icon: Image.asset('Assets/images/Bali.png'),
                               onPressed:(){},
                             ),
                             Text(
@@ -70,7 +70,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('assets/icons/truck.png'),
+                              icon: Image.asset('Assets/images/Bali.png'),
                               onPressed:(){},
                             ),
                             Text(
@@ -83,7 +83,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('assets/icons/card.png'),
+                              icon: Image.asset('Assets/images/Bali.png'),
                               onPressed:(){},
                             ),
                             Text(
@@ -96,7 +96,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('assets/icons/contact_us.png'), onPressed: () {},
+                              icon: Image.asset('Assets/images/Bali.png'), onPressed: () {},
                             ),
                             Text(
                               'Support',
@@ -111,7 +111,7 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: Text('Settings'),
                   subtitle: Text('Privacy and logout'),
-                  leading: Image.asset('assets/icons/settings_icon.png', fit: BoxFit.scaleDown, width: 30, height: 30,),
+                  leading: Image.asset('Assets/images/Bali.png', fit: BoxFit.scaleDown, width: 30, height: 30,),
                   trailing: Icon(Icons.chevron_right, color: Colors.yellow),
                   onTap: () {},
                 ),
@@ -119,7 +119,7 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: Text('Help & Support'),
                   subtitle: Text('Help center and legal support'),
-                  leading: Image.asset('assets/icons/support.png'),
+                  leading: Image.asset('Assets/images/Bali.png'),
                   trailing: Icon(
                     Icons.chevron_right,
                     color: Colors.yellow,
@@ -129,7 +129,7 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: Text('FAQ'),
                   subtitle: Text('Questions and Answer'),
-                  leading: Image.asset('assets/icons/faq.png'),
+                  leading: Image.asset('Assets/images/Bali.png'),
                   trailing: Icon(Icons.chevron_right, color: Colors.yellow),
                   onTap: () {},
                 ),
