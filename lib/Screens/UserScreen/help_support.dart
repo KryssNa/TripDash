@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: HelpSupportPage(),
   ));
 }
@@ -27,7 +27,7 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help and Support'),
+        title: const Text('Help and Support'),
       ),
       body: Container(
         padding: EdgeInsets.all(30 * fem),
@@ -66,7 +66,7 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Paying for Reservation',
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: const Icon(Icons.search),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(
                           vertical: 40 * fem,
@@ -138,7 +138,7 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                 ),
               ],
             )
-                : SizedBox(),
+                : const SizedBox(),
           ],
         ),
       ),
