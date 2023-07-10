@@ -36,6 +36,30 @@ class _AccountBalanceState extends State<AccountBalance> {
           ),
           centerTitle: true,
         ),
-        body: 
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 240,
+                  width: 350,
+                  margin: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('Assets/icons/Payment.jpg')),
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+
+              ],
+            ),
+          ),
+        ));
   }
 }
