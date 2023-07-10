@@ -53,6 +53,115 @@ class _AccountBalanceState extends State<AccountBalance> {
                         image: AssetImage('Assets/icons/Payment.jpg')),
                   ),
                 ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 72,vertical: 24 ),
+
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      color: ConstColors.kWhiteColor),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          'Your Account Balance',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: ConstFonts.semiBold,
+                            color: ConstColors.kBlackColor,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 16),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 70,
+                              margin: const EdgeInsets.only(right: 16),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(18),
+                                image: const DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                        'Assets/images/image_card.png')),
+                              ),
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 24,
+                                      height: 24,
+                                      margin: const EdgeInsets.only(right: 6),
+                                      decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  'Assets/icons/icon_plane.png'))),
+                                    ),
+                                    Text(
+                                      'Amount',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: ConstFonts.medium,
+                                          color: ConstColors.kWhiteColor),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  FutureBuilder<int>(
+                                    future: SeatBookingViewModel()
+                                        .getTotalBalance(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return const CircularProgressIndicator();
+                                        // Display a loading indicator while waiting for data
+                                      } else if (snapshot.hasError) {
+                                        return Text('Error: ${snapshot.error}');
+                                      } else {
+                                       int? totalBalance = snapshot
+                                            .data; // Retrieve the total balance or set a default value
+                                        return Text(
+                                          'Rs. ${totalBalance ?? 0}',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: ConstFonts.medium,
+                                            color: ConstColors.kBlackColor,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                        );
+                                      }
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    'Current Balance',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: ConstColors.kGreyColor,
+                                        fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 const SizedBox(
                   height: 8,
                 ),
