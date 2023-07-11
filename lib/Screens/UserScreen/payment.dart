@@ -356,8 +356,28 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     child: const Text('Receiver Account Details'),
                   ),
                 ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  child: Text(
+                    'Upload Payment Screenshot * \n     to confirm your payment',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: ConstFonts.semiBold,
+                      color: ConstColors.kRedColor,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0,vertical: 24),
+                  child: CustomButton(
+                    title: 'Upload Now',
+                    onPressed: () {
+                      imagePickerOption();
+                      }
+                      //alertDialog(context); to show trasaction status
 
-
+                  ),
+                ),
 
               ],
             ),
