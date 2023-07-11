@@ -171,7 +171,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
     userId = user?.userId!;
   }
 
-
+  @override
+  void initState() {
+    getDetails();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +209,23 @@ class _PaymentScreenState extends State<PaymentScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
+                Container(
+                  height: 240,
+                  width: double.infinity,
+                  margin: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: ClipRect(
+                    child: pickedImage != null ? Image.file(
+                      pickedImage!,
+                      width: double.infinity,
+                      height: 240,
+                      fit: BoxFit.cover,
+                    )
+                        : Image.asset('Assets/icons/uploadSS.png'),
+                  ),
+                ),
 
 
 
