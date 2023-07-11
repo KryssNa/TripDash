@@ -105,7 +105,65 @@ class _PaymentScreenState extends State<PaymentScreen> {
     }
   }
 
+  //topup payment
+  Future<void> topUp() async {
 
+    if (pickedImage == null){
+      Fluttertoast.showToast(
+        msg: "Please Select Image",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+      );
+      return;
+
+    }
+    FirebaseFirestore db = FirebaseFirestore.instance;
+    Reference storageRef = FirebaseStorage.instance.ref();
+    String dt = DateTime.now().millisecondsSinceEpoch.toString();
+    var photo = await storageRef.child("topUpPayment").child("$dt.jpg").putFile(File(pickedImage!.path));
+    var url = await photo.ref.getDownloadURL();
+
+    TopUpPayment data = TopUpPayment(
+      id: transactionRef.id,
+      userId: userId,
+      amount: _depositAmount.text,
+      image: url,
+      status: "Pending",
+      userName: userName,
+      date: DateTime.now().toString(),);
+
+    db.collection("TopUpPayment").add(data.toJson()).then((value) {
+      //loading indicator
+      Get.dialog(
+         Center(
+          child: CircularProgressIndicator(
+            color: ConstColors.kPrimaryColor,
+          )
+        ),
+      );
+      Fluttertoast.showToast(
+        msg: "Payment Successful \n Please Wait for Admin Approval",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        backgroundColor: Colors.green,
+        textColor: Colors.white,
+      );
+      Navigator.pop(context);
+      Navigator.pop(context);
+    }).catchError((error) {
+      Fluttertoast.showToast(
+        msg: "Payment Failed",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+      );
+
+    });
+
+  }
 
 
 
