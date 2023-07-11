@@ -57,7 +57,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/Bali.png'),
+                              icon: Image.asset('Assets/images/wallet.png'),
                               onPressed:(){},
                             ),
                             Text(
@@ -70,11 +70,11 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/Bali.png'),
+                              icon: Image.asset('Assets/images/mapp.png'),
                               onPressed:(){},
                             ),
                             Text(
-                              'Shipped',
+                              'Map',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
@@ -83,11 +83,11 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/Bali.png'),
+                              icon: Image.asset('Assets/images/booking.png'),
                               onPressed:(){},
                             ),
                             Text(
-                              'Payment',
+                              'Bookings',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
@@ -96,10 +96,10 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/Bali.png'), onPressed: () {},
+                              icon: Image.asset('Assets/images/calendar.png'), onPressed: () {},
                             ),
                             Text(
-                              'Support',
+                              'Calendar',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
@@ -111,7 +111,7 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: Text('Settings'),
                   subtitle: Text('Privacy and logout'),
-                  leading: Image.asset('Assets/images/Bali.png', fit: BoxFit.scaleDown, width: 30, height: 30,),
+                  leading: Image.asset('Assets/images/settings.png'),
                   trailing: Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {},
                 ),
@@ -119,7 +119,7 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: Text('Help & Support'),
                   subtitle: Text('Help center and legal support'),
-                  leading: Image.asset('Assets/images/Bali.png'),
+                  leading: Image.asset('Assets/images/supportt.png'),
                   trailing: Icon(
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
@@ -129,7 +129,7 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: Text('FAQ'),
                   subtitle: Text('Questions and Answer'),
-                  leading: Image.asset('Assets/images/Bali.png'),
+                  leading: Image.asset('Assets/images/faq.png'),
                   trailing: Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {},
                 ),
