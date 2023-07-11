@@ -108,6 +108,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
   //topup payment
   Future<void> topUp() async {
 
+    if(_depositAmount.text.isEmpty){
+      Fluttertoast.showToast(
+        msg: "Please Enter Amount",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+      );
+      return;
+    }
+
     if (pickedImage == null){
       Fluttertoast.showToast(
         msg: "Please Select Image",
