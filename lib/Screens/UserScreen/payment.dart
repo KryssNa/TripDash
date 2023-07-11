@@ -22,6 +22,15 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
+  int id = DateTime.now().millisecondsSinceEpoch;
+  String? userId ;
+  File? pickedImage;
+  String? userName;
+  String? transId;
+  final transactionRef =
+  FirebaseFirestore.instance.collection('TopUpPayment').doc();
+  final TextEditingController _depositAmount= TextEditingController();
+
 
 
 
