@@ -273,8 +273,89 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     ],
                   ),
                 ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  // dialogue box to show receiver accout details
+                  margin: const EdgeInsets.symmetric(horizontal: 24),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Receiver Account Details'),
+                              content:  const SingleChildScrollView(
+                                child: ListBody(
+                                  children: <Widget>[
+                                    Text.rich(
+                                      TextSpan(
+                                        text: 'E-Sewa : ',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                              text: '9811787904',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.green)),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text.rich(
+                                      TextSpan(
+                                        text: 'Ime-Pay : ',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                              text: '9811787904',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.green)),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text.rich(
+                                      TextSpan(
+                                        text: 'Khalti : ',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                              text: '9811787904',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.green)),
+                                        ],
+                                      ),
+                                    ),
 
+                                  ],
+                                ),
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: const Text('OK'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          });
 
+                    },
+                    child: const Text('Receiver Account Details'),
+                  ),
+                ),
 
 
 
