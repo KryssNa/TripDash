@@ -36,7 +36,28 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-
+        appBar: AppBar(
+          backgroundColor: ConstColors.kWhiteColor,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: ConstColors.kBlackColor,
+            ),
+          ),
+          title: Text(
+            'Top Up ',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: ConstFonts.bold,
+              color: ConstColors.kBlackColor,
+            ),
+          ),
+          centerTitle: true,
+        ),
         body: SingleChildScrollView(
           child: Center(
             child: Column(
