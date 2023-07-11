@@ -31,7 +31,65 @@ class _PaymentScreenState extends State<PaymentScreen> {
   FirebaseFirestore.instance.collection('TopUpPayment').doc();
   final TextEditingController _depositAmount= TextEditingController();
 
-
+  void imagePickerOption() {
+    Get.bottomSheet(
+      SingleChildScrollView(
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(0.0),
+            topRight: Radius.circular(0.0),
+          ),
+          child: Container(
+            color: const Color.fromARGB(255, 190, 216, 238),
+            height: 250,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Text(
+                    "Pic Image From",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      pickImage(ImageSource.camera);
+                    },
+                    icon: const Icon(Icons.camera_alt_rounded),
+                    label: const Text("CAMERA"),
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      pickImage(ImageSource.gallery);
+                    },
+                    icon: const Icon(Icons.image),
+                    label: const Text("GALLERY"),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: const Icon(
+                      Icons.cancel_outlined,
+                      color: Color.fromARGB(255, 231, 91, 81),
+                    ),
+                    label: const Text("CANCEL"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
 
 
