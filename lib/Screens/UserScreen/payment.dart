@@ -91,7 +91,19 @@ class _PaymentScreenState extends State<PaymentScreen> {
     );
   }
 
-
+  pickImage(ImageSource imageType) async {
+    try {
+      final photo = await ImagePicker().pickImage(source: imageType);
+      if (photo == null) return;
+      final tempImage = File(photo.path);
+      setState(() {
+        pickedImage = tempImage;
+      });
+      Get.back();
+    } catch (error) {
+      debugPrint(error.toString());
+    }
+  }
 
 
 
