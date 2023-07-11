@@ -86,7 +86,7 @@ class _AccountState extends State<Account> {
                               icon: Image.asset('Assets/images/booking.png'),
                               onPressed:(){},
                             ),
-                            Text(
+                            const Text(
                               'Bookings',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
@@ -98,7 +98,7 @@ class _AccountState extends State<Account> {
                             IconButton(
                               icon: Image.asset('Assets/images/calendar.png'), onPressed: () {},
                             ),
-                            Text(
+                            const Text(
                               'Calendar',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
@@ -109,23 +109,23 @@ class _AccountState extends State<Account> {
                   ),
                 ),
                 ListTile(
-                  title: Text('Settings'),
-                  subtitle: Text('Privacy and logout'),
+                  title: const Text('Settings'),
+                  subtitle: const Text('Privacy and logout'),
                   leading: Image.asset('Assets/images/settings.png'),
                   trailing: Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {},
                 ),
-                Divider(),
+                const Divider(),
                 ListTile(
-                  title: Text('Help & Support'),
-                  subtitle: Text('Help center and legal support'),
+                  title: const Text('Help & Support'),
+                  subtitle: const Text('Help center and legal support'),
                   leading: Image.asset('Assets/images/supportt.png'),
-                  trailing: Icon(
+                  trailing: const Icon(
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 ListTile(
                   title: Text('FAQ'),
                   subtitle: Text('Questions and Answer'),
