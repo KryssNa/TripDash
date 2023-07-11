@@ -378,7 +378,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
                   ),
                 ),
-
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: CustomButton(
+                    title: 'Confirm Payment',
+                    onPressed: () {
+                      if (kDebugMode) {
+                        print('Performing Transaction........');
+                      }
+                      topUp();
+                    },
+                  ),
+                ),
               ],
             ),
           ),
