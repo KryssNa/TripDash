@@ -226,7 +226,53 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         : Image.asset('Assets/icons/uploadSS.png'),
                   ),
                 ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 32,vertical: 24 ),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      color: ConstColors.kWhiteColor),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          'Enter amount to deposit',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: ConstFonts.semiBold,
+                            color: ConstColors.kBlackColor,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 0,vertical: 8),
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: ConstColors.kGreyColor,
+                          ),
+                        ),
+                        child: TextFormField(
+                          controller: _depositAmount,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Enter Amount',
+                            hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: ConstFonts.regular,
+                              color: ConstColors.kGreyColor,
+                            ),
+                            contentPadding: const EdgeInsets.only(left: 16),
+                          ),
 
+                        ),
+                      )
+                    ],
+                  ),
+                ),
 
 
 
