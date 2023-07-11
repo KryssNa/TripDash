@@ -55,13 +55,13 @@ class _AccountState extends State<Account> {
               children: <Widget>[
                 CircleAvatar(
                   maxRadius: 48,
-                  backgroundImage: AssetImage("$avatar"),
+                  backgroundImage: AssetImage(avatar),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    '$name',
-                    style: TextStyle(fontWeight: FontWeight.bold,
+                    name,
+                    style: const TextStyle(fontWeight: FontWeight.bold,
                     fontSize: 20),
                   ),
                 ),

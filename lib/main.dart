@@ -5,11 +5,6 @@ import 'package:tripdash/Screens/splash_screen.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
 
-
-
-
-
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
