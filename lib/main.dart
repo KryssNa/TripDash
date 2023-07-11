@@ -5,6 +5,7 @@ import 'package:tripdash/Screens/UserScreen/Account/Account.dart';
 import 'package:tripdash/Screens/splash_screen.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
+import 'Screens/UserScreen/user_dashboard.dart';
 
 
 
