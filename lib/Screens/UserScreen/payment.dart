@@ -165,7 +165,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   }
 
-
+  Future<void> getDetails() async{
+    UserModel? user =await  UserRepositeries.getLoggedInUser();
+    userName = user?.name!;
+    userId = user?.userId!;
+  }
 
 
 
