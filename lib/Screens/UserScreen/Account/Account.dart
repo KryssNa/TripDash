@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../faq.dart';
+
 class Account extends StatefulWidget {
   static String routeName = "/Account";
   const Account({Key? key}) : super(key: key);
@@ -12,7 +14,7 @@ class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF9F9F9),
+      backgroundColor: const Color(0xffF9F9F9),
       body: SafeArea(
         top: true,
         child: SingleChildScrollView(
@@ -26,7 +28,7 @@ class _AccountState extends State<Account> {
                   backgroundImage: AssetImage('Assets/images/Bali.png'),
                 ),
                 const Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     'Rose Helbert',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -58,7 +60,9 @@ class _AccountState extends State<Account> {
                           children: <Widget>[
                             IconButton(
                               icon: Image.asset('Assets/images/wallet.png'),
-                              onPressed:(){},
+                              onPressed:(){
+
+                              },
                             ),
                             const Text(
                               'Wallet',
@@ -112,7 +116,7 @@ class _AccountState extends State<Account> {
                   title: const Text('Settings'),
                   subtitle: const Text('Privacy and logout'),
                   leading: Image.asset('Assets/images/settings.png'),
-                  trailing: Icon(Icons.chevron_right, color: Color(0xff9698A9)),
+                  trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {},
                 ),
                 const Divider(),
@@ -131,7 +135,14 @@ class _AccountState extends State<Account> {
                   subtitle: const Text('Questions and Answer'),
                   leading: Image.asset('Assets/images/faq.png'),
                   trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FAQ(),
+                      ),
+                    );
+                  },
                 ),
                 const Divider(),
               ],
