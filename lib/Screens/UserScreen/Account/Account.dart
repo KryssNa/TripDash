@@ -18,14 +18,14 @@ class _AccountState extends State<Account> {
         child: SingleChildScrollView(
           child: Padding(
             padding:
-            EdgeInsets.only(left: 16.0, right: 16.0, top: kToolbarHeight),
+            const EdgeInsets.only(left: 16.0, right: 16.0, top: kToolbarHeight),
             child: Column(
               children: <Widget>[
-                CircleAvatar(
+                const CircleAvatar(
                   maxRadius: 48,
                   backgroundImage: AssetImage('Assets/images/Bali.png'),
                 ),
-                Padding(
+                const Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Rose Helbert',
@@ -33,7 +33,7 @@ class _AccountState extends State<Account> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 16.0),
+                  margin: const EdgeInsets.symmetric(vertical: 16.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),
