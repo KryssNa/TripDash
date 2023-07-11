@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../faq.dart';
@@ -11,6 +13,34 @@ class Account extends StatefulWidget {
 }
 
 class _AccountState extends State<Account> {
+  String avatar = "";
+  String name = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+  Future<void> fetchData() async {
+    try {
+      DocumentSnapshot document =
+      await FirebaseFirestore.instance.collection('users').doc("RSj3klJHTBWjWcPYG0g7fhCnXAQ2").get();
+
+      if (document.exists) {
+        var data = document.data() as Map<String, dynamic>;
+        setState(() {
+          name = data['name'] ?? '';
+          avatar = data['avatar'] ?? '';
+        });
+      }
+    } catch (error) {
+      if (kDebugMode) {
+        print('Error fetching data: $error');
+      }
+      // Handle the error gracefully
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +53,16 @@ class _AccountState extends State<Account> {
             const EdgeInsets.only(left: 16.0, right: 16.0, top: kToolbarHeight),
             child: Column(
               children: <Widget>[
-                const CircleAvatar(
+                CircleAvatar(
                   maxRadius: 48,
-                  backgroundImage: AssetImage('Assets/images/Bali.png'),
+                  backgroundImage: AssetImage("$avatar"),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    'Rose Helbert',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    '$name',
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                    fontSize: 20),
                   ),
                 ),
                 Container(
