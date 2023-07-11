@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: Account.routeName,
+        initialRoute: UserDashboard.routeName,
         routes: routes,
       ),
     );
