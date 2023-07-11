@@ -34,7 +34,7 @@ class _AccountState extends State<Account> {
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 16.0),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),
                           topRight: Radius.circular(8),
@@ -60,7 +60,7 @@ class _AccountState extends State<Account> {
                               icon: Image.asset('Assets/images/wallet.png'),
                               onPressed:(){},
                             ),
-                            Text(
+                            const Text(
                               'Wallet',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
@@ -73,7 +73,7 @@ class _AccountState extends State<Account> {
                               icon: Image.asset('Assets/images/mapp.png'),
                               onPressed:(){},
                             ),
-                            Text(
+                            const Text(
                               'Map',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
