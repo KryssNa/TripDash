@@ -2,8 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'CustomerDetail/update_customer_detail.dart';
+
 class AdminTransactionScreen extends StatefulWidget {
   const AdminTransactionScreen({super.key});
+  static const routeName = '/AdminTransactionScreen';
 
   @override
   State<AdminTransactionScreen> createState() => _AdminTransactionScreenState();
@@ -36,6 +39,6 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return
   }
 }

@@ -5,6 +5,7 @@ import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_transaction.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
 import 'CustomerDetail/customer_detail.dart';
@@ -107,7 +108,7 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
             title:  Text("Transaction",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.pushNamed(context, AdminTransactionScreen.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
