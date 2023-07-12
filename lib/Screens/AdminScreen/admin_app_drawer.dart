@@ -4,7 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
+
+import 'CustomerDetail/customer_detail.dart';
 
 //AdminAppDrawer
 class AdminAppDrawer extends StatefulWidget {
@@ -72,6 +75,11 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.home,color: Colors.green,size: 30,),
+            title:  Text("Home",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, AdminDashboard.routeName),
+          ),
+          ListTile(
             leading: const Icon(Icons.place_outlined,color: Colors.green,size: 30,),
             title:  Text("Add Place",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
             onTap: () => Navigator.pushNamed(context, AdminAddPlaces.routeName),
@@ -90,6 +98,16 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             leading: const Icon(Icons.add_circle_outline,color: Colors.green,size: 30,),
             title:  Text("Add Events",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
             onTap: () => Navigator.pushNamed(context, AddProduct.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_circle_outline,color: Colors.green,size: 30,),
+            title:  Text("Customer Details",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, CustomerDetail.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
+            title:  Text("Transaction",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pop(context),
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
