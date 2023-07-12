@@ -18,7 +18,8 @@ class _SettingsState extends State<Settings> {
         elevation: 8.0,
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back,
+          color: Colors.black,),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -39,7 +40,7 @@ class _SettingsState extends State<Settings> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
-                left: 16.0, right: 16.0, top : 5.0),
+                left: 16.0, right: 16.0, top : 10.0),
             child: Column(
               children: <Widget>[
                 ListTile(
