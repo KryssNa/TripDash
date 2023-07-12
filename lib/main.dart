@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/splash_screen.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
@@ -31,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: SplashPage.routeName,
+        initialRoute: Settings.routeName,
         routes: routes,
       ),
     );
