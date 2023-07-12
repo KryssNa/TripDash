@@ -14,13 +14,32 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 8.0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: Text(
+          'Settings',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 24.0,
+          ),
+        ),
+        centerTitle: true,
+      ),
       backgroundColor: const Color(0xffF9F9F9),
       body: SafeArea(
         top: true,
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
-                left: 16.0, right: 16.0, top: kToolbarHeight),
+                left: 16.0, right: 16.0, top : 5.0),
             child: Column(
               children: <Widget>[
                 ListTile(
