@@ -18,13 +18,13 @@ class _SettingsState extends State<Settings> {
         elevation: 8.0,
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back,
+          icon: const Icon(Icons.arrow_back,
           color: Colors.black,),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
-        title: Text(
+        title: const Text(
           'Settings',
           style: TextStyle(
             color: Colors.black,
