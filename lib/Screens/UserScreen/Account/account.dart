@@ -146,7 +146,11 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: const Text('Settings'),
                   subtitle: const Text('Privacy and logout'),
-                  leading: Image.asset('Assets/images/settings.png'),
+                  leading: SizedBox(
+                    width: 40.0,
+                    height: 40.0,
+                    child: Image.asset('Assets/images/settings.png'),
+                  ),
                   trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {},
                 ),
@@ -154,7 +158,11 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: const Text('Help & Support'),
                   subtitle: const Text('Help center and legal support'),
-                  leading: Image.asset('Assets/images/supportt.png'),
+                  leading: SizedBox(
+                    width: 40.0,
+                    height: 40.0,
+                    child: Image.asset('Assets/images/supportt.png'),
+                  ),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
@@ -164,7 +172,11 @@ class _AccountState extends State<Account> {
                 ListTile(
                   title: const Text('FAQ'),
                   subtitle: const Text('Questions and Answer'),
-                  leading: Image.asset('Assets/images/faq.png'),
+                  leading: SizedBox(
+                    width: 40.0,
+                    height: 40.0,
+                    child: Image.asset('Assets/images/faq.png'),
+                  ),
                   trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {
                     Navigator.push(
