@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../AboutUs/about_us.dart';
-import '../faq.dart';
 
 class Settings extends StatefulWidget {
   static String routeName = "/Settings";
@@ -82,6 +81,7 @@ class _SettingsState extends State<Settings> {
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
                   ),
+                  onTap: () {},
                 ),
                 const Divider(),
                 ListTile(
