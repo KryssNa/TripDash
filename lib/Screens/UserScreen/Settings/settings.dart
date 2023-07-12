@@ -69,7 +69,7 @@ class _SettingsState extends State<Settings> {
                   leading: SizedBox(
                     width: 40.0,
                     height: 40.0,
-                    child: Image.asset('Assets/icons/logout.png'),
+                    child: Image.asset('Assets/icons/about.png'),
                   ),
                   trailing: const Icon(
                     Icons.chevron_right,
