@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../AboutUs/about_us.dart';
 import '../faq.dart';
 
 class Settings extends StatefulWidget {
@@ -95,6 +96,14 @@ class _SettingsState extends State<Settings> {
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
                   ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AboutUs(),
+                      ),
+                    );
+                  },
                 ),
                 const Divider(),
                 ListTile(
@@ -108,12 +117,6 @@ class _SettingsState extends State<Settings> {
                   trailing:
                   const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const FAQ(),
-                      ),
-                    );
                   },
                 ),
                 const Divider(),
