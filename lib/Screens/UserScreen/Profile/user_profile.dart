@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
+import 'package:tripdash/Screens/UserScreen/update_password.dart';
 import 'package:tripdash/widget/UserProfile/user_detail.dart';
 
 class UserProfile extends StatefulWidget {
@@ -184,6 +185,10 @@ class _UserProfileState extends State<UserProfile> {
                   thickness: 1,
                 ),
               ),
+              ElevatedButton(onPressed: (){
+                Navigator.of(context).pushNamed(UpdatePassword.routeName);
+              }, child: const Text("pass"))
+
             ],
           ),
         ),
