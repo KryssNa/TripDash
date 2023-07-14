@@ -59,7 +59,7 @@ class _PackageBookingState extends State<PackageBooking> with SingleTickerProvid
       body: Container(
         color: Colors.red[50],
         child: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('HotelBooking').snapshots(),
+          stream: FirebaseFirestore.instance.collection('PackageBooking').snapshots(),
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');
@@ -78,7 +78,7 @@ class _PackageBookingState extends State<PackageBooking> with SingleTickerProvid
                 Map<String, dynamic> data = document.data() as Map<String, dynamic>;
 
                 String name = data['name'] ?? '';
-                String description = data['description'] ?? '';
+                String type = data['type'] ?? '';
                 String price = data['price'] ?? '';
 
                 return FadeTransition(
@@ -95,7 +95,7 @@ class _PackageBookingState extends State<PackageBooking> with SingleTickerProvid
                         leading: Icon(
                           Icons.hotel,
                           size: 32.0,
-                          color: Colors.red,
+                          color: Colors.purple,
                         ),
                         title: Text(
                           name,
@@ -105,7 +105,7 @@ class _PackageBookingState extends State<PackageBooking> with SingleTickerProvid
                           ),
                         ),
                         subtitle: Text(
-                          description,
+                          type,
                           style: const TextStyle(
                             fontSize: 16.0,
                           ),
