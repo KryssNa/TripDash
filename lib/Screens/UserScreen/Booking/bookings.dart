@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class UserBookings extends StatefulWidget {
+class UserBookings extends StatelessWidget {
   static String routeName = "/UserBookings";
 
-  @override
-  State<UserBookings> createState() => _UserBookingsState();
-}
-
-class _UserBookingsState extends State<UserBookings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,36 +16,41 @@ class _UserBookingsState extends State<UserBookings> {
           },
         ),
       ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        children: [
-          BookingCard(
-            icon: Icons.hotel_outlined,
-            title: 'Hotel Booking',
-            description: 'Book a hotel for your stay',
-            onTap: () {
-              // Handle hotel booking tap
-            },
-          ),
-          SizedBox(height: 8.0),
-          BookingCard(
-            icon: Icons.place_outlined,
-            title: 'Place Booking',
-            description: 'Book a place to visit',
-            onTap: () {
-              // Handle place booking tap
-            },
-          ),
-          SizedBox(height: 8.0),
-          BookingCard(
-            icon: Icons.card_travel_outlined,
-            title: 'Package Booking',
-            description: 'Book a vacation package',
-            onTap: () {
-              // Handle package booking tap
-            },
-          ),
-        ],
+      body: Theme(
+        data: ThemeData(
+          primaryColor: Color(0xff3e7dc3),
+        ),
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          children: [
+            BookingCard(
+              icon: Icons.hotel,
+              title: 'Hotel Booking',
+              description: 'Book a hotel for your stay',
+              onTap: () {
+                // Handle hotel booking tap
+              },
+            ),
+            SizedBox(height: 8.0),
+            BookingCard(
+              icon: Icons.place,
+              title: 'Place Booking',
+              description: 'Book a place to visit',
+              onTap: () {
+                // Handle place booking tap
+              },
+            ),
+            SizedBox(height: 8.0),
+            BookingCard(
+              icon: Icons.card_travel,
+              title: 'Package Booking',
+              description: 'Book a vacation package',
+              onTap: () {
+                // Handle package booking tap
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
