@@ -45,10 +45,8 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
     return user;
   }
 
+  //update balance method
   void updateBalance(int newBalance, String userId, String documentId) {
-    // Perform the balance update operation using the new balance and user ID
-    // You can use the `UserRepositeries` or any other method to update the balance
-    // For example:
     UserRepositeries.updateUserBalance(userId, newBalance)
         .then((value) {
       FirebaseFirestore.instance.collection('TopUpPayment').doc(documentId).update({
@@ -58,13 +56,13 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
           fetchUsers();
         });
       });
-      // Handle the update success
+      // Handled the update success
     })
         .catchError((error) {
       if (kDebugMode) {
         print('Error updating user balance: $error');
       }
-      // Handle the update error
+      // Handled the update error
     });
   }
 
