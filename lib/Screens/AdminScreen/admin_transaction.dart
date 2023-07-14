@@ -46,6 +46,8 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
   }
 
   void updateBalance(int newBalance, String userId, String documentId) {
+    // Perform the balance update operation using the new balance and user ID
+    // You can use the `UserRepositeries` or any other method to update the balance
     // For example:
     UserRepositeries.updateUserBalance(userId, newBalance)
         .then((value) {
@@ -65,6 +67,7 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
       // Handle the update error
     });
   }
+
 
 
   @override
@@ -147,7 +150,73 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
+                              return AlertDialog(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                title:const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.account_balance_wallet,color: Colors.green,),
+                                    SizedBox(width: 10,),
+                                    Text('TopUp'),
+                                  ],
+                                ),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Text('Enter the new balance:'),
+                                    TextField(
+                                      decoration: const InputDecoration(
+                                        hintText: 'New Balance',
+                                      ),
+                                      controller: enteredAmount,
+                                      keyboardType: TextInputType.number,
+                                    ),
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop(); // Close the dialog
+                                    },
+                                    child: const Text('Cancel'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      int previousBalance = user.balance ?? 0;
+                                      String enteredBalance = enteredAmount.text.trim();
+                                      if (enteredBalance.isNotEmpty) {
+                                        try {
+                                          int parsedBalance = int.parse(enteredBalance);
+                                          // Perform the update operation using the parsed balance and user ID
+                                          updateBalance(parsedBalance+previousBalance, userData['userId'], userSnapshot.id);
+                                          Navigator.of(context).pop();// Close the dialog
 
+                                          //displaying tupUp successfull dialog with updated balance
+                                          showDialog(
+                                            context: context,
+
+                                          );
+
+                                        } catch (e) {
+                                          // Handle the case when the entered value cannot be parsed as an integer
+                                          if (kDebugMode) {
+                                            print('Invalid number: $enteredBalance');
+                                          }
+                                        }
+                                      } else {
+                                        // Handle the case when no value is entered
+                                        if (kDebugMode) {
+                                          print('Please enter a valid number');
+                                        }
+                                      }// Close th5e dialog
+                                    },
+                                    child: const Text('Update'),
+                                  ),
+                                ],
+                              );
                             },
                           );
                         },
