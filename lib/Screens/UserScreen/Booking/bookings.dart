@@ -11,13 +11,9 @@ class UserBookings extends StatefulWidget {
 class _UserBookingsState extends State<UserBookings> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'UserBookings Page',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          title: Text('UserBookings Page'),
+          title: const Text('Bookings'),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -47,7 +43,6 @@ class _UserBookingsState extends State<UserBookings> {
             ],
           ),
         ),
-      ),
     );
   }
 }
