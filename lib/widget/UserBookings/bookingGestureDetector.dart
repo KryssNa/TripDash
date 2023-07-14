@@ -22,7 +22,7 @@ class BookingGestureDetector extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
               Container(
@@ -30,27 +30,27 @@ class BookingGestureDetector extends StatelessWidget {
                   color: Colors.black54,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                padding: EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Icon(
                   icon,
                   size: 30.0,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(width: 16.0),
+              const SizedBox(width: 16.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       description,
                       style: TextStyle(
