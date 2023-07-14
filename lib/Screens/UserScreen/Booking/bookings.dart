@@ -95,14 +95,14 @@ class BookingCard extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
-                        fontSize: 24.0,
+                        fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height: 8.0),
                     Text(
                       description,
-                      style: TextStyle(fontSize: 16.0),
+                      style: TextStyle(fontSize: 15.0),
                     ),
                   ],
                 ),
