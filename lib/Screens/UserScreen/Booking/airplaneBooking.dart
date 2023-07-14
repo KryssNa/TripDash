@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class AirplaneBooking extends StatefulWidget {
@@ -11,12 +12,7 @@ class _AirplaneBookingState extends State<AirplaneBooking>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
-
-  List<Booking> bookings = [
-    Booking("Flight 1", "ABC Airlines", "2023-07-15"),
-    Booking("Flight 2", "XYZ Airlines", "2023-07-20"),
-    Booking("Flight 3", "PQR Airlines", "2023-07-25"),
-  ];
+  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -29,6 +25,11 @@ class _AirplaneBookingState extends State<AirplaneBooking>
       parent: _controller,
       curve: Curves.easeIn,
     );
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(-1, 0),
+      end: Offset.zero,
+    ).animate(_animation);
+
     _controller.forward();
   }
 
@@ -56,48 +57,67 @@ class _AirplaneBookingState extends State<AirplaneBooking>
       body: FadeTransition(
         opacity: _animation,
         child: Container(
-          color: Colors.blue[50],
-          child: ListView.builder(
-            itemCount: bookings.length,
-            itemBuilder: (context, index) {
-              final booking = bookings[index];
-              return SlideTransition(
-                position: _animation.drive(
-                  Tween<Offset>(
-                    begin: const Offset(-1, 0),
-                    end: Offset.zero,
-                  ),
-                ),
-                child: Card(
-                  margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  elevation: 4.0,
-                  child: ListTile(
-                    leading: const Icon(
-                      Icons.flight,
-                      size: 32.0,
-                      color: Colors.blue,
-                    ),
-                    title: Text(
-                      booking.flightName,
-                      style: const TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
+          color: Colors.green[50],
+          child: StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection('AirplaneBooking').snapshots(),
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              }
+
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              }
+
+              List<DocumentSnapshot> documents = snapshot.data!.docs;
+
+              return ListView.builder(
+                itemCount: documents.length,
+                itemBuilder: (BuildContext context, int index) {
+                  DocumentSnapshot document = documents[index];
+                  Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+
+                  String name = data['name'] ?? '';
+                  String seat = data['flight'] ?? '';
+                  String price = data['price'] ?? '';
+
+                  return FadeTransition(
+                    opacity: _animation,
+                    child: SlideTransition(
+                      position: _slideAnimation,
+                      child: Card(
+                        margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                        elevation: 4.0,
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.place,
+                            size: 32.0,
+                            color: Colors.blue,
+                          ),
+                          title: Text(
+                            name,
+                            style: const TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: Text(
+                            seat,
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          trailing: Text(
+                            'Rs.$price',
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    subtitle: Text(
-                      booking.airline,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    trailing: Text(
-                      booking.date,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ),
-                ),
+                  );
+                },
               );
             },
           ),
@@ -105,12 +125,4 @@ class _AirplaneBookingState extends State<AirplaneBooking>
       ),
     );
   }
-}
-
-class Booking {
-  final String flightName;
-  final String airline;
-  final String date;
-
-  Booking(this.flightName, this.airline, this.date);
 }
