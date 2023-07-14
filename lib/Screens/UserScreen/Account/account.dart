@@ -151,7 +151,8 @@ class _AccountState extends State<Account> {
                     child: Image.asset('Assets/images/settings.png'),
                   ),
                   trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {},
+                  onTap: () {
+                  },
                 ),
                 const Divider(),
                 ListTile(
