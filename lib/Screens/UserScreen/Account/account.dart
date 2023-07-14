@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import '../faq.dart';
 
 class Account extends StatefulWidget {
@@ -152,6 +153,12 @@ class _AccountState extends State<Account> {
                   ),
                   trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UserSetting(),
+                      ),
+                    );
                   },
                 ),
                 const Divider(),
