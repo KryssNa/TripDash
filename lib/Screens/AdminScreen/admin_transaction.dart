@@ -197,7 +197,46 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
                                           //displaying tupUp successfull dialog with updated balance
                                           showDialog(
                                             context: context,
-
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(16),
+                                                ),
+                                                title: const Row(
+                                                  children: [
+                                                    Icon(Icons.check_circle,color: Colors.green,),
+                                                    SizedBox(width: 10,),
+                                                    Text('TopUp Successfull'),
+                                                  ],
+                                                ),
+                                                content: Column(
+                                                  mainAxisSize: MainAxisSize.min,
+                                                  children: [
+                                                    Text.rich(
+                                                      TextSpan(
+                                                        text: 'New Balance: ',
+                                                        children: [
+                                                          TextSpan(
+                                                            text: 'Rs.${parsedBalance+previousBalance}',
+                                                            style: const TextStyle(
+                                                              fontWeight: FontWeight.bold,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context).pop(); // Close the dialog
+                                                    },
+                                                    child: const Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
                                           );
 
                                         } catch (e) {
