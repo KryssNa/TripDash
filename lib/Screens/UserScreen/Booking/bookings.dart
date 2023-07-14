@@ -84,7 +84,7 @@ class BookingCard extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                size: 35.0,
+                size: 30.0,
                 color: Colors.black,
               ),
               SizedBox(width: 16.0),
