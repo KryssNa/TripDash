@@ -65,7 +65,7 @@ class _PlaceBookingState extends State<PlaceBooking> with SingleTickerProviderSt
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
 
             List<DocumentSnapshot> documents = snapshot.data!.docs;
@@ -88,7 +88,7 @@ class _PlaceBookingState extends State<PlaceBooking> with SingleTickerProviderSt
                       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                       elevation: 4.0,
                       child: ListTile(
-                        leading: Icon(
+                        leading: const Icon(
                           Icons.place,
                           size: 32.0,
                           color: Colors.green,
