@@ -7,7 +7,8 @@ class AirplaneBooking extends StatefulWidget {
   State<AirplaneBooking> createState() => _AirplaneBookingState();
 }
 
-class _AirplaneBookingState extends State<AirplaneBooking>  with SingleTickerProviderStateMixin {
+class _AirplaneBookingState extends State<AirplaneBooking>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -21,7 +22,7 @@ class _AirplaneBookingState extends State<AirplaneBooking>  with SingleTickerPro
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     _animation = CurvedAnimation(
@@ -41,34 +42,74 @@ class _AirplaneBookingState extends State<AirplaneBooking>  with SingleTickerPro
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Bookings"),
+        title: const Text(
+          "My Bookings",
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color(0xff3e7dc3),
+        elevation: 0.0,
       ),
       body: FadeTransition(
         opacity: _animation,
-        child: ListView.builder(
-          itemCount: bookings.length,
-          itemBuilder: (context, index) {
-            final booking = bookings[index];
-            return SlideTransition(
-              position: _animation.drive(
-                Tween<Offset>(
-                  begin: Offset(-1, 0),
-                  end: Offset.zero,
+        child: Container(
+          color: Colors.blue[50],
+          child: ListView.builder(
+            itemCount: bookings.length,
+            itemBuilder: (context, index) {
+              final booking = bookings[index];
+              return SlideTransition(
+                position: _animation.drive(
+                  Tween<Offset>(
+                    begin: const Offset(-1, 0),
+                    end: Offset.zero,
+                  ),
                 ),
-              ),
-              child: ListTile(
-                title: Text(booking.flightName),
-                subtitle: Text(booking.airline),
-                trailing: Text(booking.date),
-              ),
-            );
-          },
+                child: Card(
+                  margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  elevation: 4.0,
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.flight,
+                      size: 32.0,
+                      color: Colors.blue,
+                    ),
+                    title: Text(
+                      booking.flightName,
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Text(
+                      booking.airline,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    trailing: Text(
+                      booking.date,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    onTap: () {
+                      // Handle booking tap event
+                      print("Selected booking: ${booking.flightName}");
+                    },
+                  ),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
   }
 }
-
 
 class Booking {
   final String flightName;
