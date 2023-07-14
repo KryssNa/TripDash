@@ -10,11 +10,13 @@ import 'hotelBooking.dart';
 class UserBookings extends StatelessWidget {
   static String routeName = "/UserBookings";
 
+  const UserBookings({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Bookings',
           style: TextStyle(
             fontFamily: 'Roboto',
@@ -25,15 +27,15 @@ class UserBookings extends StatelessWidget {
         centerTitle: true,
         elevation: 4.0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        backgroundColor: Color(0xff3e7dc3),
+        backgroundColor: const Color(0xff3e7dc3),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         children: [
           BookingGestureDetector(
             icon: Icons.hotel,
@@ -48,7 +50,7 @@ class UserBookings extends StatelessWidget {
               );
             },
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           BookingGestureDetector(
             icon: Icons.place,
             title: 'Place Booking',
@@ -62,7 +64,7 @@ class UserBookings extends StatelessWidget {
               );
             },
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           BookingGestureDetector(
             icon: Icons.card_travel,
             title: 'Package Booking',
