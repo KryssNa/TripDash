@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import '../faq.dart';
 
@@ -119,7 +120,14 @@ class _AccountState extends State<Account> {
                           children: <Widget>[
                             IconButton(
                               icon: Image.asset('Assets/images/booking.png'),
-                              onPressed:(){},
+                              onPressed:(){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const UserBookings(),
+                                  ),
+                                );
+                              },
                             ),
                             const Text(
                               'Bookings',
