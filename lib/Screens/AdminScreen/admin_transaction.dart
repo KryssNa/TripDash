@@ -45,6 +45,28 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
     return user;
   }
 
+  void updateBalance(int newBalance, String userId, String documentId) {
+    // For example:
+    UserRepositeries.updateUserBalance(userId, newBalance)
+        .then((value) {
+      FirebaseFirestore.instance.collection('TopUpPayment').doc(documentId).update({
+        'status': 'Approved',
+      }).then((value) {
+        setState(() {
+          fetchUsers();
+        });
+      });
+      // Handle the update success
+    })
+        .catchError((error) {
+      if (kDebugMode) {
+        print('Error updating user balance: $error');
+      }
+      // Handle the update error
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
 
