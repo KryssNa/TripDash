@@ -13,6 +13,7 @@ import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_screen1.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_screen2.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_scren3.dart';
+import 'package:tripdash/Screens/TransportationScreen/add_bus.dart';
 import 'package:tripdash/Screens/TransportationScreen/choose_seat.dart';
 import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart';
 import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings.dart';
@@ -78,4 +79,5 @@ final Map<String, WidgetBuilder> routes = {
   PaymentScreen.routeName: (context) => const PaymentScreen(),
   AccountBalance.routeName:(context)=>const AccountBalance(),
   AdminTransactionScreen.routeName: (context) => const AdminTransactionScreen(),
+  BusSeatChoosingScreen.routeName: (context) => const BusSeatChoosingScreen(),
 };
