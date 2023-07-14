@@ -33,7 +33,7 @@ class UserRepositeries {
   }
 
 
-  final CollectionReference _userReference =
+  static final CollectionReference _userReference =
   FirebaseFirestore.instance.collection('users');
 
   // set user
@@ -51,7 +51,7 @@ class UserRepositeries {
   }
 
   // get user by id
-  Future<UserModel> getUserById(String id) async {
+  static Future<UserModel> getUserById(String id) async {
     try {
       DocumentSnapshot snapshot = await _userReference.doc(id).get();
 
@@ -61,6 +61,17 @@ class UserRepositeries {
           name: snapshot['name'],
           balance: snapshot['balance'],
           role: snapshot['role']);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  static Future<void> updateUserBalance(String userId,int balance) async {
+    try {
+      await _userReference.doc(userId).update({
+        'balance': balance,
+      });
+
     } catch (e) {
       rethrow;
     }
