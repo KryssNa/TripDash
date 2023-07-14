@@ -358,7 +358,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                 }
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => CheckoutScreen(selectedSeats: selectedSeats, totalPrice: totalPrice),
+                    builder: (context) => CheckoutScreen(selectedSeats: selectedSeats, totalPrice: totalPrice,tranportationId: "Aeroplane",),
                   ),
                 );
 

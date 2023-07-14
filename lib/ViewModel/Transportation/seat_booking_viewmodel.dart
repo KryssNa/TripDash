@@ -7,6 +7,7 @@ class SeatBookingViewModel {
     required int total,
     required String noOfTickets,
     required String sourceLocation,
+    required String tranportationId,
     required String destinationLocation,
     required String date,
     required List<String> seatNumbers,
@@ -15,6 +16,7 @@ class SeatBookingViewModel {
       return await SeatBookingRepositery.bookSeat(
         total: total,
         noOfTickets: noOfTickets,
+        tranportationId: tranportationId,
         sourceLocation: sourceLocation,
         destinationLocation: destinationLocation,
         date: date,

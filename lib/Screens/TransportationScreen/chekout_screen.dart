@@ -11,9 +11,13 @@ import 'Widgets/booking_details_item.dart';
 import 'Widgets/custom_button.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  const CheckoutScreen({Key? key,required this.selectedSeats,required this.totalPrice,}) : super(key: key) ;
+  const CheckoutScreen({Key? key,required this.selectedSeats,required this.totalPrice, required this.tranportationId,}) : super(key: key) ;
   final List<String> selectedSeats ;
   final double totalPrice ;
+  final String sourceLocation = 'Kathmandu';
+  final String destinationLocation = 'Pokhara';
+  final String date = '2023-06-28';
+  final String tranportationId ;
 
 
   void fetchTotalBalance() async {
@@ -85,9 +89,6 @@ class CheckoutScreen extends StatelessWidget {
 
         int total = grandTotal.toInt();
         String noOfTickets = selectedSeats.length.toString();
-        String sourceLocation = 'Kathmandu';
-        String destinationLocation = 'Pokhara';
-        String date = '2023-06-28';
         List<String> seatNumbers = selectedSeats;
 
         try {
@@ -95,6 +96,7 @@ class CheckoutScreen extends StatelessWidget {
             total: total,
             noOfTickets: noOfTickets,
             sourceLocation: sourceLocation,
+            tranportationId: tranportationId,
             destinationLocation: destinationLocation,
             date: date,
             seatNumbers: seatNumbers,

@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class SeatBookingModel {
   final String? userId;
   final String? transactionId;
+  final String? tranportationId;
   final int? total;
   final String noOfTickets;
   final String sourceLocation;
@@ -13,6 +14,7 @@ class SeatBookingModel {
   final List<String> seatNumbers;
 
   SeatBookingModel({
+    this.tranportationId,
     this.userId,
     required this.transactionId,
     required this.total,
@@ -28,6 +30,7 @@ class SeatBookingModel {
     return SeatBookingModel(
       userId: data['userId'] ?? '',
       transactionId: data['transactionId'] ?? '',
+      tranportationId: data['tranportationId'] ?? '',
       total: data['total'] ?? 0,
       noOfTickets: data['noOfTickets'] ?? '',
       sourceLocation: data['sourceLocation'] ?? '',
@@ -40,6 +43,7 @@ class SeatBookingModel {
   Map<String, dynamic> toMap() {
     return {
       'userId': userId,
+      'tranportationId': tranportationId,
       'transactionId': transactionId,
       'total': total,
       'noOfTickets': noOfTickets,
@@ -54,6 +58,7 @@ class SeatBookingModel {
     return SeatBookingModel(
       userId: map['userId'] ?? '',
       transactionId: map['transactionId'] ?? '',
+      tranportationId: map['tranportationId'] ?? '',
       total: map['total']  ?? 0,
       noOfTickets: map['noOfTickets'] ?? '',
       sourceLocation: map['sourceLocation'] ?? '',
