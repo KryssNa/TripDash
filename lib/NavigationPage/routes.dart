@@ -77,5 +77,5 @@ final Map<String, WidgetBuilder> routes = {
   UserSetting.routeName: (context) => const UserSetting(),
   PaymentScreen.routeName: (context) => const PaymentScreen(),
   AccountBalance.routeName:(context)=>const AccountBalance(),
-  UserBookings.routeName:(context)=>const UserBookings(),
+  UserBookings.routeName:(context)=> UserBookings(),
 };

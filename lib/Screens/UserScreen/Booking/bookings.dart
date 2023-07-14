@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class UserBookings extends StatefulWidget {
   static String routeName = "/UserBookings";
-  const UserBookings({Key? key}) : super(key: key);
 
   @override
   State<UserBookings> createState() => _UserBookingsState();
@@ -12,47 +11,59 @@ class _UserBookingsState extends State<UserBookings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Bookings'),
+      appBar: AppBar(
+        title: Text('Bookings'),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Go back to the previous screen
+          },
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              BookingCard(
-                title: 'Hotel Booking',
-                description: 'Book a hotel for your stay',
-                onTap: () {
-                  // Handle hotel booking tap
-                },
-              ),
-              BookingCard(
-                title: 'Place Booking',
-                description: 'Book a place to visit',
-                onTap: () {
-                  // Handle place booking tap
-                },
-              ),
-              BookingCard(
-                title: 'Package Booking',
-                description: 'Book a vacation package',
-                onTap: () {
-                  // Handle package booking tap
-                },
-              ),
-            ],
+      ),
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        children: [
+          BookingCard(
+            icon: Icons.hotel_outlined,
+            title: 'Hotel Booking',
+            description: 'Book a hotel for your stay',
+            onTap: () {
+              // Handle hotel booking tap
+            },
           ),
-        ),
+          SizedBox(height: 8.0),
+          BookingCard(
+            icon: Icons.place_outlined,
+            title: 'Place Booking',
+            description: 'Book a place to visit',
+            onTap: () {
+              // Handle place booking tap
+            },
+          ),
+          SizedBox(height: 8.0),
+          BookingCard(
+            icon: Icons.card_travel_outlined,
+            title: 'Package Booking',
+            description: 'Book a vacation package',
+            onTap: () {
+              // Handle package booking tap
+            },
+          ),
+        ],
+      ),
     );
   }
 }
 
 class BookingCard extends StatelessWidget {
+  final IconData icon;
   final String title;
   final String description;
   final VoidCallback onTap;
 
   const BookingCard({
+    required this.icon,
     required this.title,
     required this.description,
     required this.onTap,
@@ -63,23 +74,38 @@ class BookingCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        margin: EdgeInsets.all(16.0),
+        elevation: 4.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
         child: Padding(
           padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              Icon(
+                icon,
+                size: 35.0,
+                color: Colors.black,
               ),
-              SizedBox(height: 8.0),
-              Text(
-                description,
-                style: TextStyle(fontSize: 16.0),
+              SizedBox(width: 16.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8.0),
+                    Text(
+                      description,
+                      style: TextStyle(fontSize: 16.0),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
