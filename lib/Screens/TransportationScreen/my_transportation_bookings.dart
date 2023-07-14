@@ -28,8 +28,6 @@ class _MyBookingsState extends State<MyBookings> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
-    String currentTime = '${now.hour}:${now.minute}:${now.second}';
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Seat Booking Transactions',style: TextStyle(

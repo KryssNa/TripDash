@@ -50,7 +50,7 @@ class SeatBookingRepositery {
 
       // Create a transaction document in Firestore
       final transactionData = {
-        'transactionId': "${transactionRef.id}",
+        'transactionId': transactionRef.id,
         'userId': userId,
         'noOfTickets': noOfTickets,
         'tranportationId': tranportationId,
