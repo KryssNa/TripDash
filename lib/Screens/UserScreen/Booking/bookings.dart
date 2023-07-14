@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
-class Bookings extends StatefulWidget {
-  const Bookings({Key? key}) : super(key: key);
+class UserBookings extends StatefulWidget {
+  static String routeName = "/UserBookings";
+  const UserBookings({Key? key}) : super(key: key);
 
   @override
-  State<Bookings> createState() => _BookingsState();
+  State<UserBookings> createState() => _UserBookingsState();
 }
 
-class _BookingsState extends State<Bookings> {
+class _UserBookingsState extends State<UserBookings> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Bookings Page',
+    return MaterialApp(title: 'UserBookings Page',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Bookings Page'),
+          title: Text('UserBookings Page'),
         ),
         body: SingleChildScrollView(
           child: Column(

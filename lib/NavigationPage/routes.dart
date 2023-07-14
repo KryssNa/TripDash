@@ -18,6 +18,7 @@ import 'package:tripdash/Screens/TransportationScreen/my_bookings.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 import 'package:tripdash/Screens/UserScreen/Account/account.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/Bookings.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
 
