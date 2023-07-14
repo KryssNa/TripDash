@@ -59,7 +59,7 @@ class _HotelBookingState extends State<HotelBooking> with SingleTickerProviderSt
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
 
             List<DocumentSnapshot> documents = snapshot.data!.docs;
@@ -85,7 +85,7 @@ class _HotelBookingState extends State<HotelBooking> with SingleTickerProviderSt
                       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                       elevation: 4.0,
                       child: ListTile(
-                        leading: Icon(
+                        leading: const Icon(
                           Icons.hotel,
                           size: 32.0,
                           color: Colors.red,
