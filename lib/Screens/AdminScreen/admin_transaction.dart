@@ -3,9 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Repositeries/user_repositeries.dart';
 import 'package:tripdash/model/user_model.dart';
-
-import 'CustomerDetail/update_customer_detail.dart';
-
 class AdminTransactionScreen extends StatefulWidget {
   const AdminTransactionScreen({super.key});
   static const routeName = '/AdminTransactionScreen';
@@ -20,6 +17,8 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
   FirebaseFirestore.instance.collection('TopUpPayment');
   List<DocumentSnapshot> userDocuments = [];
   UserModel? user;
+  String? userEmail;
+  TextEditingController enteredAmount = TextEditingController();
 
   @override
   void initState() {
@@ -29,7 +28,7 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
 
   Future<void> fetchUsers() async {
     try {
-      QuerySnapshot querySnapshot = await usersCollection.get();
+      QuerySnapshot querySnapshot = await usersCollection.where("status", isEqualTo: "Pending").get();
       setState(() {
         userDocuments = querySnapshot.docs;
       });
@@ -40,22 +39,18 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
       // Handle the error gracefully
     }
   }
-  
-  UserModel fetDetailsById(String id)  {
-    
-       user=  UserRepositeries.getUserById(id) as UserModel?;
-      return user!;
-    
-      // Handle the error gracefully
-    }
 
+  Future<UserModel> getUserDetails(String id) async {
+    UserModel user = await UserRepositeries.getUserById(id);
+    return user;
+  }
 
-  
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('User List',style: TextStyle(
+        title: const Text('Top-Up List',style: TextStyle(
           color: Colors.black,
         ),),
         centerTitle: true,
@@ -71,11 +66,7 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
         itemCount: userDocuments.length,
         itemBuilder: (BuildContext context, int index) {
           DocumentSnapshot userSnapshot = userDocuments[index];
-          Map<String, dynamic> userData =
-          userSnapshot.data() as Map<String, dynamic>; // Explicit cast
-
-          UserModel users= fetDetailsById(userData['userId']);
-           
+          Map<String, dynamic> userData = userSnapshot.data() as Map<String, dynamic>;
 
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -84,57 +75,76 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
                 borderRadius: BorderRadius.circular(16),
               ),
               elevation: 4,
-              child: ListTile(
-                title: Text(
-                  userData['userName'] ?? '',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 8),
-                    Text(
-                      'Email: ${users.phone ?? ''}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[700],
+              child: FutureBuilder<UserModel>(
+                future: getUserDetails(userData['userId']),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    // While waiting for the future to complete, show a loading indicator
+                    return const ListTile(
+                      title: Text('Loading...'),
+                    );
+                  } else if (snapshot.hasError) {
+                    // If an error occurred while fetching the user, display an error message
+                    return ListTile(
+                      title: Text('Error: ${snapshot.error}'),
+                    );
+                  } else {
+                    UserModel user = snapshot.data!;
+                    return ListTile(
+                      title: Text(
+                        user.name ?? '',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Phone: ${userData['phone'] ?? ''}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[700],
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 8),
+                          Text(
+                            'Email: ${user.email ?? ''}',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'Requested Amount: Rs.${userData['amount'] ?? ''}',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                  ],
-                ),
-                trailing: ElevatedButton(
-                  onPressed: () {
-                    String userDocumentId = userSnapshot.id; // Retrieve document ID
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => UpdateCustomerDetail(userDocumentName: userDocumentId),
+                      trailing: ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+
+                            },
+                          );
+                        },
+
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xA25A9AE5),
+                          foregroundColor: Colors.white,
+                        ),
+                        child: const Text('TopUp'),
                       ),
                     );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xA25A9AE5),
-                    foregroundColor: Colors.white,
-                  ),
-                  child: const Text('Edit'),
-                ),
+                  }
+                },
               ),
             ),
           );
         },
       ),
+
     );
   }
 }
