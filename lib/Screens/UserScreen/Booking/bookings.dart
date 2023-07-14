@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/widget/UserBookings/bookingGestureDetector.dart';
 
 class UserBookings extends StatelessWidget {
   static String routeName = "/UserBookings";
@@ -28,7 +29,7 @@ class UserBookings extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         children: [
-          BookingCard(
+          BookingGestureDetector(
             icon: Icons.hotel,
             title: 'Hotel Booking',
             description: 'Book a hotel for your stay',
@@ -37,7 +38,7 @@ class UserBookings extends StatelessWidget {
             },
           ),
           SizedBox(height: 8.0),
-          BookingCard(
+          BookingGestureDetector(
             icon: Icons.place,
             title: 'Place Booking',
             description: 'Book a place to visit',
@@ -46,7 +47,7 @@ class UserBookings extends StatelessWidget {
             },
           ),
           SizedBox(height: 8.0),
-          BookingCard(
+          BookingGestureDetector(
             icon: Icons.card_travel,
             title: 'Package Booking',
             description: 'Book a vacation package',
@@ -60,18 +61,4 @@ class UserBookings extends StatelessWidget {
   }
 }
 
-class BookingCard extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String description;
-  final VoidCallback onTap;
 
-  const BookingCard({
-    required this.icon,
-    required this.title,
-    required this.description,
-    required this.onTap,
-  });
-
-
-}
