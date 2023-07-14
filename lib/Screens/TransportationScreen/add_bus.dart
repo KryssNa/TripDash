@@ -202,7 +202,7 @@ class _SeatBookingPageState extends State<BusSeatChoosingScreen> {
               ),
             ),
             TextSpan(
-              text: '\$${_getTotalPrice().toStringAsFixed(2)}',
+              text: 'Rs.${_getTotalPrice().toStringAsFixed(2)}',
               style: const TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
