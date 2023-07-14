@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class BusBooking extends StatefulWidget {
@@ -7,19 +8,45 @@ class BusBooking extends StatefulWidget {
   State<BusBooking> createState() => _BusBookingState();
 }
 
-class _BusBookingState extends State<BusBooking> {
-  List<Booking> bookings = [
-    Booking("Bus 1", "ABC Bus Company", "2023-07-15"),
-    Booking("Bus 2", "XYZ Bus Company", "2023-07-20"),
-    Booking("Bus 3", "PQR Bus Company", "2023-07-25"),
-  ];
+class _BusBookingState extends State<BusBooking> with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
+
+    _animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0.0, 0.5),
+      end: Offset.zero,
+    ).animate(_animation);
+
+    _animationController.forward();
+  }
+
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "My Bookings",
+        title: const Text(
+          "Bus Booking",
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -30,44 +57,67 @@ class _BusBookingState extends State<BusBooking> {
         elevation: 0.0,
       ),
       body: Container(
-        color: Colors.orange[50],
-        child: ListView.builder(
-          itemCount: bookings.length,
-          itemBuilder: (context, index) {
-            final booking = bookings[index];
-            return Card(
-              margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              elevation: 4.0,
-              child: ListTile(
-                leading: Icon(
-                  Icons.directions_bus,
-                  size: 32.0,
-                  color: Colors.orange,
-                ),
-                title: Text(
-                  booking.busName,
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
+        color: Colors.green[50],
+        child: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance.collection('BusBooking').snapshots(),
+          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            }
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            }
+
+            List<DocumentSnapshot> documents = snapshot.data!.docs;
+
+            return ListView.builder(
+              itemCount: documents.length,
+              itemBuilder: (BuildContext context, int index) {
+                DocumentSnapshot document = documents[index];
+                Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+
+                String name = data['name'] ?? '';
+                String seat = data['seat'] ?? '';
+                String price = data['price'] ?? '';
+
+                return FadeTransition(
+                  opacity: _animation,
+                  child: SlideTransition(
+                    position: _slideAnimation,
+                    child: Card(
+                      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      elevation: 4.0,
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.place,
+                          size: 32.0,
+                          color: Colors.orange,
+                        ),
+                        title: Text(
+                          name,
+                          style: const TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                          seat,
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        trailing: Text(
+                          'Rs.$price',
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                subtitle: Text(
-                  booking.busCompany,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                  ),
-                ),
-                trailing: Text(
-                  booking.date,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                  ),
-                ),
-                onTap: () {
-                  // Handle booking tap event
-                  print("Selected booking: ${booking.busName}");
-                },
-              ),
+                );
+              },
             );
           },
         ),
@@ -76,10 +126,3 @@ class _BusBookingState extends State<BusBooking> {
   }
 }
 
-class Booking {
-  final String busName;
-  final String busCompany;
-  final String date;
-
-  Booking(this.busName, this.busCompany, this.date);
-}

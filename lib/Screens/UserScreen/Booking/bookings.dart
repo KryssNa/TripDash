@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/airplaneBooking.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/busBooking.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/packageBooking.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/placeBooking.dart';
 import 'package:tripdash/widget/UserBookings/bookingGestureDetector.dart';
+
+import 'hotelBooking.dart';
 
 class UserBookings extends StatelessWidget {
   static String routeName = "/UserBookings";
@@ -36,7 +40,12 @@ class UserBookings extends StatelessWidget {
             title: 'Hotel Booking',
             description: 'Your bookings of hotels',
             onTap: () {
-              // Handle hotel booking tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HotelBooking(),
+                ),
+              );
             },
           ),
           SizedBox(height: 8.0),
@@ -45,7 +54,12 @@ class UserBookings extends StatelessWidget {
             title: 'Place Booking',
             description: 'Your bookings of places',
             onTap: () {
-              // Handle place booking tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PlaceBooking(),
+                ),
+              );
             },
           ),
           SizedBox(height: 8.0),
@@ -54,7 +68,12 @@ class UserBookings extends StatelessWidget {
             title: 'Package Booking',
             description: 'Your bookings of packages',
             onTap: () {
-              // Handle package booking tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PackageBooking(),
+                ),
+              );
             },
           ),
           BookingGestureDetector(

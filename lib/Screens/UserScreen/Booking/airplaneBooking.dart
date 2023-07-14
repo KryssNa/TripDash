@@ -43,7 +43,7 @@ class _AirplaneBookingState extends State<AirplaneBooking>
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "My Bookings",
+          "Flights Booking",
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -96,10 +96,6 @@ class _AirplaneBookingState extends State<AirplaneBooking>
                         fontSize: 16.0,
                       ),
                     ),
-                    onTap: () {
-                      // Handle booking tap event
-                      print("Selected booking: ${booking.flightName}");
-                    },
                   ),
                 ),
               );
