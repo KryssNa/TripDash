@@ -32,7 +32,7 @@ class UserBookings extends StatelessWidget {
           BookingGestureDetector(
             icon: Icons.hotel,
             title: 'Hotel Booking',
-            description: 'Book a hotel for your stay',
+            description: 'Your bookings of hotels',
             onTap: () {
               // Handle hotel booking tap
             },
@@ -41,7 +41,7 @@ class UserBookings extends StatelessWidget {
           BookingGestureDetector(
             icon: Icons.place,
             title: 'Place Booking',
-            description: 'Book a place to visit',
+            description: 'Your bookings of places',
             onTap: () {
               // Handle place booking tap
             },
@@ -50,7 +50,23 @@ class UserBookings extends StatelessWidget {
           BookingGestureDetector(
             icon: Icons.card_travel,
             title: 'Package Booking',
-            description: 'Book a vacation package',
+            description: 'Your bookings of packages',
+            onTap: () {
+              // Handle package booking tap
+            },
+          ),
+          BookingGestureDetector(
+            icon: Icons.airplanemode_active_outlined,
+            title: 'Airplane Booking',
+            description: 'Your bookings of plane',
+            onTap: () {
+              // Handle package booking tap
+            },
+          ),
+          BookingGestureDetector(
+            icon: Icons.directions_bus_outlined,
+            title: 'Bus Booking',
+            description: 'Your bookings of bus',
             onTap: () {
               // Handle package booking tap
             },
