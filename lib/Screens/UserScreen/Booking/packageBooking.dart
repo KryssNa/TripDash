@@ -11,7 +11,6 @@ class PackageBooking extends StatefulWidget {
 class _PackageBookingState extends State<PackageBooking> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
-  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -25,12 +24,6 @@ class _PackageBookingState extends State<PackageBooking> with SingleTickerProvid
       parent: _animationController,
       curve: Curves.easeInOut,
     );
-
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0.0, 0.5),
-      end: Offset.zero,
-    ).animate(_animation);
-
     _animationController.forward();
   }
 
@@ -66,7 +59,7 @@ class _PackageBookingState extends State<PackageBooking> with SingleTickerProvid
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
 
             List<DocumentSnapshot> documents = snapshot.data!.docs;
@@ -92,7 +85,7 @@ class _PackageBookingState extends State<PackageBooking> with SingleTickerProvid
                       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                       elevation: 4.0,
                       child: ListTile(
-                        leading: Icon(
+                        leading: const Icon(
                           Icons.hotel,
                           size: 32.0,
                           color: Colors.purple,
