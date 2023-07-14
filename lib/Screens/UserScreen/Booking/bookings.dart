@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/airplaneBooking.dart';
 import 'package:tripdash/widget/UserBookings/bookingGestureDetector.dart';
 
 class UserBookings extends StatelessWidget {
@@ -60,7 +61,12 @@ class UserBookings extends StatelessWidget {
             title: 'Airplane Booking',
             description: 'Your bookings of plane',
             onTap: () {
-              // Handle package booking tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AirplaneBooking(),
+                ),
+              );
             },
           ),
           BookingGestureDetector(
