@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tripdash/Screens/TransportationScreen/add_bus.dart';
 
 import 'choose_seat.dart';
 class ChooseTransportation extends StatelessWidget {
@@ -36,7 +37,7 @@ class ChooseTransportation extends StatelessWidget {
                 Colors.blue,
                 // context,
                     (){
-                  // Navigator.pushNamed(context, ChooseSeatPage.routeName);
+                  Navigator.pushNamed(context, BusSeatChoosingScreen.routeName);
                 }
             ),
             const SizedBox(height: 20),
