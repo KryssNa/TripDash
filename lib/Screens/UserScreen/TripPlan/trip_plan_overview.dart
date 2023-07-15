@@ -54,6 +54,7 @@ class _TripPlanState extends State<TripPlanOverview> {
         leading: IconButton(
           onPressed: () {
             // Add your logic here
+            Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back,
           color: Colors.black,),

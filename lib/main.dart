@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tripdash/Screens/UserScreen/help_support.dart';
+import 'package:tripdash/Screens/splash_screen.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
 
@@ -21,14 +21,13 @@ class MyApp extends StatefulWidget {
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MultiProviderWidget(
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: HelpSupportPage.routeName,
+        initialRoute: SplashPage.routeName,
         routes: routes,
       ),
     );

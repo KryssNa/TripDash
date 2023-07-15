@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
+import 'package:tripdash/Screens/UserScreen/account_balance.dart';
+import 'package:tripdash/Screens/UserScreen/update_password.dart';
 import 'package:tripdash/widget/UserProfile/user_detail.dart';
 
 class UserProfile extends StatefulWidget {
@@ -30,10 +34,11 @@ class _UserProfileState extends State<UserProfile> {
     fetchData();
   }
 
+  static final userId = FirebaseAuth.instance.currentUser!.uid;
   Future<void> fetchData() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     DocumentSnapshot document =
-        await firestore.collection('users').doc('user_1').get();
+    await firestore.collection('users').doc(userId).get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
@@ -57,28 +62,24 @@ class _UserProfileState extends State<UserProfile> {
         leading: IconButton(
           onPressed: () {
             // Add your logic here
+            Navigator.pushNamed(context, AccountBalance.routeName);
           },
           icon: const Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
         ),
-        title: const Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 85),
-              child: Center(
-                child: Text(
-                  " Profile",
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+        title:  Text(
+            "Profile",
+            style:GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
               ),
-            ),
-          ],
+            )
         ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -126,7 +127,7 @@ class _UserProfileState extends State<UserProfile> {
                 secondaryText: secondaryText,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
+                padding: const EdgeInsets.only(left: 100, right: 32, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
@@ -139,7 +140,7 @@ class _UserProfileState extends State<UserProfile> {
                 secondaryText: secondaryText,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
+                padding: const EdgeInsets.only(left: 100, right: 32, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
@@ -152,7 +153,7 @@ class _UserProfileState extends State<UserProfile> {
                 secondaryText: secondaryText,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
+                padding: const EdgeInsets.only(left: 100, right: 32, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
@@ -165,7 +166,7 @@ class _UserProfileState extends State<UserProfile> {
                 secondaryText: secondaryText,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
+                padding: const EdgeInsets.only(left: 100, right: 32, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
@@ -178,12 +179,16 @@ class _UserProfileState extends State<UserProfile> {
                 secondaryText: secondaryText,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
+                padding: const EdgeInsets.only(left: 100, right: 32, bottom: 15),
                 child: Divider(
                   color: divider,
                   thickness: 1,
                 ),
               ),
+              ElevatedButton(onPressed: (){
+                Navigator.of(context).pushNamed(UpdatePassword.routeName);
+              }, child: const Text("pass"))
+
             ],
           ),
         ),
