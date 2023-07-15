@@ -66,4 +66,15 @@ class UserRepositeries {
     }
   }
 
+  static Future<void> updateUserBalance(String userId,int balance) async {
+    try {
+      await _userReference.doc(userId).update({
+        'balance': balance,
+      });
+
+    } catch (e) {
+      rethrow;
+    }
+  }
+
 }
