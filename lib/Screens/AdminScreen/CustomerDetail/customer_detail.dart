@@ -39,8 +39,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         drawer: const AdminAppDrawer(),
         appBar: AppBar(
           title: const Text('User List'),
@@ -112,7 +111,6 @@ class _CustomerDetailState extends State<CustomerDetail> {
             );
           },
         ),
-      ),
-    );
+      );
   }
 }
