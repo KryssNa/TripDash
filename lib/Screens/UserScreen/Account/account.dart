@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
+import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
+import 'package:tripdash/Screens/UserScreen/account_balance.dart';
 import '../faq.dart';
 
 class Account extends StatefulWidget {
@@ -93,7 +95,12 @@ class _AccountState extends State<Account> {
                             IconButton(
                               icon: Image.asset('Assets/images/wallet.png'),
                               onPressed:(){
-
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AccountBalance(),
+                                  ),
+                                );
                               },
                             ),
                             const Text(
