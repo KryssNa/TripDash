@@ -20,6 +20,7 @@ import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 import 'package:tripdash/Screens/UserScreen/Account/account.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
 
@@ -75,9 +76,10 @@ final Map<String, WidgetBuilder> routes = {
   FAQ.routeName: (context) => const FAQ(),
   CustomerDetail.routeName: (context) => const CustomerDetail(),
   Account.routeName: (context) => const Account(),
-  Settings.routeName: (context) => const Settings(),
+  UserSetting.routeName: (context) => const UserSetting(),
   PaymentScreen.routeName: (context) => const PaymentScreen(),
   AccountBalance.routeName:(context)=>const AccountBalance(),
+  UserBookings.routeName:(context)=> UserBookings(),
   AdminTransactionScreen.routeName: (context) => const AdminTransactionScreen(),
   BusSeatChoosingScreen.routeName: (context) => const BusSeatChoosingScreen(),
 };

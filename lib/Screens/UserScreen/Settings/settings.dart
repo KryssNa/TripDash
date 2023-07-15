@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../AboutUs/about_us.dart';
 
-class Settings extends StatefulWidget {
-  static String routeName = "/Settings";
-  const Settings({Key? key}) : super(key: key);
+class UserSetting extends StatefulWidget {
+  static String routeName = "/UserSetting";
+  const UserSetting({Key? key}) : super(key: key);
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<UserSetting> createState() => _UserSettingState();
 }
 
-class _SettingsState extends State<Settings> {
+class _UserSettingState extends State<UserSetting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _SettingsState extends State<Settings> {
           },
         ),
         title: const Text(
-          'Settings',
+          'UserSetting',
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
