@@ -28,18 +28,20 @@ class _MyBookingsState extends State<MyBookings> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
-    String currentTime = '${now.hour}:${now.minute}:${now.second}';
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Transactions'),
+        title: const Text('My Seat Booking Transactions',style: TextStyle(
+          color: Colors.black,
+        ),),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
             Navigator.pushNamed(context, BottomNavigationBarWidget.routeName);
           },
+
         ),
+        backgroundColor: Colors.white,
       ),
       body: FutureBuilder<List<SeatBookingModel>>(
         future: _transactionsFuture,
@@ -72,7 +74,7 @@ class _MyBookingsState extends State<MyBookings> {
                       ),
                     ),
                     title: Text(
-                      transaction.transactionId!,
+                      transaction.tranportationId!,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -139,23 +141,6 @@ class _MyBookingsState extends State<MyBookings> {
                           TextSpan(
                             children: [
                               const TextSpan(
-                                text: 'Departure Time: ',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.blue,
-                                ),
-                              ),
-                              TextSpan(
-                                text: currentTime,
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text.rich(
-                          TextSpan(
-                            children: [
-                              const TextSpan(
                                 text: 'Seat Numbers: ',
                                 style: TextStyle(
                                   fontSize: 14,
@@ -165,6 +150,24 @@ class _MyBookingsState extends State<MyBookings> {
 
                               TextSpan(
                                 text: transaction.seatNumbers.toString(),
+                              ),
+
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: 'TransactionId: ',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              TextSpan(
+                                text: transaction.transactionId,
                               ),
                             ],
                           ),

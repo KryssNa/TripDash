@@ -30,6 +30,7 @@ class SeatBookingRepositery {
     required int total,
     required String noOfTickets,
     required String sourceLocation,
+    required String tranportationId,
     required String destinationLocation,
     required String date,
     required List<String> seatNumbers,
@@ -49,9 +50,10 @@ class SeatBookingRepositery {
 
       // Create a transaction document in Firestore
       final transactionData = {
-        'transactionId': "Aeroplane${transactionRef.id}",
+        'transactionId': transactionRef.id,
         'userId': userId,
         'noOfTickets': noOfTickets,
+        'tranportationId': tranportationId,
         'sourceLocation': sourceLocation,
         'destinationLocation': destinationLocation,
         'date': date,
@@ -65,6 +67,7 @@ class SeatBookingRepositery {
         transactionId: transactionRef.id,
         userId: userId,
         total: total,
+        tranportationId: tranportationId,
         noOfTickets: noOfTickets,
         sourceLocation: sourceLocation,
         destinationLocation: destinationLocation,

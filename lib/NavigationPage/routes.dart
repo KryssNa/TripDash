@@ -5,19 +5,22 @@ import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_transaction.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/register_screen.dart';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_screen1.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_screen2.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_scren3.dart';
+import 'package:tripdash/Screens/TransportationScreen/add_bus.dart';
 import 'package:tripdash/Screens/TransportationScreen/choose_seat.dart';
 import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart';
-import 'package:tripdash/Screens/TransportationScreen/my_bookings.dart';
+import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 import 'package:tripdash/Screens/UserScreen/help_support.dart';
 import 'package:tripdash/Screens/UserScreen/Account/account.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
 import 'package:tripdash/Screens/UserScreen/forgot_password.dart';
@@ -71,7 +74,10 @@ final Map<String, WidgetBuilder> routes = {
   FAQ.routeName: (context) => const FAQ(),
   CustomerDetail.routeName: (context) => const CustomerDetail(),
   Account.routeName: (context) => const Account(),
-  Settings.routeName: (context) => const Settings(),
+  UserSetting.routeName: (context) => const UserSetting(),
   PaymentScreen.routeName: (context) => const PaymentScreen(),
   AccountBalance.routeName: (context) => const AccountBalance(),
+  UserBookings.routeName: (context) => UserBookings(),
+  AdminTransactionScreen.routeName: (context) => const AdminTransactionScreen(),
+  BusSeatChoosingScreen.routeName: (context) => const BusSeatChoosingScreen(),
 };
