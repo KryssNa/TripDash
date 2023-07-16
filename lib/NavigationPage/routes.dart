@@ -3,7 +3,6 @@ import 'package:tripdash/Screens/AdminScreen/add_events.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
-
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_transaction.dart';
@@ -19,15 +18,13 @@ import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart
 import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+import 'package:tripdash/Screens/UserScreen/help_support.dart';
 import 'package:tripdash/Screens/UserScreen/Account/account.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
-
 import 'package:tripdash/Screens/UserScreen/forgot_password.dart';
-
 import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
-
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_detail.dart';
@@ -58,6 +55,7 @@ final Map<String, WidgetBuilder> routes = {
   AddProduct.routeName: (context) => const AddProduct(),
   UserDashboard.routeName: (context) => const UserDashboard(),
   AdminAddPlaces.routeName: (context) => const AdminAddPlaces(),
+  HelpSupportPage.routeName: (context) => const HelpSupportPage(),
   ViewProducts.routeName: (context) => const ViewProducts(),
   AboutUs.routeName: (context) => const AboutUs(),
   BottomNavigationBarWidget.routeName: (context) =>
@@ -78,8 +76,8 @@ final Map<String, WidgetBuilder> routes = {
   Account.routeName: (context) => const Account(),
   UserSetting.routeName: (context) => const UserSetting(),
   PaymentScreen.routeName: (context) => const PaymentScreen(),
-  AccountBalance.routeName:(context)=>const AccountBalance(),
-  UserBookings.routeName:(context)=> UserBookings(),
+  AccountBalance.routeName: (context) => const AccountBalance(),
+  UserBookings.routeName: (context) => UserBookings(),
   AdminTransactionScreen.routeName: (context) => const AdminTransactionScreen(),
   BusSeatChoosingScreen.routeName: (context) => const BusSeatChoosingScreen(),
 };
