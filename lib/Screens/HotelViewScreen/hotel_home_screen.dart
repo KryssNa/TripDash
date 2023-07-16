@@ -52,7 +52,8 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
         filteredHotels = hotelFirebase
             .where((hotel) =>
                 hotel.data().hotelName!.toLowerCase()
-                
+                .contains(query.toLowerCase()))
+            
       } else {
         filteredHotels = hotelFirebase;
       }
