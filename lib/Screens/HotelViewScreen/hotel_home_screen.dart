@@ -51,7 +51,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
       if (query.isNotEmpty) {
         filteredHotels = hotelFirebase
             .where((hotel) =>
-                
+                hotel.data()
       } else {
         filteredHotels = hotelFirebase;
       }
