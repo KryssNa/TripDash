@@ -186,7 +186,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                   ),
                   cursorColor: HotelTheme.buildLightTheme().primaryColor,
                   decoration: const InputDecoration(
-                      border: InputBorder.none, hintText: "Search Hotel..."),
+                      border: InputBorder.none, hintText: "Search Hotel"),
                 ),
               ),
             ),
