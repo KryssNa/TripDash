@@ -74,26 +74,27 @@ class _ViewEventsState extends State<ViewEvents> {
 
                       return Column(
                         children: documents.map((doc) {
-                          final data = doc.data() as Map<String, dynamic>;
-                          final title = data['title'] ?? '';
-                          final location = data['location'] ?? '';
-                          final date = data['date'] ?? '';
-                          final category = data['category'] ?? '';
-                          final description = data['description'] ?? '';
-                          final price = data['price'] ?? '';
-                          final imageUrl = data['imageUrl'] ?? '';
+                        final data = doc.data() as Map<String, dynamic>;
+                        final title = data['title'] ?? '';
+                        final location = data['location'] ?? '';
+                        final dateTimestamp = data['date'] as Timestamp?;
+                        final date = dateTimestamp?.toDate() ?? DateTime.now();
+                        final category = data['category'] ?? '';
+                        final description = data['description'] ?? '';
+                        final price = data['price'] ?? '';
+                        final imageUrl = data['imageUrl'] ?? '';
 
-                          return EventContainer(
-                            title: title,
-                            description: description,
-                            location: location,
-                            imageUrl: imageUrl, 
-                            category: category,
-                            date: date,
-                            price: price,
-                            
-                          );
-                        }).toList(),
+                        return EventContainer(
+                          title: title,
+                          description: description,
+                          location: location,
+                          imageUrl: imageUrl,
+                          category: category,
+                          date: date,
+                          price: price,
+                        );
+                      }).toList(),
+
                       );
                     } else if (snapshot.hasError) {
                       return Text('Error: ${snapshot.error}');

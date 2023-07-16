@@ -18,6 +18,7 @@ import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart
 import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
+import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
 import 'package:tripdash/Screens/UserScreen/help_support.dart';
 import 'package:tripdash/Screens/UserScreen/Account/account.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
@@ -51,6 +52,9 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   ViewEvents.routeName: (context) => const ViewEvents(),
   Homepage.routeName: (context) => const Homepage(),
+
+
+
   ForgotPassword.routeName: (context) => const ForgotPassword(),
   AddProduct.routeName: (context) => const AddProduct(),
   UserDashboard.routeName: (context) => const UserDashboard(),
@@ -73,6 +77,8 @@ final Map<String, WidgetBuilder> routes = {
   HotelHomeScreen.routeName: (context) => const HotelHomeScreen(),
   FAQ.routeName: (context) => const FAQ(),
   CustomerDetail.routeName: (context) => const CustomerDetail(),
+
+  Calender.routeName: (context) => const Calender(),
   Account.routeName: (context) => const Account(),
   UserSetting.routeName: (context) => const UserSetting(),
   PaymentScreen.routeName: (context) => const PaymentScreen(),

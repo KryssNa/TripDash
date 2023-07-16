@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
@@ -10,7 +12,6 @@ import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
 import 'CustomerDetail/customer_detail.dart';
 
-//AdminAppDrawer
 class AdminAppDrawer extends StatefulWidget {
   const AdminAppDrawer({Key? key}) : super(key: key);
   static const routeName = '/AdminDashboard';
@@ -23,11 +24,29 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
   String name = '';
   String avatar = '';
   String email = '';
+  late Timer _timer;
+  String formattedDateTime = '';
 
   @override
   void initState() {
     super.initState();
     fetchData();
+    _startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      setState(() {
+        formattedDateTime =
+            DateFormat('yyyy-MM-dd ').format(DateTime.now());
+      });
+    });
   }
 
   Future<void> fetchData() async {
@@ -49,32 +68,75 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('yyyy-MM-dd').format(now);
+    String formattedTime = DateFormat('hh-mm-ss').format(now);
+    var userAccountsDrawerHeader = UserAccountsDrawerHeader(
+          currentAccountPicture: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: CircleAvatar(
+              child: ClipOval(
+                child: Image.asset(
+                  avatar,
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          accountName: Padding(
+            padding: const EdgeInsets.all(7.0),
+            child: Text(
+              name,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 19,
+              ),
+            ),
+          ),
+          accountEmail: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                email,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              Text(
+                    formattedDate,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+              Text(
+                formattedTime,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              
+            ],
+          ),
+          decoration:  BoxDecoration(
+          
+            borderRadius: BorderRadius.circular(8),
+            color: const Color(0xFFFBDACE),
+          ),
+        );
     return Drawer(
       child: ListView(
         children: [
-          UserAccountsDrawerHeader(
-            accountName: Text(name,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-              ),),
-            accountEmail: Text(email,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-              ),),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.asset(avatar==''?'Assets/avatars/av_1.png':avatar,
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,),
-              ),
-            ),
-            decoration: const BoxDecoration(
-              color: Color(0xFFFBDACE),
-            ),
-          ),
+          userAccountsDrawerHeader,
+      
           ListTile(
             leading: const Icon(Icons.home,color: Colors.green,size: 30,),
             title:  Text("Home",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
