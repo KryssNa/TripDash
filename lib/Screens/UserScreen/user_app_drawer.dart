@@ -155,7 +155,7 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
           ListTile(
             leading: const Icon(Icons.calendar_month),
             title: const Text("Calender"),
-            onTap: () => Navigator.pushReplacementNamed(
+            onTap: () => Navigator.pushNamed(
                 context, Calender.routeName),
           ),
           ListTile(

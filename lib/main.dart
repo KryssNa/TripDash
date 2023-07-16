@@ -2,9 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
+import 'Screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: ViewEvents.routeName,
+        initialRoute: SplashPage.routeName,
         routes: routes,
       ),
     );
