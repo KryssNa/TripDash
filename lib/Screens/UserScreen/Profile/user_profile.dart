@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/update_user_profile.dart';
+import 'package:tripdash/Screens/UserScreen/account_balance.dart';
+import 'package:tripdash/Screens/UserScreen/update_password.dart';
 import 'package:tripdash/widget/UserProfile/user_detail.dart';
 
 class UserProfile extends StatefulWidget {
@@ -57,15 +59,16 @@ class _UserProfileState extends State<UserProfile> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        // leading: IconButton(
-        //   onPressed: () {
-        //     // Add your logic here
-        //   },
-        //   icon: const Icon(
-        //     Icons.arrow_back,
-        //     color: Colors.black,
-        //   ),
-        // ),
+        leading: IconButton(
+          onPressed: () {
+            // Add your logic here
+            Navigator.pushNamed(context, AccountBalance.routeName);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
         title:  Text(
             "Profile",
             style:GoogleFonts.poppins(
@@ -182,6 +185,10 @@ class _UserProfileState extends State<UserProfile> {
                   thickness: 1,
                 ),
               ),
+              ElevatedButton(onPressed: (){
+                Navigator.of(context).pushNamed(UpdatePassword.routeName);
+              }, child: const Text("pass"))
+
             ],
           ),
         ),

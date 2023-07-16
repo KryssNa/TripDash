@@ -1,10 +1,16 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
-import 'package:tripdash/Screens/AdminScreen/add_product.dart';
-import 'package:tripdash/Screens/homepage/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
+import 'package:tripdash/Screens/AdminScreen/add_place.dart';
+import 'package:tripdash/Screens/AdminScreen/add_product.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_transaction.dart';
+import 'package:tripdash/ViewModel/auth_viewmodel.dart';
+
+import 'CustomerDetail/customer_detail.dart';
 
 class AdminAppDrawer extends StatefulWidget {
   const AdminAppDrawer({Key? key}) : super(key: key);
@@ -44,9 +50,11 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
   }
 
   Future<void> fetchData() async {
+    AuthViewModel authViewModel = AuthViewModel();
+    final user = authViewModel.loggedInUser!;
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     DocumentSnapshot document =
-        await firestore.collection('Admin').doc('Admin_1').get();
+    await firestore.collection('users').doc(user.userId).get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
@@ -130,23 +138,43 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
           userAccountsDrawerHeader,
       
           ListTile(
-            leading: const Icon(Icons.place_outlined),
-            title: const Text("Place"),
-            onTap: () => Navigator.pushReplacementNamed(context, Homepage.routeName),
+            leading: const Icon(Icons.home,color: Colors.green,size: 30,),
+            title:  Text("Home",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, AdminDashboard.routeName),
           ),
           ListTile(
-            leading: const Icon(Icons.hotel_outlined),
-            title: const Text("Hotels"),
-            onTap: () => Navigator.pushReplacementNamed(context, AdminAddHotels.routeName),
+            leading: const Icon(Icons.place_outlined,color: Colors.green,size: 30,),
+            title:  Text("Add Place",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, AdminAddPlaces.routeName),
           ),
           ListTile(
-            leading: const Icon(Icons.add_circle_outline),
-            title: const Text("Product"),
-            onTap: () => Navigator.pushReplacementNamed(context, AddProduct.routeName),
+            leading: const Icon(Icons.hotel_outlined,color: Colors.green,size: 30,),
+            title:  Text("Add Hotels",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, AdminAddHotels.routeName),
           ),
           ListTile(
-            leading: const Icon(Icons.exit_to_app_outlined),
-            title: const Text("Exit"),
+            leading: const Icon(Icons.add_circle_outline,color: Colors.green,size: 30,),
+            title:  Text("Add Product",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, AddProduct.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_circle_outline,color: Colors.green,size: 30,),
+            title:  Text("Add Events",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, AddProduct.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_circle_outline,color: Colors.green,size: 30,),
+            title:  Text("Customer Details",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, CustomerDetail.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
+            title:  Text("Transaction",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            onTap: () => Navigator.pushNamed(context, AdminTransactionScreen.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
+            title:  Text("Exit",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
             onTap: () => Navigator.pop(context),
           ),
 

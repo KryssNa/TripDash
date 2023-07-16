@@ -141,6 +141,15 @@ class AddProductState extends State<AddProduct> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Form(

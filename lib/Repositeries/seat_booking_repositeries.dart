@@ -30,14 +30,15 @@ class SeatBookingRepositery {
     required int total,
     required String noOfTickets,
     required String sourceLocation,
+    required String tranportationId,
     required String destinationLocation,
     required String date,
     required List<String> seatNumbers,
   }) async {
     try {
-      UserModel user = await UserRepositeries.getLoggedInUser();
-      int balance = user.balance!;
-      balance = balance - total;
+      UserModel? user = await UserRepositeries.getLoggedInUser();
+      int? balance = user?.balance!;
+      balance = balance! - total;
       final transactionRef =
       FirebaseFirestore.instance.collection('transactions').doc();
 
@@ -49,9 +50,10 @@ class SeatBookingRepositery {
 
       // Create a transaction document in Firestore
       final transactionData = {
-        'transactionId': "Aeroplane${transactionRef.id}",
+        'transactionId': transactionRef.id,
         'userId': userId,
         'noOfTickets': noOfTickets,
+        'tranportationId': tranportationId,
         'sourceLocation': sourceLocation,
         'destinationLocation': destinationLocation,
         'date': date,
@@ -65,6 +67,7 @@ class SeatBookingRepositery {
         transactionId: transactionRef.id,
         userId: userId,
         total: total,
+        tranportationId: tranportationId,
         noOfTickets: noOfTickets,
         sourceLocation: sourceLocation,
         destinationLocation: destinationLocation,
@@ -82,9 +85,9 @@ class SeatBookingRepositery {
 
   static Future<int> getTotalBalance() async {
     try {
-      UserModel user = await UserRepositeries.getLoggedInUser();
-      int balance = user.balance!;
-      return balance;
+      UserModel? user = await UserRepositeries.getLoggedInUser();
+      int? balance = user?.balance!;
+      return balance!;
     } catch (e) {
       rethrow;
     }

@@ -26,7 +26,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
 
   Future<void> fetchUsers() async {
     try {
-      QuerySnapshot querySnapshot = await usersCollection.get();
+      QuerySnapshot querySnapshot = await usersCollection.where("role", isEqualTo: "normal").get();
       setState(() {
         userDocuments = querySnapshot.docs;
       });
@@ -34,14 +34,12 @@ class _CustomerDetailState extends State<CustomerDetail> {
       if (kDebugMode) {
         print('Error retrieving users: $error');
       }
-      // Handle the error gracefully
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         drawer: const AdminAppDrawer(),
         appBar: AppBar(
           title: const Text('User List'),
@@ -113,7 +111,6 @@ class _CustomerDetailState extends State<CustomerDetail> {
             );
           },
         ),
-      ),
-    );
+      );
   }
 }
