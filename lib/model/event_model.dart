@@ -22,7 +22,7 @@ class EventModel {
   String? eventId;
   String? title;
   String? description;
-  String? date;
+  DateTime? date;
   String? price;
   String? category;
   String? location;

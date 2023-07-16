@@ -29,7 +29,7 @@ class _AccountBalanceState extends State<AccountBalance> {
             ),
           ),
           title: Text(
-            'Payment',
+            'Wallet',
             style: TextStyle(
               fontSize: 18,
               fontWeight: ConstFonts.bold,

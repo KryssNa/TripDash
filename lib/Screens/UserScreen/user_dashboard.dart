@@ -1,8 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
+
 import 'package:provider/provider.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
-import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import '../UserScreen/app_bar.dart';
 

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class EventContainer extends StatelessWidget {
   final String category;
-  final String date;
+  final DateTime date;
   final String location;
   final String description;
   final String imageUrl;
@@ -19,9 +20,11 @@ class EventContainer extends StatelessWidget {
     required this.category,
     required this.price,
   }) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
         height: 150,
         width: 350,
@@ -85,7 +88,7 @@ class EventContainer extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            date,
+                            "${DateFormat.yMMM().format(date)}",
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 13,

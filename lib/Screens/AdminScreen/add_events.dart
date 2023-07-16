@@ -128,7 +128,7 @@ class  _EventEvent  extends State< AdminAddEvents > {
         title:eventTitle.text,
         location: eventLocation.text,
         category:eventCategory.text,
-        date: eventDate.text,
+        date: DateTime.parse(eventDate.text),
         price: eventPrice.text,
         description: eventDescription.text,
         imageUrl: url,
