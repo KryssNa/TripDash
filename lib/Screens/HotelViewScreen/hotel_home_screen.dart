@@ -50,6 +50,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
     setState(() {
       if (query.isNotEmpty) {
       } else {
+        filteredHotels = hotelFirebase;
       }
     });
   }
