@@ -22,7 +22,7 @@ import 'package:tripdash/ViewModel/auth_viewmodel.dart';
   Future<void> fetchData() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     DocumentSnapshot document =
-    await firestore.collection('users').doc('user_1').get();
+    await firestore.collection('User').doc('User_1').get();
 
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
