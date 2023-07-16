@@ -49,6 +49,8 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
   void searchHotels(String query) {
     setState(() {
       if (query.isNotEmpty) {
+        filteredHotels = hotelFirebase
+            
       } else {
         filteredHotels = hotelFirebase;
       }
