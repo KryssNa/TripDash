@@ -16,8 +16,8 @@ void main() {
     final submitButton = find.byKey(Key('submit_button'));
 
     // Enter valid input values
-    await tester.enterText(nameField, 'John Doe');
-    await tester.enterText(emailField, 'johndoe@example.com');
+    await tester.enterText(nameField, ' Test User');
+    await tester.enterText(emailField, 'testuser@example.com');
     await tester.enterText(passwordField, 'password');
     await tester.enterText(confirmPasswordField, 'password');
 

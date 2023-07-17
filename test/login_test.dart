@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 
 void main() {
   group('Login Tests', () {
@@ -9,29 +10,29 @@ void main() {
     });
 
     test('Empty email and password should return error', () {
-      final result = AuthService.login('', '');
+      final result = AuthService.Login('', '');
       expect(result, equals('Please enter email and password'));
     });
 
     test('Empty email should return error', () {
-      final result = AuthService.login('', 'password');
+      final result = AuthService.Login('', 'password');
       expect(result, equals('Please enter email'));
     });
 
     test('Empty password should return error', () {
-      final result = AuthService.login('test@example.com', '');
+      final result = AuthService.Login('test@example.com', '');
       expect(result, equals('Please enter password'));
     });
 
     test('Valid email and password should return success', () {
-      final result = AuthService.login('test@example.com', 'password');
+      final result = AuthService.Login('test@example.com', 'password');
       expect(result, equals('Success'));
     });
   });
 }
 
 class AuthService {
-  String login(String email, String password) {
+  String LoginScreen(String email, String password) {
     if (email.isEmpty && password.isEmpty) {
       return 'Please enter email and password';
     } else if (email.isEmpty) {
