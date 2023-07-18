@@ -10,6 +10,6 @@ class AdminBookingPlace extends StatefulWidget {
 class _AdminBookingPlaceState extends State<AdminBookingPlace> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
 }
