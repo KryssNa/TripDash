@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/AdminScreen/AdminBookingPlace.dart';
 import 'package:tripdash/Screens/AdminScreen/add_events.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
@@ -77,7 +78,7 @@ final Map<String, WidgetBuilder> routes = {
   HotelHomeScreen.routeName: (context) => const HotelHomeScreen(),
   FAQ.routeName: (context) => const FAQ(),
   CustomerDetail.routeName: (context) => const CustomerDetail(),
-
+  AdminBookingPlace.routeName: (context) => const AdminBookingPlace(),
   Calender.routeName: (context) => const Calender(),
   Account.routeName: (context) => const Account(),
   UserSetting.routeName: (context) => const UserSetting(),

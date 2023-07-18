@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
+import 'Screens/AdminScreen/AdminBookingPlace.dart';
 import 'Screens/splash_screen.dart';
 
 Future<void> main() async {
@@ -29,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: SplashPage.routeName,
+        initialRoute: AdminBookingPlace.routeName,
         routes: routes,
       ),
     );

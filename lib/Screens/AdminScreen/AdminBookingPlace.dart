@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AdminBookingPlace extends StatefulWidget {
   const AdminBookingPlace({Key? key}) : super(key: key);
+  static String routeName = "/AdminBookingPlace";
 
   @override
   State<AdminBookingPlace> createState() => _AdminBookingPlaceState();
