@@ -11,7 +11,7 @@ import 'place_theme.dart';
 class PlaceHomeScreen extends StatefulWidget {
   static String routeName = '/PlaceHomeScreen';
 
-  const PlaceHomeScreen({super.key});
+  const PlaceHomeScreen({Key? key}) : super(key: key);
 
   @override
   State<PlaceHomeScreen> createState() => _PlaceHomeScreenState();
@@ -24,11 +24,13 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
 
   List<PlaceListData> placeList = PlaceListData.placeList;
   AnimationController? animationController;
-  List<QueryDocumentSnapshot<PlaceModel>> placeFirevase = [];
+  List<QueryDocumentSnapshot<PlaceModel>> placeFirebase = [];
+  List<QueryDocumentSnapshot<PlaceModel>> filteredPlaces = [];
   Future<void> getData() async {
-    final response  = await PlaceRepository().getDataNormal();
+    final response = await PlaceRepository().getDataNormal();
     setState(() {
-      placeFirevase = response;
+      placeFirebase = response;
+      filteredPlaces = response;
     });
   }
 
@@ -37,13 +39,25 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
     super.initState();
     getData();
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 1000), vsync: this);
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
   }
 
   @override
   void dispose() {
     super.dispose();
     animationController?.dispose();
+  }
+
+  void filterPlaces(String query) {
+    setState(() {
+      filteredPlaces = placeFirebase.where((place) {
+        final placeData = place.data();
+        final placeName = placeData.placeName?.toLowerCase();
+        return placeName!.contains(query.toLowerCase());
+      }).toList();
+    });
   }
 
   @override
@@ -54,47 +68,61 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
         children: <Widget>[
           getAppBarUI(),
           Expanded(
-              child: NestedScrollView(
-            headerSliverBuilder: (context, innerBoxIsScrolled) {
-              return <Widget>[
-                SliverList(
+            child: NestedScrollView(
+              headerSliverBuilder: (context, innerBoxIsScrolled) {
+                return <Widget>[
+                  SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
-                  return Column(
-                    children: <Widget>[getSearchBarUI(), getTimeDateUI()],
-                  );
-                }, childCount: 1)),
-                SliverPersistentHeader(
+                      return Column(
+                        children: <Widget>[
+                          getSearchBarUI(),
+                          getTimeDateUI(),
+                        ],
+                      );
+                    }, childCount: 1),
+                  ),
+                  SliverPersistentHeader(
                     floating: true,
                     pinned: true,
-                    delegate: ContestTabHeader(getFilterBarUI()))
-              ];
-            },
-            body: Container(
-              color: PlaceTheme.buildLightTheme().colorScheme.background,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  final int count =
-                      placeFirevase.length > 10 ? 10 : placeFirevase.length;
-                  final Animation<double> animation =
-                      Tween<double>(begin: 0.0, end: 1.0).animate(
-                          CurvedAnimation(
-                              parent: animationController!,
-                              curve: Interval((1 / count) * index, 1.0,
-                                  curve: Curves.fastOutSlowIn)));
-                  animationController!.forward();
-                  return PlaceListView(
-                    callback: () {},
-                    placeData: placeFirevase[index].data(),
-                    animation: animation,
-                    animationController: animationController,
-                  );
-                },
-                itemCount: placeFirevase.length,
-                padding: const EdgeInsets.only(top: 8),
-                scrollDirection: Axis.vertical,
+                    delegate: ContestTabHeader(getFilterBarUI()),
+                  ),
+                ];
+              },
+              body: Container(
+                color: PlaceTheme.buildLightTheme().colorScheme.background,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    final int count = filteredPlaces.length > 10
+                        ? 10
+                        : filteredPlaces.length;
+                    final Animation<double> animation = Tween<double>(
+                      begin: 0.0,
+                      end: 1.0,
+                    ).animate(
+                      CurvedAnimation(
+                        parent: animationController!,
+                        curve: Interval(
+                          (1 / count) * index,
+                          1.0,
+                          curve: Curves.fastOutSlowIn,
+                        ),
+                      ),
+                    );
+                    animationController!.forward();
+                    return PlaceListView(
+                      callback: () {},
+                      placeData: filteredPlaces[index].data(),
+                      animation: animation,
+                      animationController: animationController,
+                    );
+                  },
+                  itemCount: filteredPlaces.length,
+                  padding: const EdgeInsets.only(top: 8),
+                  scrollDirection: Axis.vertical,
+                ),
               ),
             ),
-          ))
+          ),
         ],
       ),
     );
@@ -104,35 +132,46 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
     return Stack(
       children: <Widget>[
         Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: 24,
-              decoration: BoxDecoration(
-                  color: PlaceTheme.buildLightTheme().colorScheme.background,
-                  boxShadow: [
-                    BoxShadow(
-                        offset: const Offset(0, 2),
-                        color: Colors.grey.withOpacity(0.2),
-                        blurRadius: 8.0)
-                  ]),
-            )),
+          top: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            height: 24,
+            decoration: BoxDecoration(
+              color: PlaceTheme.buildLightTheme().colorScheme.background,
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 2),
+                  color: Colors.grey.withOpacity(0.2),
+                  blurRadius: 8.0,
+                ),
+              ],
+            ),
+          ),
+        ),
         Container(
           color: PlaceTheme.buildLightTheme().colorScheme.background,
           child: Padding(
-            padding:
-                const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 8,
+              bottom: 4,
+            ),
             child: Row(
               children: <Widget>[
                 const Expanded(
-                    child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Text(
-                    '5 place Found',
-                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Text(
+                      '5 places Found',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
-                )),
+                ),
                 Material(
                   color: Colors.transparent,
                   child: Padding(
@@ -142,7 +181,9 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                         const Text(
                           'Filter',
                           style: TextStyle(
-                              fontWeight: FontWeight.w100, fontSize: 16),
+                            fontWeight: FontWeight.w100,
+                            fontSize: 16,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -150,77 +191,105 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                             Icons.sort,
                             color: PlaceTheme.buildLightTheme().primaryColor,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
 
   getSearchBarUI() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8, top: 8, left: 16, right: 16),
+      padding: const EdgeInsets.only(
+        bottom: 8,
+        top: 8,
+        left: 16,
+        right: 16,
+      ),
       child: Row(
         children: <Widget>[
           Expanded(
-              child: Padding(
-            padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
-            child: Container(
-              decoration: BoxDecoration(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                right: 16,
+                top: 8,
+                bottom: 8,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
                   color: PlaceTheme.buildLightTheme().colorScheme.background,
-                  borderRadius: const BorderRadius.all(Radius.circular(38.0)),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(38.0),
+                  ),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        offset: const Offset(0, 2),
-                        blurRadius: 8.0)
-                  ]),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 16, right: 16, top: 4, bottom: 4),
-                child: TextField(
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
+                      color: Colors.grey.withOpacity(0.2),
+                      offset: const Offset(0, 2),
+                      blurRadius: 8.0,
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 4,
+                    bottom: 4,
                   ),
-                  cursorColor: PlaceTheme.buildLightTheme().primaryColor,
-                  decoration: const InputDecoration(
-                      border: InputBorder.none, hintText: "Search Place"),
+                  child: TextField(
+                    onChanged: (query) => filterPlaces(query),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    cursorColor: PlaceTheme.buildLightTheme().primaryColor,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Search Place",
+                    ),
+                  ),
                 ),
               ),
             ),
-          )),
+          ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: const BorderRadius.all(Radius.circular(38.0)),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      offset: const Offset(0, 2),
-                      blurRadius: 8.0)
-                ]),
+              color: Colors.green,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(38.0),
+              ),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.4),
+                  offset: const Offset(0, 2),
+                  blurRadius: 8.0,
+                ),
+              ],
+            ),
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                borderRadius: const BorderRadius.all(Radius.circular(32.0)),
-                onTap: () {},
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(32.0),
+                ),
                 child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Icon(
-                      Icons.search,
-                      size: 30,
-                      color: PlaceTheme.buildLightTheme().colorScheme.background,
-                    )),
+                  padding: const EdgeInsets.all(16.0),
+                  child: Icon(
+                    Icons.search,
+                    size: 20,
+                    color: Colors.white,
+                  ),
+                ),
+                onTap: () {},
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -228,29 +297,41 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
 
   getTimeDateUI() {
     return Padding(
-      padding: const EdgeInsets.only(left: 18, bottom: 16),
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 16),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Expanded(
-              child: Row(
-            children: <Widget>[
-              Material(
-                color: Colors.transparent,
+            child: InkWell(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(16.0),
+              ),
+              onTap: () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  color: PlaceTheme.buildLightTheme().backgroundColor,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(16.0),
+                  ),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.4),
+                      offset: const Offset(0, 2),
+                      blurRadius: 8.0,
+                    ),
+                  ],
+                ),
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
                     children: <Widget>[
-                      Text(
-                        "Choose Date",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black12.withOpacity(1)),
+                      Icon(
+                        Icons.calendar_today,
+                        color: PlaceTheme.buildLightTheme().primaryColor,
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(
+                        width: 8,
+                      ),
                       Text(
                         "${DateFormat('dd, MMM').format(startDate)} - ${DateFormat('dd, MMM').format(endDate)}",
                         style: const TextStyle(
@@ -261,50 +342,9 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                     ],
                   ),
                 ),
-              )
-            ],
-          )),
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Container(
-              width: 1,
-              height: 42,
-              color: Colors.grey.withOpacity(0.8),
+              ),
             ),
           ),
-          Expanded(
-              child: Row(
-            children: <Widget>[
-              Material(
-                color: Colors.transparent,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        '',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w100,
-                            fontSize: 16,
-                            color: Colors.grey.withOpacity(0.8)),
-                      ),
-                      const SizedBox(height: 8),
-                      const Text(
-                        '',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w100,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ))
         ],
       ),
     );
@@ -326,23 +366,25 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
         child: Row(
           children: <Widget>[
             Container(
-              alignment: Alignment.centerLeft,
-              width: AppBar().preferredSize.height + 40,
-              height: AppBar().preferredSize.height,
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: const BorderRadius.all(Radius.circular(32.0)),
-                  onTap: () {
-                    // Navigator.pop(context);
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(Icons.arrow_back),
-                  ),
-                ),
-              ),
-            ),
+  alignment: Alignment.centerLeft,
+  width: AppBar().preferredSize.height + 40,
+  height: AppBar().preferredSize.height,
+  child: Material(
+    color: Colors.transparent,
+    borderRadius: const BorderRadius.all(Radius.circular(32.0)),
+    child: InkWell(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Icon(Icons.arrow_back),
+      ),
+    ),
+  ),
+)
+,
+            
              Expanded(
                 child: Center(
               child: Text(
@@ -384,16 +426,22 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                 ],
               ),
             )
-          ],
+          ]
+        )
+            
         ),
-      ),
-    );
+        
+      );
+
   }
 }
 
+
 class ContestTabHeader extends SliverPersistentHeaderDelegate {
-  final Widget searchUI;
   ContestTabHeader(this.searchUI);
+
+  final Widget searchUI;
+
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -407,7 +455,7 @@ class ContestTabHeader extends SliverPersistentHeaderDelegate {
   double get minExtent => 52.0;
 
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }

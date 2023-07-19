@@ -76,12 +76,10 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             padding: const EdgeInsets.all(1.0),
             child: CircleAvatar(
               child: ClipOval(
-                child: Image.asset(
-                  avatar,
-                  width: 120,
-                  height: 120,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(avatar==''?'Assets/avatars/av_1.png':avatar,
+                  width: 90,
+                  height: 90,
+                  fit: BoxFit.cover,),
               ),
             ),
           ),
