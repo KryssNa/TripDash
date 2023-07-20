@@ -62,9 +62,12 @@ class _AdminBookingState extends State<AdminBooking> {
               String aeroplane = bookingData['aeroplane'] ?? '';
               String hotel = bookingData['hotel'] ?? '';
 
+              // Fetch the document name (booking ID)
+              String bookingId = bookingDocs[index].id;
+
               return Dismissible(
-                key: Key(bookingDocs[index].id),
-                direction: DismissDirection.endToStart, // Changed the direction to endToStart
+                key: Key(bookingId),
+                direction: DismissDirection.endToStart,
                 confirmDismiss: (direction) async {
                   return await showDialog(
                     context: context,
@@ -86,12 +89,12 @@ class _AdminBookingState extends State<AdminBooking> {
                 },
                 onDismissed: (direction) async {
                   if (direction == DismissDirection.endToStart) {
-                    await FirebaseFirestore.instance.collection('Bookings').doc(bookingDocs[index].id).delete();
+                    await FirebaseFirestore.instance.collection('Bookings').doc(bookingId).delete();
                   }
                 },
                 background: Container(
                   color: Colors.red,
-                  alignment: Alignment.centerRight, // Changed the alignment to centerRight
+                  alignment: Alignment.centerRight,
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: const Icon(Icons.delete, color: Colors.white),
                 ),
@@ -111,12 +114,13 @@ class _AdminBookingState extends State<AdminBooking> {
                     ),
                     child: ListTile(
                       title: Text(
-                        'Name: $name',
+                        'Booking Id : $bookingId', // Use the bookingId variable here
                         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text('User Name: $name', style: const TextStyle(fontSize: 16)),
                           Text('Place: $place', style: const TextStyle(fontSize: 16)),
                           Text('Package: $package', style: const TextStyle(fontSize: 16)),
                           Text('Bus: $bus', style: const TextStyle(fontSize: 16)),
