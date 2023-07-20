@@ -15,18 +15,18 @@ class _AdminBookingState extends State<AdminBooking> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Center(
+        title: const Center(
           child: Text(
             'Admin Booking',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
         ),
-        backgroundColor: Color(0xFF007096),
+        backgroundColor: const Color(0xFF007096),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('Bookings').snapshots(),
@@ -38,7 +38,7 @@ class _AdminBookingState extends State<AdminBooking> {
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -46,7 +46,7 @@ class _AdminBookingState extends State<AdminBooking> {
           final bookingDocs = snapshot.data?.docs;
 
           if (bookingDocs == null || bookingDocs.isEmpty) {
-            return Center(
+            return const Center(
               child: Text('No data available'),
             );
           }
@@ -69,16 +69,16 @@ class _AdminBookingState extends State<AdminBooking> {
                   return await showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Confirm Deletion'),
-                      content: Text('Are you sure you want to delete this booking?'),
+                      title: const Text('Confirm Deletion'),
+                      content: const Text('Are you sure you want to delete this booking?'),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.of(context).pop(false),
-                          child: Text('Cancel'),
+                          child: const Text('Cancel'),
                         ),
                         TextButton(
                           onPressed: () => Navigator.of(context).pop(true),
-                          child: Text('Delete'),
+                          child: const Text('Delete'),
                         ),
                       ],
                     ),
@@ -87,16 +87,13 @@ class _AdminBookingState extends State<AdminBooking> {
                 onDismissed: (direction) async {
                   if (direction == DismissDirection.endToStart) {
                     await FirebaseFirestore.instance.collection('Bookings').doc(bookingDocs[index].id).delete();
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text('Booking deleted successfully!'),
-                    ));
                   }
                 },
                 background: Container(
                   color: Colors.red,
                   alignment: Alignment.centerRight, // Changed the alignment to centerRight
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Icon(Icons.delete, color: Colors.white),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: const Icon(Icons.delete, color: Colors.white),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -115,16 +112,16 @@ class _AdminBookingState extends State<AdminBooking> {
                     child: ListTile(
                       title: Text(
                         'Name: $name',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Place: $place', style: TextStyle(fontSize: 16)),
-                          Text('Package: $package', style: TextStyle(fontSize: 16)),
-                          Text('Bus: $bus', style: TextStyle(fontSize: 16)),
-                          Text('Aeroplane: $aeroplane', style: TextStyle(fontSize: 16)),
-                          Text('Hotel: $hotel', style: TextStyle(fontSize: 16)),
+                          Text('Place: $place', style: const TextStyle(fontSize: 16)),
+                          Text('Package: $package', style: const TextStyle(fontSize: 16)),
+                          Text('Bus: $bus', style: const TextStyle(fontSize: 16)),
+                          Text('Aeroplane: $aeroplane', style: const TextStyle(fontSize: 16)),
+                          Text('Hotel: $hotel', style: const TextStyle(fontSize: 16)),
                         ],
                       ),
                     ),
