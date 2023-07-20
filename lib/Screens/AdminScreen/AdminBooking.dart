@@ -22,7 +22,7 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace> {
         ),
         title: Center(
           child: Text(
-            'Admin Booking Places',
+            'Admin Booking',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
         ),

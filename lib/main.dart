@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
-import 'Screens/AdminScreen/AdminBookingPlace.dart';
+import 'Screens/AdminScreen/AdminBooking.dart';
 import 'Screens/splash_screen.dart';
 
 Future<void> main() async {
