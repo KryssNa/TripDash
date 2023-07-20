@@ -14,11 +14,19 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Admin Booking Places',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        backgroundColor: Colors.deepPurple,
+        title: Center(
+          child: Text(
+            'Admin Booking Places',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+        ),
+        backgroundColor: Color(0xFF007096),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('Bookings').snapshots(),
