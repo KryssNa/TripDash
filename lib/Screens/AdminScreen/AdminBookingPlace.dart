@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class AdminBookingPlace extends StatefulWidget {
@@ -10,6 +11,8 @@ class AdminBookingPlace extends StatefulWidget {
 
 class _AdminBookingPlaceState extends State<AdminBookingPlace>
     with SingleTickerProviderStateMixin {
+
+
   late AnimationController _animationController;
   late Animation<double> _opacityAnimation;
   late Animation<double> _scaleAnimation;
@@ -59,6 +62,38 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace>
 
     super.initState();
   }
+
+  Future<List<Map<String, dynamic>>> getAirplaneBookings() async {
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('AirplaneBooking')
+        .get();
+    return snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+  }
+
+  Future<List<Map<String, dynamic>>> getBusBookings() async {
+    QuerySnapshot snapshot =
+    await FirebaseFirestore.instance.collection('BusBooking').get();
+    return snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+  }
+  Future<List<Map<String, dynamic>>> getPackageBookings() async {
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('PackageBooking')
+        .get();
+    return snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+  }
+
+  Future<List<Map<String, dynamic>>> getHotelBookings() async {
+    QuerySnapshot snapshot =
+    await FirebaseFirestore.instance.collection('HotelBooking').get();
+    return snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+  }
+
+  Future<List<Map<String, dynamic>>> getPlaceBookings() async {
+    QuerySnapshot snapshot =
+    await FirebaseFirestore.instance.collection('PlaceBooking').get();
+    return snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+  }
+
 
   @override
   void dispose() {
