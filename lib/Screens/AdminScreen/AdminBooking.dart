@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class AdminBookingPlace extends StatefulWidget {
-  const AdminBookingPlace({Key? key}) : super(key: key);
-  static String routeName = "/AdminBookingPlace";
+class AdminBooking extends StatefulWidget {
+  const AdminBooking({Key? key}) : super(key: key);
+  static String routeName = "/AdminBooking";
 
   @override
-  State<AdminBookingPlace> createState() => _AdminBookingPlaceState();
+  State<AdminBooking> createState() => _AdminBookingState();
 }
 
-class _AdminBookingPlaceState extends State<AdminBookingPlace> {
+class _AdminBookingState extends State<AdminBooking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
