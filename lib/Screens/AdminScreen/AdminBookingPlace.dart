@@ -66,13 +66,65 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace>
     super.dispose();
   }
 
+  Future<Future<bool?>> _showDeleteConfirmationDialog(int index) async {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Deletion'),
+          content: Text('Are you sure you want to delete this booking?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(false); // Return false for cancel
+              },
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  bookings.removeAt(index);
+                });
+                Navigator.of(context).pop(true); // Return true for delete
+              },
+              child: Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     _animationController.forward();
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         title: const Text('Admin Bookings'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.green], // Add your preferred colors here
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              // Add the refresh logic here
+            },
+          ),
+        ],
       ),
       body: AnimatedBuilder(
         animation: _animationController,
@@ -81,43 +133,80 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace>
             opacity: _opacityAnimation.value,
             child: Transform.scale(
               scale: _scaleAnimation.value,
-              child: ListView.builder(
+              child: bookings.isEmpty // Display a loading indicator while the list is empty
+                  ? Center(child: CircularProgressIndicator())
+                  : ListView.builder(
                 itemCount: bookings.length,
                 itemBuilder: (BuildContext context, int index) {
                   final booking = bookings[index];
-                  return ListTile(
-                    title: Text(
-                      'Booking ID: ${booking['id']}',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+                  return Dismissible(
+                    key: Key(booking['id']),
+                    direction: DismissDirection.endToStart,
+                    confirmDismiss: (direction) async {
+                      return await _showDeleteConfirmationDialog(index);
+                    },
+                    onDismissed: (direction) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Booking deleted.'),
+                          action: SnackBarAction(
+                            label: 'UNDO',
+                            onPressed: () {
+                              setState(() {
+                                bookings.insert(index, booking);
+                              });
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                    background: Container(
+                      color: Colors.red,
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Icon(
+                        Icons.delete,
+                        color: Colors.white,
                       ),
                     ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'User: ${booking['user']}',
+                    child: Card(
+                      elevation: 4.0,
+                      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      child: ListTile(
+                        title: Text(
+                          'Booking ID: ${booking['id']}',
                           style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.normal,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
-                          'Place: ${booking['place']}',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.normal,
-                          ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'User: ${booking['user']}',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Text(
+                              'Place: ${booking['place']}',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Text(
+                              'Date: ${booking['date']}',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
                         ),
-                        Text(
-                          'Date: ${booking['date']}',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   );
                 },
