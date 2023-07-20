@@ -14,13 +14,19 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Admin Booking Places'),
+        title: Text(
+          'Admin Booking Places',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.deepPurple,
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('Bookings').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -29,8 +35,7 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace> {
             );
           }
 
-          // Data is ready, so let's process and display it.
-          final bookingDocs = snapshot.data?.docs; // Use the null-aware operator here
+          final bookingDocs = snapshot.data?.docs;
 
           if (bookingDocs == null || bookingDocs.isEmpty) {
             return Center(
@@ -41,25 +46,81 @@ class _AdminBookingPlaceState extends State<AdminBookingPlace> {
           return ListView.builder(
             itemCount: bookingDocs.length,
             itemBuilder: (context, index) {
-              var bookingData = bookingDocs[index].data() as Map<String, dynamic>; // Cast to Map<String, dynamic>
-              String name = bookingData['name'] ?? ''; // Use null-aware operator and provide a default value
+              var bookingData = bookingDocs[index].data() as Map<String, dynamic>;
+              String name = bookingData['name'] ?? '';
               String place = bookingData['place'] ?? '';
               String package = bookingData['package'] ?? '';
               String bus = bookingData['bus'] ?? '';
               String aeroplane = bookingData['aeroplane'] ?? '';
               String hotel = bookingData['hotel'] ?? '';
 
-              return ListTile(
-                title: Text('Name: $name'),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Place: $place'),
-                    Text('Package: $package'),
-                    Text('Bus: $bus'),
-                    Text('Aeroplane: $aeroplane'),
-                    Text('Hotel: $hotel'),
-                  ],
+              return Dismissible(
+                key: Key(bookingDocs[index].id),
+                direction: DismissDirection.endToStart, // Changed the direction to endToStart
+                confirmDismiss: (direction) async {
+                  return await showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('Confirm Deletion'),
+                      content: Text('Are you sure you want to delete this booking?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(false),
+                          child: Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(true),
+                          child: Text('Delete'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                onDismissed: (direction) async {
+                  if (direction == DismissDirection.endToStart) {
+                    await FirebaseFirestore.instance.collection('Bookings').doc(bookingDocs[index].id).delete();
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text('Booking deleted successfully!'),
+                    ));
+                  }
+                },
+                background: Container(
+                  color: Colors.red,
+                  alignment: Alignment.centerRight, // Changed the alignment to centerRight
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Icon(Icons.delete, color: Colors.white),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 4,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: ListTile(
+                      title: Text(
+                        'Name: $name',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Place: $place', style: TextStyle(fontSize: 16)),
+                          Text('Package: $package', style: TextStyle(fontSize: 16)),
+                          Text('Bus: $bus', style: TextStyle(fontSize: 16)),
+                          Text('Aeroplane: $aeroplane', style: TextStyle(fontSize: 16)),
+                          Text('Hotel: $hotel', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               );
             },
