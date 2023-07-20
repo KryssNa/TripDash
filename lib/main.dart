@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       child: GetMaterialApp(
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: AdminBookingPlace.routeName,
+        initialRoute: AdminBooking.routeName,
         routes: routes,
       ),
     );
