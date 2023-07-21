@@ -40,7 +40,7 @@ class _UserDashboardState extends State<UserDashboard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Hello,  ${auth.loggedInUser!.name}",
+                            "Hello,  ${auth.loggedInUser?.name}",
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
