@@ -1,0 +1,141 @@
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class AdminBooking extends StatefulWidget {
+  const AdminBooking({Key? key}) : super(key: key);
+  static String routeName = "/AdminBooking";
+
+  @override
+  State<AdminBooking> createState() => _AdminBookingState();
+}
+
+class _AdminBookingState extends State<AdminBooking> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Center(
+          child: Text(
+            'Admin Booking',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+        ),
+        backgroundColor: const Color(0xFF007096),
+      ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('Bookings').snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          final bookingDocs = snapshot.data?.docs;
+
+          if (bookingDocs == null || bookingDocs.isEmpty) {
+            return const Center(
+              child: Text('No data available'),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: bookingDocs.length,
+            itemBuilder: (context, index) {
+              var bookingData = bookingDocs[index].data() as Map<String, dynamic>;
+              String name = bookingData['name'] ?? '';
+              String place = bookingData['place'] ?? '';
+              String package = bookingData['package'] ?? '';
+              String bus = bookingData['bus'] ?? '';
+              String aeroplane = bookingData['aeroplane'] ?? '';
+              String hotel = bookingData['hotel'] ?? '';
+
+              // Fetch the document name (booking ID)
+              String bookingId = bookingDocs[index].id;
+
+              return Dismissible(
+                key: Key(bookingId),
+                direction: DismissDirection.endToStart,
+                confirmDismiss: (direction) async {
+                  return await showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text('Confirm Deletion'),
+                      content: const Text('Are you sure you want to delete this booking?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(false),
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(true),
+                          child: const Text('Delete'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                onDismissed: (direction) async {
+                  if (direction == DismissDirection.endToStart) {
+                    await FirebaseFirestore.instance.collection('Bookings').doc(bookingId).delete();
+                  }
+                },
+                background: Container(
+                  color: Colors.red,
+                  alignment: Alignment.centerRight,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: const Icon(Icons.delete, color: Colors.white),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 4,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: ListTile(
+                      title: Text(
+                        'Booking Id : $bookingId', // Use the bookingId variable here
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('User Name: $name', style: const TextStyle(fontSize: 16)),
+                          Text('Place: $place', style: const TextStyle(fontSize: 16)),
+                          Text('Package: $package', style: const TextStyle(fontSize: 16)),
+                          Text('Bus: $bus', style: const TextStyle(fontSize: 16)),
+                          Text('Aeroplane: $aeroplane', style: const TextStyle(fontSize: 16)),
+                          Text('Hotel: $hotel', style: const TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
