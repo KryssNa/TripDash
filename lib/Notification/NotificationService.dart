@@ -8,12 +8,13 @@ class NotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
+
   static void initialize() {
 
     _notificationsPlugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
 
-    final InitializationSettings initializationSettings = const InitializationSettings(
+    final InitializationSettings initializationSettings = InitializationSettings(
         android: AndroidInitializationSettings("@mipmap/ic_launcher"),
         iOS: DarwinInitializationSettings(
             requestSoundPermission: false,
@@ -22,6 +23,7 @@ class NotificationService {
     _notificationsPlugin.initialize(initializationSettings,
         onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
   }
+
   static BuildContext? context;
   static void onDidReceiveNotificationResponse(NotificationResponse? response) {
     if (response != null && response.payload != null) {
@@ -29,6 +31,7 @@ class NotificationService {
       print(response.payload);
     }
   }
+
   static Future<String> getImageFilePathFromAssets(String asset, String filename) async {
     final byteData = await rootBundle.load(asset);
     final temp_direactory = await getTemporaryDirectory();
