@@ -7,6 +7,7 @@ import 'package:tripdash/model/user_model.dart';
 import 'package:tripdash/widget/button_widget.dart';
 import 'package:tripdash/widget/text_field_widget.dart';
 
+import '../../Notification/NotificationService.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -95,6 +96,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ))
           .then((value) {
         // Registration success
+        NotificationService.display(
+          title: "WELCOME USER",
+          body: "You have successfully Registered ",
+          image: "assets/images/logo.png",
+          logo: "assets/images/logo.png");
         ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("User Registered Successfully")));
         registerUser().then((value) {
