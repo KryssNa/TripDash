@@ -39,6 +39,8 @@ import 'package:tripdash/Screens/HomeScreen/home_page.dart';
 import 'package:tripdash/Screens/splash_screen.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
+import '../Notification/NotificationDemo.dart';
+
 // We use name route
 
 final Map<String, WidgetBuilder> routes = {
@@ -83,7 +85,8 @@ final Map<String, WidgetBuilder> routes = {
   UserSetting.routeName: (context) => const UserSetting(),
   PaymentScreen.routeName: (context) => const PaymentScreen(),
   AccountBalance.routeName: (context) => const AccountBalance(),
-  UserBookings.routeName: (context) => UserBookings(),
+  UserBookings.routeName: (context) => const UserBookings(),
   AdminTransactionScreen.routeName: (context) => const AdminTransactionScreen(),
   BusSeatChoosingScreen.routeName: (context) => const BusSeatChoosingScreen(),
+  NotificationDemo.routeName: (context) => const NotificationDemo(),
 };
