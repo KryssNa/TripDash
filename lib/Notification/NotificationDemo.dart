@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class NotificationDemo extends StatefulWidget {
   const NotificationDemo({super.key});
+  static String routeName = "/NotificationDemo";
 
   @override
   State<NotificationDemo> createState() => _NotificationDemoState();
