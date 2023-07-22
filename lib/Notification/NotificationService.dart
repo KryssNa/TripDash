@@ -4,8 +4,18 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 class NotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
+  
+  static Future<String> getImageFilePathFromAssets(String asset, String filename) async {
+    final byteData = await rootBundle.load(asset);
+    final temp_direactory = await getTemporaryDirectory();
+    final file = File('${temp_direactory.path}/$filename');
+    await file
+        .writeAsBytes(byteData.buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
 
-static Future<void> display(
+    return file.path;
+  }
+
+  static Future<void> display(
       {required String title,
       required String body,
       String? payload,
