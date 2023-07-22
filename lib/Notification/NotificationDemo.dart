@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'NotificationService.dart';
 
 class NotificationDemo extends StatefulWidget {
-  const NotificationDemo({super.key});
-  static String routeName = "/NotificationDemo";
+  const NotificationDemo({Key? key}) : super(key: key);
+   static const routeName = '/NotificationDemo';
 
   @override
   State<NotificationDemo> createState() => _NotificationDemoState();
@@ -13,21 +14,21 @@ class NotificationDemo extends StatefulWidget {
 class _NotificationDemoState extends State<NotificationDemo> {
   @override
   Widget build(BuildContext context) {
-    return return Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text("Notification Demo"),
+        title: Text("Notification"),
       ),
       body: Column(
         children: [
           ElevatedButton(
               onPressed: () {
                 NotificationService.display(
-                    title: "Notification Title",
-                    body: "Notification body",
+                    title: "WELCOME USER",
+                    body: "You have successfully login ",
                     image: "assets/images/logo.png",
                     logo: "assets/images/logo.png");
               },
-              child: Text("Send Notification"))
+              child: Text("YOU ARE sUCCESSFULL LOGIN "))
         ],
       ),
     );
