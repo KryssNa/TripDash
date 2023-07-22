@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class NotificationService extends StatefulWidget {
-  const NotificationService({super.key});
-  static String routeName = "/NotificationService";
+class NotificationService {
+  static final FlutterLocalNotificationsPlugin _notificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
-  @override
-  State<NotificationService> createState() => _NotificationServiceState();
-}
 
-class _NotificationServiceState extends State<NotificationService> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
 }
