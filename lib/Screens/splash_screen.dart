@@ -10,6 +10,8 @@ import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
+import '../Notification/NotificationService.dart';
+
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -44,6 +46,11 @@ class _SplashPageState extends State<SplashPage> {
                   BottomNavigationBarWidget.routeName, (route) => false);
             }
           }
+          NotificationService.display(
+                    title: "WELCOME USER",
+                    body: "You have successfully started a intresting application ",
+                    image: "assets/images/logo.png",
+                    logo: "assets/images/logo.png");
         });
       });
     });
