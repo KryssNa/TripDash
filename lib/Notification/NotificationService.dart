@@ -4,7 +4,13 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 class NotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
-  
+  static BuildContext? context;
+  static void onDidReceiveNotificationResponse(NotificationResponse? response) {
+    if (response != null && response.payload != null) {
+      Navigator.of(context!).pushNamed(response.payload.toString());
+      print(response.payload);
+    }
+  }
   static Future<String> getImageFilePathFromAssets(String asset, String filename) async {
     final byteData = await rootBundle.load(asset);
     final temp_direactory = await getTemporaryDirectory();
