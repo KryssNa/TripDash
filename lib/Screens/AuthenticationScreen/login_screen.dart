@@ -13,6 +13,7 @@ import 'package:tripdash/widget/button_widget.dart';
 import 'package:tripdash/widget/text_field_widget.dart';
 
 import '../../Helper/error_dialogue.dart';
+import '../../Notification/NotificationService.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -260,6 +261,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   content:
                                                       Text("Logging in...")),
                                             );
+                                            NotificationService.display(
+                                              title: "WELCOME USER",
+                                              body: "You are successfully log in ",
+                                              image: "assets/images/logo.png",
+                                              logo: "assets/images/logo.png");
                                             await loginUser();
                                             setState(() {
                                               isLoading = false;
