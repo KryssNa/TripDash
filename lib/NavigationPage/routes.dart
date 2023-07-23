@@ -39,6 +39,7 @@ import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 import 'package:tripdash/Screens/HomeScreen/home_page.dart';
 import 'package:tripdash/Screens/splash_screen.dart';
 import 'package:tripdash/Screens/term_and_condition.dart';
+import 'package:tripdash/widget/Notification/notification_list.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
 import '../Notification/NotificationDemo.dart';
@@ -56,9 +57,7 @@ final Map<String, WidgetBuilder> routes = {
   AdminAddEvents.routeName: (context) => const AdminAddEvents(),
   ViewEvents.routeName: (context) => const ViewEvents(),
   Homepage.routeName: (context) => const Homepage(),
-
-
-
+  NotificationsList.routeName: (context) => const NotificationsList(),
   ForgotPassword.routeName: (context) => const ForgotPassword(),
   AddProduct.routeName: (context) => const AddProduct(),
   UserDashboard.routeName: (context) => const UserDashboard(),
