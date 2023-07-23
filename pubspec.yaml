@@ -49,6 +49,7 @@ dependencies:
   flutter_svg: any
   google_fonts: 4.0.1
   awesome_notifications: ^0.7.4+1
+  lottie: ^2.5.0
 
 
 
