@@ -146,10 +146,6 @@ class _AdminBookingState extends State<AdminBooking> {
                                   ),
                                   TextButton(
                                     onPressed: () {
-                                      FirebaseFirestore.instance.collection('transactions').doc(bookingId).delete();
-
-                                      // Close the dialog
-                                      Navigator.of(context).pop(true);
                                     },
                                     child: const Text("Approve", style: TextStyle(color: Colors.blue)), // Approve button with blue text color
                                   ),
