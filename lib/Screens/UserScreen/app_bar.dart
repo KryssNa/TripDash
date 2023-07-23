@@ -45,57 +45,39 @@ class AppBarWidget extends StatelessWidget {
           Scaffold.of(context).openDrawer();
         },
         icon: const Icon(Icons.menu_sharp),
-        iconSize: 35,
-        color: Colors.black54,
+        color: Colors.black,
       ),
       actions: [
-        PopupMenuButton(
-          itemBuilder: (BuildContext context) {
-            return [
-              const PopupMenuItem(
-                value: 1,
-                child: Text('My Profile'),
-              ),
-              const PopupMenuItem(
-                value: 2,
-                child: Text('Account'),
-              ),
-              const PopupMenuItem(
-                value: 4,
-                child: Text('Settings'),
-              ),
-              const PopupMenuItem(
-                value: 3,
-                child: Text('Logout'),
-              ),
-            ];
-          },
-          onSelected: (value) async {
-            // Handle dropdown menu selection
-            if (value == 1) {
-              // Option 1 selected
-              Navigator.pushNamed(
-                context,
-                UserProfile.routeName,
-              );
-            } else if (value == 2) {
-              // Option 2 selected
-              if (kDebugMode) {
-                print('Dashboard selected');
-              }
-            } else if (value == 3) {
-              // Option 3 selected
-              _authViewModel.logout();
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                LoginScreen.routeName,
-                    (route) => false,
-              );
-            }
-          },
-          child: CircleAvatar(
-            radius: 27,
-            backgroundImage: AssetImage(avatar),
+        // Search Bar
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 8.0),
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.1), // Set the shadow color with opacity
+            shape: BoxShape.circle,
+          ),
+          child: IconButton(
+            onPressed: () {
+              // Handle search action
+              // Add your search functionality here
+            },
+            icon: const Icon(Icons.search),
+            color: Colors.white, // Icon color inside the shadow
+          ),
+        ),
+        // Notification Icon
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 8.0),
+          decoration: BoxDecoration(
+            color: Colors.black54.withOpacity(0.1), // Set the shadow color with opacity
+            shape: BoxShape.circle,
+          ),
+          child: IconButton(
+            onPressed: () {
+              // Handle notification action
+              // Add your notification functionality here
+            },
+            icon: const Icon(Icons.notifications),
+            color: Colors.white, // Icon color inside the shadow
           ),
         ),
       ],
