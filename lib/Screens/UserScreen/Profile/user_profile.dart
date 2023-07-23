@@ -86,7 +86,7 @@ class _UserProfileState extends State<UserProfile> {
             children: [
               CircleAvatar(
                 radius: 75,
-                backgroundImage: AssetImage(avatar),
+                backgroundImage: AssetImage(avatar==''?'Assets/images/avatars/av_1.png':avatar),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

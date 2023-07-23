@@ -116,7 +116,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
               children: [
                 CircleAvatar(
                   radius: 75,
-                  backgroundImage: AssetImage(avatarController.text),
+                  backgroundImage: AssetImage(avatarController.text==''?'Assets/images/avatars/av_1.png':avatarController.text),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
