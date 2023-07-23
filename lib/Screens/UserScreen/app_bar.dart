@@ -5,24 +5,26 @@ import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
-  String? avatar;
-  @override
-  void initState() {
-    fetchData();
-  }
+String? avatar;
+
+@override
+void initState() {
+  fetchData();
+}
+
 //
-  Future<void> fetchData() async {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    DocumentSnapshot document =
-    await firestore.collection('User').doc('User_1').get();
+Future<void> fetchData() async {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  DocumentSnapshot document =
+  await firestore.collection('User').doc('User_1').get();
 
-    if (document.exists) {
-      var data = document.data() as Map<String, dynamic>;
-        avatar = data['avatar'] ?? '';
-    }
+  if (document.exists) {
+    var data = document.data() as Map<String, dynamic>;
+    avatar = data['avatar'] ?? '';
   }
-  AuthViewModel _authViewModel = AuthViewModel();
+}
 
+AuthViewModel _authViewModel = AuthViewModel();
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({
@@ -35,15 +37,16 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color(0xff0079c0),
-      shape: const RoundedRectangleBorder(
-      ),
+      backgroundColor: Colors.transparent, // Set the background color to transparent
+      elevation: 0, // Remove the shadow under the app bar
+      shape: const RoundedRectangleBorder(),
       leading: IconButton(
         onPressed: () {
           Scaffold.of(context).openDrawer();
         },
         icon: const Icon(Icons.menu_sharp),
-        iconSize: 40,
+        iconSize: 35,
+        color: Colors.black54,
       ),
       actions: [
         PopupMenuButton(
@@ -71,7 +74,10 @@ class AppBarWidget extends StatelessWidget {
             // Handle dropdown menu selection
             if (value == 1) {
               // Option 1 selected
-              Navigator.pushNamed(context,UserProfile.routeName,);
+              Navigator.pushNamed(
+                context,
+                UserProfile.routeName,
+              );
             } else if (value == 2) {
               // Option 2 selected
               if (kDebugMode) {
@@ -79,10 +85,12 @@ class AppBarWidget extends StatelessWidget {
               }
             } else if (value == 3) {
               // Option 3 selected
-               _authViewModel.logout();
+              _authViewModel.logout();
               Navigator.pushNamedAndRemoveUntil(
-                  context,LoginScreen.routeName, (route) => false);
-
+                context,
+                LoginScreen.routeName,
+                    (route) => false,
+              );
             }
           },
           child: CircleAvatar(
