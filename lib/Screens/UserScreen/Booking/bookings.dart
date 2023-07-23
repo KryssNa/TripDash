@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/bus_booking.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/package_booking.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/place_booking.dart';
-import 'package:tripdash/widget/UserBookings/booking_gesture_detector.dart';
-
-import 'hotel_booking.dart';
 
 class UserBookings extends StatelessWidget {
   static String routeName = "/UserBookings";
@@ -30,72 +24,6 @@ class UserBookings extends StatelessWidget {
           },
         ),
         backgroundColor: const Color(0xff3e7dc3),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        children: [
-          BookingGestureDetector(
-            icon: Icons.hotel,
-            title: 'Hotel Booking',
-            description: 'Your bookings of hotels',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HotelBooking(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(height: 8.0),
-          BookingGestureDetector(
-            icon: Icons.place,
-            title: 'Place Booking',
-            description: 'Your bookings of places',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const PlaceBooking(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(height: 8.0),
-          BookingGestureDetector(
-            icon: Icons.card_travel,
-            title: 'Package Booking',
-            description: 'Your bookings of packages',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const PackageBooking(),
-                ),
-              );
-            },
-          ),
-          BookingGestureDetector(
-            icon: Icons.airplanemode_active_outlined,
-            title: 'Airplane Booking',
-            description: 'Your bookings of plane',
-            onTap: () {
-            },
-          ),
-          BookingGestureDetector(
-            icon: Icons.directions_bus_outlined,
-            title: 'Bus Booking',
-            description: 'Your bookings of bus',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const BusBooking(),
-                ),
-              );
-            },
-          ),
-        ],
       ),
     );
   }
