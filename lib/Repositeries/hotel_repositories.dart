@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tripdash/Services/firebase_service.dart';
 import 'package:tripdash/model/hotel_model.dart';
 
 
 class HotelRepository{
+  FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference<HotelModel> ref =
-  FirebaseService.db.collection("hotel")
+  FirebaseFirestore.instance.collection("hotel")
       .withConverter<HotelModel>(
     fromFirestore: (snapshot, _) {
       return HotelModel.fromFirebaseSnapshot(snapshot);

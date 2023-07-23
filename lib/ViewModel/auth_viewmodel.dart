@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Repositeries/auth_repositeries.dart';
 import 'package:tripdash/Repositeries/user_repositeries.dart';
-import 'package:tripdash/Services/firebase_service.dart';
 import 'package:tripdash/model/user_model.dart';
 
 class AuthViewModel with ChangeNotifier {
-  User? _user = FirebaseService.firebaseAuth.currentUser;
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  User? _user = FirebaseAuth.instance.currentUser;
   User? get user => _user;
   UserModel? _loggedInUser;
   UserModel? get loggedInUser => _loggedInUser;

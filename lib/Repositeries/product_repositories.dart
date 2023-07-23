@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tripdash/Services/firebase_service.dart';
 import 'package:tripdash/model/product_model.dart';
 
 class ProductRepository{
+  FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference<ProductModel> ref =
-  FirebaseService.db.collection("product")
+  FirebaseFirestore.instance.collection("product")
       .withConverter<ProductModel>(
     fromFirestore: (snapshot, _) {
       return ProductModel.fromFirebaseSnapshot(snapshot);

@@ -2,11 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:tripdash/model/user_model.dart';
-import 'package:tripdash/Services/firebase_service.dart';
 
 class AuthRepository {
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference<UserModel> userRef =
-  FirebaseService.db.collection("users").withConverter<UserModel>(
+  FirebaseFirestore.instance.collection("users").withConverter<UserModel>(
     fromFirestore: (snapshot, _) {
       return UserModel.fromFirebaseSnapshot(snapshot);
     },
@@ -20,7 +21,7 @@ class AuthRepository {
       if (response.size != 0) {
         throw Exception("Email already exists");
       }
-      UserCredential uc = await FirebaseService.firebaseAuth
+      UserCredential uc = await firebaseAuth
           .createUserWithEmailAndPassword(
           email: user.email!, password: user.password!);
 
@@ -39,7 +40,7 @@ class AuthRepository {
 
   Future<UserCredential> login(String email, String password) async {
     try {
-      UserCredential uc = await FirebaseService.firebaseAuth
+      UserCredential uc = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
       return uc;
     } catch (err) {
@@ -62,7 +63,7 @@ class AuthRepository {
 
   Future<bool> resetPassword(String password, UserModel user) async {
     try {
-      await FirebaseService.firebaseAuth.currentUser!.updatePassword(password);
+      await firebaseAuth.currentUser!.updatePassword(password);
       await userRef.doc(user.userId).set(user);
 
       return true;
@@ -76,7 +77,7 @@ class AuthRepository {
 
   Future<void> logout() async {
     try {
-      await FirebaseService.firebaseAuth.signOut();
+      await firebaseAuth.signOut();
     } catch (err) {
       rethrow;
     }
