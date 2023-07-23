@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
@@ -21,6 +22,7 @@ class Account extends StatefulWidget {
 class _AccountState extends State<Account> {
   String avatar = '';
   String name = '';
+  User user=FirebaseAuth.instance.currentUser!;
 
   @override
   void initState() {
@@ -30,7 +32,7 @@ class _AccountState extends State<Account> {
   Future<void> fetchData() async {
     try {
       DocumentSnapshot document =
-      await FirebaseFirestore.instance.collection('users').doc("RSj3klJHTBWjWcPYG0g7fhCnXAQ2").get();
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
 
       if (document.exists) {
         var data = document.data() as Map<String, dynamic>;
