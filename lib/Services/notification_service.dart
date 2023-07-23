@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -14,7 +15,7 @@ class NotificationService {
     _notificationsPlugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
 
-    final InitializationSettings initializationSettings = InitializationSettings(
+    const InitializationSettings initializationSettings = InitializationSettings(
         android: AndroidInitializationSettings("@mipmap/ic_launcher"),
         iOS: DarwinInitializationSettings(
             requestSoundPermission: false,
@@ -28,14 +29,16 @@ class NotificationService {
   static void onDidReceiveNotificationResponse(NotificationResponse? response) {
     if (response != null && response.payload != null) {
       Navigator.of(context!).pushNamed(response.payload.toString());
-      print(response.payload);
+      if (kDebugMode) {
+        print(response.payload);
+      }
     }
   }
 
   static Future<String> getImageFilePathFromAssets(String asset, String filename) async {
     final byteData = await rootBundle.load(asset);
-    final temp_direactory = await getTemporaryDirectory();
-    final file = File('${temp_direactory.path}/$filename');
+    final tempDireactory = await getTemporaryDirectory();
+    final file = File('${tempDireactory.path}/$filename');
     await file
         .writeAsBytes(byteData.buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
 
@@ -54,7 +57,7 @@ class NotificationService {
     }
 
     // if image from asset
-    var styleinformationDesign;
+    var styleinformationDesign=const DefaultStyleInformation(true,true);
     if (image != null && logo != null) {
       late AndroidBitmap<Object>? notificationImage;
       late AndroidBitmap<Object>? notificationLogo;
@@ -68,7 +71,9 @@ class NotificationService {
           largeIcon: notificationLogo,
         );
       } catch (e) {
-        print("Notification Error ${e}");
+        if (kDebugMode) {
+          print("Notification Error $e");
+        }
       }
     }
 
@@ -79,7 +84,7 @@ class NotificationService {
             importance: Importance.max,
             priority: Priority.high,
             styleInformation: styleinformationDesign),
-        iOS: DarwinNotificationDetails());
+        iOS: const DarwinNotificationDetails());
     _notificationsPlugin.show(id, title, body, notificationDetails, payload: payload);
   }
 }

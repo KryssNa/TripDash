@@ -5,7 +5,7 @@ import 'package:tripdash/Repositeries/auth_repositeries.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/model/user_model.dart';
 
-import '../../Notification/NotificationService.dart';
+import '../../Services/notification_service.dart';
 
 class UpdatePassword extends StatefulWidget {
   static const routeName = '/UpdatePassword';

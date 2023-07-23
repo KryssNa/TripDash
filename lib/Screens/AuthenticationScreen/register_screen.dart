@@ -9,7 +9,7 @@ import 'package:tripdash/model/user_model.dart';
 import 'package:tripdash/widget/button_widget.dart';
 import 'package:tripdash/widget/text_field_widget.dart';
 
-import '../../Notification/NotificationService.dart';
+import '../../Services/notification_service.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
