@@ -8,7 +8,6 @@ import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
-import '../faq.dart';
 
 class Account extends StatefulWidget {
   static String routeName = "/Account";
@@ -206,25 +205,6 @@ class _AccountState extends State<Account> {
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
                   ),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text('FAQ'),
-                  subtitle: const Text('Questions and Answer'),
-                  leading: SizedBox(
-                    width: 40.0,
-                    height: 40.0,
-                    child: Image.asset('Assets/images/faq.png'),
-                  ),
-                  trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const FAQ(),
-                      ),
-                    );
-                  },
                 ),
                 const Divider(),
                 ListTile(
