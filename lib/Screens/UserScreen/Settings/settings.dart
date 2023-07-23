@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/term_and_condition.dart';
 import 'package:tripdash/widget/Notification/notification_list.dart';
-
 import '../AboutUs/about_us.dart';
 import '../faq.dart';
 
@@ -64,19 +63,6 @@ class _UserSettingState extends State<UserSetting> {
                       ),
                     );
                   },
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text('FeedBack'),
-                  subtitle: const Text('Provide a feedback about app'),
-                  leading: SizedBox(
-                    width: 40.0,
-                    height: 40.0,
-                    child: Image.asset('Assets/icons/feedback.png'),
-                  ),
-                  trailing:
-                  const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {},
                 ),
                 const Divider(),
                 ListTile(
