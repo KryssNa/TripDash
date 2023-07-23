@@ -5,6 +5,7 @@ import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
+import 'package:tripdash/widget/destination_card.dart';
 import '../UserScreen/app_bar.dart';
 
 class UserDashboard extends StatefulWidget {
@@ -18,10 +19,52 @@ class UserDashboard extends StatefulWidget {
 class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
+    Widget popularDestinations() {
+      return Container(
+        margin: const EdgeInsets.only(top: 30),
+        child:  const SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              DestinationCard(
+                name: 'Lake Ciliwung',
+                city: 'Tangerang',
+                imageUrl: 'Assets/images/userDashboard/image_destination1.png',
+                rating: 4.8,
+              ),
+              DestinationCard(
+                name: 'White Houses',
+                city: 'Spain',
+                imageUrl: 'Assets/images/userDashboard/image_destination2.png',
+                rating: 4.7,
+              ),
+              DestinationCard(
+                name: 'Hill Heyo',
+                city: 'Monaco',
+                imageUrl: 'Assets/images/userDashboard/image_destination3.png',
+                rating: 4.8,
+              ),
+              DestinationCard(
+                name: 'Menarra',
+                city: 'Japan',
+                imageUrl: 'Assets/images/userDashboard/image_destination4.png',
+                rating: 5.0,
+              ),
+              DestinationCard(
+                name: 'Payung Teduh',
+                city: 'Singapore',
+                imageUrl: 'Assets/images/userDashboard/image_destination5.png',
+                rating: 4.8,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return Consumer<AuthViewModel>(
       builder: (context, auth , child) {
         return Scaffold(
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: Colors.white,
             drawer: const UserAppDrawer(),
             appBar: const PreferredSize(
               preferredSize: Size.fromHeight(50), // Change the height as desired
@@ -44,7 +87,7 @@ class _UserDashboardState extends State<UserDashboard> {
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                           ),
                         ]),
@@ -58,13 +101,11 @@ class _UserDashboardState extends State<UserDashboard> {
                       "Where do you want to go?",
                       style: TextStyle(
                         fontSize: 15,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ),
                 ),
-                const NavigationButton(),
-                searchArea(),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
@@ -83,6 +124,7 @@ class _UserDashboardState extends State<UserDashboard> {
                       child: Column(
                         children: [
                           //
+                          popularDestinations(),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -954,34 +996,6 @@ class _UserDashboardState extends State<UserDashboard> {
             ));
       }
     );
-  }
-
-  Container searchArea() {
-    return Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            height: 45,
-            width: 400,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
-            child: const Center(
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Search",
-                  hoverColor: Colors.grey,
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                  ),
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Colors.grey,
-                    size: 30,
-                  ),
-                ),
-              ),
-            ),
-          );
   }
 }
 
