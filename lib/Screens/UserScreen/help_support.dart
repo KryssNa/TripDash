@@ -6,9 +6,6 @@ void main() {
   ));
 }
 
-
-
-
 class HelpSupportPage extends StatefulWidget {
   static var routeName = "uyg";
 

@@ -7,6 +7,7 @@ import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
+import 'package:tripdash/Screens/UserScreen/help_support.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
 class Account extends StatefulWidget {
@@ -205,6 +206,14 @@ class _AccountState extends State<Account> {
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
                   ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HelpSupportPage(),
+                      ),
+                    );
+                  },
                 ),
                 const Divider(),
                 ListTile(

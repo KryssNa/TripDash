@@ -56,7 +56,8 @@ class TermsAndConditionsScreen extends StatelessWidget {
             SizedBox(height: 20.0),
             Text(
               'Contact Us',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(
+                  0xFF08234D)),
             ),
             SizedBox(height: 10.0),
             Text(
@@ -67,7 +68,8 @@ class TermsAndConditionsScreen extends StatelessWidget {
             SizedBox(height: 20.0),
             Text(
               'Changes to This Agreement',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(
+                  0xFF08234D)),
             ),
             SizedBox(height: 10.0),
             Text(
@@ -78,7 +80,8 @@ class TermsAndConditionsScreen extends StatelessWidget {
             SizedBox(height: 20.0),
             Text(
               'Governing Law',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(
+                  0xFF08234D)),
             ),
             SizedBox(height: 10.0),
             Text(
