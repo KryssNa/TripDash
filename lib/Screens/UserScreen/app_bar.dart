@@ -19,7 +19,6 @@ import 'package:tripdash/ViewModel/auth_viewmodel.dart';
     if (document.exists) {
       var data = document.data() as Map<String, dynamic>;
         avatar = data['avatar'] ?? '';
-
     }
   }
   AuthViewModel _authViewModel = AuthViewModel();
@@ -87,7 +86,7 @@ class AppBarWidget extends StatelessWidget {
             }
           },
           child: CircleAvatar(
-            radius: 34,
+            radius: 27,
             backgroundImage: AssetImage(avatar),
           ),
         ),
