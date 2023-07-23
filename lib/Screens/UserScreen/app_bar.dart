@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/widget/Notification/notification_list.dart';
+import 'package:tripdash/widget/Search/app_bar_search.dart';
 
 String? avatar;
 
@@ -59,6 +60,11 @@ class AppBarWidget extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AppBarSearch()),
+              );
             },
             icon: const Icon(Icons.search),
             color: Colors.orange,

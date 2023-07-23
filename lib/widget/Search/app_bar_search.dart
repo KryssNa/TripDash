@@ -13,23 +13,38 @@ class _AppBarSearchState extends State<AppBarSearch> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            // Define the action you want to perform when the back button is pressed
             Navigator.pop(context);
           },
         ),
-        title: TextField(
-          decoration: InputDecoration(
-            hintText: 'Search...',
-            border: InputBorder.none,
+        title: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: const Row(
+            children: [
+              Icon(Icons.search, color: Colors.black), // Search icon
+              SizedBox(width: 8),
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search...',
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
-      body: Center(
-        child: Text('Your content goes here'),
+      body: const Center(
+        child: Text('Searches will be displayed here'),
       ),
     );
   }
 }
+
+
