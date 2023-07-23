@@ -61,6 +61,7 @@ class SeatBookingRepositery {
         'date': date,
         'seatNumbers': seatNumbers,
         'total': total,
+        'status':status,
       };
 
       await transactionRef.set(transactionData);
