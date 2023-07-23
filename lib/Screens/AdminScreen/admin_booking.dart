@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -29,7 +31,7 @@ class _AdminBookingState extends State<AdminBooking> {
         backgroundColor: const Color(0xFF007096),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection('Bookings').snapshots(),
+        stream: FirebaseFirestore.instance.collection('transactions').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -55,14 +57,14 @@ class _AdminBookingState extends State<AdminBooking> {
             itemCount: bookingDocs.length,
             itemBuilder: (context, index) {
               var bookingData = bookingDocs[index].data() as Map<String, dynamic>;
-              String name = bookingData['name'] ?? '';
-              String place = bookingData['place'] ?? '';
-              String package = bookingData['package'] ?? '';
-              String bus = bookingData['bus'] ?? '';
-              String aeroplane = bookingData['aeroplane'] ?? '';
-              String hotel = bookingData['hotel'] ?? '';
-
-              // Fetch the document name (booking ID)
+              String date= bookingData['date'] ?? '';
+              String destinationLocation = bookingData['destinationLocation'] ?? '';
+              String noOfTickets = bookingData['noOfTickets'] ?? '';
+              List<String> seatNumbers = List<String>.from(bookingData['seatNumbers']);
+              String sourceLocation = bookingData['sourceLocation'] ?? '';
+              int total = bookingData['total'] ?? '';
+              String transactionId = bookingData['transactionId'] ?? '';
+              String userId = bookingData['userId'] ?? '';
               String bookingId = bookingDocs[index].id;
 
               return Dismissible(
@@ -89,7 +91,7 @@ class _AdminBookingState extends State<AdminBooking> {
                 },
                 onDismissed: (direction) async {
                   if (direction == DismissDirection.endToStart) {
-                    await FirebaseFirestore.instance.collection('Bookings').doc(bookingId).delete();
+                    await FirebaseFirestore.instance.collection('transactions').doc(bookingId).delete();
                   }
                 },
                 background: Container(
@@ -114,19 +116,51 @@ class _AdminBookingState extends State<AdminBooking> {
                     ),
                     child: ListTile(
                       title: Text(
-                        'Booking Id : $bookingId', // Use the bookingId variable here
+                        'User Id : $userId',
                         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('User Name: $name', style: const TextStyle(fontSize: 16)),
-                          Text('Place: $place', style: const TextStyle(fontSize: 16)),
-                          Text('Package: $package', style: const TextStyle(fontSize: 16)),
-                          Text('Bus: $bus', style: const TextStyle(fontSize: 16)),
-                          Text('Aeroplane: $aeroplane', style: const TextStyle(fontSize: 16)),
-                          Text('Hotel: $hotel', style: const TextStyle(fontSize: 16)),
+                          Text('Date : $date', style: const TextStyle(fontSize: 16)),
+                          Text('Destination Location: $destinationLocation', style: const TextStyle(fontSize: 16)),
+                          Text('No Of Tickets: $noOfTickets', style: const TextStyle(fontSize: 16)),
+                          Text('Seat Numbers: $seatNumbers', style: const TextStyle(fontSize: 16)),
+                          Text('Source Location: $sourceLocation', style: const TextStyle(fontSize: 16)),
+                          Text('Total: $total', style: const TextStyle(fontSize: 16)),
+                          Text('TransactionId: $transactionId', style: const TextStyle(fontSize: 16)),
                         ],
+                      ),
+                      trailing: TextButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text("Confirm Approval"),
+                                content: Text("Are you sure you want to approve this booking?"),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.of(context).pop(false), // Cancel button
+                                    child: Text("Cancel"),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                    },
+                                    child: const Text("Approve", style: TextStyle(color: Colors.blue)), // Approve button with blue text color
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(Colors.blue), // Button background color
+                        ),
+                        child: const Text(
+                          'Approve',
+                          style: TextStyle(color: Colors.white, fontSize: 16), // Button text color
+                        ),
                       ),
                     ),
                   ),
