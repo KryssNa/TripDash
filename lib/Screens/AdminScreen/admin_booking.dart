@@ -10,6 +10,10 @@ class AdminBooking extends StatefulWidget {
 }
 
 class _AdminBookingState extends State<AdminBooking> {
+
+  void pop(){
+    Navigator.of(context).pop(true);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,7 @@ class _AdminBookingState extends State<AdminBooking> {
         backgroundColor: const Color(0xFF007096),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection('transactions').snapshots(),
+        stream: FirebaseFirestore.instance.collection('transactions').where("status", isEqualTo: "pending").snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -131,6 +135,7 @@ class _AdminBookingState extends State<AdminBooking> {
                       ),
                       trailing: TextButton(
                         onPressed: () {
+                          BuildContext dialogContext = context;
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
@@ -139,11 +144,15 @@ class _AdminBookingState extends State<AdminBooking> {
                                 content: const Text("Are you sure you want to approve this booking?"),
                                 actions: [
                                   TextButton(
-                                    onPressed: () => Navigator.of(context).pop(false), // Cancel button
+                                    onPressed: () => Navigator.of(dialogContext).pop(false), // Use the captured context
                                     child: const Text("Cancel"),
                                   ),
                                   TextButton(
-                                    onPressed: () {
+                                    onPressed: () async {
+                                      await FirebaseFirestore.instance.collection('transactions').doc(bookingId).update({
+                                        'status': 'approved',
+                                      });
+                                      pop();
                                     },
                                     child: const Text("Approve", style: TextStyle(color: Colors.blue)), // Approve button with blue text color
                                   ),
