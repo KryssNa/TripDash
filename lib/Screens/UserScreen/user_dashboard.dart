@@ -33,39 +33,39 @@ class _UserDashboardState extends State<UserDashboard> {
                 const SizedBox(
                   height: 10,
                 ),
-
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Text.rich(
-                      TextSpan(
-                        text: 'Hello,\n', // Add "\n" to display the user name on a new line
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
+                Row(
+                  children: [
+                    const Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage('Assets/avatars/av_1.png'),
                         ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:  "${auth.loggedInUser?.name}",
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
                       ),
                     ),
-                  ),
-                ),
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage('Assets/avatars/av_1.png'),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text.rich(
+                        TextSpan(
+                          text: 'Hello,\n',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: "${auth.loggedInUser?.name}",
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
