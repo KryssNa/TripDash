@@ -7,11 +7,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tripdash/Repositeries/user_repositeries.dart';
-import 'package:tripdash/Screens/TransportationScreen/Widgets/custom_button.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 import 'package:tripdash/model/payment_model.dart';
 import 'package:tripdash/model/user_model.dart';
+import 'package:tripdash/widget/Transportation/custom_button.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});

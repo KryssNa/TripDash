@@ -7,8 +7,8 @@ import 'package:tripdash/ViewModel/Transportation/seat_booking_viewmodel.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 import 'package:tripdash/model/Transportation/seat_booking_model.dart';
-import 'Widgets/booking_details_item.dart';
-import 'Widgets/custom_button.dart';
+import 'package:tripdash/widget/Transportation/custom_button.dart';
+import '../../widget/Transportation/booking_details_item.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({Key? key,required this.selectedSeats,required this.totalPrice, required this.tranportationId,}) : super(key: key) ;
