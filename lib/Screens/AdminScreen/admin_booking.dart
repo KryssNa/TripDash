@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -137,12 +135,12 @@ class _AdminBookingState extends State<AdminBooking> {
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: Text("Confirm Approval"),
-                                content: Text("Are you sure you want to approve this booking?"),
+                                title: const Text("Confirm Approval"),
+                                content: const Text("Are you sure you want to approve this booking?"),
                                 actions: [
                                   TextButton(
                                     onPressed: () => Navigator.of(context).pop(false), // Cancel button
-                                    child: Text("Cancel"),
+                                    child: const Text("Cancel"),
                                   ),
                                   TextButton(
                                     onPressed: () {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/airplane_booking.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bus_booking.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/package_booking.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/place_booking.dart';
@@ -9,9 +8,7 @@ import 'hotel_booking.dart';
 
 class UserBookings extends StatelessWidget {
   static String routeName = "/UserBookings";
-
   const UserBookings({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,12 +80,6 @@ class UserBookings extends StatelessWidget {
             title: 'Airplane Booking',
             description: 'Your bookings of plane',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AirplaneBooking(),
-                ),
-              );
             },
           ),
           BookingGestureDetector(
