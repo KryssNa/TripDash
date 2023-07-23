@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:accordion/accordion.dart';
-import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
 
 class FAQ extends StatelessWidget {
   static String routeName = "/FAQ";
@@ -10,9 +9,22 @@ class FAQ extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: const UserAppDrawer(),
         appBar: AppBar(
-          title: const Text("FAQ about Trip Dash"),
+          backgroundColor: const Color(0xFF2EA7F5),
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+          ),
+          title: const Text("FAQ about Trip Dash",
+          style: TextStyle(
+            color: Colors.white,
+          ),),
           centerTitle: true,
         ),
         body: Accordion(
