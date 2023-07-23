@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tripdash/Services/firebase_service.dart';
 import 'package:tripdash/model/event_model.dart';
 
 class EventRepository{
+  FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference<EventModel> ref =
-  FirebaseService.db.collection("event")
+  FirebaseFirestore.instance.collection("event")
       .withConverter<EventModel>(
     fromFirestore: (snapshot, _) {
       return EventModel.fromFirebaseSnapshot(snapshot);

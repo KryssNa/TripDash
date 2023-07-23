@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tripdash/Services/firebase_service.dart';
 import 'package:tripdash/model/place_model.dart';
 
 class PlaceRepository{
+  FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference<PlaceModel> ref =
-  FirebaseService.db.collection("place")
+  FirebaseFirestore.instance.collection("place")
       .withConverter<PlaceModel>(
     fromFirestore: (snapshot, _) {
       return PlaceModel.fromFirebaseSnapshot(snapshot);
