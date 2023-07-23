@@ -278,8 +278,8 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                 borderRadius: const BorderRadius.all(
                   Radius.circular(32.0),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Icon(
                     Icons.search,
                     size: 20,
@@ -309,7 +309,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
               onTap: () {},
               child: Container(
                 decoration: BoxDecoration(
-                  color: PlaceTheme.buildLightTheme().backgroundColor,
+                  color: PlaceTheme.buildLightTheme().colorScheme.background,
                   borderRadius: const BorderRadius.all(
                     Radius.circular(16.0),
                   ),
@@ -329,7 +329,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
                         Icons.calendar_today,
                         color: PlaceTheme.buildLightTheme().primaryColor,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Text(
@@ -376,7 +376,7 @@ class _PlaceHomeScreenState extends State<PlaceHomeScreen>
       onTap: () {
         Navigator.pop(context);
       },
-      child: Padding(
+      child: const Padding(
         padding: EdgeInsets.all(8.0),
         child: Icon(Icons.arrow_back),
       ),

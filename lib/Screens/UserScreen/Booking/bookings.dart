@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/airplaneBooking.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/busBooking.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/packageBooking.dart';
-import 'package:tripdash/Screens/UserScreen/Booking/placeBooking.dart';
-import 'package:tripdash/widget/UserBookings/bookingGestureDetector.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/airplane_booking.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/bus_booking.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/package_booking.dart';
+import 'package:tripdash/Screens/UserScreen/Booking/place_booking.dart';
+import 'package:tripdash/widget/UserBookings/booking_gesture_detector.dart';
 
-import 'hotelBooking.dart';
+import 'hotel_booking.dart';
 
 class UserBookings extends StatelessWidget {
   static String routeName = "/UserBookings";
