@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../update_password.dart';
+
 class UpdateUserProfile extends StatefulWidget {
   const UpdateUserProfile({Key? key}) : super(key: key);
   static String routeName = "/UpdateUserProfile";
@@ -257,58 +259,93 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                       ),
                     ),
                     Padding(
-                      padding:
-                      const EdgeInsets.only(right: 12, left: 15, top: 40),
+                      padding: const EdgeInsets.only(right: 12, left: 15, top: 30),
                       child: ElevatedButton(
                         style: ButtonStyle(
-                          minimumSize:
-                          MaterialStateProperty.all<Size>(const Size(350, 50)),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              ConstColors.buttonColor),
-                          foregroundColor: MaterialStateProperty.all<Color>(
-                              ConstColors.buttonColor2),
+                          minimumSize: MaterialStateProperty.all<Size>(const Size(350, 50)),
+                          backgroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor),
+                          foregroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor2),
                         ),
                         onPressed: () {
-                          if (nameController.text.isEmpty ||
-                              addressController.text.isEmpty ||
-                              emailController.text.isEmpty ||
-                              phoneNoController.text.isEmpty) {
+                          // Validate phone number
+                          String phoneNumber = phoneNoController.text.trim();
+                          if (phoneNumber.length != 10 || int.tryParse(phoneNumber) == null) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Please fill all fields')),
+                              const SnackBar(content: Text('Invalid phone number. It should be a 10-digit number.')),
                             );
                             return;
                           }
-                          try {
-                            docUser.update({
-                              'name': nameController.text,
-                              'email': emailController.text,
-                              'phone': phoneNoController.text,
-                              'address': addressController.text,
-                              'gender': selectedGender,
-                              'avatar': avatarController.text,
-                            }).then((_) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content:
-                                    Text('Profile updated successfully!')),
-                              );
-                            }).catchError((error) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                    content: Text('Failed to update: $error')),
-                              );
-                            });
-                          } catch (error) {
+
+                          String email = emailController.text.trim();
+                          if (!_isValidEmail(email)) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                  content: Text(
-                                      'An error occurred while updating the profile: $error')),
+                              const SnackBar(content: Text('Invalid email format.')),
                             );
+                            return;
                           }
+
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            },
+                          );
+                          Future.delayed(const Duration(seconds: 2), () {
+                            try {
+                              docUser.update({
+                                'name': nameController.text,
+                                'email': email,
+                                'phone': phoneNumber,
+                                'address': addressController.text,
+                                'gender': selectedGender,
+                                'avatar': avatarController.text,
+                              }).then((_) {
+                                Navigator.pop(context); // Close the rotating box alert
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Text('Profile updated successfully!')),
+                                );
+                              }).catchError((error) {
+                                Navigator.pop(context); // Close the rotating box alert
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Failed to update: $error')),
+                                );
+                              });
+                            } catch (error) {
+                              Navigator.pop(context); // Close the rotating box alert
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('An error occurred while updating the profile: $error')),
+                              );
+                            }
+                          });
                         },
-                        child: const Text("Update Proflie"),
+                        child: const Text("Update Profile"),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12, left: 15, top: 10),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(const Size(350, 50)),
+                          backgroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor),
+                          foregroundColor: MaterialStateProperty.all<Color>(ConstColors.buttonColor2),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const UpdatePassword()),
+                          );
+                        },
+                        child: const Text("Update Password"),
+                      ),
+                    ),
+
                   ],
                 ),
               ],
@@ -317,5 +354,9 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
         ),
       ),
     );
+  }
+  bool _isValidEmail(String email) {
+    final emailRegExp = RegExp(r"^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$");
+    return emailRegExp.hasMatch(email);
   }
 }
