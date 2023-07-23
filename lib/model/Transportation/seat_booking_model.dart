@@ -11,6 +11,7 @@ class SeatBookingModel {
   final String sourceLocation;
   final String destinationLocation;
   final String date;
+  final String status;
   final List<String> seatNumbers;
 
   SeatBookingModel({
@@ -18,6 +19,7 @@ class SeatBookingModel {
     this.userId,
     required this.transactionId,
     required this.total,
+    required this.status,
     required this.noOfTickets,
     required this.sourceLocation,
     required this.destinationLocation,
@@ -31,6 +33,7 @@ class SeatBookingModel {
       userId: data['userId'] ?? '',
       transactionId: data['transactionId'] ?? '',
       tranportationId: data['tranportationId'] ?? '',
+      status: data['status'] ?? '',
       total: data['total'] ?? 0,
       noOfTickets: data['noOfTickets'] ?? '',
       sourceLocation: data['sourceLocation'] ?? '',
@@ -51,6 +54,7 @@ class SeatBookingModel {
       'destinationLocation': destinationLocation,
       'date': date,
       'seatNumbers': seatNumbers,
+      'status' : status,
     };
   }
 
@@ -64,6 +68,7 @@ class SeatBookingModel {
       sourceLocation: map['sourceLocation'] ?? '',
       destinationLocation: map['destinationLocation'] ?? '',
       date: map['date'] ?? '',
+      status: map['status']?? '',
       seatNumbers: List<String>.from(map['seatNumbers']),
     );
   }

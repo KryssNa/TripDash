@@ -11,6 +11,7 @@ class SeatBookingViewModel {
     required String destinationLocation,
     required String date,
     required List<String> seatNumbers,
+    required String status,
   }) async {
     try {
       return await SeatBookingRepositery.bookSeat(
@@ -20,6 +21,8 @@ class SeatBookingViewModel {
         sourceLocation: sourceLocation,
         destinationLocation: destinationLocation,
         date: date,
+        status: status,
+
         seatNumbers: seatNumbers,
       );
     } catch (error) {

@@ -33,7 +33,9 @@ class SeatBookingRepositery {
     required String tranportationId,
     required String destinationLocation,
     required String date,
+    required String status,
     required List<String> seatNumbers,
+
   }) async {
     try {
       UserModel? user = await UserRepositeries.getLoggedInUser();
@@ -73,6 +75,7 @@ class SeatBookingRepositery {
         destinationLocation: destinationLocation,
         date: date,
         seatNumbers: seatNumbers,
+        status: status,
       );
     } catch (error) {
       // Handle any errors that occur during the transaction

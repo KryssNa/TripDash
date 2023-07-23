@@ -20,6 +20,7 @@ class CheckoutScreen extends StatelessWidget {
   final String tranportationId ;
 
 
+
   void fetchTotalBalance() async {
     try {
       int totalBalance = await SeatBookingRepositery.getTotalBalance();
@@ -100,6 +101,7 @@ class CheckoutScreen extends StatelessWidget {
             destinationLocation: destinationLocation,
             date: date,
             seatNumbers: seatNumbers,
+            status: "pending",
           );
           if (kDebugMode) {
             print(transaction.transactionId);
