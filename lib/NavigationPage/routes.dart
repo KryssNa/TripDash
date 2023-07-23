@@ -20,6 +20,12 @@ import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details1.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details2.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details3.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details4.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details5.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details6.dart';
 import 'package:tripdash/Screens/UserScreen/help_support.dart';
 import 'package:tripdash/Screens/UserScreen/Account/account.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
@@ -68,6 +74,12 @@ final Map<String, WidgetBuilder> routes = {
   LoginScreen.routeName: (context) => const LoginScreen(),
   PlaceHomeScreen.routeName: (context) => const PlaceHomeScreen(),
   DetailPage.routName: (context) => const DetailPage(),
+  DetailPage1.routName: (context) => const DetailPage1(),
+  DetailPage2.routName: (context) => const DetailPage2(),
+  DetailPage3.routName: (context) => const DetailPage3(),
+  DetailPage4.routName: (context) => const DetailPage4(),
+  DetailPage5.routName: (context) => const DetailPage5(),
+  DetailPage6.routName: (context) => const DetailPage6(),
   ChooseSeatPage.routeName: (context) => const ChooseSeatPage(),
   SplashPage.routeName: (context) => const SplashPage(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),

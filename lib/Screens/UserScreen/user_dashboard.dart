@@ -1,5 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details2.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details3.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details4.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details5.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details6.dart';
 import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
@@ -93,7 +98,7 @@ class _UserDashboardState extends State<UserDashboard> {
                       child: Column(
                         children: [
                           //
-                          popularDestinations(),
+                          popularDestinations(context),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -1597,10 +1602,11 @@ class RecomendedPlace extends StatelessWidget {
     );
   }
 }
-Widget popularDestinations() {
+
+Widget popularDestinations(BuildContext context) {
   return Container(
     margin: const EdgeInsets.only(top: 16),
-    child:  const SingleChildScrollView(
+    child:   SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
@@ -1608,166 +1614,71 @@ Widget popularDestinations() {
             name: 'Lake Ciliwung',
             city: 'Tangerang',
             imageUrl: 'Assets/images/userDashboard/image_destination1.png',
-            rating: 4.8,
+            rating: 4.8, onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const DetailPage2(),
+              ),
+            );
+          },
+
           ),
           DestinationCard(
             name: 'White Houses',
             city: 'Spain',
             imageUrl: 'Assets/images/userDashboard/image_destination2.png',
-            rating: 4.7,
+            rating: 4.7, onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const DetailPage3(),
+              ),
+            );
+          },
           ),
           DestinationCard(
             name: 'Hill Heyo',
             city: 'Monaco',
             imageUrl: 'Assets/images/userDashboard/image_destination3.png',
-            rating: 4.8,
+            rating: 4.8, onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const DetailPage4(),
+              ),
+            );
+          },
           ),
           DestinationCard(
             name: 'Menarra',
             city: 'Japan',
             imageUrl: 'Assets/images/userDashboard/image_destination4.png',
             rating: 5.0,
+            onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const DetailPage5(),
+              ),
+            );
+          },
           ),
           DestinationCard(
             name: 'Payung Teduh',
             city: 'Singapore',
             imageUrl: 'Assets/images/userDashboard/image_destination5.png',
-            rating: 4.8,
+            rating: 4.8, onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const DetailPage6(),
+              ),
+            );
+          },
           ),
         ],
       ),
     ),
   );
-}
-
-class NavigationButton extends StatelessWidget {
-  const NavigationButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Column(
-          children: [
-            Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                ),
-                child: InkWell(
-                  onTap: () {},
-                  child: Image.asset(
-                    "Assets/icons/aeroplane.png",
-                    height: 30,
-                  ),
-                )),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Flights",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ],
-        ),
-        Column(
-          children: [
-            Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xffed6e27)),
-                child: InkWell(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.home_work_sharp,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-                )),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Hotels",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ],
-        ),
-        Column(
-          children: [
-            Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xfff3ac42),
-                ),
-                child: InkWell(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.task,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-                )),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Tasks",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ],
-        ),
-        Column(
-          children: [
-            Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xff03bdc9),
-                ),
-                child: InkWell(
-                  onTap: () {},
-                  child: Image.asset(
-                    "Assets/icons/car.png",
-                    height: 40,
-                  ),
-                )),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Cars",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
 }

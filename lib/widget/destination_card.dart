@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 
@@ -8,6 +7,7 @@ class DestinationCard extends StatelessWidget {
   final String city;
   final String imageUrl;
   final double rating;
+  final VoidCallback onPressed;
 
   const DestinationCard({
     Key? key,
@@ -15,18 +15,14 @@ class DestinationCard extends StatelessWidget {
     required this.city,
     required this.imageUrl,
     this.rating = 0.0,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const DetailPage(),
-          ),
-        );
+        onPressed();
       },
       child: Container(
         width: 200,
