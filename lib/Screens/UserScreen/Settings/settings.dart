@@ -112,20 +112,6 @@ class _UserSettingState extends State<UserSetting> {
                   },
                 ),
                 const Divider(),
-                ListTile(
-                  title: const Text('Logout'),
-                  subtitle: const Text('Logout form the app'),
-                  leading: SizedBox(
-                    width: 40.0,
-                    height: 40.0,
-                    child: Image.asset('Assets/icons/logout.png'),
-                  ),
-                  trailing:
-                  const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {
-                  },
-                ),
-                const Divider(),
               ],
             ),
           ),
