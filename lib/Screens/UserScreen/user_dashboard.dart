@@ -33,34 +33,37 @@ class _UserDashboardState extends State<UserDashboard> {
                 const SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Hello,  ${auth.loggedInUser?.name}",
+
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Text.rich(
+                      TextSpan(
+                        text: 'Hello,\n', // Add "\n" to display the user name on a new line
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text:  "${auth.loggedInUser?.name}",
                             style: const TextStyle(
-                              fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
                             ),
                           ),
-                        ]),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      "Where do you want to go?",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                      ),
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundImage: AssetImage('Assets/avatars/av_1.png'),
                     ),
                   ),
                 ),
@@ -916,33 +919,6 @@ class _UserDashboardState extends State<UserDashboard> {
                                 ],
                               ),
                             ),
-                          ),
-
-                          //Find the place in the map
-                          Column(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(top: 18.0,left: 20,bottom: 10),
-                                child: Align(
-                                    alignment: Alignment.bottomLeft,
-                                    child: Text(
-                                      "Find the place in the map",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    )),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  if (kDebugMode) {
-                                    print("MAp");
-                                  }
-                                },
-                                child: Image.asset('Assets/images/map2.png'),
-                              )
-                            ],
                           ),
 
                         ],
