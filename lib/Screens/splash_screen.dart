@@ -2,15 +2,15 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_screen1.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
-import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
-import '../Notification/NotificationService.dart';
+import '../Services/notification_service.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Timer(const Duration(seconds: 3), () {
+      Timer(const Duration(seconds: 5), () {
         _auth = Provider.of<AuthViewModel>(context, listen: false);
         _auth.checkLogin().then((value) {
           User? user = FirebaseAuth.instance.currentUser;
@@ -47,8 +47,8 @@ class _SplashPageState extends State<SplashPage> {
             }
           }
           NotificationService.display(
-                    title: "WELCOME USER",
-                    body: "You have successfully started a intresting application ",
+                    title: "Hello ${_auth.loggedInUser!.name!}!",
+                    body: "Welcome to TripDash",
                     image: "assets/images/logo.png",
                     logo: "assets/images/logo.png");
         });
@@ -61,18 +61,19 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ConstColors.kPrimaryColor,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 100,
-              height: 100,
+              width: 400,
+              height: 400,
               margin: const EdgeInsets.only(bottom: 50),
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('Assets/images/logo.png'))),
+              child: Lottie.asset('Assets/images/lottie2.json'),
             ),
             Text(
               'TripDash',
