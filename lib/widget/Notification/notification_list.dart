@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NotificationsList extends StatelessWidget {
+  static String routeName = "/NotificationList";
   const NotificationsList({Key? key}) : super(key: key);
 
   @override
