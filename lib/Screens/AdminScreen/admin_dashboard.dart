@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_booking.dart';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
@@ -85,23 +86,28 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   children: [
 
                     //total booking container
-                    Container(
-                      height: 90,
-                      width: 170,
-                      decoration: BoxDecoration(
-                        color: ConstColors.adminPanelBoxColor1,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("Assets/icons/icon-booking.png"),
-                          Text(
-                            "Bookings",
-                            style: buildTextStyle(
-                                ConstColors.adminSecondaryHeadingText),
-                          ),
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, AdminBooking.routeName);
+                      },
+                      child: Container(
+                        height: 90,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          color: ConstColors.adminPanelBoxColor1,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("Assets/icons/icon-booking.png"),
+                            Text(
+                              "Bookings",
+                              style: buildTextStyle(
+                                  ConstColors.adminSecondaryHeadingText),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
 

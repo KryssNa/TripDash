@@ -8,6 +8,7 @@ import 'package:tripdash/Screens/AdminScreen/add_place.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_dashboard.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_transaction.dart';
+import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
 import 'CustomerDetail/customer_detail.dart';
@@ -64,6 +65,9 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
         avatar = data['avatar'] ?? '';
       });
     }
+  }
+  void _logout() async {
+    Navigator.pushReplacementNamed(context, LoginScreen.routeName);
   }
 
   @override
@@ -156,17 +160,17 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             onTap: () => Navigator.pushNamed(context, AddProduct.routeName),
           ),
           ListTile(
-            leading: const Icon(Icons.add_circle_outline,color: Colors.green,size: 30,),
+            leading: const Icon(Icons.event_available_outlined,color: Colors.green,size: 30,),
             title:  Text("Add Events",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
             onTap: () => Navigator.pushNamed(context, AddProduct.routeName),
           ),
           ListTile(
-            leading: const Icon(Icons.add_circle_outline,color: Colors.green,size: 30,),
+            leading: const Icon(Icons.supervised_user_circle_rounded,color: Colors.green,size: 30,),
             title:  Text("Customer Details",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
             onTap: () => Navigator.pushNamed(context, CustomerDetail.routeName),
           ),
           ListTile(
-            leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
+            leading: const Icon(Icons.monetization_on_sharp,color: Colors.green,size: 30,),
             title:  Text("Transaction",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
             onTap: () => Navigator.pushNamed(context, AdminTransactionScreen.routeName),
           ),
@@ -174,6 +178,21 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             leading: const Icon(Icons.exit_to_app_outlined,color: Colors.green,size: 30,),
             title:  Text("Exit",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
             onTap: () => Navigator.pop(context),
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.logout,color: Colors.green,size: 30,),
+            title:  Text("Logout",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            splashColor: Colors.green,
+            onTap: () async {
+              AuthViewModel authViewModel = AuthViewModel();
+              await authViewModel.logout();
+              _logout();
+
+            },
           ),
 
         ],

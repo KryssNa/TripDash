@@ -1,11 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
 import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
+import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import '../faq.dart';
 
 class Account extends StatefulWidget {
@@ -17,7 +20,7 @@ class Account extends StatefulWidget {
 }
 
 class _AccountState extends State<Account> {
-  String avatar = "";
+  String avatar = '';
   String name = '';
 
   @override
@@ -44,6 +47,9 @@ class _AccountState extends State<Account> {
       // Handle the error gracefully
     }
   }
+  void _logout() async {
+    Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +60,12 @@ class _AccountState extends State<Account> {
         child: SingleChildScrollView(
           child: Padding(
             padding:
-            const EdgeInsets.only(left: 16.0, right: 16.0, top: kToolbarHeight),
+            const EdgeInsets.only(left: 16.0, right: 16.0, top: 16),
             child: Column(
               children: <Widget>[
                 CircleAvatar(
                   maxRadius: 48,
-                  backgroundImage: AssetImage(avatar),
+                  backgroundImage: AssetImage(avatar==''? 'Assets/avatars/av_1.png':avatar),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -187,25 +193,7 @@ class _AccountState extends State<Account> {
                     );
                   },
                 ),
-                const Divider(),
-                ListTile(
-                  title: const Text('Settings'),
-                  subtitle: const Text('Privacy and logout'),
-                  leading: SizedBox(
-                    width: 40.0,
-                    height: 40.0,
-                    child: Image.asset('Assets/images/settings.png'),
-                  ),
-                  trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const UserSetting(),
-                      ),
-                    );
-                  },
-                ),
+
                 const Divider(),
                 ListTile(
                   title: const Text('Help & Support'),
@@ -237,6 +225,43 @@ class _AccountState extends State<Account> {
                         builder: (context) => const FAQ(),
                       ),
                     );
+                  },
+                ),
+                const Divider(),
+                ListTile(
+                  title: const Text('Settings'),
+                  subtitle: const Text('Privacy and logout'),
+                  leading: SizedBox(
+                    width: 40.0,
+                    height: 40.0,
+                    child: Image.asset('Assets/images/settings.png'),
+                  ),
+                  trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UserSetting(),
+                      ),
+                    );
+                  },
+                ),
+                const Divider(),
+
+                ListTile(
+                  style: ListTileStyle.drawer,
+                  leading: const Icon(Icons.logout,color: Colors.black,size: 40,),
+                  title:  Text("Logout",style:GoogleFonts.robotoSlab(fontSize: 18),),
+                  trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  splashColor: Colors.green,
+                  onTap: () async {
+                    AuthViewModel authViewModel = AuthViewModel();
+                    await authViewModel.logout();
+                    _logout();
+
                   },
                 ),
                 const Divider(),
