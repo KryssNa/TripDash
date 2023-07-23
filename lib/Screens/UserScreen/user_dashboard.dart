@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/user_app_drawer.dart';
-
 import 'package:provider/provider.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
@@ -25,7 +24,7 @@ class _UserDashboardState extends State<UserDashboard> {
             backgroundColor: Colors.white,
             drawer: const UserAppDrawer(),
             appBar: const PreferredSize(
-              preferredSize: Size.fromHeight(50), // Change the height as desired
+              preferredSize: Size.fromHeight(50),
               child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
             ),
             body: Column(
@@ -38,13 +37,13 @@ class _UserDashboardState extends State<UserDashboard> {
                     Align(
                       alignment: Alignment.topLeft,
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: Colors.orange, // Set the color of the border
-                              width: 2.0, // Set the width of the border
+                              color: Colors.orange,
+                              width: 2.0,
                             ),
                           ),
                           child: const CircleAvatar(

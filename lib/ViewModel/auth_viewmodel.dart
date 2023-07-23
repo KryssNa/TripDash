@@ -8,9 +8,7 @@ import 'package:tripdash/model/user_model.dart';
 
 class AuthViewModel with ChangeNotifier {
   User? _user = FirebaseService.firebaseAuth.currentUser;
-
   User? get user => _user;
-
   UserModel? _loggedInUser;
   UserModel? get loggedInUser => _loggedInUser;
 

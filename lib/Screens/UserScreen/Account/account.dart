@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
 import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
@@ -247,16 +246,16 @@ class _AccountState extends State<Account> {
                   },
                 ),
                 const Divider(),
-
                 ListTile(
-                  style: ListTileStyle.drawer,
-                  leading: const Icon(Icons.logout,color: Colors.black,size: 40,),
-                  title:  Text("Logout",style:GoogleFonts.robotoSlab(fontSize: 18),),
-                  trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                  title: const Text('Logout'),
+                  subtitle: const Text('Logout form the app'),
+                  leading: SizedBox(
+                    width: 40.0,
+                    height: 40.0,
+                    child: Image.asset('Assets/icons/logout.png'),
                   ),
-                  splashColor: Colors.green,
+                  trailing:
+                  const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
                   onTap: () async {
                     AuthViewModel authViewModel = AuthViewModel();
                     await authViewModel.logout();
