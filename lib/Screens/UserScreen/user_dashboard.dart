@@ -35,13 +35,22 @@ class _UserDashboardState extends State<UserDashboard> {
                 ),
                 Row(
                   children: [
-                    const Align(
+                    Align(
                       alignment: Alignment.topLeft,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage('Assets/avatars/av_1.png'),
+                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.orange, // Set the color of the border
+                              width: 2.0, // Set the width of the border
+                            ),
+                          ),
+                          child: const CircleAvatar(
+                            radius: 35,
+                            backgroundImage: AssetImage('Assets/avatars/av_1.png'),
+                          ),
                         ),
                       ),
                     ),
