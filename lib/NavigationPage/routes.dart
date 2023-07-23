@@ -40,6 +40,7 @@ import 'package:tripdash/Screens/HomeScreen/home_page.dart';
 import 'package:tripdash/Screens/splash_screen.dart';
 import 'package:tripdash/Screens/term_and_condition.dart';
 import 'package:tripdash/widget/Notification/notification_list.dart';
+import 'package:tripdash/widget/Search/app_bar_search.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
 import '../Notification/NotificationDemo.dart';
@@ -47,6 +48,7 @@ import '../Notification/NotificationDemo.dart';
 // We use name route
 
 final Map<String, WidgetBuilder> routes = {
+  AppBarSearch.routeName: (context) => const AppBarSearch(),
   RegisterScreen.routeName: (context) => const RegisterScreen(),
   TripPlanOverview.routeName: (context) => const TripPlanOverview(),
   UpdateUserProfile.routeName: (context) => const UpdateUserProfile(),
