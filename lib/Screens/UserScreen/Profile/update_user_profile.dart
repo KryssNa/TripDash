@@ -276,7 +276,6 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                             return;
                           }
 
-                          // Validate email format
                           String email = emailController.text.trim();
                           if (!_isValidEmail(email)) {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -285,29 +284,45 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                             return;
                           }
 
-                          // If validation passes, update the profile
-                          try {
-                            docUser.update({
-                              'name': nameController.text,
-                              'email': email,
-                              'phone': phoneNumber,
-                              'address': addressController.text,
-                              'gender': selectedGender,
-                              'avatar': avatarController.text,
-                            }).then((_) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Profile updated successfully!')),
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CircularProgressIndicator(),
+                                ),
                               );
-                            }).catchError((error) {
+                            },
+                          );
+                          Future.delayed(const Duration(seconds: 2), () {
+                            try {
+                              docUser.update({
+                                'name': nameController.text,
+                                'email': email,
+                                'phone': phoneNumber,
+                                'address': addressController.text,
+                                'gender': selectedGender,
+                                'avatar': avatarController.text,
+                              }).then((_) {
+                                Navigator.pop(context); // Close the rotating box alert
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Text('Profile updated successfully!')),
+                                );
+                              }).catchError((error) {
+                                Navigator.pop(context); // Close the rotating box alert
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Failed to update: $error')),
+                                );
+                              });
+                            } catch (error) {
+                              Navigator.pop(context); // Close the rotating box alert
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Failed to update: $error')),
+                                SnackBar(content: Text('An error occurred while updating the profile: $error')),
                               );
-                            });
-                          } catch (error) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('An error occurred while updating the profile: $error')),
-                            );
-                          }
+                            }
+                          });
                         },
                         child: const Text("Update Profile"),
                       ),
