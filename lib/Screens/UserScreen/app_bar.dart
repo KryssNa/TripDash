@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tripdash/widget/Notification/notification_list.dart';
 
 String? avatar;
 
@@ -72,6 +73,11 @@ class AppBarWidget extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NotificationsList()),
+              );
             },
             icon: const Icon(Icons.notifications),
             color: Colors.orange,
