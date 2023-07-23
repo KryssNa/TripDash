@@ -5,7 +5,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:tripdash/Screens/splash_screen.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
-import 'Notification/NotificationService.dart';
+import 'Services/notification_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
