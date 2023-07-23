@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
+import 'package:tripdash/widget/Transportation/custom_button.dart';
 
-import 'Widgets/custom_button.dart';
 
 class SuccessCheckoutPage extends StatelessWidget {
   const SuccessCheckoutPage({Key? key}) : super(key: key);

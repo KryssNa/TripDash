@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/constant/fonts.dart';
-import 'Widgets/custom_button.dart';
-import 'Widgets/interest_item.dart';
-import 'Widgets/photo_item.dart';
+import 'package:tripdash/widget/Transportation/custom_button.dart';
+import 'package:tripdash/widget/Transportation/interest_item.dart';
+import 'package:tripdash/widget/Transportation/photo_item.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
