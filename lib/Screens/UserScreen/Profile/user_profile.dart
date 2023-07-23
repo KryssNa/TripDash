@@ -183,10 +183,6 @@ class _UserProfileState extends State<UserProfile> {
                   thickness: 1,
                 ),
               ),
-              ElevatedButton(onPressed: (){
-                Navigator.of(context).pushNamed(UpdatePassword.routeName);
-              }, child: const Text("pass"))
-
             ],
           ),
         ),
