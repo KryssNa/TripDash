@@ -5,6 +5,8 @@ import 'package:tripdash/Repositeries/auth_repositeries.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/model/user_model.dart';
 
+import '../../Notification/NotificationService.dart';
+
 class UpdatePassword extends StatefulWidget {
   static const routeName = '/UpdatePassword';
 
@@ -94,6 +96,11 @@ class _UpdatePasswordState extends State<UpdatePassword> {
     user.password = _confirmPasswordController.text;
 
     AuthRepository().resetPassword(newPassword.toString(), user);
+    NotificationService.display(
+      title: "Update Password",
+      body: "You have successfully updated password ",
+      image: "assets/images/logo.png",
+      logo: "assets/images/logo.png");
 
     showDialog(
       context: context,
