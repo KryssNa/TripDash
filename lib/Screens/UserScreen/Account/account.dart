@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
+import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/Settings/settings.dart';
 import 'package:tripdash/Screens/UserScreen/account_balance.dart';
@@ -146,8 +147,18 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/calendar.png'), onPressed: () {},
+                              icon: Image.asset('Assets/images/calendar.png'),
+                              onPressed:(){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Calender(),
+                                  ),
+                                );
+                              },
                             ),
+
+
                             const Text(
                               'Calendar',
                               style: TextStyle(fontWeight: FontWeight.bold),
