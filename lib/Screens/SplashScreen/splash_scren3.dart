@@ -66,7 +66,7 @@ class SplashScreen3 extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 4,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28.0),
               child: Row(
@@ -100,13 +100,13 @@ class SplashScreen3 extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 10,),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.only(left: 16.0,right: 16),
                 child: Container(
-                  height: 50,
+                  height: 45,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
