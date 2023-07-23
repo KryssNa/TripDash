@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
+import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
 import 'package:tripdash/Screens/UserScreen/app_bar.dart';
@@ -247,6 +248,38 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         width: 210,),
                         Text(
                           "Products",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, ViewEvents.routeName);
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only( left: 18, right: 18, bottom: 6,top: 12),
+                    height: 200,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffefeef4),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("Assets/icons/events.jpg",height: 150,
+                        width: 210,),
+                        Text(
+                          "Events",
                           style: GoogleFonts.poppins(
                             textStyle: const TextStyle(
                               fontSize: 20,
