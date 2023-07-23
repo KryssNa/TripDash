@@ -3,17 +3,17 @@ import 'package:tripdash/model/place_model.dart';
 
 import 'place_theme.dart';
 
-
 class RatingWidget extends StatelessWidget {
   final Icon full;
   final Icon half;
   final Icon empty;
 
-  const RatingWidget({super.key,
+  const RatingWidget({
+    Key? key,
     required this.full,
     required this.half,
     required this.empty,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class RatingWidget extends StatelessWidget {
   }
 }
 
-class PlaceListView extends StatelessWidget {
+class PlaceListView extends StatefulWidget {
   const PlaceListView({
     Key? key,
     this.placeData,
@@ -43,14 +43,21 @@ class PlaceListView extends StatelessWidget {
   final Animation<double>? animation;
 
   @override
+  _PlaceListViewState createState() => _PlaceListViewState();
+}
+
+class _PlaceListViewState extends State<PlaceListView> {
+  bool _isClicked = false;
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController!,
+      animation: widget.animationController!,
       builder: (context, child) {
         return FadeTransition(
-          opacity: animation!,
+          opacity: widget.animation!,
           child: Transform(
-            transform: Matrix4.translationValues(0.0, 50 * (1.0 - animation!.value), 0.0),
+            transform: Matrix4.translationValues(0.0, 50 * (1.0 - widget.animation!.value), 0.0),
             child: Padding(
               padding: const EdgeInsets.only(left: 24, right: 24, top: 8, bottom: 16),
               child: Container(
@@ -70,17 +77,10 @@ class PlaceListView extends StatelessWidget {
                     children: <Widget>[
                       Column(
                         children: <Widget>[
-                          // AspectRatio(
-                          //   aspectRatio: 2,
-                          //   child: Image.asset(
-                          //     placeData!.imagePath,
-                          //     fit: BoxFit.cover,
-                          //   ),
-                          // ),
                           AspectRatio(
                             aspectRatio: 2,
                             child: Image.network(
-                              placeData!.imageUrl.toString(),
+                              widget.placeData!.imageUrl.toString(),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -98,7 +98,7 @@ class PlaceListView extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          placeData!.placeName.toString(),
+                                          widget.placeData!.placeName.toString(),
                                           textAlign: TextAlign.left,
                                           style: const TextStyle(
                                             fontWeight: FontWeight.w600,
@@ -110,7 +110,7 @@ class PlaceListView extends StatelessWidget {
                                           mainAxisAlignment: MainAxisAlignment.start,
                                           children: <Widget>[
                                             Text(
-                                              placeData!.description.toString(),
+                                              widget.placeData!.description.toString(),
                                               style: TextStyle(
                                                 color: Colors.grey.withOpacity(0.8),
                                                 fontSize: 14,
@@ -124,7 +124,6 @@ class PlaceListView extends StatelessWidget {
                                             ),
                                             Expanded(
                                               child: Text(
-                                                // '${placeData!..toStringAsFixed(1)} km to city',
                                                 '60km for Kathmandu',
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
@@ -154,7 +153,6 @@ class PlaceListView extends StatelessWidget {
                                                 ),
                                               ),
                                               Text(
-                                                // '${placeData!.reviews} Reviews',
                                                 'Reviews',
                                                 style: TextStyle(
                                                   fontSize: 14,
@@ -175,7 +173,7 @@ class PlaceListView extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text(
-                                        '\$${placeData!.price.toString()}',
+                                        '\$${widget.placeData!.price.toString()}',
                                         textAlign: TextAlign.left,
                                         style: const TextStyle(
                                           fontSize: 22,
@@ -204,13 +202,22 @@ class PlaceListView extends StatelessWidget {
                           color: Colors.transparent,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.favorite_border,
-                              color: PlaceTheme.buildLightTheme().primaryColor,
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _isClicked = !_isClicked; // Toggle the state
+                                });
+                              },
+                              child: Icon(
+                                Icons.favorite_border,
+                                color: _isClicked
+                                    ? Colors.red // Change the color when it's clicked
+                                    : PlaceTheme.buildLightTheme().splashColor,
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -222,3 +229,4 @@ class PlaceListView extends StatelessWidget {
     );
   }
 }
+
