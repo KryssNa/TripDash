@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tripdash/Screens/AdminScreen/CustomerDetail/customer_detail.dart';
 import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
@@ -104,26 +105,31 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     ),
 
                     //total client container
-                    Container(
-                      height: 90,
-                      width: 170,
-                      decoration: BoxDecoration(
-                        color: ConstColors.adminPanelBoxColor4,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "Assets/icons/totalClient.png",
-                            height: 55,
-                          ),
-                          Text(
-                            "Total Clients",
-                            style: buildTextStyle(
-                                ConstColors.adminSecondaryHeadingText),
-                          ),
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, CustomerDetail.routeName);
+                      },
+                      child: Container(
+                        height: 90,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          color: ConstColors.adminPanelBoxColor4,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "Assets/icons/totalClient.png",
+                              height: 55,
+                            ),
+                            Text(
+                              "Total Clients",
+                              style: buildTextStyle(
+                                  ConstColors.adminSecondaryHeadingText),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -161,23 +167,28 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     ),
 
                     //revenue container
-                    Container(
-                      height: 90,
-                      width: 175,
-                      decoration: BoxDecoration(
-                        color: ConstColors.adminPanelBoxColor3,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("Assets/icons/icon-revenue.png"),
-                          Text(
-                            "Revenue",
-                            style: buildTextStyle(
-                                ConstColors.adminSecondaryHeadingText),
-                          ),
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, ViewProducts.routeName);
+                      },
+                      child: Container(
+                        height: 90,
+                        width: 175,
+                        decoration: BoxDecoration(
+                          color: ConstColors.adminPanelBoxColor3,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("Assets/icons/icon-revenue.png"),
+                            Text(
+                              "Revenue",
+                              style: buildTextStyle(
+                                  ConstColors.adminSecondaryHeadingText),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

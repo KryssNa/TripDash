@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripdash/Screens/AdminScreen/AdminBooking.dart';
+import 'package:tripdash/Screens/AdminScreen/admin_booking.dart';
 import 'package:tripdash/Screens/AdminScreen/add_events.dart';
 import 'package:tripdash/Screens/AdminScreen/add_hotel.dart';
 import 'package:tripdash/Screens/AdminScreen/add_product.dart';

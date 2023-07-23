@@ -31,19 +31,19 @@ class DestinationCard extends StatelessWidget {
       child: Container(
         width: 200,
         height: 323,
-        margin: const EdgeInsets.only(left: 24),
+        margin: const EdgeInsets.only(left: 16),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18), color: ConstColors.kWhiteColor),
+            borderRadius: BorderRadius.circular(16), color: ConstColors.kWhiteColor),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: 180,
               height: 220,
-              margin: const EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 16),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(16),
                   image: DecorationImage(
                       image: AssetImage(
                     imageUrl,
@@ -56,7 +56,7 @@ class DestinationCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: ConstColors.kWhiteColor,
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
+                      bottomLeft: Radius.circular(16),
                     ),
                   ),
                   child: Row(

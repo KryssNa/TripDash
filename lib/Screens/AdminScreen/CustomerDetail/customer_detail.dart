@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tripdash/Screens/AdminScreen/CustomerDetail/update_customer_detail.dart';
-import 'package:tripdash/Screens/AdminScreen/admin_app_drawer.dart';
 
 class CustomerDetail extends StatefulWidget {
   static const routeName = '/CustomerDetail';
@@ -40,11 +39,16 @@ class _CustomerDetailState extends State<CustomerDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: const AdminAppDrawer(),
         appBar: AppBar(
-          title: const Text('User List'),
+          title: const Text('User List', style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.w600)),
           centerTitle: true,
-          backgroundColor: const Color(0xFF007096),
+          backgroundColor: Colors.white,
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
         ),
         body: ListView.builder(
           itemCount: userDocuments.length,

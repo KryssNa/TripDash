@@ -19,48 +19,6 @@ class UserDashboard extends StatefulWidget {
 class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
-    Widget popularDestinations() {
-      return Container(
-        margin: const EdgeInsets.only(top: 30),
-        child:  const SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              DestinationCard(
-                name: 'Lake Ciliwung',
-                city: 'Tangerang',
-                imageUrl: 'Assets/images/userDashboard/image_destination1.png',
-                rating: 4.8,
-              ),
-              DestinationCard(
-                name: 'White Houses',
-                city: 'Spain',
-                imageUrl: 'Assets/images/userDashboard/image_destination2.png',
-                rating: 4.7,
-              ),
-              DestinationCard(
-                name: 'Hill Heyo',
-                city: 'Monaco',
-                imageUrl: 'Assets/images/userDashboard/image_destination3.png',
-                rating: 4.8,
-              ),
-              DestinationCard(
-                name: 'Menarra',
-                city: 'Japan',
-                imageUrl: 'Assets/images/userDashboard/image_destination4.png',
-                rating: 5.0,
-              ),
-              DestinationCard(
-                name: 'Payung Teduh',
-                city: 'Singapore',
-                imageUrl: 'Assets/images/userDashboard/image_destination5.png',
-                rating: 4.8,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
     return Consumer<AuthViewModel>(
       builder: (context, auth , child) {
         return Scaffold(
@@ -1655,7 +1613,48 @@ class RecomendedPlace extends StatelessWidget {
     );
   }
 }
-
+Widget popularDestinations() {
+  return Container(
+    margin: const EdgeInsets.only(top: 16),
+    child:  const SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          DestinationCard(
+            name: 'Lake Ciliwung',
+            city: 'Tangerang',
+            imageUrl: 'Assets/images/userDashboard/image_destination1.png',
+            rating: 4.8,
+          ),
+          DestinationCard(
+            name: 'White Houses',
+            city: 'Spain',
+            imageUrl: 'Assets/images/userDashboard/image_destination2.png',
+            rating: 4.7,
+          ),
+          DestinationCard(
+            name: 'Hill Heyo',
+            city: 'Monaco',
+            imageUrl: 'Assets/images/userDashboard/image_destination3.png',
+            rating: 4.8,
+          ),
+          DestinationCard(
+            name: 'Menarra',
+            city: 'Japan',
+            imageUrl: 'Assets/images/userDashboard/image_destination4.png',
+            rating: 5.0,
+          ),
+          DestinationCard(
+            name: 'Payung Teduh',
+            city: 'Singapore',
+            imageUrl: 'Assets/images/userDashboard/image_destination5.png',
+            rating: 4.8,
+          ),
+        ],
+      ),
+    ),
+  );
+}
 
 class NavigationButton extends StatelessWidget {
   const NavigationButton({
