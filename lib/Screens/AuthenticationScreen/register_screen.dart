@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tripdash/Helper/error_dialogue.dart';
+import 'package:tripdash/Screens/term_and_condition.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/constant/colors.dart';
 import 'package:tripdash/model/user_model.dart';
@@ -271,7 +273,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       height: 20,
                                     ),
                                     Container(
-                                      margin: const EdgeInsets.only(left: 20),
+                                      margin: const EdgeInsets.only(left: 0),
                                       child: Row(
                                         children: [
                                           Checkbox(
@@ -282,14 +284,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               });
                                             },
                                           ),
-                                          const Text(
-                                            'I agree to the terms and conditions',
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontFamily: 'SSFPro',
-                                              // fontWeight: FontWeight.bold,
-                                              color:
-                                                  ConstColors.primaryTextColor,
+                                           Text.rich(
+                                            TextSpan(
+                                              text: 'I agree to the ',
+                                              style: const TextStyle(
+                                                fontSize: 16,
+                                                fontFamily: 'SSFPro',
+                                                // fontWeight: FontWeight.bold,
+                                                color: ConstColors
+                                                    .primaryTextColor,
+                                              ),
+                                              children: <TextSpan>[
+                                                TextSpan(
+                                                  recognizer: TapGestureRecognizer()
+                                                    ..onTap = () {
+                                                      Navigator.pushNamed(
+                                                        context, TermsAndConditionsScreen.routeName
+                                                      );
+                                                    },
+                                                  text: 'Terms of Service',
+                                                  style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontFamily: 'SSFPro',
+                                                    // fontWeight: FontWeight.bold,
+                                                    color: Colors.green,
+                                                    decoration: TextDecoration
+                                                        .underline,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ],

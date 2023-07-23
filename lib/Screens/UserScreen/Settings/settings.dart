@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tripdash/Screens/term_and_condition.dart';
 
 import '../AboutUs/about_us.dart';
 
@@ -70,6 +71,12 @@ class _UserSettingState extends State<UserSetting> {
                 ),
                 const Divider(),
                 ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      TermsAndConditionsScreen.routeName,
+                    );
+                  },
                   title: const Text('Terms and Services'),
                   subtitle: const Text('Terms and values to be followed'),
                   leading: SizedBox(
@@ -81,7 +88,6 @@ class _UserSettingState extends State<UserSetting> {
                     Icons.chevron_right,
                     color: Color(0xff9698A9),
                   ),
-                  onTap: () {},
                 ),
                 const Divider(),
                 ListTile(
