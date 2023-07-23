@@ -5,14 +5,6 @@ import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/Screens/UserScreen/Profile/user_profile.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
-
-  //to use appBar flow this code
-/* appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(60), // Change the height as desired
-          child: AppBarWidget(avatar: 'Assets/avatars/av_1.png'),
-        ),
-        */
-
   String? avatar;
   @override
   void initState() {
@@ -49,7 +41,7 @@ class AppBarWidget extends StatelessWidget {
       ),
       leading: IconButton(
         onPressed: () {
-          Scaffold.of(context).openDrawer(); // Open the drawer
+          Scaffold.of(context).openDrawer();
         },
         icon: const Icon(Icons.menu_sharp),
         iconSize: 40,
