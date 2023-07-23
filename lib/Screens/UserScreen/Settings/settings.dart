@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/term_and_condition.dart';
-
+import 'package:tripdash/widget/Notification/notification_list.dart';
 import '../AboutUs/about_us.dart';
+import '../faq.dart';
 
 class UserSetting extends StatefulWidget {
   static String routeName = "/UserSetting";
@@ -54,20 +55,33 @@ class _UserSettingState extends State<UserSetting> {
                   ),
                   trailing:
                   const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationsList(),
+                      ),
+                    );
+                  },
                 ),
                 const Divider(),
                 ListTile(
-                  title: const Text('FeedBack'),
-                  subtitle: const Text('Provide a feedback about app'),
+                  title: const Text('FAQ'),
+                  subtitle: const Text('Questions and Answer'),
                   leading: SizedBox(
                     width: 40.0,
                     height: 40.0,
-                    child: Image.asset('Assets/icons/feedback.png'),
+                    child: Image.asset('Assets/images/faq.png'),
                   ),
-                  trailing:
-                  const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
-                  onTap: () {},
+                  trailing: const Icon(Icons.chevron_right, color: Color(0xff9698A9)),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FAQ(),
+                      ),
+                    );
+                  },
                 ),
                 const Divider(),
                 ListTile(

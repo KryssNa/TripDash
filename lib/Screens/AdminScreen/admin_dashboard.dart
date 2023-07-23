@@ -10,6 +10,7 @@ import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
 import 'package:tripdash/Screens/UserScreen/app_bar.dart';
 import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 import 'package:tripdash/constant/colors.dart';
+import 'package:tripdash/widget/Search/app_bar_search.dart';
 import 'package:tripdash/widget/text_style.dart';
 
 
@@ -56,7 +57,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             Navigator.pushNamed(context, AdminDashboard.routeName);
           }
           if (index == 1) {
-            Navigator.pushNamed(context, AdminDashboard.routeName);
+            Navigator.pushNamed(context, AppBarSearch.routeName);
           }
           if (index == 2) {
             Navigator.pushNamed(context, UserProfile.routeName);
