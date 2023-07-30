@@ -15,6 +15,7 @@ import 'ViewDetails/view_details10.dart';
 import 'ViewDetails/view_details11.dart';
 import 'ViewDetails/view_details12.dart';
 import 'ViewDetails/view_details13.dart';
+import 'ViewDetails/view_details14.dart';
 import 'ViewDetails/view_details7.dart';
 import 'ViewDetails/view_details8.dart';
 import 'ViewDetails/view_details9.dart';
@@ -297,19 +298,24 @@ class _UserDashboardState extends State<UserDashboard> {
                               ),
                               child: Row(
                                 children: [
-                                  Container(
-                                    height: 120,
-                                    width: 90,
-                                    margin: const EdgeInsets.only(
-                                      left: 10,
-                                    ),
-                                    foregroundDecoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(18),
-                                      image: const DecorationImage(
-                                        image: AssetImage(
-                                          'Assets/images/boudha.jpg',
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, DetailPage14.routName);
+                                    },
+                                    child: Container(
+                                      height: 120,
+                                      width: 90,
+                                      margin: const EdgeInsets.only(
+                                        left: 10,
+                                      ),
+                                      foregroundDecoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(18),
+                                        image: const DecorationImage(
+                                          image: AssetImage(
+                                            'Assets/images/boudha.jpg',
+                                          ),
+                                          fit: BoxFit.cover,
                                         ),
-                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                   ),
