@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details2.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details3.dart';
