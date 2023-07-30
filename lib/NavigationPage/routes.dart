@@ -21,11 +21,18 @@ import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/Screens/UserScreen/AboutUs/about_us.dart';
 import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details1.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details10.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details11.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details12.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details13.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details14.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details2.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details3.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details4.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details5.dart';
 import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details6.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details8.dart';
+import 'package:tripdash/Screens/UserScreen/ViewDetails/view_details9.dart';
 import 'package:tripdash/Screens/UserScreen/help_support.dart';
 import 'package:tripdash/Screens/UserScreen/Account/account.dart';
 import 'package:tripdash/Screens/UserScreen/Booking/bookings.dart';
@@ -47,6 +54,8 @@ import 'package:tripdash/Screens/term_and_condition.dart';
 import 'package:tripdash/widget/Notification/notification_list.dart';
 import 'package:tripdash/widget/Search/app_bar_search.dart';
 import 'package:tripdash/widget/bottom_navigation_bar.dart';
+
+import '../Screens/UserScreen/ViewDetails/view_details7.dart';
 
 // We use name route
 
@@ -80,6 +89,16 @@ final Map<String, WidgetBuilder> routes = {
   DetailPage4.routName: (context) => const DetailPage4(),
   DetailPage5.routName: (context) => const DetailPage5(),
   DetailPage6.routName: (context) => const DetailPage6(),
+  DetailPage7.routName: (context) => const DetailPage7(),
+  DetailPage8.routName: (context) => const DetailPage8(),
+  DetailPage9.routName: (context) => const DetailPage9(),
+  DetailPage10.routName: (context) => const DetailPage10(),
+  DetailPage11.routName: (context) => const DetailPage11(),
+  DetailPage12.routName: (context) => const DetailPage12(),
+  DetailPage13.routName: (context) => const DetailPage13(),
+  DetailPage14.routName: (context) => const DetailPage14(),
+
+
   ChooseSeatPage.routeName: (context) => const ChooseSeatPage(),
   SplashScreen.routeName: (context) => const SplashScreen(),
   ChooseTransportation.routeName: (context) => const ChooseTransportation(),

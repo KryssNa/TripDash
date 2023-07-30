@@ -6,9 +6,9 @@ import 'package:tripdash/widget/Transportation/custom_button.dart';
 import 'package:tripdash/widget/Transportation/interest_item.dart';
 import 'package:tripdash/widget/Transportation/photo_item.dart';
 
-class DetailPage1 extends StatelessWidget {
-  const DetailPage1({Key? key}) : super(key: key);
-  static String routName="/detailPage1";
+class DetailPage7 extends StatelessWidget {
+  const DetailPage7({Key? key}) : super(key: key);
+  static String routName="/detailPage7";
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class DetailPage1 extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('Assets/images/userDashboard/image_destination2.png'))),
+                image: AssetImage('Assets/images/lumbini.jpg'))),
       );
     }
 
@@ -63,13 +63,13 @@ class DetailPage1 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lake Tilicho',
+                      'Lumbini',
                       style: ConstFonts.whiteTextStyle.copyWith(
                           fontSize: 24, fontWeight: ConstFonts.semiBold),
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      'Manang',
+                      'Mumbini',
                       style:
                       ConstFonts.whiteTextStyle.copyWith(fontSize: 16, fontWeight: ConstFonts.light),
                     )
