@@ -72,7 +72,7 @@ class CheckoutScreen extends StatelessWidget {
     }
     double grandTotal=0 ;
     grandTotal=totalPrice + (totalPrice * 0.15);
-    // Example usage
+    // method to perform transaction
     void performTransaction(BuildContext context) async {
       try {
         final GlobalKey<State> dialogKey = GlobalKey<State>();
@@ -87,11 +87,11 @@ class CheckoutScreen extends StatelessWidget {
             );
           },
         );
-
+        // variables to be passed to the transaction method
         int total = grandTotal.toInt();
         String noOfTickets = selectedSeats.length.toString();
         List<String> seatNumbers = selectedSeats;
-
+        //  the transaction method
         try {
           SeatBookingModel transaction = await SeatBookingViewModel().bookSeat(
             total: total,
@@ -400,13 +400,17 @@ class CheckoutScreen extends StatelessWidget {
               valueText: '${selectedSeats.length} persons',
               valueColor: ConstColors.kBlackColor),
           BookingDetailsItem(
-              title: 'Seat', valueText: selectedSeats.toString(), valueColor: ConstColors.kBlackColor),
+              title: 'Seat', valueText: selectedSeats.toString(),
+              valueColor: ConstColors.kBlackColor),
           BookingDetailsItem(
-              title: 'Insurance', valueText: 'YES', valueColor: ConstColors.kGreenColor),
+              title: 'Insurance', valueText: 'YES',
+              valueColor: ConstColors.kGreenColor),
           BookingDetailsItem(
-              title: 'Refundable', valueText: 'NO', valueColor: ConstColors.kRedColor),
+              title: 'Refundable', valueText: 'NO',
+              valueColor: ConstColors.kRedColor),
           BookingDetailsItem(
-              title: 'VAT', valueText: '15%', valueColor: ConstColors.kBlackColor),
+              title: 'VAT', valueText: '15%',
+              valueColor: ConstColors.kBlackColor),
           BookingDetailsItem(
               title: 'Price',
               valueText: 'RS. $totalPrice',

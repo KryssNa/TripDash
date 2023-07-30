@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/TransportationScreen/add_bus.dart';
 
-import 'choose_seat.dart';
+import 'choose_seat_aeroplane.dart';
 class ChooseTransportation extends StatelessWidget {
   const ChooseTransportation({super.key});
   static String routeName="/chooseTransportations";

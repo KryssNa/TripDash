@@ -14,7 +14,7 @@ import 'package:tripdash/Screens/SplashScreen/splash_screen1.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_screen2.dart';
 import 'package:tripdash/Screens/SplashScreen/splash_scren3.dart';
 import 'package:tripdash/Screens/TransportationScreen/add_bus.dart';
-import 'package:tripdash/Screens/TransportationScreen/choose_seat.dart';
+import 'package:tripdash/Screens/TransportationScreen/choose_seat_aeroplane.dart';
 import 'package:tripdash/Screens/TransportationScreen/choose_transportation.dart';
 import 'package:tripdash/Screens/TransportationScreen/my_transportation_bookings.dart';
 import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
