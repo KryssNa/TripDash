@@ -22,7 +22,9 @@ class SuccessCheckoutPage extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 80),
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('Assets/images/image_success.png'))),
+                      image: AssetImage('Assets/images/image_success.png')
+                  )
+              ),
             ),
             Text(
               'Well Booked 😍',
@@ -33,7 +35,8 @@ class SuccessCheckoutPage extends StatelessWidget {
             ),
             Text(
               'Are you ready to explore the new\nworld of experiences?',
-              style: ConstFonts.greyTextStyle.copyWith(fontSize: 16, fontWeight: ConstFonts.light),
+              style: ConstFonts.greyTextStyle.copyWith(fontSize: 16,
+                  fontWeight: ConstFonts.light),
               textAlign: TextAlign.center,
             ),
             CustomButton(

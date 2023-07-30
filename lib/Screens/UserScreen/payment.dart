@@ -133,7 +133,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
     FirebaseFirestore db = FirebaseFirestore.instance;
     Reference storageRef = FirebaseStorage.instance.ref();
     String dt = DateTime.now().millisecondsSinceEpoch.toString();
-    var photo = await storageRef.child("topUpPayment").child("$dt.jpg").putFile(File(pickedImage!.path));
+    var photo = await storageRef.child("topUpPayment").child("$dt.jpg").
+    putFile(File(pickedImage!.path));
     var url = await photo.ref.getDownloadURL();
 
     TopUpPayment data = TopUpPayment(

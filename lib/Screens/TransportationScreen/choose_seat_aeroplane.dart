@@ -45,13 +45,15 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
       if(isSeatBooked(seat)) return; // If seat is booked, do nothing (return
       if (selectedSeats.contains(seat)) {
         selectedSeats.remove(seat);
-        isBusinessClassSeat(seat)?totalPrice -= 50000.0:isFirstClassSeat(seat)?totalPrice -=30000.0:totalPrice -=20000.0; // Assuming seat price is 100
+        isBusinessClassSeat(seat)?totalPrice -= 50000.0:isFirstClassSeat(seat)?
+        totalPrice -=30000.0:totalPrice -=20000.0;
       } else {
         if(selectedSeats.length >= 8) {
           return; // If user has selected 4 seats, do nothing (return
         } // If user has selected 4 seats, do nothing (return
         selectedSeats.add(seat);
-        isBusinessClassSeat(seat)?totalPrice += 50000.0:isFirstClassSeat(seat)?totalPrice +=30000.0:totalPrice +=20000.0;// Assuming seat price is 100
+        isBusinessClassSeat(seat)?totalPrice += 50000.0:isFirstClassSeat(seat)?
+        totalPrice +=30000.0:totalPrice +=20000.0;//
       }
     });
   }
@@ -122,7 +124,8 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Aeroplane Seat Selection',style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w600),),
+        title:  Text('Aeroplane Seat Selection',style:
+        GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w600),),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,

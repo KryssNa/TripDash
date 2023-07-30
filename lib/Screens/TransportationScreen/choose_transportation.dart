@@ -11,7 +11,8 @@ class ChooseTransportation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Choose Transportation',style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w600),),
+        title:  Text('Choose Transportation',style: GoogleFonts.poppins(
+            fontSize: 18,fontWeight: FontWeight.w600),),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,
