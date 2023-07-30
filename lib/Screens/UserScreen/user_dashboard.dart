@@ -11,8 +11,11 @@ import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/widget/destination_card.dart';
 import '../UserScreen/app_bar.dart';
+import 'ViewDetails/view_details10.dart';
+import 'ViewDetails/view_details11.dart';
 import 'ViewDetails/view_details7.dart';
 import 'ViewDetails/view_details8.dart';
+import 'ViewDetails/view_details9.dart';
 
 class UserDashboard extends StatefulWidget {
   const UserDashboard({Key? key}) : super(key: key);
@@ -571,32 +574,37 @@ class _UserDashboardState extends State<UserDashboard> {
                                         ),
                                       ),
                                       //view details button on bottom right
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 5, left: 100),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                            Container(
-                                              height: 30,
-                                              width: 90,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                color: Colors.blue,
-                                              ),
-                                              child: const Center(
-                                                child: Text(
-                                                  "View Details",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(context, DetailPage9.routName);
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 5, left: 100),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                height: 30,
+                                                width: 90,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(10),
+                                                  color: Colors.blue,
+                                                ),
+                                                child: const Center(
+                                                  child: Text(
+                                                    "View Details",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -736,32 +744,37 @@ class _UserDashboardState extends State<UserDashboard> {
                                         ),
                                       ),
                                       //view details button on bottom right
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 5, left: 100),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                            Container(
-                                              height: 30,
-                                              width: 90,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                color: Colors.blue,
-                                              ),
-                                              child: const Center(
-                                                child: Text(
-                                                  "View Details",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(context, DetailPage10.routName);
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 5, left: 100),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                height: 30,
+                                                width: 90,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(10),
+                                                  color: Colors.blue,
+                                                ),
+                                                child: const Center(
+                                                  child: Text(
+                                                    "View Details",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -901,32 +914,37 @@ class _UserDashboardState extends State<UserDashboard> {
                                         ),
                                       ),
                                       //view details button on bottom right
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 5, left: 100),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                            Container(
-                                              height: 30,
-                                              width: 90,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                color: Colors.blue,
-                                              ),
-                                              child: const Center(
-                                                child: Text(
-                                                  "View Details",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(context, DetailPage11.routName);
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 5, left: 100),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                height: 30,
+                                                width: 90,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(10),
+                                                  color: Colors.blue,
+                                                ),
+                                                child: const Center(
+                                                  child: Text(
+                                                    "View Details",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -967,19 +985,24 @@ class PopularDestinationDetails extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Container(
-              height: 120,
-              width: 90,
-              margin: const EdgeInsets.only(
-                left: 10,
-              ),
-              foregroundDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                image: const DecorationImage(
-                  image: AssetImage(
-                    'Assets/images/annapurna.jpg',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, DetailPage12.routName);
+              },
+              child: Container(
+                height: 120,
+                width: 90,
+                margin: const EdgeInsets.only(
+                  left: 10,
+                ),
+                foregroundDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(18),
+                  image: const DecorationImage(
+                    image: AssetImage(
+                      'Assets/images/annapurna.jpg',
+                    ),
+                    fit: BoxFit.cover,
                   ),
-                  fit: BoxFit.cover,
                 ),
               ),
             ),
