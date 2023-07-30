@@ -73,7 +73,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(left: 0),
-                  child: Text("Dashboard",
+                  child: Text("Admin Panel",
                   style: GoogleFonts.poppins(
                     fontSize: 28,
                     fontWeight: FontWeight.w700,
