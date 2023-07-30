@@ -8,7 +8,7 @@ import 'package:tripdash/widget/Transportation/photo_item.dart';
 
 class DetailPage9 extends StatelessWidget {
   const DetailPage9({Key? key}) : super(key: key);
-  static String routName="/detailPage1";
+  static String routName="/detailPage9";
 
   @override
   Widget build(BuildContext context) {
