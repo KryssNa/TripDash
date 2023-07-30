@@ -42,7 +42,7 @@ import 'package:tripdash/Screens/UserScreen/faq.dart';
 import 'package:tripdash/Screens/UserScreen/payment.dart';
 import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
 import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
-import 'package:tripdash/Screens/splash_screen.dart';
+import 'package:tripdash/Screens/welcome_screen.dart';
 import 'package:tripdash/Screens/term_and_condition.dart';
 import 'package:tripdash/widget/Notification/notification_list.dart';
 import 'package:tripdash/widget/Search/app_bar_search.dart';

@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:tripdash/Screens/splash_screen.dart';
+import 'package:tripdash/Screens/welcome_screen.dart';
 import 'Helper/multi_provider.dart';
 import 'NavigationPage/routes.dart';
 import 'Services/notification_service.dart';
