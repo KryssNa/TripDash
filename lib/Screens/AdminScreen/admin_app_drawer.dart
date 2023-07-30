@@ -74,7 +74,6 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('yyyy-MM-dd').format(now);
-    String formattedTime = DateFormat('hh-mm-ss').format(now);
     var userAccountsDrawerHeader = UserAccountsDrawerHeader(
           currentAccountPicture: Padding(
             padding: const EdgeInsets.all(1.0),
@@ -88,7 +87,7 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
             ),
           ),
           accountName: Padding(
-            padding: const EdgeInsets.all(7.0),
+            padding: const EdgeInsets.all(1.0),
             child: Text(
               name,
               style: const TextStyle(
@@ -116,16 +115,6 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
                       fontSize: 14,
                     ),
                   ),
-                  const SizedBox(height: 4),
-              Text(
-                formattedTime,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-              ),
-              
             ],
           ),
           decoration:  BoxDecoration(
