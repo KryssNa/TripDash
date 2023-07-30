@@ -167,7 +167,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/mustang.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -219,7 +219,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" San Francisco")
+                                                Text(" Mustang")
                                               ],
                                             ),
                                           ),
@@ -242,7 +242,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                         ),
                                                       ),
                                                       TextSpan(
-                                                        text: "200",
+                                                        text: "400",
                                                         style: TextStyle(
                                                           color: Color(0xff03bdc9),
                                                           fontSize: 12,
@@ -295,7 +295,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/boudha.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -329,7 +329,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   Icons.star,
                                                   color: Colors.yellow,
                                                 ),
-                                                Text("4.5")
+                                                Text("4.1")
                                               ],
                                             ),
                                           ],
@@ -347,7 +347,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" San Francisco")
+                                                Text(" Boudha")
                                               ],
                                             ),
                                           ),
@@ -370,7 +370,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                         ),
                                                       ),
                                                       TextSpan(
-                                                        text: "200",
+                                                        text: "100",
                                                         style: TextStyle(
                                                           color: Color(0xff03bdc9),
                                                           fontSize: 12,
@@ -975,7 +975,7 @@ class PopularDestinationDetails extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
                 image: const DecorationImage(
                   image: AssetImage(
-                    'Assets/images/userDashboard/sPlace4.png',
+                    'Assets/images/annapurna.jpg',
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -1027,7 +1027,7 @@ class PopularDestinationDetails extends StatelessWidget {
                             color: Colors.blue,
                             size: 20,
                           ),
-                          Text(" San Francisco")
+                          Text(" Annapurna")
                         ],
                       ),
                     ),
