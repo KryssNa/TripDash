@@ -460,7 +460,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/kathmandu.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -547,7 +547,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                     ),
                                                   ),
                                                   TextSpan(
-                                                    text: "200",
+                                                    text: "150",
                                                     style: TextStyle(
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
@@ -625,7 +625,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/rara.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -640,7 +640,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                           padding:
                                           EdgeInsets.only(right: 5, left: 8),
                                           child: Text(
-                                            "Kathmandu, Nepal",
+                                            "Rara, Nepal",
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 18,
@@ -662,7 +662,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" Sundarijal"),
+                                                Text(" Rara Lake"),
                                               ],
                                             ),
                                           ),
@@ -712,7 +712,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                     ),
                                                   ),
                                                   TextSpan(
-                                                    text: "200",
+                                                    text: "250",
                                                     style: TextStyle(
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
@@ -790,7 +790,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/dhulikhel.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -805,7 +805,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                           padding:
                                           EdgeInsets.only(right: 5, left: 8),
                                           child: Text(
-                                            "Kathmandu, Nepal",
+                                            "Dhulikhel, Nepal",
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 18,
@@ -827,7 +827,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" Sundarijal"),
+                                                Text(" Dhulikhel"),
                                               ],
                                             ),
                                           ),
@@ -877,7 +877,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                     ),
                                                   ),
                                                   TextSpan(
-                                                    text: "200",
+                                                    text: "100",
                                                     style: TextStyle(
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
