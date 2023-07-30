@@ -101,7 +101,11 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/wallet.png'),
+                              icon: Container(
+                                width: 40,
+                                height: 40,
+                                child: Image.asset('Assets/images/wallet.png'),
+                              ),
                               onPressed:(){
                                 Navigator.push(
                                   context,
@@ -121,7 +125,10 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/mapp.png'),
+                              icon: Container(
+                                  width: 40,
+                                  height: 40,
+                                  child: Image.asset('Assets/images/mapp.png')),
                               onPressed:(){},
                             ),
                             const Text(
@@ -134,7 +141,10 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/booking.png'),
+                              icon: Container(
+                                  width: 40,
+                                  height: 40,
+                                  child: Image.asset('Assets/images/booking.png')),
                               onPressed:(){
                                 Navigator.push(
                                   context,
@@ -154,7 +164,10 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Image.asset('Assets/images/calendar.png'),
+                              icon: Container(
+                                  width: 40,
+                                  height: 40,
+                                  child: Image.asset('Assets/images/calendar.png')),
                               onPressed:(){
                                 Navigator.push(
                                   context,
