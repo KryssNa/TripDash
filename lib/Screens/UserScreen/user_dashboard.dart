@@ -1507,7 +1507,7 @@ class RecomendedPlace extends StatelessWidget {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "Golden Gate     ",
+                                    text: "Chitwan         ",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 15,
@@ -1523,7 +1523,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "4.5",
+                                    text: "4.1",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1543,7 +1543,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "  San Francisco,",
+                                    text: "  Chitwan,",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1563,7 +1563,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "200",
+                                    text: "270",
                                     style: TextStyle(
                                       color: Color(0xff03bdc9),
                                       fontSize: 15,
