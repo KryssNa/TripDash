@@ -12,16 +12,16 @@ import 'package:tripdash/widget/bottom_navigation_bar.dart';
 
 import '../Services/notification_service.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   static const routeName = '/splash-screen';
 
   @override
-  State<StatefulWidget> createState() => _SplashPageState();
+  State<StatefulWidget> createState() => _SplashScreenState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashScreenState extends State<SplashScreen> {
   late AuthViewModel _auth;
 
   @override
@@ -34,7 +34,6 @@ class _SplashPageState extends State<SplashPage> {
 
           if (user == null) {
             // route to onboarding
-
             Navigator.pushNamedAndRemoveUntil(
                 context, SplashScreen1.routeName, (route) => false);
           } else {

@@ -29,15 +29,18 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         color: const Color(0xfff1eded),
         buttonBackgroundColor: const Color(0xffe7f3f1),
         items: [ CurvedNavigationBarItem(
-          child: Icon(Icons.home_outlined,color: (index == 0)? Colors.green : Colors.black,size: 30,),
+          child: Icon(Icons.home_outlined,color: (index == 0)? Colors.green :
+          Colors.black,size: 30,),
           label: 'Home',
         ),
           CurvedNavigationBarItem(
-            child: Icon(Icons.search,color: (index == 1)? Colors.green : Colors.black,size: 30),
+            child: Icon(Icons.search,color: (index == 1)? Colors.green :
+            Colors.black,size: 30),
             label: 'Search',
           ),
           CurvedNavigationBarItem(
-            child: Icon(Icons.perm_identity,color: (index == 2)? Colors.green : Colors.black,size: 30),
+            child: Icon(Icons.perm_identity,color: (index == 2)? Colors.green :
+            Colors.black,size: 30),
             label: 'Personal',
           )],
         index: index,
