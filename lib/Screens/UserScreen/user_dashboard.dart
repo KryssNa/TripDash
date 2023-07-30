@@ -1171,7 +1171,7 @@ class RecomendedPlace extends StatelessWidget {
                               BorderRadius.circular(25),
                           image: const DecorationImage(
                             image: AssetImage(
-                                'Assets/images/userDashboard/place3.png'),
+                                'Assets/images/pokhara.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -1207,7 +1207,7 @@ class RecomendedPlace extends StatelessWidget {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "Golden Gate     ",
+                                    text: "Pokhara         ",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 15,
@@ -1243,7 +1243,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "  San Francisco,",
+                                    text: "  pokhara,",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1321,7 +1321,7 @@ class RecomendedPlace extends StatelessWidget {
                           BorderRadius.circular(25),
                           image: const DecorationImage(
                             image: AssetImage(
-                                'Assets/images/userDashboard/place3.png'),
+                                'Assets/images/lumbini.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -1357,7 +1357,7 @@ class RecomendedPlace extends StatelessWidget {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "Golden Gate     ",
+                                    text: "Lumbini         ",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 15,
@@ -1373,7 +1373,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "4.5",
+                                    text: "4.2",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1393,7 +1393,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "  San Francisco,",
+                                    text: "  lumbini,",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1413,7 +1413,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "200",
+                                    text: "230",
                                     style: TextStyle(
                                       color: Color(0xff03bdc9),
                                       fontSize: 15,
@@ -1471,7 +1471,7 @@ class RecomendedPlace extends StatelessWidget {
                           BorderRadius.circular(25),
                           image: const DecorationImage(
                             image: AssetImage(
-                                'Assets/images/userDashboard/place3.png'),
+                                'Assets/images/chitwan.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
