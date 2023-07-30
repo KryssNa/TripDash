@@ -62,8 +62,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: const Icon(Icons.visibility_off));
   }
 
-
-
   Future<bool> registerUser() async {
     // Simulating a delay for user registration
     await Future.delayed(const Duration(seconds: 2));
@@ -83,7 +81,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
       return;
     }
-
     setState(() {
       isLoading = true; // Start loading
     });

@@ -10,7 +10,8 @@ class TermsAndConditionsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text('Terms and Conditions', style: TextStyle(color: Colors.black)),
+        title: const Text('Terms and Conditions',
+            style: TextStyle(color: Colors.black)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
@@ -26,7 +27,8 @@ class TermsAndConditionsScreen extends StatelessWidget {
           children: [
             Text(
               'Terms and Conditions for TripDash',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold,
+                  color: Color(
                   0xFF08234D)),
             ),
             SizedBox(height: 10.0),

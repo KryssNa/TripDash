@@ -61,7 +61,8 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                           child: const CircleAvatar(
                             radius: 35,
-                            backgroundImage: AssetImage('Assets/avatars/av_1.png'),
+                            backgroundImage: AssetImage(
+                                'Assets/avatars/av_1.png'),
                           ),
                         ),
                       ),

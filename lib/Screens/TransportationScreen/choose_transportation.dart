@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tripdash/Screens/TransportationScreen/add_bus.dart';
 
-import 'choose_seat.dart';
+import 'choose_seat_aeroplane.dart';
 class ChooseTransportation extends StatelessWidget {
   const ChooseTransportation({super.key});
   static String routeName="/chooseTransportations";
@@ -11,7 +11,8 @@ class ChooseTransportation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Choose Transportation',style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w600),),
+        title:  Text('Choose Transportation',style: GoogleFonts.poppins(
+            fontSize: 18,fontWeight: FontWeight.w600),),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,
