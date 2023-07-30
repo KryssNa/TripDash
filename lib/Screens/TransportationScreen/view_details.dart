@@ -19,7 +19,7 @@ class DetailPage extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('Assets/images/image_destination1.png'))),
+                image: AssetImage('Assets/images/pokhara.jpg'))),
       );
     }
 
@@ -63,13 +63,13 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lake Tilicho',
+                      'Pokhara',
                       style: ConstFonts.whiteTextStyle.copyWith(
                           fontSize: 24, fontWeight: ConstFonts.semiBold),
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      'Manang',
+                      'pokhara',
                       style:
                       ConstFonts.whiteTextStyle.copyWith(fontSize: 16, fontWeight: ConstFonts.light),
                     )

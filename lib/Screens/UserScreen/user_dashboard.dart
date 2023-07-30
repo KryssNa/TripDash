@@ -11,6 +11,7 @@ import 'package:tripdash/Screens/TransportationScreen/view_details.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 import 'package:tripdash/widget/destination_card.dart';
 import '../UserScreen/app_bar.dart';
+import 'ViewDetails/view_details7.dart';
 
 class UserDashboard extends StatefulWidget {
   const UserDashboard({Key? key}) : super(key: key);
@@ -1298,9 +1299,7 @@ class RecomendedPlace extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                if (kDebugMode) {
-                  print("Rommmme");
-                }
+                Navigator.pushNamed(context, DetailPage7.routName);
               },
               child: SizedBox(
                 width: 205,
