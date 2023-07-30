@@ -65,7 +65,8 @@ class _SeatBookingPageState extends State<BusSeatChoosingScreen> {
     }
   }
   Future<List<String>> getBookedSeats() async {
-    final snapshot = await FirebaseFirestore.instance.collection('transactions').get();
+    final snapshot =
+    await FirebaseFirestore.instance.collection('transactions').get();
     for (var doc in snapshot.docs) {
       final data = doc.data();
       final bookedSeats = data['seatNumbers'] as List<dynamic>;

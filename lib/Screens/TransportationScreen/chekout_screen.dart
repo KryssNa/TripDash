@@ -174,6 +174,148 @@ class CheckoutScreen extends StatelessWidget {
       );
     }
 
+    Widget paymentDetails() {
+      return Container(
+        margin: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 30,
+        ),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(18),
+            color: ConstColors.kWhiteColor),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Payment Details',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: ConstFonts.semiBold,
+                color: ConstColors.kBlackColor,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 70,
+                    margin: const EdgeInsets.only(right: 16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                              'Assets/images/image_card.png')
+                      ),
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 24,
+                            height: 24,
+                            margin: const EdgeInsets.only(right: 6),
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    image:
+                                    AssetImage('Assets/icons/icon_plane.png'))),
+                          ),
+                          Text(
+                            'Pay',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: ConstFonts.medium,
+                                color: ConstColors.kWhiteColor),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FutureBuilder<int>(
+                          future: SeatBookingViewModel().getTotalBalance(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState == ConnectionState.waiting) {
+                              return const CircularProgressIndicator();
+                              // Display a loading indicator while waiting for data
+                            } else
+                            if (snapshot.hasError) {
+                              return Text('Error: ${snapshot.error}');
+                            } else
+                            {
+                              int? totalBalance = snapshot.data ; // Retrieve the total balance or set a default value
+                              return Text(
+                                'Rs. ${totalBalance ?? 0}',
+
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: ConstFonts.medium,
+                                  color: ConstColors.kBlackColor,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              );
+                            }
+                          },
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Current Balance',
+                          style: TextStyle(fontWeight: ConstFonts.light,
+                              color: ConstColors.kGreyColor
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
+            )
+          ],
+        ),
+      );
+    }
+
+    Widget payNowButton() {
+      return CustomButton(
+        title: 'Pay Now',
+        onPressed: (){
+          if (kDebugMode) {
+            print('Performing Transaction........');
+          }
+          performTransaction(context);
+          //alertDialog(context); to show trasaction status
+
+        },
+        margin: const EdgeInsets.only(top: 30),
+      );
+    }
+
+    Widget tacButton() {
+      return Container(
+          alignment: Alignment.center,
+          margin: const EdgeInsets.only(
+            top: 30,
+            bottom: 30,
+          ),
+          child: Text(
+            'Tearms and Conditions',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: ConstFonts.light,
+              decoration: TextDecoration.underline,
+            ),
+          ));
+    }
+
     Widget bookingDetails() {
       return Container(
         margin: const EdgeInsets.only(top: 30),
@@ -275,145 +417,6 @@ class CheckoutScreen extends StatelessWidget {
               valueColor: ConstColors.kPrimaryColor),
         ]),
       );
-    }
-
-    Widget paymentDetails() {
-      return Container(
-        margin: const EdgeInsets.only(top: 30),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 30,
-        ),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18), color: ConstColors.kWhiteColor),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Payment Details',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: ConstFonts.semiBold,
-                color: ConstColors.kBlackColor,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 16),
-              child: Row(
-                children: [
-                  Container(
-                    width: 100,
-                    height: 70,
-                    margin: const EdgeInsets.only(right: 16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      image: const DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('Assets/images/image_card.png')),
-                    ),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 24,
-                            height: 24,
-                            margin: const EdgeInsets.only(right: 6),
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    image:
-                                    AssetImage('Assets/icons/icon_plane.png'))),
-                          ),
-                          Text(
-                            'Pay',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: ConstFonts.medium,
-                                color: ConstColors.kWhiteColor),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        FutureBuilder<int>(
-                          future: SeatBookingViewModel().getTotalBalance(),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState == ConnectionState.waiting) {
-                              return const CircularProgressIndicator();
-                              // Display a loading indicator while waiting for data
-                            } else
-                              if (snapshot.hasError) {
-                              return Text('Error: ${snapshot.error}');
-                            } else
-                            {
-                              int? totalBalance = snapshot.data ; // Retrieve the total balance or set a default value
-                              return Text(
-                                'Rs. ${totalBalance ?? 0}',
-
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: ConstFonts.medium,
-                                  color: ConstColors.kBlackColor,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              );
-                            }
-                          },
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Current Balance',
-                          style: TextStyle(fontWeight: ConstFonts.light,
-                              color: ConstColors.kGreyColor
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-
-                ],
-              ),
-            )
-          ],
-        ),
-      );
-    }
-
-    Widget payNowButton() {
-      return CustomButton(
-        title: 'Pay Now',
-        onPressed: (){
-          if (kDebugMode) {
-            print('Performing Transaction........');
-          }
-          performTransaction(context);
-          //alertDialog(context); to show trasaction status
-
-        },
-        margin: const EdgeInsets.only(top: 30),
-      );
-    }
-
-    Widget tacButton() {
-      return Container(
-          alignment: Alignment.center,
-          margin: const EdgeInsets.only(
-            top: 30,
-            bottom: 30,
-          ),
-          child: Text(
-            'Tearms and Conditions',
-            style: TextStyle(
-                fontSize: 16,
-                fontWeight: ConstFonts.light,
-                decoration: TextDecoration.underline,
-                ),
-          ));
     }
 
     return Scaffold(

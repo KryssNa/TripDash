@@ -12,7 +12,6 @@ class AdminTransactionScreen extends StatefulWidget {
 }
 
 class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
-
   CollectionReference usersCollection =
   FirebaseFirestore.instance.collection('TopUpPayment');
   List<DocumentSnapshot> userDocuments = [];
@@ -25,10 +24,11 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
     super.initState();
     fetchUsers();
   }
-
+  //fetch users method
   Future<void> fetchUsers() async {
     try {
-      QuerySnapshot querySnapshot = await usersCollection.where("status", isEqualTo: "Pending").get();
+      QuerySnapshot querySnapshot =
+      await usersCollection.where("status", isEqualTo: "Pending").get();
       setState(() {
         userDocuments = querySnapshot.docs;
       });
@@ -39,30 +39,28 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
       // Handle the error gracefully
     }
   }
-
+  //get user details method
   Future<UserModel> getUserDetails(String id) async {
     UserModel user = await UserRepositeries.getUserById(id);
     return user;
   }
-
   //update balance method
   void updateBalance(int newBalance, String userId, String documentId) {
     UserRepositeries.updateUserBalance(userId, newBalance)
         .then((value) {
-      FirebaseFirestore.instance.collection('TopUpPayment').doc(documentId).update({
+      FirebaseFirestore.instance.collection('TopUpPayment').doc(documentId).
+      update({
         'status': 'Approved',
       }).then((value) {
         setState(() {
           fetchUsers();
         });
       });
-      // Handled the update success
     })
         .catchError((error) {
       if (kDebugMode) {
         print('Error updating user balance: $error');
       }
-      // Handled the update error
     });
   }
 
@@ -89,7 +87,8 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
         itemCount: userDocuments.length,
         itemBuilder: (BuildContext context, int index) {
           DocumentSnapshot userSnapshot = userDocuments[index];
-          Map<String, dynamic> userData = userSnapshot.data() as Map<String, dynamic>;
+          Map<String, dynamic> userData = userSnapshot.data()
+          as Map<String, dynamic>;
 
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -102,12 +101,14 @@ class _AdminTransactionScreenState extends State<AdminTransactionScreen> {
                 future: getUserDetails(userData['userId']),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    // While waiting for the future to complete, show a loading indicator
+                    // While waiting for the future to complete,
+                    // show a loading indicator
                     return const ListTile(
                       title: Text('Loading...'),
                     );
                   } else if (snapshot.hasError) {
-                    // If an error occurred while fetching the user, display an error message
+                    // If an error occurred while fetching the user,
+                    // display an error message
                     return ListTile(
                       title: Text('Error: ${snapshot.error}'),
                     );
