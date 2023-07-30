@@ -6,8 +6,8 @@ import 'package:tripdash/widget/Transportation/custom_button.dart';
 import 'package:tripdash/widget/Transportation/interest_item.dart';
 import 'package:tripdash/widget/Transportation/photo_item.dart';
 
-class DetailPage11 extends StatelessWidget {
-  const DetailPage11({Key? key}) : super(key: key);
+class DetailPage12 extends StatelessWidget {
+  const DetailPage12({Key? key}) : super(key: key);
   static String routName="/detailPage1";
 
   @override
@@ -19,7 +19,7 @@ class DetailPage11 extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('Assets/images/dhulikhel.jpg'))),
+                image: AssetImage('Assets/images/annapurna.jpg'))),
       );
     }
 
@@ -63,7 +63,7 @@ class DetailPage11 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Dhulikhel',
+                      'Annapurna',
                       style: ConstFonts.whiteTextStyle.copyWith(
                           fontSize: 24, fontWeight: ConstFonts.semiBold),
                       overflow: TextOverflow.ellipsis,

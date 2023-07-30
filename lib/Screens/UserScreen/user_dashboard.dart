@@ -13,6 +13,7 @@ import 'package:tripdash/widget/destination_card.dart';
 import '../UserScreen/app_bar.dart';
 import 'ViewDetails/view_details10.dart';
 import 'ViewDetails/view_details11.dart';
+import 'ViewDetails/view_details12.dart';
 import 'ViewDetails/view_details7.dart';
 import 'ViewDetails/view_details8.dart';
 import 'ViewDetails/view_details9.dart';
