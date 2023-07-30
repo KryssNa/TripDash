@@ -168,7 +168,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/mustang.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -220,7 +220,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" San Francisco")
+                                                Text(" Mustang")
                                               ],
                                             ),
                                           ),
@@ -243,7 +243,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                         ),
                                                       ),
                                                       TextSpan(
-                                                        text: "200",
+                                                        text: "400",
                                                         style: TextStyle(
                                                           color: Color(0xff03bdc9),
                                                           fontSize: 12,
@@ -296,7 +296,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/boudha.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -330,7 +330,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   Icons.star,
                                                   color: Colors.yellow,
                                                 ),
-                                                Text("4.5")
+                                                Text("4.1")
                                               ],
                                             ),
                                           ],
@@ -348,7 +348,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" San Francisco")
+                                                Text(" Boudha")
                                               ],
                                             ),
                                           ),
@@ -371,7 +371,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                         ),
                                                       ),
                                                       TextSpan(
-                                                        text: "200",
+                                                        text: "100",
                                                         style: TextStyle(
                                                           color: Color(0xff03bdc9),
                                                           fontSize: 12,
@@ -461,7 +461,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/kathmandu.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -548,7 +548,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                     ),
                                                   ),
                                                   TextSpan(
-                                                    text: "200",
+                                                    text: "150",
                                                     style: TextStyle(
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
@@ -626,7 +626,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/rara.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -641,7 +641,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                           padding:
                                           EdgeInsets.only(right: 5, left: 8),
                                           child: Text(
-                                            "Kathmandu, Nepal",
+                                            "Rara, Nepal",
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 18,
@@ -663,7 +663,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" Sundarijal"),
+                                                Text(" Rara Lake"),
                                               ],
                                             ),
                                           ),
@@ -713,7 +713,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                     ),
                                                   ),
                                                   TextSpan(
-                                                    text: "200",
+                                                    text: "250",
                                                     style: TextStyle(
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
@@ -791,7 +791,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                       borderRadius: BorderRadius.circular(18),
                                       image: const DecorationImage(
                                         image: AssetImage(
-                                          'Assets/images/userDashboard/sPlace4.png',
+                                          'Assets/images/dhulikhel.jpg',
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -806,7 +806,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                           padding:
                                           EdgeInsets.only(right: 5, left: 8),
                                           child: Text(
-                                            "Kathmandu, Nepal",
+                                            "Dhulikhel, Nepal",
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 18,
@@ -828,7 +828,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                   color: Colors.blue,
                                                   size: 20,
                                                 ),
-                                                Text(" Sundarijal"),
+                                                Text(" Dhulikhel"),
                                               ],
                                             ),
                                           ),
@@ -878,7 +878,7 @@ class _UserDashboardState extends State<UserDashboard> {
                                                     ),
                                                   ),
                                                   TextSpan(
-                                                    text: "200",
+                                                    text: "100",
                                                     style: TextStyle(
                                                       color: Color(0xff03bdc9),
                                                       fontSize: 12,
@@ -976,7 +976,7 @@ class PopularDestinationDetails extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
                 image: const DecorationImage(
                   image: AssetImage(
-                    'Assets/images/userDashboard/sPlace4.png',
+                    'Assets/images/annapurna.jpg',
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -1028,7 +1028,7 @@ class PopularDestinationDetails extends StatelessWidget {
                             color: Colors.blue,
                             size: 20,
                           ),
-                          Text(" San Francisco")
+                          Text(" Annapurna")
                         ],
                       ),
                     ),
@@ -1172,7 +1172,7 @@ class RecomendedPlace extends StatelessWidget {
                               BorderRadius.circular(25),
                           image: const DecorationImage(
                             image: AssetImage(
-                                'Assets/images/userDashboard/place3.png'),
+                                'Assets/images/pokhara.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -1208,7 +1208,7 @@ class RecomendedPlace extends StatelessWidget {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "Golden Gate     ",
+                                    text: "Pokhara         ",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 15,
@@ -1244,7 +1244,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "  San Francisco,",
+                                    text: "  pokhara,",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1322,7 +1322,7 @@ class RecomendedPlace extends StatelessWidget {
                           BorderRadius.circular(25),
                           image: const DecorationImage(
                             image: AssetImage(
-                                'Assets/images/userDashboard/place3.png'),
+                                'Assets/images/lumbini.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -1358,7 +1358,7 @@ class RecomendedPlace extends StatelessWidget {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "Golden Gate     ",
+                                    text: "Lumbini         ",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 15,
@@ -1374,7 +1374,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "4.5",
+                                    text: "4.2",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1394,7 +1394,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "  San Francisco,",
+                                    text: "  lumbini,",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1414,7 +1414,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "200",
+                                    text: "230",
                                     style: TextStyle(
                                       color: Color(0xff03bdc9),
                                       fontSize: 15,
@@ -1472,7 +1472,7 @@ class RecomendedPlace extends StatelessWidget {
                           BorderRadius.circular(25),
                           image: const DecorationImage(
                             image: AssetImage(
-                                'Assets/images/userDashboard/place3.png'),
+                                'Assets/images/chitwan.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -1508,7 +1508,7 @@ class RecomendedPlace extends StatelessWidget {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "Golden Gate     ",
+                                    text: "Chitwan         ",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 15,
@@ -1524,7 +1524,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "4.5",
+                                    text: "4.1",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1544,7 +1544,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "  San Francisco,",
+                                    text: "  Chitwan,",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 12,
@@ -1564,7 +1564,7 @@ class RecomendedPlace extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "200",
+                                    text: "270",
                                     style: TextStyle(
                                       color: Color(0xff03bdc9),
                                       fontSize: 15,

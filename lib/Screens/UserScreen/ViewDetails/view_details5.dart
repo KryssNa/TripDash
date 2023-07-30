@@ -63,13 +63,13 @@ class DetailPage5 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lake Tilicho',
+                      'Menarra',
                       style: ConstFonts.whiteTextStyle.copyWith(
                           fontSize: 24, fontWeight: ConstFonts.semiBold),
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      'Manang',
+                      'Japan',
                       style:
                       ConstFonts.whiteTextStyle.copyWith(fontSize: 16, fontWeight: ConstFonts.light),
                     )
