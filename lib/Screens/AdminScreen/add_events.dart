@@ -12,7 +12,7 @@ import 'package:tripdash/model/event_model.dart';
 
 class AdminAddEvents extends StatefulWidget {
   const  AdminAddEvents ({super.key});
-  static const routeName = '/EventAddEvent';
+  static const routeName = '/AdminAddEvents';
 
   @override
   State< AdminAddEvents > createState() => _EventEvent ();
