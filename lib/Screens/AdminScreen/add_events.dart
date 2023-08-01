@@ -187,6 +187,28 @@ class  _EventEvent  extends State< AdminAddEvents > {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          'Add Event',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            // fontFamily: 'SF-Pro',
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child:Form(
@@ -195,23 +217,9 @@ class  _EventEvent  extends State< AdminAddEvents > {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(
-                    height: 25,
+                    height: 5,
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Center(
-                      child: Text(
-                        'Add Event',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                        ),
-                      ),
-                    ),
-                  ),
+                  
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
