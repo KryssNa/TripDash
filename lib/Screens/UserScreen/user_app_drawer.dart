@@ -2,11 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
+import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
 import 'package:tripdash/Screens/HotelViewScreen/hotel_home_screen.dart';
 import 'package:tripdash/Screens/UserScreen/ViewProducts/view_products.dart';
+import 'package:tripdash/Screens/UserScreen/user_dashboard.dart';
 import 'package:tripdash/Screens/ViewPlaceScreen/place_screen.dart';
 
 class UserAppDrawer extends StatefulWidget {
@@ -151,6 +153,18 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
             title: const Text("Calender"),
             onTap: () => Navigator.pushNamed(
                 context, Calender.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.calendar_month),
+            title: const Text("Events"),
+            onTap: () => Navigator.pushNamed(
+                context, ViewEvents.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.calendar_month),
+            title: const Text("Home"),
+            onTap: () => Navigator.pushNamed(
+                context, UserDashboard.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined),

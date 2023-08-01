@@ -18,11 +18,27 @@ class _ViewEventsState extends State<ViewEvents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const UserAppDrawer(),
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(50), // Change the height as desired
-        child: AppBarWidget(avatar:'Assets/avatars/av_1.png'),
-    ),
+    appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          'Event',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+      ),
     body: SingleChildScrollView(
       child: Column(
         children: [
