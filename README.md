@@ -1,4 +1,5 @@
-# TripDash
+# TripDash.
+
 
 ![TripDash](https://github.com/KryssNa/TripDash/assets/105191065/6261dd1d-8267-41ae-bef8-5a702d89967c)
 
