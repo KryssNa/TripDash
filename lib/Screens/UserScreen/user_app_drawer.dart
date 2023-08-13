@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/Screens/UserScreen/Event/calender.dart';
+import 'package:tripdash/Screens/UserScreen/Event/view_events.dart';
 import 'package:tripdash/Screens/UserScreen/TripPlan/trip_plan_overview.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
@@ -134,6 +135,12 @@ class _UserAppDrawerState extends State<UserAppDrawer> {
             title: const Text("Hotels"),
             onTap: () =>
                 Navigator.pushNamed(context, HotelHomeScreen.routeName),
+          ),
+          ListTile(
+            leading: const Icon(Icons.event_note_outlined),
+            title: const Text("Events"),
+            onTap: () => Navigator.pushNamed(
+                context, ViewEvents.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.add_circle_outline),

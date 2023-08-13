@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tripdash/widget/event.dart';
 
-import '../app_bar.dart';
-import '../user_app_drawer.dart';
 
 class ViewEvents extends StatefulWidget {
   static const routeName = '/ViewEvents';
@@ -18,11 +16,27 @@ class _ViewEventsState extends State<ViewEvents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const UserAppDrawer(),
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(50), // Change the height as desired
-        child: AppBarWidget(avatar:'Assets/avatars/av_1.png'),
-    ),
+    appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          'Event',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+      ),
     body: SingleChildScrollView(
       child: Column(
         children: [

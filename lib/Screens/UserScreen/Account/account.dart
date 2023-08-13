@@ -101,7 +101,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Container(
+                              icon: SizedBox(
                                 width: 40,
                                 height: 40,
                                 child: Image.asset('Assets/images/wallet.png'),
@@ -125,7 +125,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Container(
+                              icon: SizedBox(
                                   width: 40,
                                   height: 40,
                                   child: Image.asset('Assets/images/mapp.png')),
@@ -164,7 +164,7 @@ class _AccountState extends State<Account> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              icon: Container(
+                              icon: SizedBox(
                                   width: 40,
                                   height: 40,
                                   child: Image.asset('Assets/images/calendar.png')),

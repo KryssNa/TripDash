@@ -12,6 +12,8 @@ import 'package:tripdash/Screens/AuthenticationScreen/login_screen.dart';
 import 'package:tripdash/ViewModel/auth_viewmodel.dart';
 
 import 'CustomerDetail/customer_detail.dart';
+import 'package:tripdash/Screens/AdminScreen/add_events.dart';
+
 
 class AdminAppDrawer extends StatefulWidget {
   const AdminAppDrawer({Key? key}) : super(key: key);
@@ -151,7 +153,7 @@ class _AdminAppDrawerState extends State<AdminAppDrawer> {
           ListTile(
             leading: const Icon(Icons.event_available_outlined,color: Colors.green,size: 30,),
             title:  Text("Add Events",style:GoogleFonts.robotoSlab(fontSize: 18,fontWeight: FontWeight.w500),),
-            onTap: () => Navigator.pushNamed(context, AddProduct.routeName),
+            onTap: () => Navigator.pushNamed(context, AdminAddEvents.routeName),
           ),
           ListTile(
             leading: const Icon(Icons.supervised_user_circle_rounded,color: Colors.green,size: 30,),
